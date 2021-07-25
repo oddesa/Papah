@@ -1,5 +1,5 @@
 //
-//  TantanganDetailController.swift
+//  MedaliListController.swift
 //  Papah
 //
 //  Created by Jehnsen Hirena Kane on 25/07/21.
@@ -7,13 +7,11 @@
 
 import UIKit
 
-class TantanganDetailController: UIViewController {
-    
-    private let viewModel = TantanganDetailViewModel()
-    
+class MedaliListController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
     }
     

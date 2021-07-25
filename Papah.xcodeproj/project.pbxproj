@@ -23,7 +23,6 @@
 		986654F026ADCA530047D2A7 /* TantanganDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986654EF26ADCA530047D2A7 /* TantanganDetail.storyboard */; };
 		986654F226ADCAC00047D2A7 /* TantanganDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986654F126ADCAC00047D2A7 /* TantanganDetailController.swift */; };
 		986654F426ADCB430047D2A7 /* TantanganDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986654F326ADCB430047D2A7 /* TantanganDetailViewModel.swift */; };
-		986654F626ADCCF20047D2A7 /* s.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986654F526ADCCF20047D2A7 /* s.swift */; };
 		9866550726ADCD940047D2A7 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9866550626ADCD940047D2A7 /* Colors.xcassets */; };
 		BC2A95B626ADCE90002AD800 /* EksplorMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95B326ADCE89002AD800 /* EksplorMap.storyboard */; };
 		BC2A95B726ADCE90002AD800 /* EksplorMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95B426ADCE89002AD800 /* EksplorMapController.swift */; };
@@ -56,6 +55,23 @@
 		BC2A95ED26ADD073002AD800 /* TipsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95E926ADD034002AD800 /* TipsDetailController.swift */; };
 		BC2A95F026ADD098002AD800 /* TipsDetailCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95EE26ADD098002AD800 /* TipsDetailCollectionCell.swift */; };
 		BC2A95F126ADD098002AD800 /* TipsDetailCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95EF26ADD098002AD800 /* TipsDetailCollectionCell.xib */; };
+		9866550B26ADCE570047D2A7 /* MedaliDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9866550A26ADCE570047D2A7 /* MedaliDetail.storyboard */; };
+		9866550D26ADCE780047D2A7 /* MedaliDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866550C26ADCE780047D2A7 /* MedaliDetailController.swift */; };
+		9866550F26ADCEAF0047D2A7 /* MedaliDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866550E26ADCEAF0047D2A7 /* MedaliDetailViewModel.swift */; };
+		9866551126ADCED30047D2A7 /* MedaliListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866551026ADCED30047D2A7 /* MedaliListController.swift */; };
+		9866551326ADCEEF0047D2A7 /* MedaliList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9866551226ADCEEF0047D2A7 /* MedaliList.storyboard */; };
+		9866551526ADCF010047D2A7 /* MedaliListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866551426ADCF010047D2A7 /* MedaliListViewModel.swift */; };
+		9866551826ADCF470047D2A7 /* MedaliListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866551626ADCF470047D2A7 /* MedaliListCollectionCell.swift */; };
+		9866551926ADCF470047D2A7 /* MedaliListCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9866551726ADCF470047D2A7 /* MedaliListCollectionCell.xib */; };
+		9866551C26ADCF5B0047D2A7 /* MedaliListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866551A26ADCF5B0047D2A7 /* MedaliListTableCell.swift */; };
+		9866551D26ADCF5B0047D2A7 /* MedaliListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9866551B26ADCF5B0047D2A7 /* MedaliListTableCell.xib */; };
+		9866551F26ADCF6E0047D2A7 /* TantanganList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9866551E26ADCF6E0047D2A7 /* TantanganList.storyboard */; };
+		9866552226ADCF830047D2A7 /* TantanganListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552026ADCF830047D2A7 /* TantanganListController.swift */; };
+		9866552526ADCFC30047D2A7 /* TantanganListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552426ADCFC30047D2A7 /* TantanganListViewModel.swift */; };
+		9866552826ADCFE60047D2A7 /* TantanganListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552626ADCFE60047D2A7 /* TantanganListCollectionCell.swift */; };
+		9866552926ADCFE60047D2A7 /* TantanganListCollectionCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9866552726ADCFE60047D2A7 /* TantanganListCollectionCellCollectionViewCell.xib */; };
+		9866552C26ADD0020047D2A7 /* TantanganListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552A26ADD0020047D2A7 /* TantanganListTableCell.swift */; };
+		9866552D26ADD0020047D2A7 /* TantanganListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9866552B26ADD0020047D2A7 /* TantanganListTableCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +152,34 @@
 		BC2A95EA26ADD034002AD800 /* TipsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsDetailViewModel.swift; sourceTree = "<group>"; };
 		BC2A95EE26ADD098002AD800 /* TipsDetailCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsDetailCollectionCell.swift; sourceTree = "<group>"; };
 		BC2A95EF26ADD098002AD800 /* TipsDetailCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TipsDetailCollectionCell.xib; sourceTree = "<group>"; };
+		986654FB26ADCD1A0047D2A7 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
+		986654FC26ADCD230047D2A7 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
+		986654FD26ADCD260047D2A7 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
+		986654FE26ADCD290047D2A7 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
+		986654FF26ADCD2C0047D2A7 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
+		9866550026ADCD2F0047D2A7 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
+		9866550126ADCD360047D2A7 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
+		9866550226ADCD3A0047D2A7 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
+		9866550326ADCD400047D2A7 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
+		9866550626ADCD940047D2A7 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		9866550926ADCDCD0047D2A7 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
+		9866550A26ADCE570047D2A7 /* MedaliDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MedaliDetail.storyboard; sourceTree = "<group>"; };
+		9866550C26ADCE780047D2A7 /* MedaliDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedaliDetailController.swift; sourceTree = "<group>"; };
+		9866550E26ADCEAF0047D2A7 /* MedaliDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedaliDetailViewModel.swift; sourceTree = "<group>"; };
+		9866551026ADCED30047D2A7 /* MedaliListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedaliListController.swift; sourceTree = "<group>"; };
+		9866551226ADCEEF0047D2A7 /* MedaliList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MedaliList.storyboard; sourceTree = "<group>"; };
+		9866551426ADCF010047D2A7 /* MedaliListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedaliListViewModel.swift; sourceTree = "<group>"; };
+		9866551626ADCF470047D2A7 /* MedaliListCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedaliListCollectionCell.swift; sourceTree = "<group>"; };
+		9866551726ADCF470047D2A7 /* MedaliListCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedaliListCollectionCell.xib; sourceTree = "<group>"; };
+		9866551A26ADCF5B0047D2A7 /* MedaliListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedaliListTableCell.swift; sourceTree = "<group>"; };
+		9866551B26ADCF5B0047D2A7 /* MedaliListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedaliListTableCell.xib; sourceTree = "<group>"; };
+		9866551E26ADCF6E0047D2A7 /* TantanganList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TantanganList.storyboard; sourceTree = "<group>"; };
+		9866552026ADCF830047D2A7 /* TantanganListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganListController.swift; sourceTree = "<group>"; };
+		9866552426ADCFC30047D2A7 /* TantanganListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganListViewModel.swift; sourceTree = "<group>"; };
+		9866552626ADCFE60047D2A7 /* TantanganListCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganListCollectionCell.swift; sourceTree = "<group>"; };
+		9866552726ADCFE60047D2A7 /* TantanganListCollectionCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganListCollectionCellCollectionViewCell.xib; sourceTree = "<group>"; };
+		9866552A26ADD0020047D2A7 /* TantanganListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganListTableCell.swift; sourceTree = "<group>"; };
+		9866552B26ADD0020047D2A7 /* TantanganListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganListTableCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,6 +459,9 @@
 		986654DA26ADC6190047D2A7 /* Tantangan List */ = {
 			isa = PBXGroup;
 			children = (
+				9866551E26ADCF6E0047D2A7 /* TantanganList.storyboard */,
+				9866552026ADCF830047D2A7 /* TantanganListController.swift */,
+				9866552426ADCFC30047D2A7 /* TantanganListViewModel.swift */,
 				986654E126ADC7CC0047D2A7 /* Cell */,
 			);
 			path = "Tantangan List";
@@ -434,6 +481,9 @@
 		986654DC26ADC6510047D2A7 /* Medali List */ = {
 			isa = PBXGroup;
 			children = (
+				9866551026ADCED30047D2A7 /* MedaliListController.swift */,
+				9866551226ADCEEF0047D2A7 /* MedaliList.storyboard */,
+				9866551426ADCF010047D2A7 /* MedaliListViewModel.swift */,
 				986654E426ADC8890047D2A7 /* Cell */,
 			);
 			path = "Medali List";
@@ -442,7 +492,9 @@
 		986654DD26ADC65F0047D2A7 /* Medali Detail */ = {
 			isa = PBXGroup;
 			children = (
-				986654F526ADCCF20047D2A7 /* s.swift */,
+				9866550A26ADCE570047D2A7 /* MedaliDetail.storyboard */,
+				9866550C26ADCE780047D2A7 /* MedaliDetailController.swift */,
+				9866550E26ADCEAF0047D2A7 /* MedaliDetailViewModel.swift */,
 			);
 			path = "Medali Detail";
 			sourceTree = "<group>";
@@ -450,7 +502,8 @@
 		986654DE26ADC6D50047D2A7 /* Table Cell */ = {
 			isa = PBXGroup;
 			children = (
-				986654FA26ADCD130047D2A7 /* s.swift */,
+				9866552A26ADD0020047D2A7 /* TantanganListTableCell.swift */,
+				9866552B26ADD0020047D2A7 /* TantanganListTableCell.xib */,
 			);
 			path = "Table Cell";
 			sourceTree = "<group>";
@@ -476,7 +529,8 @@
 		986654E226ADC7EC0047D2A7 /* Collection Cell */ = {
 			isa = PBXGroup;
 			children = (
-				986654F926ADCD110047D2A7 /* s.swift */,
+				9866552626ADCFE60047D2A7 /* TantanganListCollectionCell.swift */,
+				9866552726ADCFE60047D2A7 /* TantanganListCollectionCellCollectionViewCell.xib */,
 			);
 			path = "Collection Cell";
 			sourceTree = "<group>";
@@ -502,7 +556,8 @@
 		986654E526ADC88D0047D2A7 /* Table Cell */ = {
 			isa = PBXGroup;
 			children = (
-				986654F826ADCD090047D2A7 /* s.swift */,
+				9866551A26ADCF5B0047D2A7 /* MedaliListTableCell.swift */,
+				9866551B26ADCF5B0047D2A7 /* MedaliListTableCell.xib */,
 			);
 			path = "Table Cell";
 			sourceTree = "<group>";
@@ -510,7 +565,8 @@
 		986654E626ADC8930047D2A7 /* Collection Cell */ = {
 			isa = PBXGroup;
 			children = (
-				986654F726ADCD060047D2A7 /* s.swift */,
+				9866551626ADCF470047D2A7 /* MedaliListCollectionCell.swift */,
+				9866551726ADCF470047D2A7 /* MedaliListCollectionCell.xib */,
 			);
 			path = "Collection Cell";
 			sourceTree = "<group>";
@@ -543,6 +599,7 @@
 				9866548C26ADBC7D0047D2A7 /* Sources */,
 				9866548D26ADBC7D0047D2A7 /* Frameworks */,
 				9866548E26ADBC7D0047D2A7 /* Resources */,
+				9866552E26ADD1720047D2A7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -638,6 +695,8 @@
 			files = (
 				BC2A95B626ADCE90002AD800 /* EksplorMap.storyboard in Resources */,
 				BC2A95C726ADCF24002AD800 /* EksplorList.storyboard in Resources */,
+				9866551326ADCEEF0047D2A7 /* MedaliList.storyboard in Resources */,
+				9866552D26ADD0020047D2A7 /* TantanganListTableCell.xib in Resources */,
 				986654A326ADBC800047D2A7 /* LaunchScreen.storyboard in Resources */,
 				BC2A95C226ADCEFD002AD800 /* EksplorDetailTableCell.xib in Resources */,
 				BC2A95BD26ADCECE002AD800 /* EksplorDetail.storyboard in Resources */,
@@ -645,6 +704,7 @@
 				BC2A95F126ADD098002AD800 /* TipsDetailCollectionCell.xib in Resources */,
 				986654A026ADBC800047D2A7 /* Assets.xcassets in Resources */,
 				BC2A95CC26ADCF4A002AD800 /* ExplorListTableCell.xib in Resources */,
+				9866552926ADCFE60047D2A7 /* TantanganListCollectionCellCollectionViewCell.xib in Resources */,
 				986654F026ADCA530047D2A7 /* TantanganDetail.storyboard in Resources */,
 				BC2A95E726ADD021002AD800 /* Homepage.storyboard in Resources */,
 				BC2A95DF26ADCFE6002AD800 /* TipsList.storyboard in Resources */,
@@ -653,8 +713,13 @@
 				BC2A95D026ADCF65002AD800 /* EksplorListCollectionCell.xib in Resources */,
 				9866549B26ADBC7E0047D2A7 /* Main.storyboard in Resources */,
 				BC2A95EB26ADD073002AD800 /* TipsDetail.storyboard in Resources */,
+				9866551D26ADCF5B0047D2A7 /* MedaliListTableCell.xib in Resources */,
+				9866549B26ADBC7E0047D2A7 /* Main.storyboard in Resources */,
+				9866550B26ADCE570047D2A7 /* MedaliDetail.storyboard in Resources */,
+				9866551926ADCF470047D2A7 /* MedaliListCollectionCell.xib in Resources */,
 				986654EE26ADCA240047D2A7 /* TantanganDetailTableCell.xib in Resources */,
 				9866550726ADCD940047D2A7 /* Colors.xcassets in Resources */,
+				9866551F26ADCF6E0047D2A7 /* TantanganList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,11 +739,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9866552E26ADD1720047D2A7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\n  exit 0\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9866548C26ADBC7D0047D2A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9866552826ADCFE60047D2A7 /* TantanganListCollectionCell.swift in Sources */,
+				9866551826ADCF470047D2A7 /* MedaliListCollectionCell.swift in Sources */,
+				9866551526ADCF010047D2A7 /* MedaliListViewModel.swift in Sources */,
 				9866549E26ADBC7E0047D2A7 /* Papah.xcdatamodeld in Sources */,
 				BC2A95ED26ADD073002AD800 /* TipsDetailController.swift in Sources */,
 				BC2A95C626ADCF24002AD800 /* EksplorListViewModel.swift in Sources */,
@@ -698,7 +786,14 @@
 				9866549426ADBC7D0047D2A7 /* AppDelegate.swift in Sources */,
 				BC2A95C126ADCEFD002AD800 /* EksplorDetailTableCell.swift in Sources */,
 				BC2A95E626ADD021002AD800 /* HomepageController.swift in Sources */,
+				9866549826ADBC7D0047D2A7 /* ViewController.swift in Sources */,
+				9866549426ADBC7D0047D2A7 /* AppDelegate.swift in Sources */,
+				9866550D26ADCE780047D2A7 /* MedaliDetailController.swift in Sources */,
 				986654F226ADCAC00047D2A7 /* TantanganDetailController.swift in Sources */,
+				9866550F26ADCEAF0047D2A7 /* MedaliDetailViewModel.swift in Sources */,
+				9866552226ADCF830047D2A7 /* TantanganListController.swift in Sources */,
+				9866552526ADCFC30047D2A7 /* TantanganListViewModel.swift in Sources */,
+				9866552C26ADD0020047D2A7 /* TantanganListTableCell.swift in Sources */,
 				986654ED26ADCA240047D2A7 /* TantanganDetailTableCell.swift in Sources */,
 				BC2A95CB26ADCF4A002AD800 /* ExplorListTableCell.swift in Sources */,
 				BC2A95B826ADCE90002AD800 /* EksplorMapViewModel.swift in Sources */,
@@ -707,6 +802,8 @@
 				BC2A95EC26ADD073002AD800 /* TipsDetailViewModel.swift in Sources */,
 				9866549626ADBC7D0047D2A7 /* SceneDelegate.swift in Sources */,
 				BC2A95BC26ADCECE002AD800 /* EksplorDetailController.swift in Sources */,
+				9866551C26ADCF5B0047D2A7 /* MedaliListTableCell.swift in Sources */,
+				9866551126ADCED30047D2A7 /* MedaliListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
