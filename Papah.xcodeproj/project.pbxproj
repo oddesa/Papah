@@ -16,6 +16,13 @@
 		986654A326ADBC800047D2A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986654A126ADBC800047D2A7 /* LaunchScreen.storyboard */; };
 		986654AE26ADBC800047D2A7 /* PapahTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986654AD26ADBC800047D2A7 /* PapahTests.swift */; };
 		986654B926ADBC800047D2A7 /* PapahUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986654B826ADBC800047D2A7 /* PapahUITests.swift */; };
+		986654E926ADC96D0047D2A7 /* CompletionAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986654E726ADC96D0047D2A7 /* CompletionAlert.swift */; };
+		986654EA26ADC96D0047D2A7 /* CompletionAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 986654E826ADC96D0047D2A7 /* CompletionAlert.xib */; };
+		986654ED26ADCA240047D2A7 /* TantanganDetailTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986654EB26ADCA240047D2A7 /* TantanganDetailTableCell.swift */; };
+		986654EE26ADCA240047D2A7 /* TantanganDetailTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 986654EC26ADCA240047D2A7 /* TantanganDetailTableCell.xib */; };
+		986654F026ADCA530047D2A7 /* TantanganDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986654EF26ADCA530047D2A7 /* TantanganDetail.storyboard */; };
+		986654F226ADCAC00047D2A7 /* TantanganDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986654F126ADCAC00047D2A7 /* TantanganDetailController.swift */; };
+		986654F426ADCB430047D2A7 /* TantanganDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986654F326ADCB430047D2A7 /* TantanganDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +58,13 @@
 		986654B426ADBC800047D2A7 /* PapahUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PapahUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		986654B826ADBC800047D2A7 /* PapahUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PapahUITests.swift; sourceTree = "<group>"; };
 		986654BA26ADBC800047D2A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		986654E726ADC96D0047D2A7 /* CompletionAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionAlert.swift; sourceTree = "<group>"; };
+		986654E826ADC96D0047D2A7 /* CompletionAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletionAlert.xib; sourceTree = "<group>"; };
+		986654EB26ADCA240047D2A7 /* TantanganDetailTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganDetailTableCell.swift; sourceTree = "<group>"; };
+		986654EC26ADCA240047D2A7 /* TantanganDetailTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganDetailTableCell.xib; sourceTree = "<group>"; };
+		986654EF26ADCA530047D2A7 /* TantanganDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TantanganDetail.storyboard; sourceTree = "<group>"; };
+		986654F126ADCAC00047D2A7 /* TantanganDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganDetailController.swift; sourceTree = "<group>"; };
+		986654F326ADCB430047D2A7 /* TantanganDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +115,7 @@
 		9866549226ADBC7D0047D2A7 /* Papah */ = {
 			isa = PBXGroup;
 			children = (
+				986654C926ADC0C90047D2A7 /* Presentation */,
 				986654C626ADBC8A0047D2A7 /* Application */,
 				9866549726ADBC7D0047D2A7 /* ViewController.swift */,
 				986654C726ADBC9D0047D2A7 /* Core */,
@@ -153,6 +168,244 @@
 				9866549C26ADBC7E0047D2A7 /* Papah.xcdatamodeld */,
 			);
 			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		986654C926ADC0C90047D2A7 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				986654D926ADC4F40047D2A7 /* Alert */,
+				986654CD26ADC0F10047D2A7 /* Tantangan */,
+				986654CB26ADC0E30047D2A7 /* Eksplor */,
+				986654CC26ADC0EB0047D2A7 /* Tips */,
+				986654CA26ADC0D70047D2A7 /* Homepage */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		986654CA26ADC0D70047D2A7 /* Homepage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Homepage;
+			sourceTree = "<group>";
+		};
+		986654CB26ADC0E30047D2A7 /* Eksplor */ = {
+			isa = PBXGroup;
+			children = (
+				986654D726ADC42B0047D2A7 /* Eksplor Map */,
+				986654D626ADC4220047D2A7 /* Eksplor Detail */,
+				986654D526ADC4180047D2A7 /* Eksplor List */,
+			);
+			path = Eksplor;
+			sourceTree = "<group>";
+		};
+		986654CC26ADC0EB0047D2A7 /* Tips */ = {
+			isa = PBXGroup;
+			children = (
+				986654D226ADC3A90047D2A7 /* Tips Detail */,
+				986654D126ADC3A20047D2A7 /* Tips List */,
+			);
+			path = Tips;
+			sourceTree = "<group>";
+		};
+		986654CD26ADC0F10047D2A7 /* Tantangan */ = {
+			isa = PBXGroup;
+			children = (
+				986654DB26ADC6300047D2A7 /* Tantangan Detail */,
+				986654DD26ADC65F0047D2A7 /* Medali Detail */,
+				986654DC26ADC6510047D2A7 /* Medali List */,
+				986654DA26ADC6190047D2A7 /* Tantangan List */,
+			);
+			path = Tantangan;
+			sourceTree = "<group>";
+		};
+		986654CE26ADC1760047D2A7 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				986654CF26ADC1810047D2A7 /* Table Cell */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		986654CF26ADC1810047D2A7 /* Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Table Cell";
+			sourceTree = "<group>";
+		};
+		986654D026ADC1B80047D2A7 /* Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Table Cell";
+			sourceTree = "<group>";
+		};
+		986654D126ADC3A20047D2A7 /* Tips List */ = {
+			isa = PBXGroup;
+			children = (
+				986654D426ADC3D50047D2A7 /* Table Cell */,
+			);
+			path = "Tips List";
+			sourceTree = "<group>";
+		};
+		986654D226ADC3A90047D2A7 /* Tips Detail */ = {
+			isa = PBXGroup;
+			children = (
+				986654D326ADC3C70047D2A7 /* Colection Cell */,
+			);
+			path = "Tips Detail";
+			sourceTree = "<group>";
+		};
+		986654D326ADC3C70047D2A7 /* Colection Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Colection Cell";
+			sourceTree = "<group>";
+		};
+		986654D426ADC3D50047D2A7 /* Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Table Cell";
+			sourceTree = "<group>";
+		};
+		986654D526ADC4180047D2A7 /* Eksplor List */ = {
+			isa = PBXGroup;
+			children = (
+				986654DF26ADC7600047D2A7 /* Collection Cell */,
+				986654D026ADC1B80047D2A7 /* Table Cell */,
+				986654CE26ADC1760047D2A7 /* Filter */,
+			);
+			path = "Eksplor List";
+			sourceTree = "<group>";
+		};
+		986654D626ADC4220047D2A7 /* Eksplor Detail */ = {
+			isa = PBXGroup;
+			children = (
+				986654D826ADC4E00047D2A7 /* Table Cell */,
+			);
+			path = "Eksplor Detail";
+			sourceTree = "<group>";
+		};
+		986654D726ADC42B0047D2A7 /* Eksplor Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Eksplor Map";
+			sourceTree = "<group>";
+		};
+		986654D826ADC4E00047D2A7 /* Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Table Cell";
+			sourceTree = "<group>";
+		};
+		986654D926ADC4F40047D2A7 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				986654E726ADC96D0047D2A7 /* CompletionAlert.swift */,
+				986654E826ADC96D0047D2A7 /* CompletionAlert.xib */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		986654DA26ADC6190047D2A7 /* Tantangan List */ = {
+			isa = PBXGroup;
+			children = (
+				986654E126ADC7CC0047D2A7 /* Cell */,
+			);
+			path = "Tantangan List";
+			sourceTree = "<group>";
+		};
+		986654DB26ADC6300047D2A7 /* Tantangan Detail */ = {
+			isa = PBXGroup;
+			children = (
+				986654E326ADC84B0047D2A7 /* Table Cell */,
+				986654EF26ADCA530047D2A7 /* TantanganDetail.storyboard */,
+				986654F126ADCAC00047D2A7 /* TantanganDetailController.swift */,
+				986654F326ADCB430047D2A7 /* TantanganDetailViewModel.swift */,
+			);
+			path = "Tantangan Detail";
+			sourceTree = "<group>";
+		};
+		986654DC26ADC6510047D2A7 /* Medali List */ = {
+			isa = PBXGroup;
+			children = (
+				986654E426ADC8890047D2A7 /* Cell */,
+			);
+			path = "Medali List";
+			sourceTree = "<group>";
+		};
+		986654DD26ADC65F0047D2A7 /* Medali Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Medali Detail";
+			sourceTree = "<group>";
+		};
+		986654DE26ADC6D50047D2A7 /* Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Table Cell";
+			sourceTree = "<group>";
+		};
+		986654DF26ADC7600047D2A7 /* Collection Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Collection Cell";
+			sourceTree = "<group>";
+		};
+		986654E126ADC7CC0047D2A7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				986654E226ADC7EC0047D2A7 /* Collection Cell */,
+				986654DE26ADC6D50047D2A7 /* Table Cell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		986654E226ADC7EC0047D2A7 /* Collection Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Collection Cell";
+			sourceTree = "<group>";
+		};
+		986654E326ADC84B0047D2A7 /* Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+				986654EB26ADCA240047D2A7 /* TantanganDetailTableCell.swift */,
+				986654EC26ADCA240047D2A7 /* TantanganDetailTableCell.xib */,
+			);
+			path = "Table Cell";
+			sourceTree = "<group>";
+		};
+		986654E426ADC8890047D2A7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				986654E626ADC8930047D2A7 /* Collection Cell */,
+				986654E526ADC88D0047D2A7 /* Table Cell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		986654E526ADC88D0047D2A7 /* Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Table Cell";
+			sourceTree = "<group>";
+		};
+		986654E626ADC8930047D2A7 /* Collection Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Collection Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +513,10 @@
 			files = (
 				986654A326ADBC800047D2A7 /* LaunchScreen.storyboard in Resources */,
 				986654A026ADBC800047D2A7 /* Assets.xcassets in Resources */,
+				986654F026ADCA530047D2A7 /* TantanganDetail.storyboard in Resources */,
+				986654EA26ADC96D0047D2A7 /* CompletionAlert.xib in Resources */,
 				9866549B26ADBC7E0047D2A7 /* Main.storyboard in Resources */,
+				986654EE26ADCA240047D2A7 /* TantanganDetailTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,8 +542,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9866549E26ADBC7E0047D2A7 /* Papah.xcdatamodeld in Sources */,
+				986654F426ADCB430047D2A7 /* TantanganDetailViewModel.swift in Sources */,
+				986654E926ADC96D0047D2A7 /* CompletionAlert.swift in Sources */,
 				9866549826ADBC7D0047D2A7 /* ViewController.swift in Sources */,
 				9866549426ADBC7D0047D2A7 /* AppDelegate.swift in Sources */,
+				986654F226ADCAC00047D2A7 /* TantanganDetailController.swift in Sources */,
+				986654ED26ADCA240047D2A7 /* TantanganDetailTableCell.swift in Sources */,
 				9866549626ADBC7D0047D2A7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
