@@ -28,7 +28,6 @@
 		9866550D26ADCE780047D2A7 /* MedaliDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866550C26ADCE780047D2A7 /* MedaliDetailController.swift */; };
 		9866550F26ADCEAF0047D2A7 /* MedaliDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866550E26ADCEAF0047D2A7 /* MedaliDetailViewModel.swift */; };
 		9866551126ADCED30047D2A7 /* MedaliListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866551026ADCED30047D2A7 /* MedaliListController.swift */; };
-		9866551326ADCEEF0047D2A7 /* MedaliList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9866551226ADCEEF0047D2A7 /* MedaliList.storyboard */; };
 		9866551526ADCF010047D2A7 /* MedaliListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866551426ADCF010047D2A7 /* MedaliListViewModel.swift */; };
 		9866551826ADCF470047D2A7 /* MedaliListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866551626ADCF470047D2A7 /* MedaliListCollectionCell.swift */; };
 		9866551926ADCF470047D2A7 /* MedaliListCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9866551726ADCF470047D2A7 /* MedaliListCollectionCell.xib */; };
@@ -38,10 +37,7 @@
 		9866552226ADCF830047D2A7 /* TantanganListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552026ADCF830047D2A7 /* TantanganListController.swift */; };
 		9866552526ADCFC30047D2A7 /* TantanganListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552426ADCFC30047D2A7 /* TantanganListViewModel.swift */; };
 		9866552826ADCFE60047D2A7 /* TantanganListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552626ADCFE60047D2A7 /* TantanganListCollectionCell.swift */; };
-		9866552926ADCFE60047D2A7 /* TantanganListCollectionCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9866552726ADCFE60047D2A7 /* TantanganListCollectionCellCollectionViewCell.xib */; };
 		9866552C26ADD0020047D2A7 /* TantanganListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552A26ADD0020047D2A7 /* TantanganListTableCell.swift */; };
-		9866552D26ADD0020047D2A7 /* TantanganListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9866552B26ADD0020047D2A7 /* TantanganListTableCell.xib */; };
-		BC2A95B626ADCE90002AD800 /* EksplorMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95B326ADCE89002AD800 /* EksplorMap.storyboard */; };
 		BC2A95B726ADCE90002AD800 /* EksplorMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95B426ADCE89002AD800 /* EksplorMapController.swift */; };
 		BC2A95B826ADCE90002AD800 /* EksplorMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95B526ADCE89002AD800 /* EksplorMapViewModel.swift */; };
 		BC2A95BC26ADCECE002AD800 /* EksplorDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95BA26ADCEBE002AD800 /* EksplorDetailController.swift */; };
@@ -703,13 +699,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9866551326ADCEEF0047D2A7 /* MedaliList.storyboard in Resources */,
-				9866552D26ADD0020047D2A7 /* TantanganListTableCell.xib in Resources */,
-				BC2A95B626ADCE90002AD800 /* EksplorMap.storyboard in Resources */,
 				BC2A95C726ADCF24002AD800 /* EksplorList.storyboard in Resources */,
-				9866551326ADCEEF0047D2A7 /* MedaliList.storyboard in Resources */,
-				9866552D26ADD0020047D2A7 /* TantanganListTableCell.xib in Resources */,
-				BC2A95B626ADCE90002AD800 /* EksplorMap.storyboard in Resources */,
 				BC2A95C726ADCF24002AD800 /* EksplorList.storyboard in Resources */,
 				986654A326ADBC800047D2A7 /* LaunchScreen.storyboard in Resources */,
 				BC2A95C226ADCEFD002AD800 /* EksplorDetailTableCell.xib in Resources */,
@@ -717,9 +707,7 @@
 				BC2A95D926ADCFB1002AD800 /* EksplorListFilterTableCell.xib in Resources */,
 				BC2A95F126ADD098002AD800 /* TipsDetailCollectionCell.xib in Resources */,
 				986654A026ADBC800047D2A7 /* Assets.xcassets in Resources */,
-				9866552926ADCFE60047D2A7 /* TantanganListCollectionCellCollectionViewCell.xib in Resources */,
 				BC2A95CC26ADCF4A002AD800 /* ExplorListTableCell.xib in Resources */,
-				9866552926ADCFE60047D2A7 /* TantanganListCollectionCellCollectionViewCell.xib in Resources */,
 				BC2A95CC26ADCF4A002AD800 /* ExplorListTableCell.xib in Resources */,
 				986654F026ADCA530047D2A7 /* TantanganDetail.storyboard in Resources */,
 				BC2A95E726ADD021002AD800 /* Homepage.storyboard in Resources */,
