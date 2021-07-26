@@ -1,3 +1,4 @@
 *.pbxproj binary merge=union
 **/.pbxproj binary merge=union
 *.pbxproj -crlf -diff -merge
+Papah.xcodeproj/project.pbxproj binary merge=union
