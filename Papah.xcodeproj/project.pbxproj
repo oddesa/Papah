@@ -74,6 +74,7 @@
 		BC2A95FA26ADD3E8002AD800 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95F926ADD3E8002AD800 /* Constants.swift */; };
 		BCB5A4E326AE4F370014DF15 /* s.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5A4E226AE4F370014DF15 /* s.swift */; };
 		BCB5A4E726AE50810014DF15 /* s.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5A4E626AE50810014DF15 /* s.swift */; };
+		BCC06FAC26AE58A300C9379B /* s.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC06FAB26AE58A300C9379B /* s.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +176,7 @@
 		BC2AF19426ADD4A9006FFB9F /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
 		BCB5A4E226AE4F370014DF15 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
 		BCB5A4E626AE50810014DF15 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
+		BCC06FAB26AE58A300C9379B /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -569,6 +571,7 @@
 		9866550426ADCD5B0047D2A7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BCC06FAB26AE58A300C9379B /* s.swift */,
 				9866550626ADCD940047D2A7 /* Colors.xcassets */,
 				9866549F26ADBC800047D2A7 /* Assets.xcassets */,
 				986654A126ADBC800047D2A7 /* LaunchScreen.storyboard */,
@@ -813,6 +816,7 @@
 				9866549426ADBC7D0047D2A7 /* AppDelegate.swift in Sources */,
 				BC2A95C126ADCEFD002AD800 /* EksplorDetailTableCell.swift in Sources */,
 				BC2A95E626ADD021002AD800 /* HomepageController.swift in Sources */,
+				BCC06FAC26AE58A300C9379B /* s.swift in Sources */,
 				9866549826ADBC7D0047D2A7 /* ViewController.swift in Sources */,
 				9866549426ADBC7D0047D2A7 /* AppDelegate.swift in Sources */,
 				9866550D26ADCE780047D2A7 /* MedaliDetailController.swift in Sources */,
