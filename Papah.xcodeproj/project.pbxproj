@@ -55,6 +55,17 @@
 		BC2A95F126ADD098002AD800 /* TipsDetailCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95EF26ADD098002AD800 /* TipsDetailCollectionCell.xib */; };
 		BC2A95F826ADD3B6002AD800 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95F726ADD3B6002AD800 /* CoreDataManager.swift */; };
 		BC2A95FA26ADD3E8002AD800 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95F926ADD3E8002AD800 /* Constants.swift */; };
+		BC2BE85D26AE82BA0067DB23 /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE85C26AE82BA0067DB23 /* CommonFunction.swift */; };
+		BC2BE86726AE82DF0067DB23 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE85F26AE82DE0067DB23 /* UIViewController+Extension.swift */; };
+		BC2BE86826AE82DF0067DB23 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE86026AE82DE0067DB23 /* Date+Extension.swift */; };
+		BC2BE86926AE82DF0067DB23 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE86126AE82DE0067DB23 /* UILabel+Extension.swift */; };
+		BC2BE86A26AE82DF0067DB23 /* TableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE86226AE82DE0067DB23 /* TableViewCell+Extension.swift */; };
+		BC2BE86B26AE82DF0067DB23 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE86326AE82DE0067DB23 /* UIView+Extension.swift */; };
+		BC2BE86C26AE82DF0067DB23 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE86426AE82DE0067DB23 /* String+Extension.swift */; };
+		BC2BE86D26AE82DF0067DB23 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE86526AE82DF0067DB23 /* UIColor+Extension.swift */; };
+		BC2BE86E26AE82DF0067DB23 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE86626AE82DF0067DB23 /* UIImage+Extension.swift */; };
+		BC2BE87126AE83310067DB23 /* Extension+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE87026AE83310067DB23 /* Extension+Cell.swift */; };
+		BC2BE87326AE835A0067DB23 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE87226AE83590067DB23 /* Extension+UIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +161,17 @@
 		BC2A95F726ADD3B6002AD800 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		BC2A95F926ADD3E8002AD800 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BC2AF19426ADD4A9006FFB9F /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
+		BC2BE85C26AE82BA0067DB23 /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
+		BC2BE85F26AE82DE0067DB23 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		BC2BE86026AE82DE0067DB23 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		BC2BE86126AE82DE0067DB23 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		BC2BE86226AE82DE0067DB23 /* TableViewCell+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		BC2BE86326AE82DE0067DB23 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		BC2BE86426AE82DE0067DB23 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		BC2BE86526AE82DF0067DB23 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		BC2BE86626AE82DF0067DB23 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		BC2BE87026AE83310067DB23 /* Extension+Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+Cell.swift"; sourceTree = "<group>"; };
+		BC2BE87226AE83590067DB23 /* Extension+UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -548,6 +570,8 @@
 		9866550826ADCDAC0047D2A7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				BC2BE85E26AE82D50067DB23 /* Extensions */,
+				BC2BE85C26AE82BA0067DB23 /* CommonFunction.swift */,
 				BC2A95F926ADD3E8002AD800 /* Constants.swift */,
 				9866550926ADCDCD0047D2A7 /* s.swift */,
 			);
@@ -576,6 +600,23 @@
 				BC2A95F526ADD3A4002AD800 /* s.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		BC2BE85E26AE82D50067DB23 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BC2BE87226AE83590067DB23 /* Extension+UIButton.swift */,
+				BC2BE86026AE82DE0067DB23 /* Date+Extension.swift */,
+				BC2BE86426AE82DE0067DB23 /* String+Extension.swift */,
+				BC2BE86226AE82DE0067DB23 /* TableViewCell+Extension.swift */,
+				BC2BE87026AE83310067DB23 /* Extension+Cell.swift */,
+				BC2BE86526AE82DF0067DB23 /* UIColor+Extension.swift */,
+				BC2BE86626AE82DF0067DB23 /* UIImage+Extension.swift */,
+				BC2BE86126AE82DE0067DB23 /* UILabel+Extension.swift */,
+				BC2BE86326AE82DE0067DB23 /* UIView+Extension.swift */,
+				BC2BE85F26AE82DE0067DB23 /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -727,11 +768,17 @@
 				9866552826ADCFE60047D2A7 /* TantanganListCollectionCell.swift in Sources */,
 				9866551826ADCF470047D2A7 /* MedaliListCollectionCell.swift in Sources */,
 				9866551526ADCF010047D2A7 /* MedaliListViewModel.swift in Sources */,
+				BC2BE87126AE83310067DB23 /* Extension+Cell.swift in Sources */,
 				9866549E26ADBC7E0047D2A7 /* Papah.xcdatamodeld in Sources */,
 				BC2A95ED26ADD073002AD800 /* TipsDetailController.swift in Sources */,
 				BC2A95C626ADCF24002AD800 /* EksplorListViewModel.swift in Sources */,
+				BC2BE86B26AE82DF0067DB23 /* UIView+Extension.swift in Sources */,
 				BC2A95D826ADCFB1002AD800 /* EksplorListFilterTableCell.swift in Sources */,
 				BC2A95D526ADCF98002AD800 /* EksplorListFilterController.swift in Sources */,
+				BC2BE85D26AE82BA0067DB23 /* CommonFunction.swift in Sources */,
+				BC2BE86A26AE82DF0067DB23 /* TableViewCell+Extension.swift in Sources */,
+				BC2BE86926AE82DF0067DB23 /* UILabel+Extension.swift in Sources */,
+				BC2BE86726AE82DF0067DB23 /* UIViewController+Extension.swift in Sources */,
 				BC2A95B726ADCE90002AD800 /* EksplorMapController.swift in Sources */,
 				BC2A95DE26ADCFE6002AD800 /* TipsListViewModel.swift in Sources */,
 				BC2A95E226ADD002002AD800 /* TipsListTableCell.swift in Sources */,
@@ -741,14 +788,19 @@
 				986654F226ADCAC00047D2A7 /* TantanganDetailController.swift in Sources */,
 				9866550F26ADCEAF0047D2A7 /* MedaliDetailViewModel.swift in Sources */,
 				9866552226ADCF830047D2A7 /* TantanganListController.swift in Sources */,
+				BC2BE86826AE82DF0067DB23 /* Date+Extension.swift in Sources */,
 				9866552526ADCFC30047D2A7 /* TantanganListViewModel.swift in Sources */,
 				9866552C26ADD0020047D2A7 /* TantanganListTableCell.swift in Sources */,
 				986654ED26ADCA240047D2A7 /* TantanganDetailTableCell.swift in Sources */,
+				BC2BE87326AE835A0067DB23 /* Extension+UIButton.swift in Sources */,
+				BC2BE86C26AE82DF0067DB23 /* String+Extension.swift in Sources */,
 				BC2A95CB26ADCF4A002AD800 /* ExplorListTableCell.swift in Sources */,
 				BC2A95B826ADCE90002AD800 /* EksplorMapViewModel.swift in Sources */,
 				BC2A95DD26ADCFE6002AD800 /* TipsListController.swift in Sources */,
+				BC2BE86D26AE82DF0067DB23 /* UIColor+Extension.swift in Sources */,
 				BC2A95F026ADD098002AD800 /* TipsDetailCollectionCell.swift in Sources */,
 				BC2A95EC26ADD073002AD800 /* TipsDetailViewModel.swift in Sources */,
+				BC2BE86E26AE82DF0067DB23 /* UIImage+Extension.swift in Sources */,
 				9866549626ADBC7D0047D2A7 /* SceneDelegate.swift in Sources */,
 				BC2A95FA26ADD3E8002AD800 /* Constants.swift in Sources */,
 			);
