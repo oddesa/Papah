@@ -27,26 +27,30 @@ class PaddingLabel: UILabel {
     
     @IBInspectable
     var paddingLeft: CGFloat {
-        set { textEdgeInsets.left = newValue }
         get { return textEdgeInsets.left }
+        set { textEdgeInsets.left = newValue }
+        
     }
     
     @IBInspectable
     var paddingRight: CGFloat {
-        set { textEdgeInsets.right = newValue }
         get { return textEdgeInsets.right }
+        set { textEdgeInsets.right = newValue }
+        
     }
     
     @IBInspectable
     var paddingTop: CGFloat {
-        set { textEdgeInsets.top = newValue }
         get { return textEdgeInsets.top }
+        set { textEdgeInsets.top = newValue }
+        
     }
     
     @IBInspectable
     var paddingBottom: CGFloat {
-        set { textEdgeInsets.bottom = newValue }
         get { return textEdgeInsets.bottom }
+        set { textEdgeInsets.bottom = newValue }
+        
     }
 }
 
@@ -73,7 +77,9 @@ extension UITextView: UITextViewDelegate {
             return placeholderText
         }
         set {
+            // swiftlint:disable force_cast
             if let placeholderLabel = self.viewWithTag(100) as! UILabel? {
+                // swiftlint:enable force_cast
                 placeholderLabel.text = newValue
                 placeholderLabel.sizeToFit()
             } else {
@@ -93,7 +99,10 @@ extension UITextView: UITextViewDelegate {
     
     /// Resize the placeholder UILabel to make sure it's in the same position as the UITextView text
     private func resizePlaceholder() {
+        // swiftlint:disable force_cast
         if let placeholderLabel = self.viewWithTag(100) as! UILabel? {
+            // swiftlint:enable force_cast
+
             let labelX = self.textContainer.lineFragmentPadding
             let labelY = self.textContainerInset.top - 2
             let labelWidth = self.frame.width - (labelX * 2)

@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 extension Notification.Name {
     static let didReceiveData = Notification.Name("didReceiveData")
     static let didReceiveDataEvaluation = Notification.Name("didReceiveDataEvaluation")
@@ -38,7 +37,7 @@ extension UITabBarController {
 
 extension UIViewController {
     
-    func showAlert(title:String, msg: String){
+    func showAlert(title: String, msg: String) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
 
         let cancelButton = UIAlertAction(title: "Close", style: .destructive, handler: nil)

@@ -13,7 +13,7 @@ import Foundation
 class DesignableButton: UIButton {
     
     @IBInspectable
-    /// Should the corner be as circle
+    // Should the corner be as circle
     public var circleCorner: Bool {
         get {
             return min(bounds.size.height, bounds.size.width) / 2 == cornerRadius
@@ -24,7 +24,7 @@ class DesignableButton: UIButton {
     }
     
     @IBInspectable
-    /// Corner radius of view; also inspectable from Storyboard.
+    // Corner radius of view; also inspectable from Storyboard.
     public var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
@@ -36,7 +36,7 @@ class DesignableButton: UIButton {
     }
     
     @IBInspectable
-    /// Border color of view; also inspectable from Storyboard.
+    // Border color of view; also inspectable from Storyboard.
     public var borderColor: UIColor? {
         get {
             guard let color = layer.borderColor else {
@@ -54,7 +54,7 @@ class DesignableButton: UIButton {
     }
     
     @IBInspectable
-    /// Border width of view; also inspectable from Storyboard.
+    // Border width of view; also inspectable from Storyboard.
     public var borderWidth: CGFloat {
         get {
             return layer.borderWidth
@@ -65,7 +65,7 @@ class DesignableButton: UIButton {
     }
     
     @IBInspectable
-    /// Shadow color of view; also inspectable from Storyboard.
+    // Shadow color of view; also inspectable from Storyboard.
     public var shadowColor: UIColor? {
         get {
             guard let color = layer.shadowColor else {
@@ -79,7 +79,7 @@ class DesignableButton: UIButton {
     }
     
     @IBInspectable
-    /// Shadow offset of view; also inspectable from Storyboard.
+    // Shadow offset of view; also inspectable from Storyboard.
     public var shadowOffset: CGSize {
         get {
             return layer.shadowOffset
@@ -90,7 +90,7 @@ class DesignableButton: UIButton {
     }
     
     @IBInspectable
-    /// Shadow opacity of view; also inspectable from Storyboard.
+    // Shadow opacity of view; also inspectable from Storyboard.
     public var shadowOpacity: Double {
         get {
             return Double(layer.shadowOpacity)
@@ -101,7 +101,7 @@ class DesignableButton: UIButton {
     }
     
     @IBInspectable
-    /// Shadow radius of view; also inspectable from Storyboard.
+    // Shadow radius of view; also inspectable from Storyboard.
     public var shadowRadius: CGFloat {
         get {
             return layer.shadowRadius
@@ -112,7 +112,7 @@ class DesignableButton: UIButton {
     }
     
     @IBInspectable
-    /// Shadow path of view; also inspectable from Storyboard.
+    // Shadow path of view; also inspectable from Storyboard.
     public var shadowPath: CGPath? {
         get {
             return layer.shadowPath
@@ -123,8 +123,8 @@ class DesignableButton: UIButton {
     }
     
     @IBInspectable
-    /// Should shadow rasterize of view; also inspectable from Storyboard.
-    /// cache the rendered shadow so that it doesn't need to be redrawn
+    // Should shadow rasterize of view; also inspectable from Storyboard.
+    // cache the rendered shadow so that it doesn't need to be redrawn
     public var shadowShouldRasterize: Bool {
         get {
             return layer.shouldRasterize
@@ -135,8 +135,8 @@ class DesignableButton: UIButton {
     }
     
     @IBInspectable
-    /// Should shadow rasterize of view; also inspectable from Storyboard.
-    /// cache the rendered shadow so that it doesn't need to be redrawn
+    // Should shadow rasterize of view; also inspectable from Storyboard.
+    // cache the rendered shadow so that it doesn't need to be redrawn
     public var shadowRasterizationScale: CGFloat {
         get {
             return layer.rasterizationScale
@@ -147,7 +147,7 @@ class DesignableButton: UIButton {
     }
     
     @IBInspectable
-    /// Corner radius of view; also inspectable from Storyboard.
+    // Corner radius of view; also inspectable from Storyboard.
     public var maskToBounds: Bool {
         get {
             return layer.masksToBounds

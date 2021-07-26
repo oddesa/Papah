@@ -64,7 +64,7 @@ extension UIView {
     
     func roundedCorners(_ corners: [Corners], radius: CGFloat) {
         
-        var caCornerMask : CACornerMask = .init()
+        var caCornerMask: CACornerMask = .init()
 
         for data in corners {
             if data == Corners.topLeft {
@@ -95,7 +95,7 @@ extension UIView {
     }
     
     func addDashedBorder(color: UIColor, view: UIView) {
-        let shapeLayer:CAShapeLayer = CAShapeLayer()
+        let shapeLayer: CAShapeLayer = CAShapeLayer()
         let frameSize = view.bounds.size
         
         shapeLayer.bounds = view.bounds
@@ -104,7 +104,7 @@ extension UIView {
         shapeLayer.strokeColor = color.cgColor
         shapeLayer.lineWidth = 2
         shapeLayer.lineJoin = CAShapeLayerLineJoin.round
-        shapeLayer.lineDashPattern = [6,3]
+        shapeLayer.lineDashPattern = [6, 3]
         shapeLayer.path = UIBezierPath(roundedRect: view.bounds, cornerRadius: 5).cgPath
         
         self.layer.addSublayer(shapeLayer)
@@ -120,21 +120,24 @@ extension UIView {
         }
     }
     
-    func allSubViewsOf<T : UIView>(type : T.Type) -> [T]{
+    func allSubViewsOf<T: UIView>(type: T.Type) -> [T] {
         var all = [T]()
         func getSubview(view: UIView) {
-            if let aView = view as? T{
+            if let aView = view as? T {
                 all.append(aView)
             }
             guard view.subviews.count>0 else { return }
-            view.subviews.forEach{ getSubview(view: $0) }
+            view.subviews.forEach { getSubview(view: $0) }
         }
         getSubview(view: self)
         return all
     }
     
+    // swiftlint:disable function_parameter_count
+    // swiftlint:disable line_length
     func anchor(top: NSLayoutYAxisAnchor?, paddingTop: CGFloat, bottom: NSLayoutYAxisAnchor?, paddingBottom: CGFloat, left: NSLayoutXAxisAnchor?, paddingLeft: CGFloat, right: NSLayoutXAxisAnchor?, paddingRight: CGFloat, width: CGFloat, height: CGFloat) {
-        
+    // swiftlint:enable function_parameter_count
+    // swiftlint:enable line_length
         translatesAutoresizingMaskIntoConstraints = false
         
         if let top = top {
@@ -168,16 +171,18 @@ extension UIView {
     
     // Set our computed property type to a closure
     fileprivate var tapGestureRecognizerAction: Action? {
+        get {
+            let tapGestureRecognizerActionInstance = objc_getAssociatedObject(self, &AssociatedObjectKeys.tapGestureRecognizer) as? Action
+            return tapGestureRecognizerActionInstance
+        }
+        
         set {
             if let newValue = newValue {
                 // Computed properties get stored as associated objects
                 objc_setAssociatedObject(self, &AssociatedObjectKeys.tapGestureRecognizer, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
             }
         }
-        get {
-            let tapGestureRecognizerActionInstance = objc_getAssociatedObject(self, &AssociatedObjectKeys.tapGestureRecognizer) as? Action
-            return tapGestureRecognizerActionInstance
-        }
+        
     }
     
     // This is the meat of the sauce, here we create the tap gesture recognizer and

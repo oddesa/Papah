@@ -9,6 +9,7 @@ import Foundation
 
 internal extension Date {
     
+    // swiftlint:disable identifier_name
     enum ISO8601Format: String {
       case Hour             = "HH"                         // 19
       case DayMonth         = "EEEE, dd MMMM"                // Sun, 07 9
@@ -20,7 +21,7 @@ internal extension Date {
       case DateTimeSec      = "yyyy-MM-dd'T'HH:mm:ssZ"     // 1997-07-16T19:20:30+01:00
       case DateTimeMilliSec = "yyyy-MM-dd'T'HH:mm:ss.SSSZ" // 1997-07-16T19:20:30.45+01:00
     }
-
+    // swiftlint:enable identifier_name
     var day: Int {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.day], from: self)
@@ -89,9 +90,11 @@ internal extension Date {
     
     var weekDates: [Date] {
         var dates: [Date] = []
+        // swiftlint:disable identifier_name
         for i in 0..<7 {
             dates.append(Calendar.current.date(byAdding: .day, value: i, to: startOfWeek)!)
         }
+        // swiftlint:enable identifier_name
         return dates
     }
     
