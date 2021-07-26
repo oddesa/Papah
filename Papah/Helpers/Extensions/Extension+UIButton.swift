@@ -12,13 +12,6 @@ import Foundation
 @IBDesignable
 class DesignableButton: UIButton {
     
-    @IBInspectable var localized_title: String? {
-           get { return nil }
-           set(key) {
-            self.setTitle(L10n.localize(string: key!), for: .normal)
-           }
-      }
-    
     @IBInspectable
     /// Should the corner be as circle
     public var circleCorner: Bool {
