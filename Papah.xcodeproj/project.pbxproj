@@ -38,6 +38,7 @@
 		9866552526ADCFC30047D2A7 /* TantanganListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552426ADCFC30047D2A7 /* TantanganListViewModel.swift */; };
 		9866552826ADCFE60047D2A7 /* TantanganListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552626ADCFE60047D2A7 /* TantanganListCollectionCell.swift */; };
 		9866552C26ADD0020047D2A7 /* TantanganListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552A26ADD0020047D2A7 /* TantanganListTableCell.swift */; };
+		BC0A9B7F26AE4D5C00E2C1B0 /* s.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0A9B7E26AE4D5C00E2C1B0 /* s.swift */; };
 		BC2A95B726ADCE90002AD800 /* EksplorMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95B426ADCE89002AD800 /* EksplorMapController.swift */; };
 		BC2A95B826ADCE90002AD800 /* EksplorMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95B526ADCE89002AD800 /* EksplorMapViewModel.swift */; };
 		BC2A95BC26ADCECE002AD800 /* EksplorDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95BA26ADCEBE002AD800 /* EksplorDetailController.swift */; };
@@ -131,6 +132,7 @@
 		9866552726ADCFE60047D2A7 /* TantanganListCollectionCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganListCollectionCellCollectionViewCell.xib; sourceTree = "<group>"; };
 		9866552A26ADD0020047D2A7 /* TantanganListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganListTableCell.swift; sourceTree = "<group>"; };
 		9866552B26ADD0020047D2A7 /* TantanganListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganListTableCell.xib; sourceTree = "<group>"; };
+		BC0A9B7E26AE4D5C00E2C1B0 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
 		BC2A95B326ADCE89002AD800 /* EksplorMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EksplorMap.storyboard; sourceTree = "<group>"; };
 		BC2A95B426ADCE89002AD800 /* EksplorMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorMapController.swift; sourceTree = "<group>"; };
 		BC2A95B526ADCE89002AD800 /* EksplorMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorMapViewModel.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 		986654D126ADC3A20047D2A7 /* Tips List */ = {
 			isa = PBXGroup;
 			children = (
+				BC0A9B7E26AE4D5C00E2C1B0 /* s.swift */,
 				BC2A95DB26ADCFD0002AD800 /* TipsList.storyboard */,
 				BC2A95DC26ADCFD0002AD800 /* TipsListController.swift */,
 				BC2A95DA26ADCFD0002AD800 /* TipsListViewModel.swift */,
@@ -794,6 +797,7 @@
 				BC2A95BE26ADCECE002AD800 /* EksplorDetailViewModel.swift in Sources */,
 				BC2A95C826ADCF24002AD800 /* EksplorListController.swift in Sources */,
 				BC2A95CF26ADCF65002AD800 /* EksplorListCollectionCell.swift in Sources */,
+				BC0A9B7F26AE4D5C00E2C1B0 /* s.swift in Sources */,
 				9866549826ADBC7D0047D2A7 /* ViewController.swift in Sources */,
 				9866549426ADBC7D0047D2A7 /* AppDelegate.swift in Sources */,
 				BC2A95C126ADCEFD002AD800 /* EksplorDetailTableCell.swift in Sources */,
