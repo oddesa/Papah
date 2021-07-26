@@ -1,1 +1,1 @@
-*.pbxproj binary merge=union linguist-generated=true
+*.pbxproj -crlf -merge
