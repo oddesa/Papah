@@ -72,6 +72,7 @@
 		BC2A95F126ADD098002AD800 /* TipsDetailCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95EF26ADD098002AD800 /* TipsDetailCollectionCell.xib */; };
 		BC2A95F826ADD3B6002AD800 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95F726ADD3B6002AD800 /* CoreDataManager.swift */; };
 		BC2A95FA26ADD3E8002AD800 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95F926ADD3E8002AD800 /* Constants.swift */; };
+		BCB5A4E126AE4F1A0014DF15 /* s.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5A4E026AE4F1A0014DF15 /* s.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +172,7 @@
 		BC2A95F726ADD3B6002AD800 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		BC2A95F926ADD3E8002AD800 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BC2AF19426ADD4A9006FFB9F /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
+		BCB5A4E026AE4F1A0014DF15 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +369,7 @@
 		986654D226ADC3A90047D2A7 /* Tips Detail */ = {
 			isa = PBXGroup;
 			children = (
+				BCB5A4E026AE4F1A0014DF15 /* s.swift */,
 				BC2A95E826ADD033002AD800 /* TipsDetail.storyboard */,
 				BC2A95E926ADD034002AD800 /* TipsDetailController.swift */,
 				BC2A95EA26ADD034002AD800 /* TipsDetailViewModel.swift */,
@@ -818,6 +821,7 @@
 				BC2A95E626ADD021002AD800 /* HomepageController.swift in Sources */,
 				986654F226ADCAC00047D2A7 /* TantanganDetailController.swift in Sources */,
 				9866550F26ADCEAF0047D2A7 /* MedaliDetailViewModel.swift in Sources */,
+				BCB5A4E126AE4F1A0014DF15 /* s.swift in Sources */,
 				9866552226ADCF830047D2A7 /* TantanganListController.swift in Sources */,
 				9866552526ADCFC30047D2A7 /* TantanganListViewModel.swift in Sources */,
 				9866552C26ADD0020047D2A7 /* TantanganListTableCell.swift in Sources */,
