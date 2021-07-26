@@ -61,8 +61,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZYB-7f-TaZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Eksplor" id="2Y6-5c-e3u"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Oci-PD-6Kh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Oci-PD-6Kh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -80,8 +80,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aWI-aK-uUX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tips" id="sck-EG-Rki"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tvq-Xi-0iH">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="tvq-Xi-0iH">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -99,8 +99,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q9h-KS-GB3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tantangan" id="x72-hs-o6J"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ol2-Dl-psb">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ol2-Dl-psb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
