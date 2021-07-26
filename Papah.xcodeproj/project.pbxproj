@@ -66,6 +66,21 @@
 		BC2BE86E26AE82DF0067DB23 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE86626AE82DF0067DB23 /* UIImage+Extension.swift */; };
 		BC2BE87126AE83310067DB23 /* Extension+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE87026AE83310067DB23 /* Extension+Cell.swift */; };
 		BC2BE87326AE835A0067DB23 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE87226AE83590067DB23 /* Extension+UIButton.swift */; };
+		BC8C9B6926AE8AD80096F0E8 /* MedaliDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866550C26ADCE780047D2A7 /* MedaliDetailController.swift */; };
+		BC8C9B6A26AE8AD80096F0E8 /* EksplorList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95C526ADCF10002AD800 /* EksplorList.storyboard */; };
+		BC8C9B6B26AE8AD80096F0E8 /* MedaliList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9866551226ADCEEF0047D2A7 /* MedaliList.storyboard */; };
+		BC8C9B6C26AE8AD80096F0E8 /* EksplorMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95B326ADCE89002AD800 /* EksplorMap.storyboard */; };
+		BC8C9B6D26AE8AD80096F0E8 /* MedaliListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866551026ADCED30047D2A7 /* MedaliListController.swift */; };
+		BC8C9B6E26AE8AD80096F0E8 /* EksplorListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95C326ADCF10002AD800 /* EksplorListController.swift */; };
+		BC8C9B6F26AE8AD80096F0E8 /* EksplorDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95BB26ADCEBE002AD800 /* EksplorDetailViewModel.swift */; };
+		BC8C9B7026AE8AD80096F0E8 /* TipsDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95E826ADD033002AD800 /* TipsDetail.storyboard */; };
+		BC8C9B7126AE8AD80096F0E8 /* EksplorDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95BA26ADCEBE002AD800 /* EksplorDetailController.swift */; };
+		BC8C9B7226AE8AD80096F0E8 /* HomepageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95E526ADD00E002AD800 /* HomepageController.swift */; };
+		BC8C9B7326AE8AE70096F0E8 /* MedaliListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866551A26ADCF5B0047D2A7 /* MedaliListTableCell.swift */; };
+		BC8C9B7426AE8AFC0096F0E8 /* EksplorDetailTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95BF26ADCEFD002AD800 /* EksplorDetailTableCell.swift */; };
+		BC8C9B7526AE8AFC0096F0E8 /* EksplorListCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95CE26ADCF65002AD800 /* EksplorListCollectionCell.xib */; };
+		BC8C9B7626AE8AFC0096F0E8 /* ExplorListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95CA26ADCF4A002AD800 /* ExplorListTableCell.xib */; };
+		BC8C9B7726AE8AFC0096F0E8 /* EksplorListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95CD26ADCF65002AD800 /* EksplorListCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -723,17 +738,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				986654A326ADBC800047D2A7 /* LaunchScreen.storyboard in Resources */,
+				BC8C9B6A26AE8AD80096F0E8 /* EksplorList.storyboard in Resources */,
 				BC2A95C226ADCEFD002AD800 /* EksplorDetailTableCell.xib in Resources */,
 				BC2A95BD26ADCECE002AD800 /* EksplorDetail.storyboard in Resources */,
 				BC2A95D926ADCFB1002AD800 /* EksplorListFilterTableCell.xib in Resources */,
+				BC8C9B6B26AE8AD80096F0E8 /* MedaliList.storyboard in Resources */,
+				BC8C9B6C26AE8AD80096F0E8 /* EksplorMap.storyboard in Resources */,
 				BC2A95F126ADD098002AD800 /* TipsDetailCollectionCell.xib in Resources */,
 				986654A026ADBC800047D2A7 /* Assets.xcassets in Resources */,
 				986654F026ADCA530047D2A7 /* TantanganDetail.storyboard in Resources */,
+				BC8C9B7626AE8AFC0096F0E8 /* ExplorListTableCell.xib in Resources */,
 				BC2A95E726ADD021002AD800 /* Homepage.storyboard in Resources */,
 				BC2A95DF26ADCFE6002AD800 /* TipsList.storyboard in Resources */,
 				BC2A95E326ADD002002AD800 /* TipsListTableCell.xib in Resources */,
 				986654EA26ADC96D0047D2A7 /* CompletionAlert.xib in Resources */,
+				BC8C9B7526AE8AFC0096F0E8 /* EksplorListCollectionCell.xib in Resources */,
 				9866551D26ADCF5B0047D2A7 /* MedaliListTableCell.xib in Resources */,
+				BC8C9B7026AE8AD80096F0E8 /* TipsDetail.storyboard in Resources */,
 				9866550B26ADCE570047D2A7 /* MedaliDetail.storyboard in Resources */,
 				9866551926ADCF470047D2A7 /* MedaliListCollectionCell.xib in Resources */,
 				986654EE26ADCA240047D2A7 /* TantanganDetailTableCell.xib in Resources */,
@@ -763,7 +784,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC8C9B7326AE8AE70096F0E8 /* MedaliListTableCell.swift in Sources */,
 				981DDBD126ADD8CB00BB60F9 /* AppDelegate.swift in Sources */,
+				BC8C9B7426AE8AFC0096F0E8 /* EksplorDetailTableCell.swift in Sources */,
 				BC2A95F826ADD3B6002AD800 /* CoreDataManager.swift in Sources */,
 				9866552826ADCFE60047D2A7 /* TantanganListCollectionCell.swift in Sources */,
 				9866551826ADCF470047D2A7 /* MedaliListCollectionCell.swift in Sources */,
@@ -774,6 +797,7 @@
 				BC2A95C626ADCF24002AD800 /* EksplorListViewModel.swift in Sources */,
 				BC2BE86B26AE82DF0067DB23 /* UIView+Extension.swift in Sources */,
 				BC2A95D826ADCFB1002AD800 /* EksplorListFilterTableCell.swift in Sources */,
+				BC8C9B7226AE8AD80096F0E8 /* HomepageController.swift in Sources */,
 				BC2A95D526ADCF98002AD800 /* EksplorListFilterController.swift in Sources */,
 				BC2BE85D26AE82BA0067DB23 /* CommonFunction.swift in Sources */,
 				BC2BE86A26AE82DF0067DB23 /* TableViewCell+Extension.swift in Sources */,
@@ -785,7 +809,12 @@
 				986654F426ADCB430047D2A7 /* TantanganDetailViewModel.swift in Sources */,
 				BC2A95D426ADCF98002AD800 /* EksplorListFilterViewModel.swift in Sources */,
 				986654E926ADC96D0047D2A7 /* CompletionAlert.swift in Sources */,
+				BC8C9B6F26AE8AD80096F0E8 /* EksplorDetailViewModel.swift in Sources */,
+				BC8C9B6926AE8AD80096F0E8 /* MedaliDetailController.swift in Sources */,
 				986654F226ADCAC00047D2A7 /* TantanganDetailController.swift in Sources */,
+				BC8C9B6E26AE8AD80096F0E8 /* EksplorListController.swift in Sources */,
+				BC8C9B7726AE8AFC0096F0E8 /* EksplorListCollectionCell.swift in Sources */,
+				BC8C9B7126AE8AD80096F0E8 /* EksplorDetailController.swift in Sources */,
 				9866550F26ADCEAF0047D2A7 /* MedaliDetailViewModel.swift in Sources */,
 				9866552226ADCF830047D2A7 /* TantanganListController.swift in Sources */,
 				BC2BE86826AE82DF0067DB23 /* Date+Extension.swift in Sources */,
@@ -799,6 +828,7 @@
 				BC2A95DD26ADCFE6002AD800 /* TipsListController.swift in Sources */,
 				BC2BE86D26AE82DF0067DB23 /* UIColor+Extension.swift in Sources */,
 				BC2A95F026ADD098002AD800 /* TipsDetailCollectionCell.swift in Sources */,
+				BC8C9B6D26AE8AD80096F0E8 /* MedaliListController.swift in Sources */,
 				BC2A95EC26ADD073002AD800 /* TipsDetailViewModel.swift in Sources */,
 				BC2BE86E26AE82DF0067DB23 /* UIImage+Extension.swift in Sources */,
 				9866549626ADBC7D0047D2A7 /* SceneDelegate.swift in Sources */,
