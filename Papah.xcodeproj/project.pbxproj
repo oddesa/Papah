@@ -74,7 +74,6 @@
 		BC2A95FA26ADD3E8002AD800 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95F926ADD3E8002AD800 /* Constants.swift */; };
 		BCB5A4E326AE4F370014DF15 /* s.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5A4E226AE4F370014DF15 /* s.swift */; };
 		BCB5A4E726AE50810014DF15 /* s.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5A4E626AE50810014DF15 /* s.swift */; };
-		BCC06FA626AE511700C9379B /* s.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC06FA526AE511700C9379B /* s.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,7 +175,6 @@
 		BC2AF19426ADD4A9006FFB9F /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
 		BCB5A4E226AE4F370014DF15 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
 		BCB5A4E626AE50810014DF15 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
-		BCC06FA526AE511700C9379B /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,7 +228,6 @@
 				986654C926ADC0C90047D2A7 /* Presentation */,
 				986654C626ADBC8A0047D2A7 /* Application */,
 				9866549726ADBC7D0047D2A7 /* ViewController.swift */,
-				BCC06FA526AE511700C9379B /* s.swift */,
 				9866550826ADCDAC0047D2A7 /* Helpers */,
 				9866550426ADCD5B0047D2A7 /* Resources */,
 				986654C726ADBC9D0047D2A7 /* Core */,
@@ -816,7 +813,6 @@
 				9866549426ADBC7D0047D2A7 /* AppDelegate.swift in Sources */,
 				BC2A95C126ADCEFD002AD800 /* EksplorDetailTableCell.swift in Sources */,
 				BC2A95E626ADD021002AD800 /* HomepageController.swift in Sources */,
-				BCC06FA626AE511700C9379B /* s.swift in Sources */,
 				9866549826ADBC7D0047D2A7 /* ViewController.swift in Sources */,
 				9866549426ADBC7D0047D2A7 /* AppDelegate.swift in Sources */,
 				9866550D26ADCE780047D2A7 /* MedaliDetailController.swift in Sources */,
