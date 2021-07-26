@@ -8,9 +8,10 @@
 import Foundation
 import UIKit
 
-class Constants  {
-    
+class Constants {
+    // swiftlint:disable identifier_name
     static let APP_VERSION = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+    // swiftlint:enable identifier_name
     static let dataModel = "Papah"
     
 }

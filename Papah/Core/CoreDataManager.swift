@@ -44,11 +44,11 @@ class CoreDataManager {
         }
     }
     
-    func preloadData(){
+    func preloadData() {
      
     }
     
-    func deleteAllData(){
+    func deleteAllData() {
         
         let storeCoordinator = persistentContainer.persistentStoreCoordinator
         let storeDescription = persistentContainer.persistentStoreDescriptions[0]
@@ -58,8 +58,7 @@ class CoreDataManager {
         
         do {
             try storeCoordinator.destroyPersistentStore(at: storeURL, ofType: NSSQLiteStoreType, options: nil)
-        }
-        catch {
+        } catch {
             return
         }
         
@@ -76,4 +75,3 @@ class CoreDataManager {
     }
     
 }
-

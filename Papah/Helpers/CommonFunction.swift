@@ -12,7 +12,7 @@ import AVFoundation
 class CommonFunction {
     static let shared = CommonFunction()
     
-    func playSystemSound(id: UInt32){
+    func playSystemSound(id: UInt32) {
         AudioServicesPlaySystemSound(id)
     }
     
