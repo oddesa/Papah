@@ -7,6 +7,8 @@
 
 import UIKit
 
+extension UIViewController: XIBIdentifiable {}
+
 extension UITableViewCell: XIBIdentifiable {}
 
 extension UICollectionViewCell: XIBIdentifiable {}
