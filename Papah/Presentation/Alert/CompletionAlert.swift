@@ -7,23 +7,27 @@
 
 import UIKit
 
+protocol CompletionAlertProtocol {
+    func onConfirmButton()
+}
+
 class CompletionAlert: UIViewController {
+
+    var delegate: CompletionAlertProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let blurFx = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        let blurFxView = UIVisualEffectView(effect: blurFx)
+        blurFxView.frame = view.bounds
+        blurFxView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.insertSubview(blurFxView, at: 0)
+
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func onConfirmButton(_ sender: Any) {
+        delegate.onConfirmButton()
     }
-    */
-
+    
 }

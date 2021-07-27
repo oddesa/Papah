@@ -9,15 +9,12 @@ import UIKit
 
 class TipsListTableCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    @IBOutlet weak var categoryImage: UIImageView!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var descLabel: UITextView!
     
+    func setTips(with waste: Waste) {
+        categoryLabel.text = waste.category
+        descLabel.text = waste.desc
+    }
 }

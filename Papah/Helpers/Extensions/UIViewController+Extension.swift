@@ -50,12 +50,12 @@ extension UIViewController {
        
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         
-        let okButton = UIAlertAction(title: confirmMsg, style: .default, handler: { action in
+        let okButton = UIAlertAction(title: confirmMsg, style: .default, handler: { _ in
             
             completionBlock(true)
         })
         
-        let cancelButton = UIAlertAction(title: cancelMsg, style: .default, handler: { action in
+        let cancelButton = UIAlertAction(title: cancelMsg, style: .default, handler: { _ in
             
             completionBlock(false)
             
