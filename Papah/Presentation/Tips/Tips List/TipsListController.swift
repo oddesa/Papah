@@ -26,10 +26,9 @@ class TipsListController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         tipsListTableView.delegate = self
         tipsListTableView.dataSource = self
-        
         // Do any additional setup after loading the view.
     }
     

@@ -1,0 +1,19 @@
+xcassets:
+  - inputs:
+      - Papah/Resources/Colors.xcassets
+    outputs:
+      - templatePath: asset-to-color-extension.stencil
+        output: Papah/Helpers/Extensions/UIColor+Extension.swift
+        params:
+          enumName: UIColor
+          publicAccess: true
+          allValues: true
+  - inputs:
+      - Papah/Resources/Assets.xcassets
+    outputs:
+      - templatePath: asset-to-image-extension.stencil
+        output: Papah/Helpers/Extensions/UIImage+Extension.swift
+        params:
+          enumName: UIImage
+          publicAccess: true
+          allValues: true

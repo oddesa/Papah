@@ -16,7 +16,7 @@ class CoreDataManager {
         let container = NSPersistentContainer(name: Constants.dataModel)
         
         
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -44,11 +44,11 @@ class CoreDataManager {
         }
     }
     
-    func preloadData(){
+    func preloadData() {
      
     }
     
-    func deleteAllData(){
+    func deleteAllData() {
         
         let storeCoordinator = persistentContainer.persistentStoreCoordinator
         let storeDescription = persistentContainer.persistentStoreDescriptions[0]
@@ -58,13 +58,12 @@ class CoreDataManager {
         
         do {
             try storeCoordinator.destroyPersistentStore(at: storeURL, ofType: NSSQLiteStoreType, options: nil)
-        }
-        catch {
+        } catch {
             return
         }
         
         storeCoordinator.addPersistentStore(with: storeDescription) {
-            (persistentStoreCoordinator, error) in
+            (_, error) in
             
             if let error = error {
                 print("\(error)")
@@ -76,4 +75,3 @@ class CoreDataManager {
     }
     
 }
-
