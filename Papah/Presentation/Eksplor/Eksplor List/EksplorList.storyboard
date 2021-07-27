@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,18 +14,19 @@
             <objects>
                 <viewController storyboardIdentifier="EksplorListController" title="Eksplor" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="EksplorListController" customModule="Papah" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="VZ0-dw-kJh">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <rect key="frame" x="16" y="88" width="358" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="LIX-IO-Jlh"/>
+                                    <constraint firstAttribute="height" constant="36" id="LIX-IO-Jlh"/>
+                                    <constraint firstAttribute="width" constant="358" id="RWP-Gl-32N"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iW7-ve-wcs">
-                                <rect key="frame" x="0.0" y="136" width="414" height="41"/>
+                                <rect key="frame" x="16" y="134" width="374" height="41"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="Rew-nm-hLZ"/>
@@ -49,23 +50,22 @@
                                 </cells>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oUX-Ew-hHN">
-                                <rect key="frame" x="0.0" y="185" width="414" height="628"/>
+                                <rect key="frame" x="16" y="191" width="358" height="570"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="iW7-ve-wcs" firstAttribute="leading" secondItem="oUX-Ew-hHN" secondAttribute="leading" id="48J-GS-7Ma"/>
-                            <constraint firstItem="iW7-ve-wcs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="70E-1f-Dts"/>
-                            <constraint firstItem="VZ0-dw-kJh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="H0h-gm-iKw"/>
-                            <constraint firstItem="iW7-ve-wcs" firstAttribute="top" secondItem="VZ0-dw-kJh" secondAttribute="bottom" constant="4" id="bvS-Br-oPb"/>
-                            <constraint firstItem="VZ0-dw-kJh" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="e8K-We-FdM"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="iW7-ve-wcs" secondAttribute="trailing" id="h5W-vd-QI9"/>
-                            <constraint firstItem="oUX-Ew-hHN" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="hOY-8I-gXI"/>
-                            <constraint firstItem="iW7-ve-wcs" firstAttribute="trailing" secondItem="oUX-Ew-hHN" secondAttribute="trailing" id="imD-pM-BIU"/>
-                            <constraint firstItem="oUX-Ew-hHN" firstAttribute="top" secondItem="iW7-ve-wcs" secondAttribute="bottom" constant="8" id="oKE-4c-G2A"/>
-                            <constraint firstItem="VZ0-dw-kJh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="rGV-Kx-F1H"/>
+                            <constraint firstItem="oUX-Ew-hHN" firstAttribute="trailing" secondItem="VZ0-dw-kJh" secondAttribute="trailing" id="7pf-hI-1Pb"/>
+                            <constraint firstAttribute="trailing" secondItem="iW7-ve-wcs" secondAttribute="trailing" id="8YO-8k-ZCT"/>
+                            <constraint firstItem="VZ0-dw-kJh" firstAttribute="leading" secondItem="oUX-Ew-hHN" secondAttribute="leading" id="Dy1-1Y-R47"/>
+                            <constraint firstItem="oUX-Ew-hHN" firstAttribute="top" secondItem="iW7-ve-wcs" secondAttribute="bottom" constant="16" id="Ftb-1L-4uL"/>
+                            <constraint firstItem="VZ0-dw-kJh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="HRW-DC-qR5"/>
+                            <constraint firstItem="oUX-Ew-hHN" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="HqT-3k-ePa"/>
+                            <constraint firstItem="iW7-ve-wcs" firstAttribute="top" secondItem="VZ0-dw-kJh" secondAttribute="bottom" constant="10" id="Q7t-fI-Mkg"/>
+                            <constraint firstItem="VZ0-dw-kJh" firstAttribute="leading" secondItem="iW7-ve-wcs" secondAttribute="leading" id="S0p-oC-wnE"/>
+                            <constraint firstItem="VZ0-dw-kJh" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="tSV-ID-zyX"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -77,14 +77,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="121.73913043478262" y="130.58035714285714"/>
+            <point key="canvasLocation" x="121.53846153846153" y="130.09478672985782"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="CeT-AQ-w2N">
             <objects>
                 <viewController storyboardIdentifier="EksplorListFilterController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QXE-l2-pFu" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SIx-Z2-DX9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="WrV-Kj-BWA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
