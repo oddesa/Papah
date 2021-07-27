@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Eksplor List Filter Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="EksplorListFilterController" customModule="Papah" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nrK-4w-ZFy">
+                                <rect key="frame" x="0.0" y="149" width="390" height="661"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="ZoX-fB-tFj" customClass="ExplorListTableCell" customModule="Papah" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZoX-fB-tFj" id="ZTu-0f-Y0W" customClass="EksplorDetailTableCell" customModule="Papah" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kategori Sampah" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiE-Wb-0SU">
+                                <rect key="frame" x="20" y="108" width="350" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YHx-hh-Vvh">
+                                <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                                <items>
+                                    <navigationItem title="Filter" id="djF-Wt-4br"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KiE-Wb-0SU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="2hD-nZ-SQE"/>
+                            <constraint firstItem="KiE-Wb-0SU" firstAttribute="top" secondItem="YHx-hh-Vvh" secondAttribute="bottom" constant="20" id="D1m-FN-OcS"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="nrK-4w-ZFy" secondAttribute="bottom" id="H6i-TK-HYT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="nrK-4w-ZFy" secondAttribute="trailing" id="Jht-Hk-PFY"/>
+                            <constraint firstItem="KiE-Wb-0SU" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="JuW-U2-NMl"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="YHx-hh-Vvh" secondAttribute="top" id="W9u-Kq-C7B"/>
+                            <constraint firstItem="YHx-hh-Vvh" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Yqp-15-K9G"/>
+                            <constraint firstItem="YHx-hh-Vvh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="b2z-y3-lHZ"/>
+                            <constraint firstItem="nrK-4w-ZFy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bMJ-C5-2cJ"/>
+                            <constraint firstItem="nrK-4w-ZFy" firstAttribute="top" secondItem="KiE-Wb-0SU" secondAttribute="bottom" constant="20" id="gc7-Y8-dxZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="wasteFilterTable" destination="nrK-4w-ZFy" id="7E2-yS-o92"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="112.30769230769231" y="103.7914691943128"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
