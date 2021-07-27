@@ -16,7 +16,7 @@ class CoreDataManager {
         let container = NSPersistentContainer(name: Constants.dataModel)
         
         
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -63,7 +63,7 @@ class CoreDataManager {
         }
         
         storeCoordinator.addPersistentStore(with: storeDescription) {
-            (persistentStoreCoordinator, error) in
+            (_, error) in
             
             if let error = error {
                 print("\(error)")

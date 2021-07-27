@@ -7,18 +7,35 @@
 
 import UIKit
 
-class TipsListController: UIViewController {
+class TipsListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tipsList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = tipsList[indexPath.row]
+        let cell = tipsListTableView.dequeueReusableCell(withIdentifier: "tipsCell", for: indexPath) as! TipsListTableCell
+//        cell.item = surah
+        cell.setTips(with: item)
+        print("CELL \(cell)")
+        return cell
+    }
+    
     
     private let viewModel = TipsListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .green
+       
+        tipsListTableView.delegate = self
+        tipsListTableView.dataSource = self
         // Do any additional setup after loading the view.
     }
     
+    @IBOutlet weak var tipsListTableView: UITableView!
+    @IBOutlet weak var tipsSearchBar: UISearchBar!
 
+    private let tipsList = [ Waste(image: "yes", category: "plastik", desc: "plastik lama terurai"), Waste(image: "yes", category: "kaleng", desc: "kaleng sangat lama terurai"), Waste(image: "yes", category: "kaleng-kaleng", desc: "juga lama terurai")]
     /*
     // MARK: - Navigation
 
@@ -29,4 +46,10 @@ class TipsListController: UIViewController {
     }
     */
 
+}
+
+struct Waste{
+    let image: String
+    let category : String
+    let desc : String
 }
