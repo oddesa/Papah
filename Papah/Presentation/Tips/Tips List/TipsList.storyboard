@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -49,8 +49,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tipsCell" rowHeight="137" id="J6T-pi-yGW">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="137"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tipsCell" rowHeight="137" id="J6T-pi-yGW" customClass="TipsListTableCell" customModule="Papah" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="137"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J6T-pi-yGW" id="7aN-Jt-XLU" customClass="TipsListTableCell" customModule="Papah" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="137"/>
@@ -77,12 +77,12 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
-                                            <connections>
-                                                <outlet property="categoryImage" destination="9Yd-AP-VgQ" id="1y2-f1-fuK"/>
-                                                <outlet property="categoryLabel" destination="D4e-W5-dcN" id="pcd-bR-uaU"/>
-                                                <outlet property="descLabel" destination="lOJ-9u-SU5" id="NBa-Es-wbe"/>
-                                            </connections>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="categoryImage" destination="9Yd-AP-VgQ" id="Gfx-au-PWg"/>
+                                            <outlet property="categoryLabel" destination="D4e-W5-dcN" id="U5r-r1-1S3"/>
+                                            <outlet property="descLabel" destination="lOJ-9u-SU5" id="T8m-C8-jeP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
