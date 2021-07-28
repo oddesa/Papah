@@ -14,22 +14,98 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
     private let viewModel = EksplorListViewModel()
     let strings = ["asdfefsa", "hahahah", "xoxoxoox"]
     var filteredData: [String] = []
+    var filterStrings: [String] = []
     
     @IBOutlet weak var searchBarOutlet: UISearchBar!
     @IBOutlet weak var tableViewOutlet: UITableView!
     
+    @IBOutlet weak var filterUtama: DesignableView!
+    @IBOutlet weak var filterUtamaLabel: UILabel!
+    
+    @IBOutlet weak var filter1: DesignableView!
+    @IBOutlet weak var filter1Label: UILabel!
+    @IBOutlet weak var filter1Button: UIButton!
+    
+    @IBOutlet weak var filter2: DesignableView!
+    @IBOutlet weak var filter2Label: UILabel!
+    @IBOutlet weak var filter2Button: UIButton!
+    
+    @IBOutlet weak var filter3: DesignableView!
+    @IBOutlet weak var filter3Label: UILabel!
+    @IBOutlet weak var filter3Button: UIButton!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        searchBarOutlet.delegate = self
-//        tableViewOutlet.delegate = self
-//        tableViewOutlet.dataSource = self
-//        tableViewOutlet.rowHeight = UITableView.automaticDimension
-//        tableViewOutlet.estimatedRowHeight = 200
-//
+        
         let nib = UINib(nibName: "ExplorListTableCell", bundle: nil)
         tableViewOutlet.register(nib, forCellReuseIdentifier: "ExplorListTableCell")
-        
+
         filteredData = strings
+        filterStrings = ["asdas", "asdasda"] // "asdasd"]
+        setupFilter()
+    }
+    
+    func setupFilter() {
+        var filterViews = [filter1, filter2, filter3]
+        var filterLabels = [filter1Label, filter2Label, filter3Label]
+        var filterButtons = [filter1Button, filter2Button, filter3Button]
+        
+        if filterStrings.count != 0 {
+            filterUtama.borderWidth = 1
+            filterUtama.backgroundColor = filter1.backgroundColor
+            filterUtama.borderColor = .iconIolite
+            filterUtamaLabel.textColor = .iconIolite
+            filterUtamaLabel.text = "Yahud"
+        } else {
+            filterUtama.borderColor = .disabled
+            filterUtamaLabel.textColor = .black
+            filterUtamaLabel.text = "Yahud"
+        }
+        
+        for int in 0..<filterStrings.count {
+            if int < 3 {
+                filterLabels[int]?.text = filterStrings[int]
+            }
+//            else {
+//                    filterLabels[3]?.text = "+\(categories.count-3)"
+//            }
+        }
+        
+        for fView in filterViews {
+            fView?.alpha = 1
+        }
+        
+        for int in 0..<filterStrings.count {
+            if int < 3 {
+                filterViews.remove(at: 0)
+            }
+        }
+//
+        for fView in filterViews {
+            fView?.alpha = 0
+        }
+        
+//        for fView in filterViews {
+//            view.addSubview(fView!)
+//        }
+    }
+    
+    @IBAction func filter1CancelButton(_ sender: Any) {
+        filterStrings.remove(at: 0)
+        setupFilter()
+    }
+    
+    @IBAction func filter2CancelButton(_ sender: Any) {
+        filterStrings.remove(at: 1)
+        setupFilter()
+    }
+    
+    @IBAction func filter3CancelButton(_ sender: Any) {
+        filterStrings.remove(at: 2)
+        setupFilter()
     }
     
 
@@ -56,7 +132,7 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
         cell.wbklNameLabel.text = "test test hah hihi"
         cell.wbklCategoryLabel.text = "Tukang loak sejati"
         
-        let categories = ["asfaf"]
+        let categories = ["asfaf", "asdasdas", "aasdasdsdasda", "asdasd", "asdaqeqwe", "213"]
         var putihputih = [cell.wbklSampahKategori1, cell.wbklSampahKategori2, cell.wbklSampahKategori3, cell.wbklSampahKategori4]
         let textPutihPutih = [cell.wbklSampahKateogri1Label, cell.wbklSampahKategori2Label, cell.wbklSampahKategori3Label, cell.wbklSampahKategori4Label]
         
