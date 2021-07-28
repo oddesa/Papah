@@ -13,7 +13,7 @@ class TipsListTableCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var descLabel: UITextView!
     
-    func setTips(with waste: Waste){
+    func setTips(with waste: Waste) {
         categoryLabel.text = waste.category
         descLabel.text = waste.desc
     }
