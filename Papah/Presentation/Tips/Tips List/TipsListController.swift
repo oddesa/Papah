@@ -20,7 +20,9 @@ class TipsListController: UIViewController, UITableViewDelegate, UITableViewData
         print("CELL \(cell)")
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
     
     private let viewModel = TipsListViewModel()
     
