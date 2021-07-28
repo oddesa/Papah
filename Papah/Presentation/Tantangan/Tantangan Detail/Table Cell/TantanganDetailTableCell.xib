@@ -1,21 +1,85 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TantanganDetailTableCell" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tantanganDetail" rowHeight="120" id="KGk-i7-Jjw" customClass="TantanganDetailTableCell" customModule="Papah" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="371" height="111"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="371" height="111"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOh-nN-o13">
+                        <rect key="frame" x="24" y="5.5" width="323" height="100"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhatsApp Image 2021-07-19 at 08.50.13" translatesAutoresizingMaskIntoConstraints="NO" id="HYZ-rY-YsI">
+                                <rect key="frame" x="0.0" y="27.5" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="76c-LD-WoF"/>
+                                    <constraint firstAttribute="height" constant="45" id="nU0-g5-KWE"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="center" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="lRT-jh-YhD">
+                                <rect key="frame" x="65" y="5" width="248" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Datang ke lokasi" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQg-m3-cXc">
+                                        <rect key="frame" x="0.0" y="0.0" width="132.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datang dan salurkan limbah ke lokasi agen yang kamu tentukan. Pastikan agen tersebut terdaftar di halaman eksplor." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSY-CK-JqP">
+                                        <rect key="frame" x="0.0" y="18" width="241" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" name="disabled"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lRT-jh-YhD" secondAttribute="trailing" constant="10" id="4LY-lk-FSG"/>
+                            <constraint firstItem="lRT-jh-YhD" firstAttribute="height" relation="lessThanOrEqual" secondItem="mOh-nN-o13" secondAttribute="height" constant="200" id="KFY-dE-J4M"/>
+                            <constraint firstItem="HYZ-rY-YsI" firstAttribute="centerY" secondItem="mOh-nN-o13" secondAttribute="centerY" id="VqB-ra-Gss"/>
+                            <constraint firstItem="lRT-jh-YhD" firstAttribute="centerY" secondItem="mOh-nN-o13" secondAttribute="centerY" id="pEC-dN-t31"/>
+                            <constraint firstItem="lRT-jh-YhD" firstAttribute="leading" secondItem="HYZ-rY-YsI" secondAttribute="trailing" constant="20" id="vTg-hq-5Dx"/>
+                            <constraint firstItem="HYZ-rY-YsI" firstAttribute="leading" secondItem="mOh-nN-o13" secondAttribute="leading" id="xWQ-7a-SaU"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="mOh-nN-o13" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5fW-vA-5Ug"/>
+                    <constraint firstItem="mOh-nN-o13" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.87" id="VAF-Ak-DFt"/>
+                    <constraint firstItem="mOh-nN-o13" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ZII-dn-nXz"/>
+                    <constraint firstItem="mOh-nN-o13" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.9" id="aiV-oQ-Wh8"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="guideDesc" destination="NSY-CK-JqP" id="UvN-5j-8ov"/>
+                <outlet property="guideImage" destination="HYZ-rY-YsI" id="GrQ-hA-4xd"/>
+                <outlet property="guideTitle" destination="fQg-m3-cXc" id="bWW-2V-9Xo"/>
+            </connections>
+            <point key="canvasLocation" x="152.89855072463769" y="116.18303571428571"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="WhatsApp Image 2021-07-19 at 08.50.13" width="478" height="540"/>
+        <namedColor name="disabled">
+            <color red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
