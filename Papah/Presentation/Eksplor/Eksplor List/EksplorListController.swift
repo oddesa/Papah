@@ -20,12 +20,15 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gray
-        searchBarOutlet.delegate = self
-        tableViewOutlet.delegate = self
-        tableViewOutlet.dataSource = self
+//        searchBarOutlet.delegate = self
+//        tableViewOutlet.delegate = self
+//        tableViewOutlet.dataSource = self
+//        tableViewOutlet.rowHeight = UITableView.automaticDimension
+//        tableViewOutlet.estimatedRowHeight = 200
+//
         let nib = UINib(nibName: "ExplorListTableCell", bundle: nil)
         tableViewOutlet.register(nib, forCellReuseIdentifier: "ExplorListTableCell")
+        
         filteredData = strings
     }
     
@@ -44,13 +47,45 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: - TableView DataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//        }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if indexPath.section == 0 {
+//            return UITableView.automaticDimension
+//        } else {
+//            return 40
+//        }
+//    }
+//
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if indexPath.section == 0 {
+//            return UITableView.automaticDimension
+//        } else {
+//            return 40
+//        }
+//    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath)
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath) as? ExplorListTableCell else {fatalError("identifiernya salah anying")}
 //        cell.textLabel?.text = filteredData[indexPath.row]
-        return cell
+//        return tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath)
+        
+        if indexPath.row == 0 {
+            return tableView.dequeueReusableCell(withIdentifier: "1", for: indexPath)
+        }
+        
+        if indexPath.row == 1 {
+            return tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath)
+        }
+        
+        
+        return UITableViewCell()
     }
 
     // MARK: - TableView Delegate
