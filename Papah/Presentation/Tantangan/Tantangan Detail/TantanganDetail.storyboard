@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,16 +16,119 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Alq-bV-V0t">
+                                <rect key="frame" x="0.0" y="88" width="414" height="179"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEp-1U-8dr">
+                                        <rect key="frame" x="20.5" y="18" width="373" height="143.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRk-Eg-cw5">
+                                                <rect key="frame" x="0.0" y="45" width="373" height="86"/>
+                                                <string key="text">Cara klaim poin
+dari penyaluran limbah </string>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhatsApp Image 2021-07-19 at 08.50.13" translatesAutoresizingMaskIntoConstraints="NO" id="Sqz-sC-AMe">
+                                                <rect key="frame" x="164" y="0.0" width="45" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="45" id="4fe-uN-cdW"/>
+                                                    <constraint firstAttribute="height" constant="45" id="xSR-gj-uct"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Sqz-sC-AMe" firstAttribute="centerX" secondItem="QEp-1U-8dr" secondAttribute="centerX" id="0pn-sA-1Ss"/>
+                                            <constraint firstItem="mRk-Eg-cw5" firstAttribute="height" secondItem="QEp-1U-8dr" secondAttribute="height" multiplier="0.6" id="8FF-IK-oTo"/>
+                                            <constraint firstItem="mRk-Eg-cw5" firstAttribute="width" secondItem="QEp-1U-8dr" secondAttribute="width" id="IoI-Rj-aQM"/>
+                                            <constraint firstItem="mRk-Eg-cw5" firstAttribute="centerX" secondItem="QEp-1U-8dr" secondAttribute="centerX" id="ZQ8-EC-9ms"/>
+                                            <constraint firstItem="mRk-Eg-cw5" firstAttribute="top" secondItem="Sqz-sC-AMe" secondAttribute="bottom" id="apx-tB-lFd"/>
+                                            <constraint firstItem="Sqz-sC-AMe" firstAttribute="top" secondItem="QEp-1U-8dr" secondAttribute="top" id="cSH-pk-5hm"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="QEp-1U-8dr" firstAttribute="centerX" secondItem="Alq-bV-V0t" secondAttribute="centerX" id="0gP-SE-RGT"/>
+                                    <constraint firstItem="QEp-1U-8dr" firstAttribute="width" secondItem="Alq-bV-V0t" secondAttribute="width" multiplier="0.9" id="EZs-I7-VC5"/>
+                                    <constraint firstItem="QEp-1U-8dr" firstAttribute="height" secondItem="Alq-bV-V0t" secondAttribute="height" multiplier="0.8" id="bkk-nZ-9nw"/>
+                                    <constraint firstItem="QEp-1U-8dr" firstAttribute="centerY" secondItem="Alq-bV-V0t" secondAttribute="centerY" id="leu-DK-fG9"/>
+                                </constraints>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qvl-Qd-uCn">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" name="background_primary"/>
+                                <items>
+                                    <navigationItem id="0up-V3-biS">
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="hq8-xy-dse">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Cc2-vp-9o7">
+                                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Selesai">
+                                                    <color key="titleColor" name="purple_two"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="donePressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QgU-LG-umr"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LPy-BT-cRv">
+                                <rect key="frame" x="0.0" y="267" width="414" height="595"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tantanganDetail" rowHeight="120" id="f5D-ez-1Fh" customClass="TantanganDetailTableCell" customModule="Papah" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f5D-ez-1Fh" id="R5y-B6-dT9">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Alq-bV-V0t" secondAttribute="trailing" id="9Bz-mg-Q0N"/>
+                            <constraint firstItem="Alq-bV-V0t" firstAttribute="top" secondItem="Qvl-Qd-uCn" secondAttribute="bottom" id="9vH-67-AaR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="LPy-BT-cRv" secondAttribute="bottom" id="AmZ-s7-clZ"/>
+                            <constraint firstItem="Qvl-Qd-uCn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="FcA-bB-f07"/>
+                            <constraint firstItem="Alq-bV-V0t" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.2" id="Suf-bG-oV5"/>
+                            <constraint firstItem="Alq-bV-V0t" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Tcg-uB-tAe"/>
+                            <constraint firstItem="LPy-BT-cRv" firstAttribute="top" secondItem="Alq-bV-V0t" secondAttribute="bottom" id="aN9-Oi-KzC"/>
+                            <constraint firstItem="LPy-BT-cRv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="jZZ-wX-9In"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LPy-BT-cRv" secondAttribute="trailing" id="nhe-qL-nmQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Qvl-Qd-uCn" secondAttribute="trailing" id="swH-YN-WNl"/>
+                            <constraint firstItem="Qvl-Qd-uCn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="woM-c0-p4Q"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="detailsIcon" destination="Sqz-sC-AMe" id="niq-LC-BTO"/>
+                        <outlet property="detailsTable" destination="LPy-BT-cRv" id="jTU-cn-0ei"/>
+                        <outlet property="detailsTitle" destination="mRk-Eg-cw5" id="8IP-6v-VvF"/>
+                        <outlet property="navBar" destination="Qvl-Qd-uCn" id="DS8-yR-dGE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="122" y="131"/>
+            <point key="canvasLocation" x="121.73913043478262" y="130.58035714285714"/>
         </scene>
     </scenes>
     <resources>
+        <image name="WhatsApp Image 2021-07-19 at 08.50.13" width="478" height="540"/>
+        <namedColor name="background_primary">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="purple_two">
+            <color red="0.3449999988079071" green="0.33700001239776611" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
