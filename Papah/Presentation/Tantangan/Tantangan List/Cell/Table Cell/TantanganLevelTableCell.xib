@@ -80,7 +80,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstItem="Y3y-E7-GTC" firstAttribute="leading" secondItem="aPb-hP-8sk" secondAttribute="leading" constant="12" id="ZuS-if-Ats"/>
                                     <constraint firstAttribute="bottom" secondItem="Y3y-E7-GTC" secondAttribute="bottom" constant="6" id="hcj-IV-k0n"/>
@@ -148,9 +148,6 @@
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
