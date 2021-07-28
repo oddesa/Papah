@@ -24,6 +24,12 @@ class TipsListController: UIViewController, UITableViewDelegate, UITableViewData
         return 150
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("DID SELECT")
+        let tipsScene = UIStoryboard(name: "TipsDetail", bundle: nil).instantiateViewController(withIdentifier: "TipsDetailController") as! TipsDetailController
+        self.navigationController?.pushViewController(tipsScene, animated: true)
+    }
+    
     private let viewModel = TipsListViewModel()
     
     override func viewDidLoad() {
