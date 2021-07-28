@@ -9,9 +9,13 @@ import UIKit
 
 class TipsDetailCollectionCell: UICollectionViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var tipsImage: UIImageView!
+    @IBOutlet weak var tipsTitle: UILabel!
+    @IBOutlet weak var tipsDesc: UITextView!
+    
+    func setTipsDetailByCategory(with tipsDetail: TipsDetail){
+        tipsTitle.text = tipsDetail.title
+        tipsDesc.text = tipsDetail.desc
     }
 
 }

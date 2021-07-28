@@ -7,8 +7,10 @@
 
 import UIKit
 
-class TantanganListCollectionCell: UICollectionViewCell {
+class TantanganRewardCell: UICollectionViewCell {
 
+    @IBOutlet weak var viewContent: DesignableView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
