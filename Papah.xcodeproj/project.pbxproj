@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		744BDF5326B1891300F6833C /* SubtitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744BDF5126B1891300F6833C /* SubtitleTableViewCell.swift */; };
+		744BDF5426B1891400F6833C /* SubtitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744BDF5226B1891300F6833C /* SubtitleTableViewCell.xib */; };
+		744BDF5726B18B9000F6833C /* MedaliListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744BDF5526B18B9000F6833C /* MedaliListTableViewCell.swift */; };
+		744BDF5826B18B9000F6833C /* MedaliListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744BDF5626B18B9000F6833C /* MedaliListTableViewCell.xib */; };
 		981DDBD126ADD8CB00BB60F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866549326ADBC7D0047D2A7 /* AppDelegate.swift */; };
 		9866549626ADBC7D0047D2A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866549526ADBC7D0047D2A7 /* SceneDelegate.swift */; };
 		9866549E26ADBC7E0047D2A7 /* Papah.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9866549C26ADBC7E0047D2A7 /* Papah.xcdatamodeld */; };
@@ -27,7 +31,6 @@
 		9866551526ADCF010047D2A7 /* MedaliListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866551426ADCF010047D2A7 /* MedaliListViewModel.swift */; };
 		9866551826ADCF470047D2A7 /* MedaliListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866551626ADCF470047D2A7 /* MedaliListCollectionCell.swift */; };
 		9866551926ADCF470047D2A7 /* MedaliListCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9866551726ADCF470047D2A7 /* MedaliListCollectionCell.xib */; };
-		9866551D26ADCF5B0047D2A7 /* MedaliListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9866551B26ADCF5B0047D2A7 /* MedaliListTableCell.xib */; };
 		9866551F26ADCF6E0047D2A7 /* TantanganList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9866551E26ADCF6E0047D2A7 /* TantanganList.storyboard */; };
 		9866552226ADCF830047D2A7 /* TantanganListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552026ADCF830047D2A7 /* TantanganListController.swift */; };
 		9866552526ADCFC30047D2A7 /* TantanganListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552426ADCFC30047D2A7 /* TantanganListViewModel.swift */; };
@@ -76,7 +79,6 @@
 		BC8C9B7026AE8AD80096F0E8 /* TipsDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95E826ADD033002AD800 /* TipsDetail.storyboard */; };
 		BC8C9B7126AE8AD80096F0E8 /* EksplorDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95BA26ADCEBE002AD800 /* EksplorDetailController.swift */; };
 		BC8C9B7226AE8AD80096F0E8 /* HomepageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95E526ADD00E002AD800 /* HomepageController.swift */; };
-		BC8C9B7326AE8AE70096F0E8 /* MedaliListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866551A26ADCF5B0047D2A7 /* MedaliListTableCell.swift */; };
 		BC8C9B7426AE8AFC0096F0E8 /* EksplorDetailTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95BF26ADCEFD002AD800 /* EksplorDetailTableCell.swift */; };
 		BC8C9B7526AE8AFC0096F0E8 /* EksplorListCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95CE26ADCF65002AD800 /* EksplorListCollectionCell.xib */; };
 		BC8C9B7626AE8AFC0096F0E8 /* ExplorListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95CA26ADCF4A002AD800 /* ExplorListTableCell.xib */; };
@@ -101,6 +103,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		744BDF5126B1891300F6833C /* SubtitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleTableViewCell.swift; sourceTree = "<group>"; };
+		744BDF5226B1891300F6833C /* SubtitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubtitleTableViewCell.xib; sourceTree = "<group>"; };
+		744BDF5526B18B9000F6833C /* MedaliListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedaliListTableViewCell.swift; sourceTree = "<group>"; };
+		744BDF5626B18B9000F6833C /* MedaliListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedaliListTableViewCell.xib; sourceTree = "<group>"; };
 		9866549026ADBC7D0047D2A7 /* Papah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Papah.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9866549326ADBC7D0047D2A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9866549526ADBC7D0047D2A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,8 +137,6 @@
 		9866551426ADCF010047D2A7 /* MedaliListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedaliListViewModel.swift; sourceTree = "<group>"; };
 		9866551626ADCF470047D2A7 /* MedaliListCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedaliListCollectionCell.swift; sourceTree = "<group>"; };
 		9866551726ADCF470047D2A7 /* MedaliListCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedaliListCollectionCell.xib; sourceTree = "<group>"; };
-		9866551A26ADCF5B0047D2A7 /* MedaliListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedaliListTableCell.swift; sourceTree = "<group>"; };
-		9866551B26ADCF5B0047D2A7 /* MedaliListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedaliListTableCell.xib; sourceTree = "<group>"; };
 		9866551E26ADCF6E0047D2A7 /* TantanganList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TantanganList.storyboard; sourceTree = "<group>"; };
 		9866552026ADCF830047D2A7 /* TantanganListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganListController.swift; sourceTree = "<group>"; };
 		9866552426ADCFC30047D2A7 /* TantanganListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganListViewModel.swift; sourceTree = "<group>"; };
@@ -557,8 +561,10 @@
 		986654E526ADC88D0047D2A7 /* Table Cell */ = {
 			isa = PBXGroup;
 			children = (
-				9866551A26ADCF5B0047D2A7 /* MedaliListTableCell.swift */,
-				9866551B26ADCF5B0047D2A7 /* MedaliListTableCell.xib */,
+				744BDF5126B1891300F6833C /* SubtitleTableViewCell.swift */,
+				744BDF5226B1891300F6833C /* SubtitleTableViewCell.xib */,
+				744BDF5526B18B9000F6833C /* MedaliListTableViewCell.swift */,
+				744BDF5626B18B9000F6833C /* MedaliListTableViewCell.xib */,
 			);
 			path = "Table Cell";
 			sourceTree = "<group>";
@@ -750,11 +756,12 @@
 				986654F026ADCA530047D2A7 /* TantanganDetail.storyboard in Resources */,
 				BC8C9B7626AE8AFC0096F0E8 /* ExplorListTableCell.xib in Resources */,
 				BC2A95E726ADD021002AD800 /* Homepage.storyboard in Resources */,
+				744BDF5426B1891400F6833C /* SubtitleTableViewCell.xib in Resources */,
 				BC2A95DF26ADCFE6002AD800 /* TipsList.storyboard in Resources */,
 				BC2A95E326ADD002002AD800 /* TipsListTableCell.xib in Resources */,
+				744BDF5826B18B9000F6833C /* MedaliListTableViewCell.xib in Resources */,
 				986654EA26ADC96D0047D2A7 /* CompletionAlert.xib in Resources */,
 				BC8C9B7526AE8AFC0096F0E8 /* EksplorListCollectionCell.xib in Resources */,
-				9866551D26ADCF5B0047D2A7 /* MedaliListTableCell.xib in Resources */,
 				BC8C9B7026AE8AD80096F0E8 /* TipsDetail.storyboard in Resources */,
 				9866550B26ADCE570047D2A7 /* MedaliDetail.storyboard in Resources */,
 				9866551926ADCF470047D2A7 /* MedaliListCollectionCell.xib in Resources */,
@@ -805,7 +812,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC8C9B7326AE8AE70096F0E8 /* MedaliListTableCell.swift in Sources */,
 				981DDBD126ADD8CB00BB60F9 /* AppDelegate.swift in Sources */,
 				BC8C9B7426AE8AFC0096F0E8 /* EksplorDetailTableCell.swift in Sources */,
 				BC2A95F826ADD3B6002AD800 /* CoreDataManager.swift in Sources */,
@@ -833,6 +839,7 @@
 				BC8C9B6F26AE8AD80096F0E8 /* EksplorDetailViewModel.swift in Sources */,
 				BC8C9B6926AE8AD80096F0E8 /* MedaliDetailController.swift in Sources */,
 				986654F226ADCAC00047D2A7 /* TantanganDetailController.swift in Sources */,
+				744BDF5326B1891300F6833C /* SubtitleTableViewCell.swift in Sources */,
 				BC8C9B6E26AE8AD80096F0E8 /* EksplorListController.swift in Sources */,
 				BC8C9B7726AE8AFC0096F0E8 /* EksplorListCollectionCell.swift in Sources */,
 				BC8C9B7126AE8AD80096F0E8 /* EksplorDetailController.swift in Sources */,
@@ -840,6 +847,7 @@
 				9866552226ADCF830047D2A7 /* TantanganListController.swift in Sources */,
 				BC2BE86826AE82DF0067DB23 /* Date+Extension.swift in Sources */,
 				9866552526ADCFC30047D2A7 /* TantanganListViewModel.swift in Sources */,
+				744BDF5726B18B9000F6833C /* MedaliListTableViewCell.swift in Sources */,
 				9866552C26ADD0020047D2A7 /* TantanganListTableCell.swift in Sources */,
 				986654ED26ADCA240047D2A7 /* TantanganDetailTableCell.swift in Sources */,
 				BC2BE87326AE835A0067DB23 /* Extension+UIButton.swift in Sources */,
