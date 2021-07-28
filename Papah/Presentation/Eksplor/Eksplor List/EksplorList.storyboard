@@ -17,15 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="VZ0-dw-kJh">
-                                <rect key="frame" x="12" y="88" width="366" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="LIX-IO-Jlh"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cT2-tp-0qV">
-                                <rect key="frame" x="0.0" y="168" width="390" height="593"/>
+                                <rect key="frame" x="0.0" y="140" width="390" height="621"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="nLa-ji-wZs"/>
@@ -33,7 +26,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i6c-ty-kwQ" customClass="DesignableView" customModule="Papah" customModuleProvider="target">
-                                <rect key="frame" x="16" y="134" width="51" height="34"/>
+                                <rect key="frame" x="16" y="98" width="51" height="34"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pw-hI-n50">
                                         <rect key="frame" x="10" y="10" width="31" height="14.666666666666664"/>
@@ -62,7 +55,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hy3-Xd-IiV" customClass="DesignableView" customModule="Papah" customModuleProvider="target">
-                                <rect key="frame" x="73" y="134" width="78" height="35.333333333333343"/>
+                                <rect key="frame" x="73" y="98" width="78" height="35.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQZ-nU-Wea">
                                         <rect key="frame" x="10" y="10" width="33" height="16"/>
@@ -102,7 +95,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kda-C3-Z2q" customClass="DesignableView" customModule="Papah" customModuleProvider="target">
-                                <rect key="frame" x="157" y="134" width="78" height="35.333333333333343"/>
+                                <rect key="frame" x="157" y="98" width="78" height="35.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLj-9e-ehP">
                                         <rect key="frame" x="10" y="10" width="33" height="16"/>
@@ -142,7 +135,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sna-Vc-vx7" customClass="DesignableView" customModule="Papah" customModuleProvider="target">
-                                <rect key="frame" x="241" y="134" width="78" height="35.333333333333343"/>
+                                <rect key="frame" x="241" y="98" width="78" height="35.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaO-5n-AA3">
                                         <rect key="frame" x="10" y="10" width="33" height="16"/>
@@ -185,21 +178,18 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="kda-C3-Z2q" firstAttribute="top" secondItem="VZ0-dw-kJh" secondAttribute="bottom" constant="10" id="3hf-xt-hTg"/>
-                            <constraint firstItem="Hy3-Xd-IiV" firstAttribute="top" secondItem="VZ0-dw-kJh" secondAttribute="bottom" constant="10" id="71X-Kc-Wf6"/>
-                            <constraint firstItem="VZ0-dw-kJh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="HRW-DC-qR5"/>
+                            <constraint firstItem="kda-C3-Z2q" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="2oX-De-huv"/>
+                            <constraint firstItem="i6c-ty-kwQ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="Dv1-rX-ceP"/>
                             <constraint firstItem="cT2-tp-0qV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="K7q-5s-z2U"/>
                             <constraint firstItem="kda-C3-Z2q" firstAttribute="leading" secondItem="Hy3-Xd-IiV" secondAttribute="trailing" constant="6" id="OqI-dY-R3J"/>
-                            <constraint firstItem="cT2-tp-0qV" firstAttribute="top" secondItem="i6c-ty-kwQ" secondAttribute="bottom" id="PGB-Yb-T8D"/>
-                            <constraint firstItem="i6c-ty-kwQ" firstAttribute="top" secondItem="VZ0-dw-kJh" secondAttribute="bottom" constant="10" id="Pkc-35-Yyf"/>
+                            <constraint firstItem="cT2-tp-0qV" firstAttribute="top" secondItem="i6c-ty-kwQ" secondAttribute="bottom" constant="8" id="PGB-Yb-T8D"/>
                             <constraint firstItem="Hy3-Xd-IiV" firstAttribute="leading" secondItem="i6c-ty-kwQ" secondAttribute="trailing" constant="6" id="PuX-us-2rF"/>
                             <constraint firstItem="i6c-ty-kwQ" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="XDd-7W-MdA"/>
-                            <constraint firstItem="Sna-Vc-vx7" firstAttribute="top" secondItem="VZ0-dw-kJh" secondAttribute="bottom" constant="10" id="fga-yJ-kvG"/>
+                            <constraint firstItem="Sna-Vc-vx7" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="hmP-aa-NeR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="cT2-tp-0qV" secondAttribute="bottom" id="id4-A5-rnE"/>
                             <constraint firstItem="Sna-Vc-vx7" firstAttribute="leading" secondItem="kda-C3-Z2q" secondAttribute="trailing" constant="6" id="igj-tv-BV9"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VZ0-dw-kJh" secondAttribute="trailing" constant="12" id="mXi-Oj-d1v"/>
-                            <constraint firstItem="VZ0-dw-kJh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="tSV-ID-zyX"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cT2-tp-0qV" secondAttribute="trailing" id="wb1-Me-joj"/>
+                            <constraint firstItem="Hy3-Xd-IiV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="xJn-u2-0vv"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -216,7 +206,6 @@
                         <outlet property="filter3Label" destination="uaO-5n-AA3" id="9jQ-5N-lPo"/>
                         <outlet property="filterUtama" destination="i6c-ty-kwQ" id="crk-jo-3Gl"/>
                         <outlet property="filterUtamaLabel" destination="1pw-hI-n50" id="Xej-7f-2pp"/>
-                        <outlet property="searchBarOutlet" destination="VZ0-dw-kJh" id="BDx-IV-vGp"/>
                         <outlet property="tableViewOutlet" destination="cT2-tp-0qV" id="0w7-25-7wY"/>
                     </connections>
                 </viewController>

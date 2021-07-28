@@ -9,14 +9,12 @@ import UIKit
 
 class EksplorListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
-    
     private let viewModel = EksplorListViewModel()
     let strings = ["asdfefsa", "hahahah", "xoxoxoox"]
+    var searchBarCont = UISearchController()
     var filteredData: [String] = []
     var filterStrings: [String] = []
     
-    @IBOutlet weak var searchBarOutlet: UISearchBar!
     @IBOutlet weak var tableViewOutlet: UITableView!
     
     @IBOutlet weak var filterUtama: DesignableView!
@@ -45,6 +43,10 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
 
         filteredData = strings
         filterStrings = ["asdas", "asdasda"] // "asdasd"]
+        
+        navigationItem.searchController = searchBarCont
+        self.searchBarCont.searchBar.setValue("Batalkan", forKey: "cancelButtonText")
+
         setupFilter()
     }
     
