@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TantanganListTableCell: UITableViewCell {
+class TantanganLevelTableCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

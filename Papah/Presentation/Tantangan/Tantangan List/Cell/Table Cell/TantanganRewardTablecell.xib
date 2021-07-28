@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TantanganRewardTablecell" id="ufM-ug-o4p" customClass="TantanganRewardTablecell" customModule="Papah" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ufM-ug-o4p" id="bkC-8y-cVC">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2i1-fZ-lDN" customClass="DesignableView" customModule="Papah" customModuleProvider="target">
+                        <rect key="frame" x="16" y="4" width="382" height="124"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vhJ-yF-pv3">
+                                <rect key="frame" x="8" y="8" width="366" height="108"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cRf-qa-uVE">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vhJ-yF-pv3" secondAttribute="trailing" constant="8" id="CKA-gs-oEM"/>
+                            <constraint firstAttribute="bottom" secondItem="vhJ-yF-pv3" secondAttribute="bottom" constant="8" id="WLZ-VX-U8p"/>
+                            <constraint firstItem="vhJ-yF-pv3" firstAttribute="top" secondItem="2i1-fZ-lDN" secondAttribute="top" constant="8" id="hDU-gf-KeI"/>
+                            <constraint firstItem="vhJ-yF-pv3" firstAttribute="leading" secondItem="2i1-fZ-lDN" secondAttribute="leading" constant="8" id="yJ2-Or-gWI"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="2i1-fZ-lDN" secondAttribute="trailing" constant="16" id="PS3-Pm-aQt"/>
+                    <constraint firstItem="2i1-fZ-lDN" firstAttribute="leading" secondItem="bkC-8y-cVC" secondAttribute="leading" constant="16" id="eU0-Rn-Dj9"/>
+                    <constraint firstAttribute="bottom" secondItem="2i1-fZ-lDN" secondAttribute="bottom" constant="4" id="g5d-xr-fkE"/>
+                    <constraint firstItem="2i1-fZ-lDN" firstAttribute="top" secondItem="bkC-8y-cVC" secondAttribute="top" constant="4" id="ygs-5I-ate"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="collectionView" destination="vhJ-yF-pv3" id="POe-EW-cM3"/>
+            </connections>
+            <point key="canvasLocation" x="109" y="20"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

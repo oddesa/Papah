@@ -20,7 +20,15 @@ class TipsListController: UIViewController, UITableViewDelegate, UITableViewData
         print("CELL \(cell)")
         return cell
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("DID SELECT")
+        let tipsScene = UIStoryboard(name: "TipsDetail", bundle: nil).instantiateViewController(withIdentifier: "TipsDetailController") as! TipsDetailController
+        self.navigationController?.pushViewController(tipsScene, animated: true)
+    }
     
     private let viewModel = TipsListViewModel()
     

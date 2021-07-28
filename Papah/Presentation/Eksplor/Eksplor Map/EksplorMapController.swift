@@ -6,26 +6,56 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
+import Combine
 
-class EksplorMapController: UIViewController {
+protocol EksplorMapDelegate: AnyObject {
+    func beginRouteTracking()
+}
+
+class EksplorMapController: UIViewController, UIGestureRecognizerDelegate {
     
-    private let viewModel = EksplorMapViewModel()
+    private var trashBag = Set<AnyCancellable>()
+
+    @IBOutlet weak var mapView: MKMapView!
     
+    // MARK: - initializers
+    let viewModel = EksplorMapViewModel()
+    weak var delegate: EksplorMapBottomSheetDelegate?
+
+    // MARK: - Bottom sheet initializers
+    var bottomSheetViewController: EksplorMapBottomSheet = EksplorMapBottomSheet(nibName: EksplorMapBottomSheet.id, bundle: nil)
+    var configuration: BottomSheetConfiguration!
+    var state: BottomSheetState = .initial
+    var topConstraint = NSLayoutConstraint()
+
+    let locationManager = CLLocationManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+
+        setupBottomSheet()
+        attemptLocationAccess()
+        setupViewModel()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupViewModel() {
+        viewModel.onAddressString.sink { address in
+            print("CURRENT ADD \(address)")
+            self.delegate?.updateAddress(address: address)
+        }.store(in: &trashBag)
     }
-    */
 
+}
+
+extension EksplorMapController: EksplorMapDelegate {
+    
+    func beginRouteTracking() {
+        //Dummy location
+        guard let coordinate = locationManager.location?.coordinate else {return}
+        let destinationLocation = CLLocationCoordinate2D(latitude: 37.323, longitude: -122.03218)
+        createPath(sourceLocation: coordinate, destinationLocation: destinationLocation)
+    }
+    
 }

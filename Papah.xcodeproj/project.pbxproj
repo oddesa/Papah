@@ -33,6 +33,11 @@
 		9866552526ADCFC30047D2A7 /* TantanganListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552426ADCFC30047D2A7 /* TantanganListViewModel.swift */; };
 		9866552826ADCFE60047D2A7 /* TantanganListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552626ADCFE60047D2A7 /* TantanganListCollectionCell.swift */; };
 		9866552C26ADD0020047D2A7 /* TantanganListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552A26ADD0020047D2A7 /* TantanganListTableCell.swift */; };
+		BC1F4F8326AF063E00FDC3D3 /* EksplorMapBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F4F8226AF063E00FDC3D3 /* EksplorMapBottomSheet.swift */; };
+		BC1F4F8526AF0C4F00FDC3D3 /* EksplorMapController+MapConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F4F8426AF0C4F00FDC3D3 /* EksplorMapController+MapConfig.swift */; };
+		9866552826ADCFE60047D2A7 /* TantanganRewardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552626ADCFE60047D2A7 /* TantanganRewardCell.swift */; };
+		9866552C26ADD0020047D2A7 /* TantanganLevelTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552A26ADD0020047D2A7 /* TantanganLevelTableCell.swift */; };
+		BC14948A26B075EE00C28E62 /* TantanganLevelTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9866552B26ADD0020047D2A7 /* TantanganLevelTableCell.xib */; };
 		BC2A95B726ADCE90002AD800 /* EksplorMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95B426ADCE89002AD800 /* EksplorMapController.swift */; };
 		BC2A95B826ADCE90002AD800 /* EksplorMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95B526ADCE89002AD800 /* EksplorMapViewModel.swift */; };
 		BC2A95BD26ADCECE002AD800 /* EksplorDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95B926ADCEBE002AD800 /* EksplorDetail.storyboard */; };
@@ -81,6 +86,21 @@
 		BC8C9B7526AE8AFC0096F0E8 /* EksplorListCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95CE26ADCF65002AD800 /* EksplorListCollectionCell.xib */; };
 		BC8C9B7626AE8AFC0096F0E8 /* ExplorListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95CA26ADCF4A002AD800 /* ExplorListTableCell.xib */; };
 		BC8C9B7726AE8AFC0096F0E8 /* EksplorListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95CD26ADCF65002AD800 /* EksplorListCollectionCell.swift */; };
+		BCD827B226AEFA90000C2452 /* EksplorMapController+SheetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD827B126AEFA90000C2452 /* EksplorMapController+SheetConfig.swift */; };
+		BCD827B426AF0264000C2452 /* EksplorMapBottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD827B326AF0264000C2452 /* EksplorMapBottomSheet.xib */; };
+		BCB6955A26B102DE001E90F0 /* TantanganEarningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6955826B102DE001E90F0 /* TantanganEarningCell.swift */; };
+		BCB6955B26B102DE001E90F0 /* TantanganEarningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCB6955926B102DE001E90F0 /* TantanganEarningCell.xib */; };
+		BCB6955F26B1038F001E90F0 /* TantanganMonthlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6955D26B1038F001E90F0 /* TantanganMonthlyCell.swift */; };
+		BCB6956026B1038F001E90F0 /* TantanganMonthlyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCB6955E26B1038F001E90F0 /* TantanganMonthlyCell.xib */; };
+		BCB6956326B103B9001E90F0 /* TantanganRewardHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6956126B103B9001E90F0 /* TantanganRewardHeadCell.swift */; };
+		BCB6956626B10ABA001E90F0 /* TantanganRewardHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCB6956526B10ABA001E90F0 /* TantanganRewardHeadCell.xib */; };
+		BCB6956926B1102B001E90F0 /* TantanganMonthlyHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6956826B1102B001E90F0 /* TantanganMonthlyHeadCell.swift */; };
+		BCB6956A26B1105C001E90F0 /* TantanganMonthlyHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCB6956726B1102B001E90F0 /* TantanganMonthlyHeadCell.xib */; };
+		BCB6956D26B11411001E90F0 /* TantanganRewardTablecell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6956B26B11410001E90F0 /* TantanganRewardTablecell.swift */; };
+		BCB6956E26B11411001E90F0 /* TantanganRewardTablecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCB6956C26B11411001E90F0 /* TantanganRewardTablecell.xib */; };
+		BCCA0A0826B1167700C2DD6F /* TantanganRewardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9866552726ADCFE60047D2A7 /* TantanganRewardCell.xib */; };
+		BCCA0A0A26B11D0E00C2DD6F /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0A0926B11D0E00C2DD6F /* DynamicHeightCollectionView.swift */; };
+		BF55702126AFCB030029BB54 /* EksplorListFilter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF55702026AFCB030029BB54 /* EksplorListFilter.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +160,12 @@
 		9866552726ADCFE60047D2A7 /* TantanganListCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganListCollectionCell.xib; sourceTree = "<group>"; };
 		9866552A26ADD0020047D2A7 /* TantanganListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganListTableCell.swift; sourceTree = "<group>"; };
 		9866552B26ADD0020047D2A7 /* TantanganListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganListTableCell.xib; sourceTree = "<group>"; };
+		BC1F4F8226AF063E00FDC3D3 /* EksplorMapBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorMapBottomSheet.swift; sourceTree = "<group>"; };
+		BC1F4F8426AF0C4F00FDC3D3 /* EksplorMapController+MapConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EksplorMapController+MapConfig.swift"; sourceTree = "<group>"; };
+		9866552626ADCFE60047D2A7 /* TantanganRewardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganRewardCell.swift; sourceTree = "<group>"; };
+		9866552726ADCFE60047D2A7 /* TantanganRewardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganRewardCell.xib; sourceTree = "<group>"; };
+		9866552A26ADD0020047D2A7 /* TantanganLevelTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganLevelTableCell.swift; sourceTree = "<group>"; };
+		9866552B26ADD0020047D2A7 /* TantanganLevelTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganLevelTableCell.xib; sourceTree = "<group>"; };
 		BC2A95B326ADCE89002AD800 /* EksplorMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EksplorMap.storyboard; sourceTree = "<group>"; };
 		BC2A95B426ADCE89002AD800 /* EksplorMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorMapController.swift; sourceTree = "<group>"; };
 		BC2A95B526ADCE89002AD800 /* EksplorMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorMapViewModel.swift; sourceTree = "<group>"; };
@@ -187,6 +213,20 @@
 		BC2BE86626AE82DF0067DB23 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		BC2BE87026AE83310067DB23 /* Extension+Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+Cell.swift"; sourceTree = "<group>"; };
 		BC2BE87226AE83590067DB23 /* Extension+UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
+		BCD827B126AEFA90000C2452 /* EksplorMapController+SheetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EksplorMapController+SheetConfig.swift"; sourceTree = "<group>"; };
+		BCD827B326AF0264000C2452 /* EksplorMapBottomSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorMapBottomSheet.xib; sourceTree = "<group>"; };
+		BCB6955826B102DE001E90F0 /* TantanganEarningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganEarningCell.swift; sourceTree = "<group>"; };
+		BCB6955926B102DE001E90F0 /* TantanganEarningCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganEarningCell.xib; sourceTree = "<group>"; };
+		BCB6955D26B1038F001E90F0 /* TantanganMonthlyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganMonthlyCell.swift; sourceTree = "<group>"; };
+		BCB6955E26B1038F001E90F0 /* TantanganMonthlyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganMonthlyCell.xib; sourceTree = "<group>"; };
+		BCB6956126B103B9001E90F0 /* TantanganRewardHeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganRewardHeadCell.swift; sourceTree = "<group>"; };
+		BCB6956526B10ABA001E90F0 /* TantanganRewardHeadCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganRewardHeadCell.xib; sourceTree = "<group>"; };
+		BCB6956726B1102B001E90F0 /* TantanganMonthlyHeadCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganMonthlyHeadCell.xib; sourceTree = "<group>"; };
+		BCB6956826B1102B001E90F0 /* TantanganMonthlyHeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganMonthlyHeadCell.swift; sourceTree = "<group>"; };
+		BCB6956B26B11410001E90F0 /* TantanganRewardTablecell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganRewardTablecell.swift; sourceTree = "<group>"; };
+		BCB6956C26B11411001E90F0 /* TantanganRewardTablecell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganRewardTablecell.xib; sourceTree = "<group>"; };
+		BCCA0A0926B11D0E00C2DD6F /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
+		BF55702026AFCB030029BB54 /* EksplorListFilter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EksplorListFilter.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,6 +380,7 @@
 		986654CE26ADC1760047D2A7 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
+				BF55702026AFCB030029BB54 /* EksplorListFilter.storyboard */,
 				BC2A95D126ADCF6D002AD800 /* EksplorListFilterController.swift */,
 				BC2A95D326ADCF8F002AD800 /* EksplorListFilterViewModel.swift */,
 				986654CF26ADC1810047D2A7 /* Table Cell */,
@@ -432,8 +473,11 @@
 		986654D726ADC42B0047D2A7 /* Eksplor Map */ = {
 			isa = PBXGroup;
 			children = (
+				BCD827B526AF029B000C2452 /* Bottom Sheet */,
 				BC2A95B326ADCE89002AD800 /* EksplorMap.storyboard */,
 				BC2A95B426ADCE89002AD800 /* EksplorMapController.swift */,
+				BCD827B126AEFA90000C2452 /* EksplorMapController+SheetConfig.swift */,
+				BC1F4F8426AF0C4F00FDC3D3 /* EksplorMapController+MapConfig.swift */,
 				BC2A95B526ADCE89002AD800 /* EksplorMapViewModel.swift */,
 			);
 			path = "Eksplor Map";
@@ -503,8 +547,18 @@
 		986654DE26ADC6D50047D2A7 /* Table Cell */ = {
 			isa = PBXGroup;
 			children = (
-				9866552A26ADD0020047D2A7 /* TantanganListTableCell.swift */,
-				9866552B26ADD0020047D2A7 /* TantanganListTableCell.xib */,
+				9866552A26ADD0020047D2A7 /* TantanganLevelTableCell.swift */,
+				9866552B26ADD0020047D2A7 /* TantanganLevelTableCell.xib */,
+				BCB6955826B102DE001E90F0 /* TantanganEarningCell.swift */,
+				BCB6955926B102DE001E90F0 /* TantanganEarningCell.xib */,
+				BCB6955D26B1038F001E90F0 /* TantanganMonthlyCell.swift */,
+				BCB6955E26B1038F001E90F0 /* TantanganMonthlyCell.xib */,
+				BCB6956826B1102B001E90F0 /* TantanganMonthlyHeadCell.swift */,
+				BCB6956726B1102B001E90F0 /* TantanganMonthlyHeadCell.xib */,
+				BCB6956126B103B9001E90F0 /* TantanganRewardHeadCell.swift */,
+				BCB6956526B10ABA001E90F0 /* TantanganRewardHeadCell.xib */,
+				BCB6956B26B11410001E90F0 /* TantanganRewardTablecell.swift */,
+				BCB6956C26B11411001E90F0 /* TantanganRewardTablecell.xib */,
 			);
 			path = "Table Cell";
 			sourceTree = "<group>";
@@ -530,8 +584,9 @@
 		986654E226ADC7EC0047D2A7 /* Collection Cell */ = {
 			isa = PBXGroup;
 			children = (
-				9866552626ADCFE60047D2A7 /* TantanganListCollectionCell.swift */,
-				9866552726ADCFE60047D2A7 /* TantanganListCollectionCell.xib */,
+				9866552626ADCFE60047D2A7 /* TantanganRewardCell.swift */,
+				9866552726ADCFE60047D2A7 /* TantanganRewardCell.xib */,
+				BCCA0A0926B11D0E00C2DD6F /* DynamicHeightCollectionView.swift */,
 			);
 			path = "Collection Cell";
 			sourceTree = "<group>";
@@ -632,6 +687,15 @@
 				BC2BE85F26AE82DE0067DB23 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BCD827B526AF029B000C2452 /* Bottom Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				BC1F4F8226AF063E00FDC3D3 /* EksplorMapBottomSheet.swift */,
+				BCD827B326AF0264000C2452 /* EksplorMapBottomSheet.xib */,
+			);
+			path = "Bottom Sheet";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -739,8 +803,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				986654A326ADBC800047D2A7 /* LaunchScreen.storyboard in Resources */,
+				BCB6956E26B11411001E90F0 /* TantanganRewardTablecell.xib in Resources */,
 				BC8C9B6A26AE8AD80096F0E8 /* EksplorList.storyboard in Resources */,
 				BC2A95C226ADCEFD002AD800 /* EksplorDetailTableCell.xib in Resources */,
+				BC14948A26B075EE00C28E62 /* TantanganLevelTableCell.xib in Resources */,
 				BC2A95BD26ADCECE002AD800 /* EksplorDetail.storyboard in Resources */,
 				BC2A95D926ADCFB1002AD800 /* EksplorListFilterTableCell.xib in Resources */,
 				BC8C9B6B26AE8AD80096F0E8 /* MedaliList.storyboard in Resources */,
@@ -748,18 +814,25 @@
 				BC2A95F126ADD098002AD800 /* TipsDetailCollectionCell.xib in Resources */,
 				986654A026ADBC800047D2A7 /* Assets.xcassets in Resources */,
 				986654F026ADCA530047D2A7 /* TantanganDetail.storyboard in Resources */,
+				BCB6955B26B102DE001E90F0 /* TantanganEarningCell.xib in Resources */,
 				BC8C9B7626AE8AFC0096F0E8 /* ExplorListTableCell.xib in Resources */,
 				BC2A95E726ADD021002AD800 /* Homepage.storyboard in Resources */,
 				BC2A95DF26ADCFE6002AD800 /* TipsList.storyboard in Resources */,
+				BF55702126AFCB030029BB54 /* EksplorListFilter.storyboard in Resources */,
 				BC2A95E326ADD002002AD800 /* TipsListTableCell.xib in Resources */,
 				986654EA26ADC96D0047D2A7 /* CompletionAlert.xib in Resources */,
+				BCD827B426AF0264000C2452 /* EksplorMapBottomSheet.xib in Resources */,
 				BC8C9B7526AE8AFC0096F0E8 /* EksplorListCollectionCell.xib in Resources */,
+				BCCA0A0826B1167700C2DD6F /* TantanganRewardCell.xib in Resources */,
 				9866551D26ADCF5B0047D2A7 /* MedaliListTableCell.xib in Resources */,
+				BCB6956A26B1105C001E90F0 /* TantanganMonthlyHeadCell.xib in Resources */,
 				BC8C9B7026AE8AD80096F0E8 /* TipsDetail.storyboard in Resources */,
 				9866550B26ADCE570047D2A7 /* MedaliDetail.storyboard in Resources */,
 				9866551926ADCF470047D2A7 /* MedaliListCollectionCell.xib in Resources */,
 				986654EE26ADCA240047D2A7 /* TantanganDetailTableCell.xib in Resources */,
+				BCB6956626B10ABA001E90F0 /* TantanganRewardHeadCell.xib in Resources */,
 				9866550726ADCD940047D2A7 /* Colors.xcassets in Resources */,
+				BCB6956026B1038F001E90F0 /* TantanganMonthlyCell.xib in Resources */,
 				9866551F26ADCF6E0047D2A7 /* TantanganList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -805,20 +878,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCB6956D26B11411001E90F0 /* TantanganRewardTablecell.swift in Sources */,
 				BC8C9B7326AE8AE70096F0E8 /* MedaliListTableCell.swift in Sources */,
+				BCB6955A26B102DE001E90F0 /* TantanganEarningCell.swift in Sources */,
 				981DDBD126ADD8CB00BB60F9 /* AppDelegate.swift in Sources */,
+				BC1F4F8326AF063E00FDC3D3 /* EksplorMapBottomSheet.swift in Sources */,
 				BC8C9B7426AE8AFC0096F0E8 /* EksplorDetailTableCell.swift in Sources */,
 				BC2A95F826ADD3B6002AD800 /* CoreDataManager.swift in Sources */,
-				9866552826ADCFE60047D2A7 /* TantanganListCollectionCell.swift in Sources */,
+				9866552826ADCFE60047D2A7 /* TantanganRewardCell.swift in Sources */,
 				9866551826ADCF470047D2A7 /* MedaliListCollectionCell.swift in Sources */,
 				9866551526ADCF010047D2A7 /* MedaliListViewModel.swift in Sources */,
 				BC2BE87126AE83310067DB23 /* Extension+Cell.swift in Sources */,
+				BCB6956926B1102B001E90F0 /* TantanganMonthlyHeadCell.swift in Sources */,
+				BCB6955F26B1038F001E90F0 /* TantanganMonthlyCell.swift in Sources */,
+				BCCA0A0A26B11D0E00C2DD6F /* DynamicHeightCollectionView.swift in Sources */,
 				9866549E26ADBC7E0047D2A7 /* Papah.xcdatamodeld in Sources */,
 				BC2A95ED26ADD073002AD800 /* TipsDetailController.swift in Sources */,
 				BC2A95C626ADCF24002AD800 /* EksplorListViewModel.swift in Sources */,
 				BC2BE86B26AE82DF0067DB23 /* UIView+Extension.swift in Sources */,
 				BC2A95D826ADCFB1002AD800 /* EksplorListFilterTableCell.swift in Sources */,
 				BC8C9B7226AE8AD80096F0E8 /* HomepageController.swift in Sources */,
+				BCD827B226AEFA90000C2452 /* EksplorMapController+SheetConfig.swift in Sources */,
 				BC2A95D526ADCF98002AD800 /* EksplorListFilterController.swift in Sources */,
 				BC2BE85D26AE82BA0067DB23 /* CommonFunction.swift in Sources */,
 				BC2BE86A26AE82DF0067DB23 /* TableViewCell+Extension.swift in Sources */,
@@ -832,6 +912,7 @@
 				986654E926ADC96D0047D2A7 /* CompletionAlert.swift in Sources */,
 				BC8C9B6F26AE8AD80096F0E8 /* EksplorDetailViewModel.swift in Sources */,
 				BC8C9B6926AE8AD80096F0E8 /* MedaliDetailController.swift in Sources */,
+				BC1F4F8526AF0C4F00FDC3D3 /* EksplorMapController+MapConfig.swift in Sources */,
 				986654F226ADCAC00047D2A7 /* TantanganDetailController.swift in Sources */,
 				BC8C9B6E26AE8AD80096F0E8 /* EksplorListController.swift in Sources */,
 				BC8C9B7726AE8AFC0096F0E8 /* EksplorListCollectionCell.swift in Sources */,
@@ -840,7 +921,8 @@
 				9866552226ADCF830047D2A7 /* TantanganListController.swift in Sources */,
 				BC2BE86826AE82DF0067DB23 /* Date+Extension.swift in Sources */,
 				9866552526ADCFC30047D2A7 /* TantanganListViewModel.swift in Sources */,
-				9866552C26ADD0020047D2A7 /* TantanganListTableCell.swift in Sources */,
+				9866552C26ADD0020047D2A7 /* TantanganLevelTableCell.swift in Sources */,
+				BCB6956326B103B9001E90F0 /* TantanganRewardHeadCell.swift in Sources */,
 				986654ED26ADCA240047D2A7 /* TantanganDetailTableCell.swift in Sources */,
 				BC2BE87326AE835A0067DB23 /* Extension+UIButton.swift in Sources */,
 				BC2BE86C26AE82DF0067DB23 /* String+Extension.swift in Sources */,
