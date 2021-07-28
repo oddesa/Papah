@@ -19,7 +19,9 @@ class EksplorListFilterController: UIViewController {
     
     @IBAction func resetPressed(_ sender: UIButton) {
         //reset all filter
+        // swiftlint:disable identifier_name
         for i in 0..<filterData.count {
+        // swiftlint:enable identifier_name
             if filterData[i].isSelected == true {
                 filterData[i].isSelected = false
             }

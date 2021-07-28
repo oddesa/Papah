@@ -47,45 +47,41 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: - TableView DataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension
-//        }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if indexPath.section == 0 {
-//            return UITableView.automaticDimension
-//        } else {
-//            return 40
-//        }
-//    }
-//
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if indexPath.section == 0 {
-//            return UITableView.automaticDimension
-//        } else {
-//            return 40
-//        }
-//    }
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath) as? ExplorListTableCell else {fatalError("identifiernya salah anying")}
-//        cell.textLabel?.text = filteredData[indexPath.row]
-//        return tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath) as? ExplorListTableCell else {fatalError("identifiernya salah anying")}
         
-        if indexPath.row == 0 {
-            return tableView.dequeueReusableCell(withIdentifier: "1", for: indexPath)
+        cell.wbklNameLabel.text = "test test hah hihi"
+        cell.wbklCategoryLabel.text = "Tukang loak sejati"
+        
+        let categories = ["asfaf"]
+        var putihputih = [cell.wbklSampahKategori1, cell.wbklSampahKategori2, cell.wbklSampahKategori3, cell.wbklSampahKategori4]
+        let textPutihPutih = [cell.wbklSampahKateogri1Label, cell.wbklSampahKategori2Label, cell.wbklSampahKategori3Label, cell.wbklSampahKategori4Label]
+        
+        
+        
+        for int in 0..<categories.count {
+            if int < 3 {
+                textPutihPutih[int]?.text = categories[int]
+            } else {
+                    textPutihPutih[3]?.text = "+\(categories.count-3)"
+            }
         }
         
-        if indexPath.row == 1 {
-            return tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath)
+        for int in 0..<categories.count {
+            if int < 4 {
+                putihputih.remove(at: 0)
+            }
         }
         
+        for putih in putihputih {
+            putih?.removeFromSuperview()
+
+        }
         
-        return UITableViewCell()
+        return cell
     }
 
     // MARK: - TableView Delegate
