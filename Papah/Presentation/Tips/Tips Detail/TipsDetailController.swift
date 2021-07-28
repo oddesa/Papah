@@ -11,7 +11,7 @@ class TipsDetailController: UIViewController, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tipsDetailDummy.count
     }
-    
+     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = tipsDetailDummy[indexPath.row]
         let cell = tipsDetailCollection.dequeueReusableCell(withReuseIdentifier: "tipsDetailCell", for: indexPath) as! TipsDetailCollectionCell
