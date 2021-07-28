@@ -15,7 +15,6 @@ struct FilterWaste {
     
     static func getFilterWasteData() -> [FilterWaste]{
         var fwData = [FilterWaste]()
-        //let obImage = BagelsOnboardingImage()
         
         let fwData1 = FilterWaste(img: #imageLiteral(resourceName: "WhatsApp Image 2021-07-19 at 08.50.13"), title: "Elektronik", isSelected: false)
         let fwData2 = FilterWaste(img: #imageLiteral(resourceName: "WhatsApp Image 2021-07-19 at 08.50.13"), title: "Kardus", isSelected: false)

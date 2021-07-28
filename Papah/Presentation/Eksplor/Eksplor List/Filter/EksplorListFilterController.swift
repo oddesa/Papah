@@ -46,6 +46,7 @@ class EksplorListFilterController: UIViewController {
     }
 }
 
+//MARK: Setup
 extension EksplorListFilterController {
     func nibSetup() {
         let nib = UINib(nibName: "\(EksplorListFilterTableCell.self)", bundle: nil)
@@ -63,6 +64,7 @@ extension EksplorListFilterController {
     }
 }
 
+//MARK: Tableview
 extension EksplorListFilterController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "filterCell") as! EksplorListFilterTableCell
