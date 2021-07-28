@@ -11,6 +11,8 @@ class EksplorDetailController: UIViewController {
     
     private let viewModel = EksplorDetailViewModel()
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
