@@ -63,6 +63,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Used to get current location blablabla</string>
+	<string>Anda akan mendapatkan petunjuk arah, estimasi waktu perjalanan, dan klaim poin sehingga satu langkah lebih dekat ke sebuah penghargaan</string>
 </dict>
 </plist>
