@@ -9,6 +9,8 @@ import UIKit
 
 class MedaliListCollectionViewCell: UICollectionViewCell {
 
+    static let identifier = "MedaliListCollectionViewCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
