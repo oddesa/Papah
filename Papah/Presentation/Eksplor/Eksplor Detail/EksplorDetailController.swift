@@ -21,7 +21,7 @@ class EksplorDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        registerNib()
     }
 
 }
@@ -30,14 +30,11 @@ class EksplorDetailController: UIViewController {
 
 extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
     
-//    func registerNib() {
-//        tableView.register(UINib(nibName: TantanganLevelTableCell.cellIdentifier(), bundle: nil), forCellReuseIdentifier: TantanganLevelTableCell.cellIdentifier())
-//        tableView.register(UINib(nibName: TantanganEarningCell.cellIdentifier(), bundle: nil), forCellReuseIdentifier: TantanganEarningCell.cellIdentifier())
-//        tableView.register(UINib(nibName: TantanganMonthlyCell.cellIdentifier(), bundle: nil), forCellReuseIdentifier: TantanganMonthlyCell.cellIdentifier())
-//        tableView.register(UINib(nibName: TantanganRewardTablecell.cellIdentifier(), bundle: nil), forCellReuseIdentifier: TantanganRewardTablecell.cellIdentifier())
-//        tableView.register(UINib(nibName: "TantanganMonthlyHeadCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "TantanganMonthlyHeadCell")
-//        tableView.register(UINib(nibName: "TantanganRewardHeadCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "TantanganRewardHeadCell")
-//    }
+    func registerNib() {
+        tableView.register(UINib(nibName: EksplorDetailTableCell.cellIdentifier(), bundle: nil), forCellReuseIdentifier: EksplorDetailTableCell.cellIdentifier())
+        tableView.register(UINib(nibName: EksplorDetailLimbarCell.cellIdentifier(), bundle: nil), forCellReuseIdentifier: EksplorDetailLimbarCell.cellIdentifier())
+        tableView.register(UINib(nibName: EksplorDetailEarningCell.cellIdentifier(), bundle: nil), forCellReuseIdentifier: EksplorDetailEarningCell.cellIdentifier())
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return [sectionDetail, sectionWaste].count
