@@ -51,7 +51,7 @@
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="HX7-Ss-fkh">
                         <barButtonItem key="rightBarButtonItem" image="square.and.arrow.up" catalog="system" id="wG4-Ex-056">
                             <connections>
-                                <action selector="shareMedali:" destination="Y6W-OH-hqX" id="qoP-QO-448"/>
+                                <action selector="shareMedaliWithSender:" destination="Y6W-OH-hqX" id="KJQ-aE-vG7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
