@@ -98,6 +98,10 @@
 		BCCA0A0A26B11D0E00C2DD6F /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0A0926B11D0E00C2DD6F /* DynamicHeightCollectionView.swift */; };
 		BCD827B226AEFA90000C2452 /* EksplorMapController+SheetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD827B126AEFA90000C2452 /* EksplorMapController+SheetConfig.swift */; };
 		BCD827B426AF0264000C2452 /* EksplorMapBottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD827B326AF0264000C2452 /* EksplorMapBottomSheet.xib */; };
+		BCEE6E4F26B1BCA700D4D250 /* EksplorDetailLimbarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEE6E4D26B1BCA700D4D250 /* EksplorDetailLimbarCell.swift */; };
+		BCEE6E5026B1BCA700D4D250 /* EksplorDetailLimbarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCEE6E4E26B1BCA700D4D250 /* EksplorDetailLimbarCell.xib */; };
+		BCEE6E5326B1BCB900D4D250 /* EksplorDetailEarningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEE6E5126B1BCB900D4D250 /* EksplorDetailEarningCell.swift */; };
+		BCEE6E5426B1BCB900D4D250 /* EksplorDetailEarningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCEE6E5226B1BCB900D4D250 /* EksplorDetailEarningCell.xib */; };
 		BF55702126AFCB030029BB54 /* EksplorListFilter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF55702026AFCB030029BB54 /* EksplorListFilter.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -220,6 +224,10 @@
 		BCCA0A0926B11D0E00C2DD6F /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
 		BCD827B126AEFA90000C2452 /* EksplorMapController+SheetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EksplorMapController+SheetConfig.swift"; sourceTree = "<group>"; };
 		BCD827B326AF0264000C2452 /* EksplorMapBottomSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorMapBottomSheet.xib; sourceTree = "<group>"; };
+		BCEE6E4D26B1BCA700D4D250 /* EksplorDetailLimbarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorDetailLimbarCell.swift; sourceTree = "<group>"; };
+		BCEE6E4E26B1BCA700D4D250 /* EksplorDetailLimbarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorDetailLimbarCell.xib; sourceTree = "<group>"; };
+		BCEE6E5126B1BCB900D4D250 /* EksplorDetailEarningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorDetailEarningCell.swift; sourceTree = "<group>"; };
+		BCEE6E5226B1BCB900D4D250 /* EksplorDetailEarningCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorDetailEarningCell.xib; sourceTree = "<group>"; };
 		BF55702026AFCB030029BB54 /* EksplorListFilter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EksplorListFilter.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -482,6 +490,10 @@
 			children = (
 				BC2A95BF26ADCEFD002AD800 /* EksplorDetailTableCell.swift */,
 				BC2A95C026ADCEFD002AD800 /* EksplorDetailTableCell.xib */,
+				BCEE6E4D26B1BCA700D4D250 /* EksplorDetailLimbarCell.swift */,
+				BCEE6E4E26B1BCA700D4D250 /* EksplorDetailLimbarCell.xib */,
+				BCEE6E5126B1BCB900D4D250 /* EksplorDetailEarningCell.swift */,
+				BCEE6E5226B1BCB900D4D250 /* EksplorDetailEarningCell.xib */,
 			);
 			path = "Table Cell";
 			sourceTree = "<group>";
@@ -798,6 +810,7 @@
 			files = (
 				986654A326ADBC800047D2A7 /* LaunchScreen.storyboard in Resources */,
 				BCB6956E26B11411001E90F0 /* TantanganRewardTablecell.xib in Resources */,
+				BCEE6E5426B1BCB900D4D250 /* EksplorDetailEarningCell.xib in Resources */,
 				BC8C9B6A26AE8AD80096F0E8 /* EksplorList.storyboard in Resources */,
 				BC2A95C226ADCEFD002AD800 /* EksplorDetailTableCell.xib in Resources */,
 				BC14948A26B075EE00C28E62 /* TantanganLevelTableCell.xib in Resources */,
@@ -806,6 +819,7 @@
 				BC8C9B6B26AE8AD80096F0E8 /* MedaliList.storyboard in Resources */,
 				BC8C9B6C26AE8AD80096F0E8 /* EksplorMap.storyboard in Resources */,
 				BC2A95F126ADD098002AD800 /* TipsDetailCollectionCell.xib in Resources */,
+				BCEE6E5026B1BCA700D4D250 /* EksplorDetailLimbarCell.xib in Resources */,
 				986654A026ADBC800047D2A7 /* Assets.xcassets in Resources */,
 				986654F026ADCA530047D2A7 /* TantanganDetail.storyboard in Resources */,
 				BCB6955B26B102DE001E90F0 /* TantanganEarningCell.xib in Resources */,
@@ -888,6 +902,7 @@
 				BCCA0A0A26B11D0E00C2DD6F /* DynamicHeightCollectionView.swift in Sources */,
 				9866549E26ADBC7E0047D2A7 /* Papah.xcdatamodeld in Sources */,
 				BC2A95ED26ADD073002AD800 /* TipsDetailController.swift in Sources */,
+				BCEE6E5326B1BCB900D4D250 /* EksplorDetailEarningCell.swift in Sources */,
 				BC2A95C626ADCF24002AD800 /* EksplorListViewModel.swift in Sources */,
 				BC2BE86B26AE82DF0067DB23 /* UIView+Extension.swift in Sources */,
 				BC2A95D826ADCFB1002AD800 /* EksplorListFilterTableCell.swift in Sources */,
@@ -926,6 +941,7 @@
 				BC2BE86D26AE82DF0067DB23 /* UIColor+Extension.swift in Sources */,
 				BC2A95F026ADD098002AD800 /* TipsDetailCollectionCell.swift in Sources */,
 				BC8C9B6D26AE8AD80096F0E8 /* MedaliListController.swift in Sources */,
+				BCEE6E4F26B1BCA700D4D250 /* EksplorDetailLimbarCell.swift in Sources */,
 				BC2A95EC26ADD073002AD800 /* TipsDetailViewModel.swift in Sources */,
 				BC2BE86E26AE82DF0067DB23 /* UIImage+Extension.swift in Sources */,
 				9866549626ADBC7D0047D2A7 /* SceneDelegate.swift in Sources */,
