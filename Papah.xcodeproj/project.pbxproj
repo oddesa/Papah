@@ -12,7 +12,7 @@
 		9866549E26ADBC7E0047D2A7 /* Papah.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9866549C26ADBC7E0047D2A7 /* Papah.xcdatamodeld */; };
 		986654A026ADBC800047D2A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9866549F26ADBC800047D2A7 /* Assets.xcassets */; };
 		986654A326ADBC800047D2A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986654A126ADBC800047D2A7 /* LaunchScreen.storyboard */; };
-		986654AE26ADBC800047D2A7 /* PapahTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986654AD26ADBC800047D2A7 /* PapahTests.swift */; };
+		986654AE26ADBC800047D2A7 /* TipsRepositoryUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986654AD26ADBC800047D2A7 /* TipsRepositoryUnitTest.swift */; };
 		986654B926ADBC800047D2A7 /* PapahUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986654B826ADBC800047D2A7 /* PapahUITests.swift */; };
 		986654E926ADC96D0047D2A7 /* CompletionAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986654E726ADC96D0047D2A7 /* CompletionAlert.swift */; };
 		986654EA26ADC96D0047D2A7 /* CompletionAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 986654E826ADC96D0047D2A7 /* CompletionAlert.xib */; };
@@ -132,7 +132,7 @@
 		986654A226ADBC800047D2A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		986654A426ADBC800047D2A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		986654A926ADBC800047D2A7 /* PapahTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PapahTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		986654AD26ADBC800047D2A7 /* PapahTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PapahTests.swift; sourceTree = "<group>"; };
+		986654AD26ADBC800047D2A7 /* TipsRepositoryUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsRepositoryUnitTest.swift; sourceTree = "<group>"; };
 		986654AF26ADBC800047D2A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		986654B426ADBC800047D2A7 /* PapahUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PapahUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		986654B826ADBC800047D2A7 /* PapahUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PapahUITests.swift; sourceTree = "<group>"; };
@@ -294,7 +294,7 @@
 		986654AC26ADBC800047D2A7 /* PapahTests */ = {
 			isa = PBXGroup;
 			children = (
-				986654AD26ADBC800047D2A7 /* PapahTests.swift */,
+				986654AD26ADBC800047D2A7 /* TipsRepositoryUnitTest.swift */,
 				986654AF26ADBC800047D2A7 /* Info.plist */,
 			);
 			path = PapahTests;
@@ -957,7 +957,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				986654AE26ADBC800047D2A7 /* PapahTests.swift in Sources */,
+				986654AE26ADBC800047D2A7 /* TipsRepositoryUnitTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

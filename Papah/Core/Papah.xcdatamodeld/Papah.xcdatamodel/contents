@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Sampah" representedClassName="Sampah" syncable="YES" codeGenerationType="category">
+    <entity name="Sampah" representedClassName="Sampah" syncable="YES" codeGenerationType="class">
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="sampah_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="sampahDetail" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SampahDetail" inverseName="ofSampah" inverseEntity="SampahDetail"/>
     </entity>
-    <entity name="SampahDetail" representedClassName="SampahDetail" syncable="YES" codeGenerationType="category">
+    <entity name="SampahDetail" representedClassName="SampahDetail" syncable="YES" codeGenerationType="class">
         <attribute name="detail" optional="YES" attributeType="String"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="sampah_detail_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
