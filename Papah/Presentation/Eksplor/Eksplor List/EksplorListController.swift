@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EksplorListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EksplorListController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
     private let viewModel = EksplorListViewModel()
     let strings = ["asdfefsa", "hahahah", "xoxoxoox"]
@@ -16,99 +16,30 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
     var filterStrings: [String] = []
     
     @IBOutlet weak var tableViewOutlet: UITableView!
-    
-    @IBOutlet weak var filterUtama: DesignableView!
-    @IBOutlet weak var filterUtamaLabel: UILabel!
-    
-    @IBOutlet weak var filter1: DesignableView!
-    @IBOutlet weak var filter1Label: UILabel!
-    @IBOutlet weak var filter1Button: UIButton!
-    
-    @IBOutlet weak var filter2: DesignableView!
-    @IBOutlet weak var filter2Label: UILabel!
-    @IBOutlet weak var filter2Button: UIButton!
-    
-    @IBOutlet weak var filter3: DesignableView!
-    @IBOutlet weak var filter3Label: UILabel!
-    @IBOutlet weak var filter3Button: UIButton!
-    
-    
+    @IBOutlet weak var collectionViewOutlet: UICollectionView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib = UINib(nibName: "ExplorListTableCell", bundle: nil)
-        tableViewOutlet.register(nib, forCellReuseIdentifier: "ExplorListTableCell")
-
+        let nibTable = UINib(nibName: "ExplorListTableCell", bundle: nil)
+        tableViewOutlet.register(nibTable, forCellReuseIdentifier: "ExplorListTableCell")
+        
+        let nibColl = UINib(nibName: "EksplorListCollectionCell", bundle: nil)
+        collectionViewOutlet.register(nibColl, forCellWithReuseIdentifier: "EksplorListCollectionCell")
+        
+        collectionViewOutlet.delegate = self
+        collectionViewOutlet.dataSource = self
+        collectionViewOutlet.showsHorizontalScrollIndicator = false
+        
         filteredData = strings
         filterStrings = ["asdas", "asdasda"] // "asdasd"]
         
         navigationItem.searchController = searchBarCont
         self.searchBarCont.searchBar.setValue("Batalkan", forKey: "cancelButtonText")
-
-        setupFilter()
     }
     
-    func setupFilter() {
-        var filterViews = [filter1, filter2, filter3]
-        var filterLabels = [filter1Label, filter2Label, filter3Label]
-        var filterButtons = [filter1Button, filter2Button, filter3Button]
-        
-        if filterStrings.count != 0 {
-            filterUtama.borderWidth = 1
-            filterUtama.backgroundColor = filter1.backgroundColor
-            filterUtama.borderColor = .iconIolite
-            filterUtamaLabel.textColor = .iconIolite
-            filterUtamaLabel.text = "Yahud"
-        } else {
-            filterUtama.borderColor = .disabled
-            filterUtamaLabel.textColor = .black
-            filterUtamaLabel.text = "Yahud"
-        }
-        
-        for int in 0..<filterStrings.count {
-            if int < 3 {
-                filterLabels[int]?.text = filterStrings[int]
-            }
-//            else {
-//                    filterLabels[3]?.text = "+\(categories.count-3)"
-//            }
-        }
-        
-        for fView in filterViews {
-            fView?.alpha = 1
-        }
-        
-        for int in 0..<filterStrings.count {
-            if int < 3 {
-                filterViews.remove(at: 0)
-            }
-        }
-//
-        for fView in filterViews {
-            fView?.alpha = 0
-        }
-        
-//        for fView in filterViews {
-//            view.addSubview(fView!)
-//        }
-    }
     
-    @IBAction func filter1CancelButton(_ sender: Any) {
-        filterStrings.remove(at: 0)
-        setupFilter()
-    }
-    
-    @IBAction func filter2CancelButton(_ sender: Any) {
-        filterStrings.remove(at: 1)
-        setupFilter()
-    }
-    
-    @IBAction func filter3CancelButton(_ sender: Any) {
-        filterStrings.remove(at: 2)
-        setupFilter()
-    }
     
 
     /*
@@ -167,30 +98,134 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
-}
-
-// MARK: - SearchBar
-extension EksplorListController: UISearchBarDelegate {
+// MARK: - CollectionView
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-            DispatchQueue.main.async {
-                searchBar.resignFirstResponder()
-            }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EksplorListCollectionCell", for: indexPath) as? EksplorListCollectionCell else {
+            fatalError("salah identifier si collection")
         }
-    
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
-        filteredData = []
         
-        for string in strings {
-            if string.uppercased().contains(searchText.uppercased()) {
-                filteredData.append(string)
-            }
+        if indexPath.row == 1 {
+            print("yey")
+            cell.categoryLabel.text = "yadyadyaydaydya"
         }
-    
-        self.tableViewOutlet.reloadData()
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? EksplorListCollectionCell else {fatalError("cugs")}
+        
+        if cell.categoryBubble.backgroundColor == .red {
+            cell.categoryBubble.backgroundColor = .clear
+        } else {
+            cell.categoryBubble.backgroundColor = .red
+        }
         
         
     }
 }
+
+
+//extension EksplorListController: UICollectionViewDelegate, UICollectionViewDataSource {
+//    func setupCollectionView() {
+//        collectionView?.showsHorizontalScrollIndicator = false
+//
+//        collectionView.delegate = self
+//        collectionView.dataSource = self
+//
+//        collectionView?.register(UINib(nibName: MedicineTableCellItem.identifier, bundle: nil), forCellWithReuseIdentifier: MedicineTableCellItem.identifier)
+//        collectionView.reloadData()
+//
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//
+//        if isHistory {
+//            return medicineBaskets.count
+//        } else {
+//            return medicineLibrary?.count ?? 1
+//        }
+//
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCellId, for: indexPath) as? MedicineTableCellItem else {
+//            return UICollectionViewCell()
+//        }
+//
+//        if isHistory {
+//            if indexPath.row == medicineBaskets.count - 1 {
+//                cell.viewDivider.isHidden = true
+//            } else {
+//                cell.viewDivider.isHidden = false
+//            }
+//            cell.medicineBasket = medicineBaskets[indexPath.row]
+//
+//        } else {
+//            if indexPath.row == (medicineLibrary?.count ?? 1) - 1 {
+//                cell.viewDivider.isHidden = true
+//            } else {
+//                cell.viewDivider.isHidden = false
+//            }
+//            cell.medicineEntries = medicineEntries
+//            cell.medicineItem = medicineLibrary?[indexPath.row]
+//
+//        }
+//        cell.backgroundColor = .red
+//        return cell
+//    }
+//
+//}
+//
+
+
+
+
+// MARK: - Kuburan
+
+//    func setupFilter() {
+//        var filterViews = [filter1, filter2, filter3]
+//        var filterLabels = [filter1Label, filter2Label, filter3Label]
+//        var filterButtons = [filter1Button, filter2Button, filter3Button]
+//
+//        if filterStrings.count != 0 {
+//            filterUtama.borderWidth = 1
+//            filterUtama.backgroundColor = filter1.backgroundColor
+//            filterUtama.borderColor = .iconIolite
+//            filterUtamaLabel.textColor = .iconIolite
+//            filterUtamaLabel.text = "Yahud"
+//        } else {
+//            filterUtama.borderColor = .disabled
+//            filterUtamaLabel.textColor = .black
+//            filterUtamaLabel.text = "Yahud"
+//        }
+//
+//        for int in 0..<filterStrings.count {
+//            if int < 3 {
+//                filterLabels[int]?.text = filterStrings[int]
+//            }
+//            else {
+//                    filterLabels[3]?.text = "+\(categories.count-3)"
+//            }
+//        }
+//
+//        for fView in filterViews {
+//            fView?.alpha = 1
+//        }
+//
+//        for int in 0..<filterStrings.count {
+//            if int < 3 {
+//                filterViews.remove(at: 0)
+//            }
+//        }
+//
+//        for fView in filterViews {
+//            fView?.alpha = 0
+//        }
+//
+//        for fView in filterViews {
+//            view.addSubview(fView!)
+//        }
+//    }
