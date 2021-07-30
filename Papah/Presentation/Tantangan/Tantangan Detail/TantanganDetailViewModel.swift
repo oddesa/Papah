@@ -33,4 +33,10 @@ struct ChallengeDetail {
 
 class TantanganDetailViewModel: NSObject {
 
+    var challengeDetailData = [ChallengeDetail]()
+
+    init(challengeDetailData: [ChallengeDetail]) {
+        self.challengeDetailData = challengeDetailData
+    }
+    
 }

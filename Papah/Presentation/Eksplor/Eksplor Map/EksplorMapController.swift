@@ -21,7 +21,6 @@ class EksplorMapController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     // MARK: - initializers
-    let viewModel = EksplorMapViewModel()
     weak var delegate: EksplorMapBottomSheetDelegate?
 
     // MARK: - Bottom sheet initializers
@@ -32,6 +31,17 @@ class EksplorMapController: UIViewController, UIGestureRecognizerDelegate {
 
     let locationManager = CLLocationManager()
 
+    var viewModel: EksplorMapViewModel?
+    
+    init(viewModel: EksplorMapViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,7 +51,7 @@ class EksplorMapController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func setupViewModel() {
-        viewModel.onAddressString.sink { address in
+        viewModel?.onAddressString.sink { address in
             print("CURRENT ADD \(address)")
             self.delegate?.updateAddress(address: address)
         }.store(in: &trashBag)

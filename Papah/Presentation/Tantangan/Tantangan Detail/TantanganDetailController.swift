@@ -18,16 +18,23 @@ class TantanganDetailController: UIViewController {
     @IBAction func donePressed(_ sender: UIButton) {
         //close modality
     }
+
+    private var viewModel: TantanganDetailViewModel?
     
-    private let viewModel = TantanganDetailViewModel()
-    var challengeDetailData = [ChallengeDetail]()
+    init(viewModel: TantanganDetailViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         nibSetup()
         tableViewSetup()
-        challengeDetailData = ChallengeDetail.getChallengeDetaileData()
     }
 
 }
@@ -35,16 +42,16 @@ class TantanganDetailController: UIViewController {
 //MARK: TableView
 extension TantanganDetailController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return challengeDetailData.count
+        return viewModel?.challengeDetailData.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tantanganDetail") as! TantanganDetailTableCell
         
-        let cdData = challengeDetailData[indexPath.row]
-        cell.guideImage.image = cdData.img
-        cell.guideTitle.text = cdData.title
-        cell.guideDesc.text = cdData.desc
+        let cdData = viewModel?.challengeDetailData[indexPath.row]
+        cell.guideImage.image = cdData?.img
+        cell.guideTitle.text = cdData?.title
+        cell.guideDesc.text = cdData?.desc
         
         return cell
     }

@@ -9,4 +9,8 @@ import UIKit
 
 class MedaliListViewModel: NSObject {
 
+    init(dummy: Int) {
+        
+    }
+    
 }

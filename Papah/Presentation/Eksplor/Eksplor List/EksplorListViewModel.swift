@@ -19,4 +19,8 @@ class EksplorListViewModel: NSObject {
 
     let dataGblk = KangLoak(name: "Bank Sampah Mak Cimet", jenis: "Godmother", jarak: "100 bulan purnama", kategori: ["Plastik", "Mantan", "Penjahat"], operasional: "Buka, 00.01-23.59")
     
+    init(dummy: Int){
+        
+    }
+    
 }

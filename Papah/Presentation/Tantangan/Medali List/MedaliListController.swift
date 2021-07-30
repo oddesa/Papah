@@ -16,6 +16,17 @@ class MedaliListController: UIViewController {
     var medaliBulanan = ["Tantangan Juni", "Tantangan Juli"]
     var medaliLainnya = ["Veteran", "Crazy Rich Kurcaci", "Professor Limbah", "Kurcaci Guru"]
     
+    private var viewModel: MedaliListViewModel?
+    
+    init(viewModel: MedaliListViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
