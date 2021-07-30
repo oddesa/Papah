@@ -20,6 +20,10 @@ class TipsDetailController: UIViewController, UICollectionViewDelegate, UICollec
         print("CELL \(cell)")
         return cell
     }
+    func collectionView(_ tableView: UITableView, widthForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
     
     private let tipsDetailDummy = [ TipsDetail(image: "yes", title: "Memilah Sampah Plastik", desc: "plastik lama terurai"), TipsDetail(image: "yes", title: "Menyalurkan Sampah Plastik", desc: "plastik lama terurai"), TipsDetail(image: "yes", title: "Merecycle plastic", desc: "plastik lama terurai")]
     
