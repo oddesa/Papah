@@ -17,16 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" backIndicatorImage="chevron.left" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="RlQ-A2-gdk">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" backIndicatorImage="chevron.left" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="RlQ-A2-gdk">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Plastik" id="4yT-Zh-ADg"/>
                                 </items>
                             </navigationBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zwB-wu-nme">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zwB-wu-nme">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nei-Pn-TX8">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nei-Pn-TX8">
                                     <size key="itemSize" width="264" height="667"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -34,7 +36,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tipsDetailCell" id="EUN-5g-F1a" customClass="TipsDetailCollectionCell" customModule="Papah" customModuleProvider="target">
-                                        <rect key="frame" x="75" y="0.0" width="264" height="667"/>
+                                        <rect key="frame" x="0.0" y="53.5" width="264" height="667"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dGs-0h-UZu">
                                             <rect key="frame" x="0.0" y="0.0" width="264" height="667"/>
@@ -87,14 +89,6 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="RlQ-A2-gdk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="5nF-cD-mFX"/>
-                            <constraint firstItem="RlQ-A2-gdk" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="E10-l0-fVb"/>
-                            <constraint firstItem="zwB-wu-nme" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Lb9-g2-ik6"/>
-                            <constraint firstItem="RlQ-A2-gdk" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="NBO-zc-NKx"/>
-                            <constraint firstItem="zwB-wu-nme" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Y4r-DV-fuU"/>
-                            <constraint firstItem="zwB-wu-nme" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="htf-qP-T3D"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tipsDetailCollection" destination="zwB-wu-nme" id="7li-hc-Lpg"/>

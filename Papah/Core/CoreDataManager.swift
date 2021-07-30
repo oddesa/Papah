@@ -45,7 +45,7 @@ class CoreDataManager {
     }
     
     func preloadData() {
-     
+
     }
     
     func deleteAllData() {
