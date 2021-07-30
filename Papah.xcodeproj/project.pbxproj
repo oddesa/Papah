@@ -102,6 +102,7 @@
 		BCEE6E5026B1BCA700D4D250 /* EksplorDetailLimbarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCEE6E4E26B1BCA700D4D250 /* EksplorDetailLimbarCell.xib */; };
 		BCEE6E5326B1BCB900D4D250 /* EksplorDetailEarningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEE6E5126B1BCB900D4D250 /* EksplorDetailEarningCell.swift */; };
 		BCEE6E5426B1BCB900D4D250 /* EksplorDetailEarningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCEE6E5226B1BCB900D4D250 /* EksplorDetailEarningCell.xib */; };
+		BCF48A7E26B392B900E7F677 /* TipsDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF48A7D26B392A300E7F677 /* TipsDataRepository.swift */; };
 		BF55702126AFCB030029BB54 /* EksplorListFilter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF55702026AFCB030029BB54 /* EksplorListFilter.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -228,6 +229,7 @@
 		BCEE6E4E26B1BCA700D4D250 /* EksplorDetailLimbarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorDetailLimbarCell.xib; sourceTree = "<group>"; };
 		BCEE6E5126B1BCB900D4D250 /* EksplorDetailEarningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorDetailEarningCell.swift; sourceTree = "<group>"; };
 		BCEE6E5226B1BCB900D4D250 /* EksplorDetailEarningCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorDetailEarningCell.xib; sourceTree = "<group>"; };
+		BCF48A7D26B392A300E7F677 /* TipsDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsDataRepository.swift; sourceTree = "<group>"; };
 		BF55702026AFCB030029BB54 /* EksplorListFilter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EksplorListFilter.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -657,6 +659,7 @@
 		BC2A95F226ADD37E002AD800 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				BCF48A7D26B392A300E7F677 /* TipsDataRepository.swift */,
 				BC2AF19426ADD4A9006FFB9F /* s.swift */,
 			);
 			path = Repositories;
@@ -920,6 +923,7 @@
 				BC2A95D426ADCF98002AD800 /* EksplorListFilterViewModel.swift in Sources */,
 				986654E926ADC96D0047D2A7 /* CompletionAlert.swift in Sources */,
 				BC8C9B6F26AE8AD80096F0E8 /* EksplorDetailViewModel.swift in Sources */,
+				BCF48A7E26B392B900E7F677 /* TipsDataRepository.swift in Sources */,
 				BC8C9B6926AE8AD80096F0E8 /* MedaliDetailController.swift in Sources */,
 				BC1F4F8526AF0C4F00FDC3D3 /* EksplorMapController+MapConfig.swift in Sources */,
 				986654F226ADCAC00047D2A7 /* TantanganDetailController.swift in Sources */,
