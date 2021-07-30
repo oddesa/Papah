@@ -11,6 +11,8 @@ class MedaliListController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     
+    let subtitleText = ["Tantangan Bulanan", "Tantangan Lainnya"]
+    
     var medaliBulanan = ["Tantangan Juni", "Tantangan Juli"]
     var medaliLainnya = ["Veteran", "Crazy Rich Kurcaci", "Professor Limbah", "Kurcaci Guru"]
     
@@ -19,8 +21,6 @@ class MedaliListController: UIViewController {
 
         setupTableView()
     }
-    
-
 }
 
 extension MedaliListController: UITableViewDelegate, UITableViewDataSource {

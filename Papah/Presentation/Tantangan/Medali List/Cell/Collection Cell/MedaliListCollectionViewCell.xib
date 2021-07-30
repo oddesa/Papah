@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -63,7 +62,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" name="background_secondary"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="T7L-4z-vlx" firstAttribute="centerX" secondItem="JY1-LD-uki" secondAttribute="centerX" id="96A-JV-9tn"/>
                             <constraint firstItem="4dg-20-xLH" firstAttribute="top" secondItem="T7L-4z-vlx" secondAttribute="bottom" constant="8" id="AeL-ik-yVO"/>
@@ -91,14 +90,14 @@
                 <constraint firstItem="JY1-LD-uki" firstAttribute="leading" secondItem="Jfc-Iv-Sps" secondAttribute="leading" id="tq0-NQ-nlF"/>
             </constraints>
             <size key="customSize" width="120" height="176"/>
+            <connections>
+                <outlet property="MedaliDetail" destination="JY1-LD-uki" id="0Kc-iN-Suj"/>
+            </connections>
             <point key="canvasLocation" x="101.44927536231884" y="192.1875"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="star.circle.fill" catalog="system" width="128" height="121"/>
-        <namedColor name="background_secondary">
-            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

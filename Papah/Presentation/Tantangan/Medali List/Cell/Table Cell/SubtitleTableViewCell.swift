@@ -10,7 +10,6 @@ import UIKit
 class SubtitleTableViewCell: UITableViewCell {
 
     static let identifier = "SubtitleTableViewCell"
-    
 
     @IBOutlet weak var subtitleLabel: UILabel!
     
