@@ -44,10 +44,6 @@ class CoreDataManager {
         }
     }
     
-    func preloadData() {
-
-    }
-    
     func deleteAllData() {
         
         let storeCoordinator = persistentContainer.persistentStoreCoordinator
@@ -74,4 +70,19 @@ class CoreDataManager {
         preloadData()
     }
     
+}
+
+//MARK: PreloadData
+extension CoreDataManager {
+    func preloadData() {
+
+    }
+    
+    func preloadDataSampah(){
+        
+    }
+    
+    func preloadDataSampahDetail(){
+        
+    }
 }
