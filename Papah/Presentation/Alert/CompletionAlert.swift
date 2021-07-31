@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol CompletionAlertProtocol {
+protocol CompletionAlertProtocol: NSObject {
     func onConfirmButton()
 }
 
 class CompletionAlert: UIViewController {
 
-    var delegate: CompletionAlertProtocol!
+    weak var delegate: CompletionAlertProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,8 @@ class CompletionAlert: UIViewController {
     }
     
     @IBAction func onConfirmButton(_ sender: Any) {
-        delegate.onConfirmButton()
+        self.dismiss(animated: true, completion: nil)
+        delegate?.onConfirmButton()
     }
     
 }

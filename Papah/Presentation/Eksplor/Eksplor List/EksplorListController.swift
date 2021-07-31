@@ -9,7 +9,6 @@ import UIKit
 
 class EksplorListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private let viewModel = EksplorListViewModel()
     let strings = ["asdfefsa", "hahahah", "xoxoxoox"]
     var searchBarCont = UISearchController()
     var filteredData: [String] = []
@@ -32,7 +31,16 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var filter3Label: UILabel!
     @IBOutlet weak var filter3Button: UIButton!
     
+    private var viewModel: EksplorListViewModel?
     
+    init(viewModel: EksplorListViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     
     override func viewDidLoad() {
@@ -165,6 +173,11 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let wbklData = WBKL(name: "nama", lng: 1, lat: 2, img: UIImage.whatsAppImage20210719At085013.jpegData(compressionQuality: 1.0) ?? Data(), operationalDay: "08:00", operationalHour: "08:00", address: "213", phoneNumber: "123")
+                
+        self.navigationController?.pushViewController(EksplorDetailController(viewModel: EksplorDetailViewModel(wbklData: wbklData)).instantiateStoryboard(), animated: true)
+        
     }
 
 }

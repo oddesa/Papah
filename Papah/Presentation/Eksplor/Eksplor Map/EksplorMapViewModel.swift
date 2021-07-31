@@ -11,6 +11,10 @@ import Combine
 
 class EksplorMapViewModel: NSObject {
     
+    init(dummy: Int){
+        
+    }
+    
     var onAddressString = PassthroughSubject<String, Never>()
     
     func setAddressFromLatLon(pdblLatitude: String, withLongitude pdblLongitude: String) {

@@ -26,7 +26,9 @@ extension EksplorMapController {
         configuration = BottomSheetConfiguration(height: UIScreen.main.bounds.height * 0.8,
                                                  initialOffset: UIScreen.main.bounds.height * 0.4 + self.view.safeAreaInsets.bottom)
         
-        bottomSheetViewController.initBottomSheet(viewModel: viewModel, delegate: self, eksplorMapVC: self)
+        if let viewModel = viewModel {
+            bottomSheetViewController.initBottomSheet(viewModel: viewModel, delegate: self, eksplorMapVC: self)
+        }
         
         self.addChild(bottomSheetViewController)
         

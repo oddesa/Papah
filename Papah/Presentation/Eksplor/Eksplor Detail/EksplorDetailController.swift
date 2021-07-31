@@ -9,24 +9,48 @@ import UIKit
 
 class EksplorDetailController: UIViewController {
     
-    private let viewModel = EksplorDetailViewModel()
-    
     @IBOutlet weak var tableView: UITableView!
     
     private let sectionDetail = 0
     private let sectionWaste = 1
-
+    
     static let footerHeight = 100
+    
+    private var viewModel: EksplorDetailViewModel?
+    
+    init(viewModel: EksplorDetailViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         registerNib()
     }
+    
+    @IBAction func onClaimPoint(_ sender: Any) {
+        
+        let myAlert = CompletionAlert(nibName: CompletionAlert.id, bundle: nil)
+        myAlert.delegate = self
+        myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
 
+        self.tabBarController?.present(myAlert, animated: true, completion: nil)
+        
+    }
+    
 }
 
-
+extension EksplorDetailController: CompletionAlertProtocol {
+    func onConfirmButton() {
+        
+    }
+}
 
 extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
     
@@ -77,24 +101,27 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerFrame = tableView.frame
         
-        let title = UILabel()
-        title.frame =  CGRect(x: 16, y: 20, width: headerFrame.size.width-20, height: 20) //width equals to parent view with 10 left and right margin
-        title.font = title.font.withSize(14)
-        title.text = "RINCIAN LIMBAH"
-//        title.text = self.tableView(tableView, titleForHeaderInSection: section) //This will take title of section from 'titleForHeaderInSection' method or you can write directly
-        title.textColor = .gray
-        
-        let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: headerFrame.size.width, height: headerFrame.size.height))
-        headerView.addSubview(title)
-        
-        return headerView
+        if section == sectionWaste {
+            let headerFrame = tableView.frame
+            
+            let title = UILabel()
+            title.frame =  CGRect(x: 16, y: 20, width: headerFrame.size.width-20, height: 20) //width equals to parent view with 10 left and right margin
+            title.font = title.font.withSize(14)
+            title.text = "RINCIAN LIMBAH"
+            //        title.text = self.tableView(tableView, titleForHeaderInSection: section) //This will take title of section from 'titleForHeaderInSection' method or you can write directly
+            title.textColor = .gray
+            
+            let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: headerFrame.size.width, height: headerFrame.size.height))
+            headerView.addSubview(title)
+            return headerView
+        }
+        return UIView()
     }
     
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return CGFloat(TantanganListController.footerHeight)
-//    }
+    //    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    //        return CGFloat(TantanganListController.footerHeight)
+    //    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -121,7 +148,7 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: EksplorDetailLimbarCell.cellIdentifier()) as? EksplorDetailLimbarCell else {
                 return UITableViewCell()
             }
-          
+            
             cell.selectionStyle = .none
             
             return cell
@@ -129,7 +156,7 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: EksplorDetailEarningCell.cellIdentifier()) as? EksplorDetailEarningCell else {
                 return UITableViewCell()
             }
-          
+            
             cell.selectionStyle = .none
             
             return cell

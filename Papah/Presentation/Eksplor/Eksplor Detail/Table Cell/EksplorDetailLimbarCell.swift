@@ -9,11 +9,11 @@ import UIKit
 
 class EksplorDetailLimbarCell: UITableViewCell {
     
-    @IBOutlet weak var viewTambah: DesignableView!
+    @IBOutlet weak var btnTambah: DesignableButton!
     @IBOutlet weak var edtQuantity: UITextField!
     
     @IBAction func onTapAdd(_ sender: Any) {
-        viewTambah.isHidden = true
+        btnTambah.isHidden = true
         edtQuantity.isHidden = false
     }
     

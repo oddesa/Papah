@@ -26,8 +26,19 @@ class TipsDetailController: UIViewController, UICollectionViewDelegate, UICollec
     
     
     private let tipsDetailDummy = [ TipsDetail(image: "yes", title: "Memilah Sampah Plastik", desc: "plastik lama terurai"), TipsDetail(image: "yes", title: "Menyalurkan Sampah Plastik", desc: "plastik lama terurai"), TipsDetail(image: "yes", title: "Merecycle plastic", desc: "plastik lama terurai")]
+        
+    var tesData: String = ""
     
-    private let viewModel = TipsDetailViewModel()
+    private var viewModel: TipsDetailViewModel?
+    
+    init(viewModel: TipsDetailViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
