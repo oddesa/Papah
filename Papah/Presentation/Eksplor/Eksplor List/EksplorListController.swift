@@ -17,6 +17,20 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableViewOutlet: UITableView!
     
     
+    private var viewModel: EksplorListViewModel?
+    
+    init(viewModel: EksplorListViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

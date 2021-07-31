@@ -32,7 +32,6 @@ class TantanganListController: UIViewController {
         super.viewDidLoad()
 
         registerNib()
-        
     }
 
 }
@@ -181,5 +180,24 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let identifier = self.tableviewIdentifier(section: indexPath.section)[indexPath.row]
+        if indexPath.section == sectionRewards {
+            print ("yojo")
+        }
+        
+        switch identifier {
+        case TantanganLevelTableCell.cellIdentifier():
+            print(TantanganLevelTableCell.cellIdentifier())
+        case TantanganEarningCell.cellIdentifier():
+            print(TantanganEarningCell.cellIdentifier())
+        case TantanganMonthlyCell.cellIdentifier():
+            let ttdcData = ChallengeDetail.getChallengeDetaileData()
+            self.navigationController?.present(TantanganDetailController(viewModel: TantanganDetailViewModel(challengeDetailData: ttdcData)).instantiateStoryboard(), animated: true, completion: nil)
+        case TantanganRewardTablecell.cellIdentifier():
+            print("berak")
+        default:
+            print("ieu kunaon")
+        }
+    }
 }
