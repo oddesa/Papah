@@ -37,9 +37,8 @@
                             <constraint firstItem="eeh-3w-dH0" firstAttribute="leading" secondItem="1pE-mH-k0P" secondAttribute="trailing" constant="5" id="9BU-K8-X1f"/>
                             <constraint firstItem="1pE-mH-k0P" firstAttribute="leading" secondItem="h1W-Ro-msp" secondAttribute="leading" constant="10" id="IfA-3r-jAA"/>
                             <constraint firstAttribute="bottom" secondItem="1pE-mH-k0P" secondAttribute="bottom" constant="9.3333333333333357" id="KMc-1s-pE0"/>
-                            <constraint firstAttribute="trailing" secondItem="eeh-3w-dH0" secondAttribute="trailing" constant="10" id="VcC-Pz-fqT"/>
+                            <constraint firstAttribute="trailing" secondItem="eeh-3w-dH0" secondAttribute="trailing" constant="10" id="Y3u-8J-nqZ"/>
                             <constraint firstItem="1pE-mH-k0P" firstAttribute="top" secondItem="h1W-Ro-msp" secondAttribute="top" constant="10" id="cnW-s8-OfG"/>
-                            <constraint firstAttribute="height" constant="39" id="lT8-0K-3xo"/>
                             <constraint firstItem="eeh-3w-dH0" firstAttribute="centerY" secondItem="1pE-mH-k0P" secondAttribute="centerY" id="laT-Zf-29e"/>
                             <constraint firstItem="eeh-3w-dH0" firstAttribute="top" secondItem="h1W-Ro-msp" secondAttribute="top" constant="7" id="yBj-Or-3t2"/>
                         </constraints>
@@ -64,6 +63,7 @@
                 <constraint firstItem="h1W-Ro-msp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="XWT-Uy-tsz"/>
                 <constraint firstItem="h1W-Ro-msp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="c78-We-rpp"/>
                 <constraint firstAttribute="bottom" secondItem="h1W-Ro-msp" secondAttribute="bottom" id="idc-0V-Dg3"/>
+                <constraint firstAttribute="trailing" secondItem="h1W-Ro-msp" secondAttribute="trailing" constant="5" id="jVy-Bx-qzg"/>
             </constraints>
             <size key="customSize" width="59" height="39"/>
             <connections>

@@ -38,7 +38,7 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -46,9 +46,8 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
             fatalError("salah identifier si collection")
         }
         
-        if indexPath.row == 1 {
-
-            cell.categoryLabel.text = "yadyadyaydaydya"
+        if indexPath.row == 0 {
+            cell.categoryLabel.text = "mamamamamamamam"
         }
         return cell
     }
