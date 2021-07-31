@@ -17,45 +17,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cT2-tp-0qV">
-                                <rect key="frame" x="0.0" y="139" width="390" height="622"/>
+                                <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="nLa-ji-wZs"/>
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="gMm-At-4Rv"/>
                                 </connections>
                             </tableView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TGD-eb-Vf6">
-                                <rect key="frame" x="16" y="88" width="358" height="51"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="GZR-mF-lzZ"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="3" id="94n-0b-Ida">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="TGD-eb-Vf6" firstAttribute="centerX" secondItem="cT2-tp-0qV" secondAttribute="centerX" id="4gV-un-lm4"/>
+                            <constraint firstItem="cT2-tp-0qV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="ABZ-C4-4At"/>
                             <constraint firstItem="cT2-tp-0qV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="K7q-5s-z2U"/>
-                            <constraint firstItem="cT2-tp-0qV" firstAttribute="top" secondItem="TGD-eb-Vf6" secondAttribute="bottom" id="NaU-b2-u11"/>
-                            <constraint firstItem="TGD-eb-Vf6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="SGG-ps-4vd"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="cT2-tp-0qV" secondAttribute="bottom" id="j6H-HX-PX5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cT2-tp-0qV" secondAttribute="trailing" id="wb1-Me-joj"/>
                             <constraint firstItem="cT2-tp-0qV" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="yG0-82-865"/>
-                            <constraint firstItem="TGD-eb-Vf6" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="zgA-wF-YYp"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="collectionViewOutlet" destination="TGD-eb-Vf6" id="n3i-qn-gPz"/>
                         <outlet property="tableViewOutlet" destination="cT2-tp-0qV" id="0w7-25-7wY"/>
                     </connections>
                 </viewController>

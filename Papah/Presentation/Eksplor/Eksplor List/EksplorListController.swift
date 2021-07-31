@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EksplorListController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class EksplorListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let strings = ["asdfefsa", "hahahah", "xoxoxoox"]
     var searchBarCont = UISearchController()
@@ -15,7 +15,6 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
     var filterStrings: [String] = []
     
     @IBOutlet weak var tableViewOutlet: UITableView!
-    @IBOutlet weak var collectionViewOutlet: UICollectionView!
     
     
     override func viewDidLoad() {
@@ -23,13 +22,9 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
         
         let nibTable = UINib(nibName: "ExplorListTableCell", bundle: nil)
         tableViewOutlet.register(nibTable, forCellReuseIdentifier: "ExplorListTableCell")
+        let nibTable1 = UINib(nibName: "EksplorListFilterCollectionTableCell", bundle: nil)
+        tableViewOutlet.register(nibTable1, forCellReuseIdentifier: "EksplorListFilterCollectionTableCell")
         
-        let nibColl = UINib(nibName: "EksplorListCollectionCell", bundle: nil)
-        collectionViewOutlet.register(nibColl, forCellWithReuseIdentifier: "EksplorListCollectionCell")
-        
-        collectionViewOutlet.delegate = self
-        collectionViewOutlet.dataSource = self
-        collectionViewOutlet.showsHorizontalScrollIndicator = false
         
         filteredData = strings
         filterStrings = ["asdas", "asdasda"] // "asdasd"]
@@ -38,27 +33,19 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
         self.searchBarCont.searchBar.setValue("Batalkan", forKey: "cancelButtonText")
     }
     
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
     // MARK: - TableView DataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        //EksplorListFilterCollectionTableCell
+        if indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "EksplorListFilterCollectionTableCell", for: indexPath) as? EksplorListFilterCollectionTableCell else {fatalError("identifiernya salah anying")}
+            return cell
+        } else {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath) as? ExplorListTableCell else {fatalError("identifiernya salah anying")}
         
         cell.wbklNameLabel.text = "test test hah hihi"
@@ -90,6 +77,7 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         return cell
+        }
     }
 
     // MARK: - TableView Delegate
@@ -99,34 +87,6 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
         let wbklData = WBKL(name: "nama", lng: 1, lat: 2, img: UIImage.whatsAppImage20210719At085013.jpegData(compressionQuality: 1.0) ?? Data(), operationalDay: "08:00", operationalHour: "08:00", address: "213", phoneNumber: "123")
                 
         self.navigationController?.pushViewController(EksplorDetailController(viewModel: EksplorDetailViewModel(wbklData: wbklData)).instantiateStoryboard(), animated: true)
-        
-    }
-
-// MARK: - CollectionView
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EksplorListCollectionCell", for: indexPath) as? EksplorListCollectionCell else {
-            fatalError("salah identifier si collection")
-        }
-        
-        if indexPath.row == 1 {
-            print("yey")
-            cell.categoryLabel.text = "yadyadyaydaydya"
-        }
-        return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? EksplorListCollectionCell else {fatalError("cugs")}
-        
-        if cell.categoryBubble.backgroundColor == .red {
-            cell.categoryBubble.backgroundColor = .clear
-        } else {
-            cell.categoryBubble.backgroundColor = .red
-        }
-        
         
     }
 }
