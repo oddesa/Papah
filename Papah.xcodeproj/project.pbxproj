@@ -36,6 +36,8 @@
 		9866552526ADCFC30047D2A7 /* TantanganListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552426ADCFC30047D2A7 /* TantanganListViewModel.swift */; };
 		9866552826ADCFE60047D2A7 /* TantanganRewardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552626ADCFE60047D2A7 /* TantanganRewardCell.swift */; };
 		9866552C26ADD0020047D2A7 /* TantanganLevelTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552A26ADD0020047D2A7 /* TantanganLevelTableCell.swift */; };
+		98BECA2726B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BECA2526B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.swift */; };
+		98BECA2826B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98BECA2626B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.xib */; };
 		BC14948A26B075EE00C28E62 /* TantanganLevelTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9866552B26ADD0020047D2A7 /* TantanganLevelTableCell.xib */; };
 		BC1F4F8326AF063E00FDC3D3 /* EksplorMapBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F4F8226AF063E00FDC3D3 /* EksplorMapBottomSheet.swift */; };
 		BC1F4F8526AF0C4F00FDC3D3 /* EksplorMapController+MapConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F4F8426AF0C4F00FDC3D3 /* EksplorMapController+MapConfig.swift */; };
@@ -167,6 +169,8 @@
 		9866552726ADCFE60047D2A7 /* TantanganRewardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganRewardCell.xib; sourceTree = "<group>"; };
 		9866552A26ADD0020047D2A7 /* TantanganLevelTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganLevelTableCell.swift; sourceTree = "<group>"; };
 		9866552B26ADD0020047D2A7 /* TantanganLevelTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganLevelTableCell.xib; sourceTree = "<group>"; };
+		98BECA2526B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorListFilterCollectionTableCell.swift; sourceTree = "<group>"; };
+		98BECA2626B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorListFilterCollectionTableCell.xib; sourceTree = "<group>"; };
 		BC1F4F8226AF063E00FDC3D3 /* EksplorMapBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorMapBottomSheet.swift; sourceTree = "<group>"; };
 		BC1F4F8426AF0C4F00FDC3D3 /* EksplorMapController+MapConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EksplorMapController+MapConfig.swift"; sourceTree = "<group>"; };
 		BC2A95B326ADCE89002AD800 /* EksplorMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EksplorMap.storyboard; sourceTree = "<group>"; };
@@ -409,6 +413,8 @@
 			isa = PBXGroup;
 			children = (
 				BC2A95C926ADCF4A002AD800 /* ExplorListTableCell.swift */,
+				98BECA2526B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.swift */,
+				98BECA2626B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.xib */,
 				BC2A95CA26ADCF4A002AD800 /* ExplorListTableCell.xib */,
 			);
 			path = "Table Cell";
@@ -834,6 +840,7 @@
 				BCB6955B26B102DE001E90F0 /* TantanganEarningCell.xib in Resources */,
 				BC8C9B7626AE8AFC0096F0E8 /* ExplorListTableCell.xib in Resources */,
 				BC2A95E726ADD021002AD800 /* Homepage.storyboard in Resources */,
+				98BECA2826B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.xib in Resources */,
 				744BDF5426B1891400F6833C /* SubtitleTableViewCell.xib in Resources */,
 				BC2A95DF26ADCFE6002AD800 /* TipsList.storyboard in Resources */,
 				BF55702126AFCB030029BB54 /* EksplorListFilter.storyboard in Resources */,
@@ -845,7 +852,6 @@
 				BCD827B426AF0264000C2452 /* EksplorMapBottomSheet.xib in Resources */,
 				BC8C9B7526AE8AFC0096F0E8 /* EksplorListCollectionCell.xib in Resources */,
 				BCCA0A0826B1167700C2DD6F /* TantanganRewardCell.xib in Resources */,
-				9866551D26ADCF5B0047D2A7 /* MedaliListTableCell.xib in Resources */,
 				BCB6956A26B1105C001E90F0 /* TantanganMonthlyHeadCell.xib in Resources */,
 				BC8C9B7026AE8AD80096F0E8 /* TipsDetail.storyboard in Resources */,
 				9866550B26ADCE570047D2A7 /* MedaliDetail.storyboard in Resources */,
@@ -899,15 +905,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCB6956D26B11411001E90F0 /* TantanganRewardTablecell.swift in Sources */,
-				BC8C9B7326AE8AE70096F0E8 /* MedaliListTableCell.swift in Sources */,
 				BCB6955A26B102DE001E90F0 /* TantanganEarningCell.swift in Sources */,
 				981DDBD126ADD8CB00BB60F9 /* AppDelegate.swift in Sources */,
 				BC1F4F8326AF063E00FDC3D3 /* EksplorMapBottomSheet.swift in Sources */,
 				BC8C9B7426AE8AFC0096F0E8 /* EksplorDetailTableCell.swift in Sources */,
 				BC2A95F826ADD3B6002AD800 /* CoreDataManager.swift in Sources */,
-				9866552826ADCFE60047D2A7 /* TantanganListCollectionCell.swift in Sources */,
+				98BECA2726B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.swift in Sources */,
 				9866552826ADCFE60047D2A7 /* TantanganRewardCell.swift in Sources */,
-				9866551826ADCF470047D2A7 /* MedaliListCollectionCell.swift in Sources */,
+				9866552826ADCFE60047D2A7 /* TantanganRewardCell.swift in Sources */,
 				9866551526ADCF010047D2A7 /* MedaliListViewModel.swift in Sources */,
 				BC2BE87126AE83310067DB23 /* Extension+Cell.swift in Sources */,
 				BCB6956926B1102B001E90F0 /* TantanganMonthlyHeadCell.swift in Sources */,
@@ -947,7 +952,7 @@
 				BC2BE86826AE82DF0067DB23 /* Date+Extension.swift in Sources */,
 				9866552526ADCFC30047D2A7 /* TantanganListViewModel.swift in Sources */,
 				744BDF5726B18B9000F6833C /* MedaliListTableViewCell.swift in Sources */,
-				9866552C26ADD0020047D2A7 /* TantanganListTableCell.swift in Sources */,
+				9866552C26ADD0020047D2A7 /* TantanganLevelTableCell.swift in Sources */,
 				9866552C26ADD0020047D2A7 /* TantanganLevelTableCell.swift in Sources */,
 				BCB6956326B103B9001E90F0 /* TantanganRewardHeadCell.swift in Sources */,
 				986654ED26ADCA240047D2A7 /* TantanganDetailTableCell.swift in Sources */,
