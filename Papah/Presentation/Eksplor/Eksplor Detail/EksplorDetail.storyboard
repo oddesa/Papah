@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Eksplor Detail Controller-->
+        <!--Toko Kang Asep-->
         <scene sceneID="3Ak-c4-ved">
             <objects>
                 <viewController storyboardIdentifier="EksplorDetailController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mvc-R0-ItR" customClass="EksplorDetailController" customModule="Papah" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,9 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="VqO-ne-L7W">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VqO-ne-L7W">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="810"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Mvc-R0-ItR" id="qQF-CX-Rbh"/>
                                     <outlet property="delegate" destination="Mvc-R0-ItR" id="Q6I-Nm-Tbd"/>
@@ -47,6 +47,9 @@
                                                         <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onClaimPoint:" destination="Mvc-R0-ItR" eventType="touchUpInside" id="FZQ-cO-uN1"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Untuk klaim poin, isi rincian limbah. Kamu juga harus berada tepat di lokasi agen ini." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyb-0v-5HE">
                                                 <rect key="frame" x="0.0" y="49" width="358" height="49"/>
@@ -69,7 +72,7 @@
                         <viewLayoutGuide key="safeArea" id="pLx-vD-aI8"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstItem="VqO-ne-L7W" firstAttribute="top" secondItem="pLx-vD-aI8" secondAttribute="top" id="1EX-Ef-oPt"/>
+                            <constraint firstItem="VqO-ne-L7W" firstAttribute="top" secondItem="J8k-kv-ut3" secondAttribute="top" id="1EX-Ef-oPt"/>
                             <constraint firstItem="pLx-vD-aI8" firstAttribute="trailing" secondItem="VqO-ne-L7W" secondAttribute="trailing" id="9s4-0t-MFk"/>
                             <constraint firstItem="pLx-vD-aI8" firstAttribute="trailing" secondItem="hO0-mP-w22" secondAttribute="trailing" id="CPs-5d-a8k"/>
                             <constraint firstItem="VqO-ne-L7W" firstAttribute="leading" secondItem="pLx-vD-aI8" secondAttribute="leading" id="P61-Ca-x5H"/>
@@ -78,6 +81,8 @@
                             <constraint firstItem="hO0-mP-w22" firstAttribute="leading" secondItem="pLx-vD-aI8" secondAttribute="leading" id="jtI-fe-5ez"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Toko Kang Asep" largeTitleDisplayMode="never" id="SaS-Er-Bpa"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="VqO-ne-L7W" id="oqg-Dp-1XA"/>
                     </connections>

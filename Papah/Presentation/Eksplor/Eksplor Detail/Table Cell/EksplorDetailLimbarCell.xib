@@ -55,77 +55,69 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kg" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cz2-u7-yrA">
-                        <rect key="frame" x="220" y="24" width="154" height="19"/>
+                        <rect key="frame" x="220" y="16" width="154" height="35"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rRs-0E-JyD" customClass="DesignableView" customModule="Papah" customModuleProvider="target">
-                        <rect key="frame" x="283.5" y="21.5" width="90.5" height="24.5"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAMBAH" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5MY-9Z-OlV">
-                                <rect key="frame" x="19" y="5" width="52.5" height="14.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                                <color key="textColor" systemColor="systemIndigoColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
-                        <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="5MY-9Z-OlV" secondAttribute="trailing" constant="19" id="3Q3-zo-ILB"/>
-                            <constraint firstItem="5MY-9Z-OlV" firstAttribute="top" secondItem="rRs-0E-JyD" secondAttribute="top" constant="5" id="ESD-eh-SWh"/>
-                            <constraint firstAttribute="bottom" secondItem="5MY-9Z-OlV" secondAttribute="bottom" constant="5" id="HqK-UW-3EH"/>
-                            <constraint firstItem="5MY-9Z-OlV" firstAttribute="leading" secondItem="rRs-0E-JyD" secondAttribute="leading" constant="19" id="qjn-pi-emP"/>
-                        </constraints>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6p-qi-cfF" customClass="DesignableButton" customModule="Papah" customModuleProvider="target">
+                        <rect key="frame" x="283" y="21" width="91" height="25"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                        <inset key="contentEdgeInsets" minX="19" minY="5" maxX="19" maxY="5"/>
+                        <state key="normal" title="TAMBAH">
+                            <color key="titleColor" name="purple_two"/>
+                        </state>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="12"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="pid-NY-gNG" appends="YES" id="aQq-JY-cUn"/>
+                            <action selector="onTapAdd:" destination="N3C-8p-005" eventType="touchUpInside" id="791-uR-5eI"/>
                         </connections>
-                    </view>
+                    </button>
                 </subviews>
                 <gestureRecognizers/>
                 <constraints>
+                    <constraint firstItem="I6p-qi-cfF" firstAttribute="centerY" secondItem="ACp-xL-ri4" secondAttribute="centerY" id="1Cs-sG-ZjW"/>
                     <constraint firstItem="MLg-Lj-z3v" firstAttribute="top" secondItem="t6v-u9-zub" secondAttribute="bottom" id="6Hq-Wc-DpD"/>
                     <constraint firstItem="t6v-u9-zub" firstAttribute="leading" secondItem="FOm-7d-Fi9" secondAttribute="trailing" constant="13" id="6wh-X7-pj5"/>
                     <constraint firstAttribute="bottom" secondItem="MLg-Lj-z3v" secondAttribute="bottom" constant="16" id="8vD-mY-FKo"/>
                     <constraint firstAttribute="trailing" secondItem="cz2-u7-yrA" secondAttribute="trailing" constant="16" id="9HU-O4-Fjj"/>
                     <constraint firstItem="cz2-u7-yrA" firstAttribute="centerY" secondItem="ACp-xL-ri4" secondAttribute="centerY" id="CNw-DP-ipU"/>
-                    <constraint firstItem="rRs-0E-JyD" firstAttribute="centerY" secondItem="ACp-xL-ri4" secondAttribute="centerY" id="EZ0-nm-phd"/>
+                    <constraint firstItem="cz2-u7-yrA" firstAttribute="top" secondItem="t6v-u9-zub" secondAttribute="top" id="GUg-aL-mNe"/>
                     <constraint firstItem="t6v-u9-zub" firstAttribute="top" secondItem="ACp-xL-ri4" secondAttribute="top" constant="16" id="M84-uO-7Yf"/>
-                    <constraint firstItem="rRs-0E-JyD" firstAttribute="trailing" secondItem="cz2-u7-yrA" secondAttribute="trailing" id="Wl3-vd-mOF"/>
+                    <constraint firstItem="cz2-u7-yrA" firstAttribute="bottom" secondItem="MLg-Lj-z3v" secondAttribute="bottom" id="Rqd-1a-V1I"/>
                     <constraint firstItem="FOm-7d-Fi9" firstAttribute="leading" secondItem="ACp-xL-ri4" secondAttribute="leading" constant="16" id="axX-8J-Zyl"/>
                     <constraint firstItem="cz2-u7-yrA" firstAttribute="leading" secondItem="MLg-Lj-z3v" secondAttribute="trailing" constant="20" id="drR-y4-sqt"/>
                     <constraint firstItem="FOm-7d-Fi9" firstAttribute="centerY" secondItem="ACp-xL-ri4" secondAttribute="centerY" id="eHl-WJ-CoT"/>
+                    <constraint firstItem="I6p-qi-cfF" firstAttribute="trailing" secondItem="cz2-u7-yrA" secondAttribute="trailing" id="kD3-eL-nr7"/>
                     <constraint firstItem="MLg-Lj-z3v" firstAttribute="leading" secondItem="t6v-u9-zub" secondAttribute="leading" id="ysB-Q7-7wc"/>
                 </constraints>
             </tableViewCellContentView>
             <gestureRecognizers/>
             <connections>
+                <outlet property="btnTambah" destination="I6p-qi-cfF" id="L2j-5m-vlI"/>
                 <outlet property="edtQuantity" destination="cz2-u7-yrA" id="kCL-LP-Cyj"/>
-                <outlet property="viewTambah" destination="rRs-0E-JyD" id="n1N-hV-AML"/>
             </connections>
-            <point key="canvasLocation" x="126" y="120"/>
+            <point key="canvasLocation" x="124.6376811594203" y="119.53125"/>
         </tableViewCell>
-        <tapGestureRecognizer id="pid-NY-gNG">
-            <connections>
-                <action selector="onTapAdd:" destination="N3C-8p-005" id="oXx-ky-mpg"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
+    <designables>
+        <designable name="I6p-qi-cfF">
+            <size key="intrinsicContentSize" width="91" height="25"/>
+        </designable>
+    </designables>
     <resources>
         <image name="newspaper" catalog="system" width="128" height="108"/>
         <namedColor name="icon_sapphire">
             <color red="0.0" green="0.5690000057220459" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="secondarySystemBackgroundColor">
+        <namedColor name="purple_two">
+            <color red="0.3449999988079071" green="0.33700001239776611" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

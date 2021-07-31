@@ -9,4 +9,8 @@ import UIKit
 
 class TipsDetailViewModel: NSObject {
 
+    init(dummy: Int){
+        
+    }
+    
 }

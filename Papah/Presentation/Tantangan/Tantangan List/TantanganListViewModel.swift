@@ -9,4 +9,8 @@ import UIKit
 
 class TantanganListViewModel: NSObject {
 
+    init(dummy: Int) {
+        
+    }
+    
 }

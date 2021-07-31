@@ -16,7 +16,18 @@ class TantanganListController: UIViewController {
     private let sectionRewards = 2
 
     static let footerHeight = 100
-
+    
+    private var viewModel: TantanganListViewModel?
+    
+    init(viewModel: TantanganListViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

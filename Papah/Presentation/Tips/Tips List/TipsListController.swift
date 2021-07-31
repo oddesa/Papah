@@ -30,7 +30,16 @@ class TipsListController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.pushViewController(tipsScene, animated: true)
     }
     
-    private let viewModel = TipsListViewModel()
+    private var viewModel: TipsListViewModel?
+    
+    init(viewModel: TipsListViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

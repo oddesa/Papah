@@ -9,4 +9,8 @@ import UIKit
 
 class MedaliDetailViewModel: NSObject {
 
+    init(dummy: Int) {
+        
+    }
+    
 }
