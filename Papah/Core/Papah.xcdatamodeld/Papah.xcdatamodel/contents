@@ -1,5 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Badge" representedClassName="Badge" syncable="YES" codeGenerationType="class">
+        <attribute name="badge_category_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="badge_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="date_achieved" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="max_value" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="badgeCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BadgeCategory" inverseName="badge" inverseEntity="BadgeCategory"/>
+        <relationship name="badgeProgress" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BadgeProgress" inverseName="badge" inverseEntity="BadgeProgress"/>
+    </entity>
+    <entity name="BadgeCategory" representedClassName="BadgeCategory" syncable="YES" codeGenerationType="class">
+        <attribute name="badge_category_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="unit" optional="YES" attributeType="String"/>
+        <relationship name="badge" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Badge" inverseName="badgeCategory" inverseEntity="Badge"/>
+        <relationship name="monthlyChallenge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MonthlyChallenge" inverseName="badgeCategory" inverseEntity="MonthlyChallenge"/>
+    </entity>
+    <entity name="BadgeProgress" representedClassName="BadgeProgress" syncable="YES" codeGenerationType="class">
+        <attribute name="badge_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="bp_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="current_value" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="badge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Badge" inverseName="badgeProgress" inverseEntity="Badge"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="badgeProgress" inverseEntity="User"/>
+    </entity>
+    <entity name="MonthlyChallenge" representedClassName="MonthlyChallenge" syncable="YES" codeGenerationType="class">
+        <attribute name="badge_category_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="max_value" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="month" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="monthly_challenge_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="reward_point" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="badgeCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BadgeCategory" inverseName="monthlyChallenge" inverseEntity="BadgeCategory"/>
+        <relationship name="monthlyCP" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MonthlyChallengeProgress" inverseName="monthlyChallenge" inverseEntity="MonthlyChallengeProgress"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="monthlyChallenge" inverseEntity="User"/>
+    </entity>
+    <entity name="MonthlyChallengeProgress" representedClassName="MonthlyChallengeProgress" syncable="YES" codeGenerationType="class">
+        <attribute name="current_value" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="mcp_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="monthly_challenge_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="monthlyChallenge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MonthlyChallenge" inverseName="monthlyCP" inverseEntity="MonthlyChallenge"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="monthlyChallengeProgress" inverseEntity="User"/>
+    </entity>
     <entity name="Sampah" representedClassName="Sampah" syncable="YES" codeGenerationType="class">
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
@@ -15,8 +65,58 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="ofSampah" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sampah" inverseName="sampahDetail" inverseEntity="Sampah"/>
     </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="level" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="point" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="total_uang" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="badgeProgress" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BadgeProgress" inverseName="user" inverseEntity="BadgeProgress"/>
+        <relationship name="monthlyChallenge" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MonthlyChallenge" inverseName="user" inverseEntity="MonthlyChallenge"/>
+        <relationship name="monthlyChallengeProgress" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MonthlyChallengeProgress" inverseName="user" inverseEntity="MonthlyChallengeProgress"/>
+    </entity>
+    <entity name="WasteAccepted" representedClassName="WasteAccepted" syncable="YES" codeGenerationType="class">
+        <attribute name="claimed_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="price" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="waste_accepted_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="waste_category_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="wbkl_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="ofWbkl" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wbkl" inverseName="wasteAccepted" inverseEntity="Wbkl"/>
+        <relationship name="wasteCategory" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="WasteCategory" inverseName="wasteAccepted" inverseEntity="WasteCategory"/>
+    </entity>
+    <entity name="WasteCategory" representedClassName="WasteCategory" syncable="YES" codeGenerationType="class">
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="unit" optional="YES" attributeType="String"/>
+        <attribute name="waste_category_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="wasteAccepted" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WasteAccepted" inverseName="wasteCategory" inverseEntity="WasteAccepted"/>
+    </entity>
+    <entity name="Wbkl" representedClassName="Wbkl" syncable="YES" codeGenerationType="class">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="operational_day" optional="YES" attributeType="String"/>
+        <attribute name="operational_hour" optional="YES" attributeType="String"/>
+        <attribute name="phone_number" optional="YES" attributeType="String"/>
+        <attribute name="wbkl_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="wbkl_type" optional="YES" attributeType="String"/>
+        <relationship name="wasteAccepted" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WasteAccepted" inverseName="ofWbkl" inverseEntity="WasteAccepted"/>
+        <relationship name="wasteCategory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WasteCategory"/>
+    </entity>
     <elements>
+        <element name="Badge" positionX="0" positionY="153" width="128" height="164"/>
+        <element name="BadgeCategory" positionX="-9" positionY="144" width="128" height="104"/>
+        <element name="BadgeProgress" positionX="-18" positionY="135" width="128" height="134"/>
+        <element name="MonthlyChallenge" positionX="-27" positionY="126" width="128" height="209"/>
+        <element name="MonthlyChallengeProgress" positionX="-36" positionY="117" width="128" height="134"/>
         <element name="Sampah" positionX="-63" positionY="-18" width="128" height="104"/>
         <element name="SampahDetail" positionX="-54" positionY="-9" width="128" height="119"/>
+        <element name="User" positionX="9" positionY="171" width="128" height="164"/>
+        <element name="WasteAccepted" positionX="-18" positionY="135" width="128" height="134"/>
+        <element name="WasteCategory" positionX="0" positionY="144" width="128" height="104"/>
+        <element name="Wbkl" positionX="-36" positionY="63" width="128" height="209"/>
     </elements>
 </model>
