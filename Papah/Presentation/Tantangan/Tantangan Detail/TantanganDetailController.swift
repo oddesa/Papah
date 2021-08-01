@@ -16,10 +16,12 @@ class TantanganDetailController: UIViewController {
     @IBOutlet weak var detailsTable: UITableView!
     
     @IBAction func donePressed(_ sender: UIButton) {
-        //close modality
+        self.dismiss(animated: true, completion: nil)
     }
 
-    private var viewModel: TantanganDetailViewModel?
+    
+    
+   var viewModel: TantanganDetailViewModel?
     
     init(viewModel: TantanganDetailViewModel) {
         self.viewModel = viewModel
@@ -36,13 +38,13 @@ class TantanganDetailController: UIViewController {
         nibSetup()
         tableViewSetup()
     }
-
 }
 
 //MARK: TableView
 extension TantanganDetailController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.challengeDetailData.count ?? 0
+        return self.viewModel?.challengeDetailData.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,6 +62,7 @@ extension TantanganDetailController: UITableViewDataSource {
 
 //MARK: Function
 extension TantanganDetailController {
+    
     func nibSetup() {
         let nib = UINib(nibName: "\(TantanganDetailTableCell.self)", bundle: nil)
         detailsTable.register(nib, forCellReuseIdentifier: "tantanganDetail")

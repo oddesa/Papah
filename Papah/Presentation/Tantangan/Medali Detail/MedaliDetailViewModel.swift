@@ -7,10 +7,16 @@
 
 import UIKit
 
-class MedaliDetailViewModel: NSObject {
+struct MedaliDetailData {
+    var image: UIImage
+    var title: String
+    var desc: String
+}
 
-    init(dummy: Int) {
-        
+class MedaliDetailViewModel: NSObject {
+    var datas = [MedaliDetailData]()
+    init(datasVM: [MedaliDetailData]) {
+        self.datas = datasVM
     }
     
 }

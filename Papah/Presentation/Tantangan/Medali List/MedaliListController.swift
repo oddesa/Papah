@@ -62,6 +62,13 @@ extension MedaliListController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? MedaliListTableViewCell else {
                 return UITableViewCell()
             }
+            
+            cell.onDidSelectItem = {(indexPath) in
+                let mdData = MedaliDetailData(image: UIImage.whatsAppImage20210719At085013, title: "akhirnya bisa yolo", desc: "kunci dari ngoding adalah tidur apabila pusyang berkepanjangan")
+                let mdDatas = [mdData]
+                self.navigationController?.pushViewController(MedaliDetailController(viewModel: MedaliDetailViewModel(datasVM: mdDatas)).instantiateStoryboard(), animated: true)
+            }
+            
             return cell
         case SubtitleTableViewCell.identifier:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? SubtitleTableViewCell else {

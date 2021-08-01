@@ -3,8 +3,8 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,28 +20,35 @@
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" text="Tampilkan Lainnya" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQB-A4-Tis">
-                    <rect key="frame" x="259" y="32.5" width="139" height="20.5"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FjR-Z7-GXX">
+                    <rect key="frame" x="259" y="26" width="139" height="33"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" systemColor="systemIndigoColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                    <state key="normal" title="Tampilkan Lainnya">
+                        <color key="titleColor" name="purple_two"/>
+                    </state>
+                    <connections>
+                        <action selector="tmpilkanBtn:" destination="sS2-GC-h5V" eventType="touchUpInside" id="CiQ-cH-Mrb"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="0WQ-tu-L10"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="kQB-A4-Tis" secondAttribute="trailing" constant="16" id="0Zg-Tl-f1h"/>
                 <constraint firstItem="c8T-M6-GbA" firstAttribute="leading" secondItem="sS2-GC-h5V" secondAttribute="leading" constant="16" id="DTv-N9-Llt"/>
-                <constraint firstItem="kQB-A4-Tis" firstAttribute="centerY" secondItem="c8T-M6-GbA" secondAttribute="centerY" id="HNn-1S-tPz"/>
                 <constraint firstItem="c8T-M6-GbA" firstAttribute="top" secondItem="sS2-GC-h5V" secondAttribute="top" constant="10" id="MDg-YG-rjC"/>
                 <constraint firstAttribute="bottom" secondItem="c8T-M6-GbA" secondAttribute="bottom" constant="10" id="gPg-Dw-bPz"/>
+                <constraint firstAttribute="trailing" secondItem="FjR-Z7-GXX" secondAttribute="trailing" constant="16" id="nFD-o7-2VK"/>
+                <constraint firstItem="FjR-Z7-GXX" firstAttribute="centerY" secondItem="c8T-M6-GbA" secondAttribute="centerY" id="wb7-Bt-DQx"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="tmpilkanOutlet" destination="FjR-Z7-GXX" id="jQT-ok-M3N"/>
+            </connections>
             <point key="canvasLocation" x="669.56521739130437" y="149.66517857142856"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="purple_two">
+            <color red="0.3449999988079071" green="0.33700001239776611" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
