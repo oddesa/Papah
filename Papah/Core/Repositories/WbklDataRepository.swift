@@ -13,13 +13,12 @@ class WbklDataRepository {
     static let shared = WbklDataRepository()
     let entityName = "Wbkl"
     
-    func insertWbkl(completed: Bool,
-                      id: Int,
+    func insertWbkl(id: Int,
                       name:String,
                       wbklType: String,
                       longitude: Float,
                       latitude: Float,
-                      image: Data,
+                      image: UIImage,
                       openDay: String,
                       openHour: String,
                       address:String,
@@ -35,7 +34,7 @@ class WbklDataRepository {
             wbklData.wbkl_type = wbklType
             wbklData.longitude = longitude
             wbklData.latitude = latitude
-            wbklData.image = image
+            wbklData.image = image.jpegData(compressionQuality: 1.0)
             wbklData.operational_day = openDay
             wbklData.operational_hour = openHour
             wbklData.address = address
@@ -228,7 +227,7 @@ class WbklDataRepository {
     
     
     //MARK: Delete Wbkl
-    func deleteAllSampah(){
+    func deleteAllWbKl(){
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
 
         do {

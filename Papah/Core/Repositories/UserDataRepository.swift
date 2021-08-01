@@ -64,16 +64,19 @@ class UserDataRepository {
         
     }
     
-    func updateLevel(){
-        
-    }
-    
-    func updateTotalUang(){
-        
+    func updateTotalUang(income: Int){
+        /*Pseudo
+         totalUang + income
+        */
     }
     
     func updatePoint(){
-        
+        /*Pseudo
+         totalPoint = currentPoint + newPoint
+         if maxPoint > totalPoint, maka currentPoint = totalPoint
+         if maxPoint == totalPoint, maka currentPoint = 0, update level
+         if maxPoint < totalPoint, maka currentPoint = totalPoint - maxPoint, terus update level
+        */
     }
     
     

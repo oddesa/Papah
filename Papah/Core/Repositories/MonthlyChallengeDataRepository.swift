@@ -133,6 +133,42 @@ class MonthlyChallengeDataRepository {
         return nil
     }
     
+    //MARK: Update
+    func updateMonthlyChallengeProgress(mcpId: Int, value: Float) -> Bool{
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: "mcp_id == %d", mcpId)
+        
+        do {
+            
+            let item = try context.fetch(fetchRequest) as? MonthlyChallengeProgress
+            
+            
+            let totalValue = item?.current_value ?? 0 + value
+            /*Pseudo:
+             if maxValue > totalValue maka currentValue = totalValue
+             else maka currentValue == maxValue
+             status claim_avail == true
+            */
+            item?.current_value =  totalValue
+            
+            return true
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return false
+    }
+    
+    func claimMonthlyChallengePoints() {
+        /*Pseudo:
+         masukin claimed date
+         claim_avail == false
+         status claimed == true
+         panggil fungsi add user point di vc nya
+        */
+    }
+    
     
     //MARK: Delete
     func deleteMonthlyChallenge(data: MonthlyChallenge) {

@@ -158,6 +158,16 @@ class BadgeDataRepository {
         return []
     }
     
+    //MARK: Update
+    func updateBagdeProgress(){
+     /*Pseudo
+         if get == false {
+         if belum max value, maka simpen valuenya
+         kalo uda max, get == true
+         }
+    */
+    }
+    
     
     //MARK: Delete
     func deleteBadge(data: Badge) {
