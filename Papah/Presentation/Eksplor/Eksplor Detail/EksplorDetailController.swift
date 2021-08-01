@@ -143,6 +143,8 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             }
             cell.selectionStyle = .none
             
+            cell.delegate = self
+            
             return cell
         case EksplorDetailLimbarCell.cellIdentifier():
             guard let cell = tableView.dequeueReusableCell(withIdentifier: EksplorDetailLimbarCell.cellIdentifier()) as? EksplorDetailLimbarCell else {
@@ -163,6 +165,24 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
         default:
             cell.selectionStyle = .none
             return cell
+        }
+    }
+    
+}
+
+extension EksplorDetailController: EksplorDetailTableCellDelegate {
+    func openMaps() {
+        let mapController = EksplorMapController(viewModel: EksplorMapViewModel(dummy: 0)).instantiateStoryboard()
+        self.navigationController?.pushViewController(mapController, animated: true)
+    }
+    
+    func openPhoneCall() {
+        guard let url = URL(string: "tel://0811111111"),
+              UIApplication.shared.canOpenURL(url) else { return }
+        if #available(iOS 10, *) {
+            UIApplication.shared.open(url)
+        } else {
+            UIApplication.shared.openURL(url)
         }
     }
     
