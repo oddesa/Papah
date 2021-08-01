@@ -198,6 +198,7 @@
                 <outlet property="lblType" destination="BRi-th-XVW" id="JI1-KS-W0h"/>
                 <outlet property="viewMap" destination="Z2v-64-LV5" id="V3E-eA-KtY"/>
                 <outlet property="viewPhone" destination="wKe-08-ZAT" id="vwi-DG-Roq"/>
+                <outlet property="wbklImage" destination="HZd-ug-kKv" id="YrZ-Tq-JAx"/>
             </connections>
             <point key="canvasLocation" x="-16" y="0.0"/>
         </tableViewCell>

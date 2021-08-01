@@ -132,6 +132,9 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             }
             cell.selectionStyle = .none
             
+            
+            cell.updateDataView(wbklData: self.viewModel?.wbklData)
+            
             cell.delegate = self
             
             return cell

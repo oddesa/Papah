@@ -33,6 +33,8 @@ class TipsListController: MVVMViewController<TipsListViewModel>, UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        self.viewModel = TipsListViewModel()
+
         tipsListTableView.delegate = self
         tipsListTableView.dataSource = self
         // Do any additional setup after loading the view.

@@ -20,6 +20,8 @@ class TantanganListController: MVVMViewController<TantanganListViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.viewModel = TantanganListViewModel()
+
         registerNib()
     }
 

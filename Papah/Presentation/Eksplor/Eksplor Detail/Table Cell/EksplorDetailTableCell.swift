@@ -22,6 +22,7 @@ class EksplorDetailTableCell: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblType: UILabel!
     @IBOutlet weak var lblAddress: UILabel!
+    @IBOutlet weak var wbklImage: UIImageView!
     
     weak var delegate: EksplorDetailTableCellDelegate?
     
@@ -33,6 +34,18 @@ class EksplorDetailTableCell: UITableViewCell {
         self.delegate?.openMaps()
     }
     
+    func updateDataView(wbklData: Wbkl?){
+        
+        if let wbkl = wbklData {
+            lblTitle.text = wbkl.name
+            lblType.text = wbkl.wbkl_type
+            lblAddress.text = wbkl.address
+            lblOperationalDay.text = wbkl.operational_day
+            lblOperationalHours.text = wbkl.operational_hour
+            wbklImage.image = UIImage(data: wbkl.image ?? Data())
+        }
+        
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

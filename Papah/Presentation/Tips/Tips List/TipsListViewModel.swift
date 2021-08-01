@@ -9,8 +9,4 @@ import UIKit
 
 class TipsListViewModel: NSObject {
 
-    init(dummy: Int){
-        
-    }
-    
 }

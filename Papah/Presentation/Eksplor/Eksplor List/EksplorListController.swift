@@ -85,8 +85,11 @@ class EksplorListController: MVVMViewController<EksplorListViewModel>, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let viewModel = viewModel {
-            self.navigationController?.pushViewController(EksplorDetailController.instantiateStoryboard(viewModel: EksplorDetailViewModel(wbklData: viewModel.wbklData)), animated: true)
+        if let viewModel = viewModel, let wbklData = viewModel.getWBklData()?.first {
+            let controller = EksplorDetailController.instantiateStoryboard(
+                viewModel: EksplorDetailViewModel(wbklData: wbklData)
+            )
+            self.navigationController?.pushViewController(controller, animated: true)
         }
         
     }
