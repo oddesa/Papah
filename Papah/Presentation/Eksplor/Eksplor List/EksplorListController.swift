@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EksplorListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EksplorListController: MVVMViewController<EksplorListViewModel>, UITableViewDataSource, UITableViewDelegate {
     
     let strings = ["asdfefsa", "hahahah", "xoxoxoox"]
     var searchBarCont = UISearchController()
@@ -15,21 +15,6 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
     var filterStrings: [String] = []
     
     @IBOutlet weak var tableViewOutlet: UITableView!
-    
-    
-    private var viewModel: EksplorListViewModel?
-    
-    init(viewModel: EksplorListViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

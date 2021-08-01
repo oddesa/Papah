@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TantanganListController: UIViewController {
+class TantanganListController: MVVMViewController<TantanganListViewModel> {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -16,17 +16,6 @@ class TantanganListController: UIViewController {
     private let sectionRewards = 2
 
     static let footerHeight = 100
-    
-    private var viewModel: TantanganListViewModel?
-    
-    init(viewModel: TantanganListViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -178,7 +167,7 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
             cell.onDidSelectItem = {(indexPath) in
                 let mdData = MedaliDetailData(image: UIImage.whatsAppImage20210719At085013, title: "akhirnya bisa yolo", desc: "kunci dari ngoding adalah tidur apabila pusyang berkepanjangan")
                 let mdDatas = [mdData]
-                self.navigationController?.pushViewController(MedaliDetailController(viewModel: MedaliDetailViewModel(datasVM: mdDatas)), animated: true)
+                self.navigationController?.pushViewController(MedaliDetailController.instantiateStoryboard(viewModel: MedaliDetailViewModel(datasVM: mdDatas)), animated: true)
 
             }
             
@@ -207,7 +196,7 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
             print(TantanganEarningCell.cellIdentifier())
         case TantanganMonthlyCell.cellIdentifier():
             let ttdcData = ChallengeDetail.getChallengeDetaileData()
-            self.navigationController?.present(TantanganDetailController(viewModel: TantanganDetailViewModel(challengeDetailData: ttdcData)), animated: true, completion: nil)
+            self.navigationController?.present(TantanganDetailController.instantiateStoryboard(viewModel: TantanganDetailViewModel(challengeDetailData: ttdcData)), animated: true, completion: nil)
         case TantanganRewardTablecell.cellIdentifier():
             print("berak")
         default:

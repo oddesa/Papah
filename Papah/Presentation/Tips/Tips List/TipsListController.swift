@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TipsListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TipsListController: MVVMViewController<TipsListViewModel>, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tipsList.count
     }
@@ -28,17 +28,6 @@ class TipsListController: UIViewController, UITableViewDelegate, UITableViewData
         print("DID SELECT")
         let tipsScene = UIStoryboard(name: "TipsDetail", bundle: nil).instantiateViewController(withIdentifier: "TipsDetailController") as! TipsDetailController
         self.navigationController?.pushViewController(tipsScene, animated: true)
-    }
-    
-    private var viewModel: TipsListViewModel?
-    
-    init(viewModel: TipsListViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {

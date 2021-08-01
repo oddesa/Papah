@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TantanganDetailController: UIViewController {
+class TantanganDetailController: MVVMViewController<TantanganDetailViewModel> {
     
     
     @IBOutlet weak var navBar: UINavigationBar!
@@ -19,19 +19,6 @@ class TantanganDetailController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
-    
-    
-   var viewModel: TantanganDetailViewModel?
-    
-    init(viewModel: TantanganDetailViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

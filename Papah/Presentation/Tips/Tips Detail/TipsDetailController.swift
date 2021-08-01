@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TipsDetailController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tipsDetailDummy.count
     }
@@ -28,17 +28,6 @@ class TipsDetailController: UIViewController, UICollectionViewDelegate, UICollec
     private let tipsDetailDummy = [ TipsDetail(image: "yes", title: "Memilah Sampah Plastik", desc: "plastik lama terurai"), TipsDetail(image: "yes", title: "Menyalurkan Sampah Plastik", desc: "plastik lama terurai"), TipsDetail(image: "yes", title: "Merecycle plastic", desc: "plastik lama terurai")]
         
     var tesData: String = ""
-    
-    private var viewModel: TipsDetailViewModel?
-    
-    init(viewModel: TipsDetailViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
