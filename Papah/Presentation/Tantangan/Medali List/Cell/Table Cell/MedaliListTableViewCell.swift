@@ -13,6 +13,8 @@ class MedaliListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var onDidSelectItem: ((IndexPath) -> ())?
+    
     func setData() {
         collectionView.reloadData()
     }
@@ -59,5 +61,8 @@ extension MedaliListTableViewCell: UICollectionViewDataSource, UICollectionViewD
             MedaliListCollectionViewCell
         
             return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.onDidSelectItem?(indexPath)
     }
 }

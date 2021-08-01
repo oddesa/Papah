@@ -10,6 +10,9 @@ import UIKit
 class TantanganRewardTablecell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
+
+    var onDidSelectItem: ((IndexPath) -> ())?
+
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -64,6 +67,11 @@ extension TantanganRewardTablecell: UICollectionViewDataSource, UICollectionView
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TantanganRewardCell", for: indexPath) as! TantanganRewardCell
         
         return cell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.onDidSelectItem?(indexPath)
     }
     
 }

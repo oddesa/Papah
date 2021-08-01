@@ -114,6 +114,13 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
             let backgroundView = UIView(frame: headerView.bounds)
             backgroundView.backgroundColor = .clear
             headerView.backgroundView = backgroundView
+            
+            //navigasi
+//            headerView.tmpilkanOutlet as! UIButton
+            
+            headerView.onDidSelectItem = { () in
+                self.navigationController?.pushViewController(MedaliListController(viewModel: MedaliListViewModel(dummy: 4)).instantiateStoryboard(), animated: true)
+            }
 
             return headerView
         }
@@ -166,6 +173,13 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
         case TantanganRewardTablecell.cellIdentifier():
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TantanganRewardTablecell.cellIdentifier()) as? TantanganRewardTablecell else {
                 return UITableViewCell()
+                }
+            //buatnavigasi lewat collectionCell
+            cell.onDidSelectItem = {(indexPath) in
+                let mdData = MedaliDetailData(image: UIImage.whatsAppImage20210719At085013, title: "akhirnya bisa yolo", desc: "kunci dari ngoding adalah tidur apabila pusyang berkepanjangan")
+                let mdDatas = [mdData]
+                self.navigationController?.pushViewController(MedaliDetailController(viewModel: MedaliDetailViewModel(datasVM: mdDatas)).instantiateStoryboard(), animated: true)
+
             }
             
             cell.setData()

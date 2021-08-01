@@ -8,11 +8,16 @@
 import UIKit
 
 class TantanganRewardHeadCell: UITableViewHeaderFooterView {
-
+    var onDidSelectItem: (() -> ())?
+    
+    @IBOutlet weak var tmpilkanOutlet: UIButton!
+    @IBAction func tmpilkanBtn(_ sender: Any) {
+        self.onDidSelectItem?()
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
     }
