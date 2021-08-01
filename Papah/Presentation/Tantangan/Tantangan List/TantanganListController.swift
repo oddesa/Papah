@@ -119,7 +119,7 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
 //            headerView.tmpilkanOutlet as! UIButton
             
             headerView.onDidSelectItem = { () in
-                self.navigationController?.pushViewController(MedaliListController(viewModel: MedaliListViewModel(dummy: 4)).instantiateStoryboard(), animated: true)
+                self.navigationController?.pushViewController(MedaliListController.instantiateStoryboard(viewModel: MedaliListViewModel(dummy: 4)), animated: true)
             }
 
             return headerView
@@ -178,7 +178,7 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
             cell.onDidSelectItem = {(indexPath) in
                 let mdData = MedaliDetailData(image: UIImage.whatsAppImage20210719At085013, title: "akhirnya bisa yolo", desc: "kunci dari ngoding adalah tidur apabila pusyang berkepanjangan")
                 let mdDatas = [mdData]
-                self.navigationController?.pushViewController(MedaliDetailController(viewModel: MedaliDetailViewModel(datasVM: mdDatas)).instantiateStoryboard(), animated: true)
+                self.navigationController?.pushViewController(MedaliDetailController(viewModel: MedaliDetailViewModel(datasVM: mdDatas)), animated: true)
 
             }
             
@@ -207,7 +207,7 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
             print(TantanganEarningCell.cellIdentifier())
         case TantanganMonthlyCell.cellIdentifier():
             let ttdcData = ChallengeDetail.getChallengeDetaileData()
-            self.navigationController?.present(TantanganDetailController(viewModel: TantanganDetailViewModel(challengeDetailData: ttdcData)).instantiateStoryboard(), animated: true, completion: nil)
+            self.navigationController?.present(TantanganDetailController(viewModel: TantanganDetailViewModel(challengeDetailData: ttdcData)), animated: true, completion: nil)
         case TantanganRewardTablecell.cellIdentifier():
             print("berak")
         default:

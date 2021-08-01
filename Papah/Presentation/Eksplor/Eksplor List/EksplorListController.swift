@@ -100,7 +100,7 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
         
         let wbklData = WBKL(name: "nama", lng: 1, lat: 2, img: UIImage.whatsAppImage20210719At085013.jpegData(compressionQuality: 1.0) ?? Data(), operationalDay: "08:00", operationalHour: "08:00", address: "213", phoneNumber: "123")
                 
-        self.navigationController?.pushViewController(EksplorDetailController(viewModel: EksplorDetailViewModel(wbklData: wbklData)).instantiateStoryboard(), animated: true)
+        self.navigationController?.pushViewController(EksplorDetailController.instantiateStoryboard(viewModel: EksplorDetailViewModel(wbklData: wbklData)), animated: true)
         
     }
 }

@@ -66,7 +66,7 @@ extension MedaliListController: UITableViewDelegate, UITableViewDataSource {
             cell.onDidSelectItem = {(indexPath) in
                 let mdData = MedaliDetailData(image: UIImage.whatsAppImage20210719At085013, title: "akhirnya bisa yolo", desc: "kunci dari ngoding adalah tidur apabila pusyang berkepanjangan")
                 let mdDatas = [mdData]
-                self.navigationController?.pushViewController(MedaliDetailController(viewModel: MedaliDetailViewModel(datasVM: mdDatas)).instantiateStoryboard(), animated: true)
+                self.navigationController?.pushViewController(MedaliDetailController.instantiateStoryboard(viewModel: MedaliDetailViewModel(datasVM: mdDatas)), animated: true)
             }
             
             return cell

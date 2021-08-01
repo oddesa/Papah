@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EksplorDetailController: UIViewController {
+class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -15,18 +15,7 @@ class EksplorDetailController: UIViewController {
     private let sectionWaste = 1
     
     static let footerHeight = 100
-    
-    private var viewModel: EksplorDetailViewModel?
-    
-    init(viewModel: EksplorDetailViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -172,7 +161,7 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
 
 extension EksplorDetailController: EksplorDetailTableCellDelegate {
     func openMaps() {
-        let mapController = EksplorMapController(viewModel: EksplorMapViewModel(dummy: 0)).instantiateStoryboard()
+        let mapController = EksplorMapController.instantiateStoryboard(viewModel: EksplorMapViewModel(dummy: 0))
         self.navigationController?.pushViewController(mapController, animated: true)
     }
     
