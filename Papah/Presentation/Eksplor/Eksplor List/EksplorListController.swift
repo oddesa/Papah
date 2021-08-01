@@ -19,6 +19,8 @@ class EksplorListController: MVVMViewController<EksplorListViewModel>, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.viewModel = EksplorListViewModel()
+        
         let nibTable = UINib(nibName: "ExplorListTableCell", bundle: nil)
         tableViewOutlet.register(nibTable, forCellReuseIdentifier: "ExplorListTableCell")
         let nibTable1 = UINib(nibName: "EksplorListFilterCollectionTableCell", bundle: nil)
@@ -83,9 +85,9 @@ class EksplorListController: MVVMViewController<EksplorListViewModel>, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let wbklData = WBKL(name: "nama", lng: 1, lat: 2, img: UIImage.whatsAppImage20210719At085013.jpegData(compressionQuality: 1.0) ?? Data(), operationalDay: "08:00", operationalHour: "08:00", address: "213", phoneNumber: "123")
-                
-        self.navigationController?.pushViewController(EksplorDetailController.instantiateStoryboard(viewModel: EksplorDetailViewModel(wbklData: wbklData)), animated: true)
+        if let viewModel = viewModel {
+            self.navigationController?.pushViewController(EksplorDetailController.instantiateStoryboard(viewModel: EksplorDetailViewModel(wbklData: viewModel.wbklData)), animated: true)
+        }
         
     }
 }

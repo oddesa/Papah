@@ -19,9 +19,6 @@ class EksplorListViewModel: NSObject {
 
     let dataGblk = KangLoak(name: "Bank Sampah Mak Cimet", jenis: "Godmother", jarak: "100 bulan purnama", kategori: ["Plastik", "Mantan", "Penjahat"], operasional: "Buka, 00.01-23.59")
     
-    var wbklListDataVM: KangLoak
-    init(wbklListData: KangLoak) {
-        self.wbklListDataVM = wbklListData
-    }
+    let wbklData = WBKL(name: "nama", lng: 1, lat: 2, img: UIImage.whatsAppImage20210719At085013.jpegData(compressionQuality: 1.0) ?? Data(), operationalDay: "08:00", operationalHour: "08:00", address: "213", phoneNumber: "123")
         
 }
