@@ -65,8 +65,8 @@ class TipsListController: UIViewController, UITableViewDelegate, UITableViewData
 
 }
 
-struct Waste{
+struct Waste {
     let image: String
-    let category : String
-    let desc : String
+    let category: String
+    let desc: String
 }

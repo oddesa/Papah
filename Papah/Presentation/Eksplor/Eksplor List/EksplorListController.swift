@@ -17,7 +17,7 @@ class DummyDataUhuy {
 }
 
 
-class EksplorListController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
+class EksplorListController: UIViewController {
     
     let strings = ["asdfefsa", "hahahah", "xoxoxoox"]
     var searchBarCont = UISearchController()
@@ -40,16 +40,20 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSearchController()
+        setupNib()
+    }
+}
+
+    // MARK: - UISearchController
+extension EksplorListController: UISearchResultsUpdating {
+    
+    func setupSearchController() {
         navigationItem.searchController = searchBarCont
-        
         searchBarCont.searchResultsUpdater = self
         searchBarCont.obscuresBackgroundDuringPresentation = false
         searchBarCont.searchBar.setValue("Batalkan", forKey: "cancelButtonText")
-        
-        setupNib()
     }
-    
-    // MARK: - UISearchController
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {
             return
@@ -68,16 +72,16 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
         
         for dummy in dummyUntukDifilter {
             for word in splited {
-                if dummy.nama.lowercased().contains(word.lowercased()) || dummy.categori.lowercased().contains(word.lowercased()){
-                    filteredData.append(dummy.nama)
-                    guard let idx = dummyUntukDifilter.firstIndex(where: { $0 === dummy }) else {return}
-                    dummyUntukDifilter.remove(at: idx)
+                if dummy.nama.lowercased().contains(word.lowercased()) || dummy.categori.lowercased().contains(word.lowercased()) {
+                        filteredData.append(dummy.nama)
+                        guard let idx = dummyUntukDifilter.firstIndex(where: { $0 === dummy }) else {return}
+                        dummyUntukDifilter.remove(at: idx)
                 }
             }
         }
         
         //logic sorting
-        filteredData = filteredData.sorted()
+//        filteredData = filteredData.sorted()
 //        var users = [
 //            User(firstName: "Jemima", home: "Alabama"),
 //            User(firstName: "Peter", home: "Bogor"),
@@ -97,16 +101,10 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
 //        users.sort {
 //            $0.home < $1.home
 //        }
-
-        
-        
-        print("ini filtered data \(filteredData)")
-        print("ini dummy \(dummyUntukDifilter)")
     }
-    
-    
+}
     // MARK: - TableView DataSource
-    
+extension EksplorListController: UITableViewDataSource {
     func setupNib() {
         let nibTable = UINib(nibName: "ExplorListTableCell", bundle: nil)
         tableViewOutlet.register(nibTable, forCellReuseIdentifier: "ExplorListTableCell")
@@ -124,49 +122,48 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "EksplorListFilterCollectionTableCell", for: indexPath) as? EksplorListFilterCollectionTableCell else {fatalError("identifiernya salah anying")}
             return cell
+            
         } else {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath) as? ExplorListTableCell else {fatalError("identifiernya salah anying")}
-        
-        cell.wbklNameLabel.text = "test test hah hihi"
-        cell.wbklCategoryLabel.text = "Tukang loak sejati"
-        
-        let categories = ["asfaf", "asdasdas", "aasdasdsdasda", "asdasd", "asdaqeqwe", "213"]
-        var putihputih = [cell.wbklSampahKategori1, cell.wbklSampahKategori2, cell.wbklSampahKategori3, cell.wbklSampahKategori4]
-        let textPutihPutih = [cell.wbklSampahKateogri1Label, cell.wbklSampahKategori2Label, cell.wbklSampahKategori3Label, cell.wbklSampahKategori4Label]
-        
-        
-        
-        for int in 0..<categories.count {
-            if int < 3 {
-                textPutihPutih[int]?.text = categories[int]
-            } else {
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath) as? ExplorListTableCell else {fatalError("identifiernya salah anying")}
+            
+            cell.wbklNameLabel.text = "test test hah hihi"
+            cell.wbklCategoryLabel.text = "Tukang loak sejati"
+            
+            let categories = ["asfaf", "asdasdas", "aasdasdsdasda", "asdasd", "asdaqeqwe", "213"]
+            var putihputih = [cell.wbklSampahKategori1, cell.wbklSampahKategori2, cell.wbklSampahKategori3, cell.wbklSampahKategori4]
+            let textPutihPutih = [cell.wbklSampahKateogri1Label, cell.wbklSampahKategori2Label, cell.wbklSampahKategori3Label, cell.wbklSampahKategori4Label]
+            
+            
+            
+            for int in 0..<categories.count {
+                if int < 3 {
+                    textPutihPutih[int]?.text = categories[int]
+                } else {
                     textPutihPutih[3]?.text = "+\(categories.count-3)"
+                }
             }
-        }
-        
-        for int in 0..<categories.count {
-            if int < 4 {
+            
+            for int in 0..<categories.count where int < 4 {
                 putihputih.remove(at: 0)
             }
-        }
-        
-        for putih in putihputih {
-            putih?.removeFromSuperview()
-
-        }
-        
-        return cell
+            
+            for putih in putihputih {
+                putih?.removeFromSuperview()
+            }
+            
+            return cell
         }
     }
-
-    // MARK: - TableView Delegate
+}
+// MARK: - TableView Delegate
+extension EksplorListController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let wbklData = WBKL(name: "nama", lng: 1, lat: 2, img: UIImage.whatsAppImage20210719At085013.jpegData(compressionQuality: 1.0) ?? Data(), operationalDay: "08:00", operationalHour: "08:00", address: "213", phoneNumber: "123")
-                
-        self.navigationController?.pushViewController(EksplorDetailController(viewModel: EksplorDetailViewModel(wbklData: wbklData)).instantiateStoryboard(), animated: true)
         
+        self.navigationController?.pushViewController(EksplorDetailController(viewModel: EksplorDetailViewModel(wbklData: wbklData)).instantiateStoryboard(), animated: true)
     }
 }
 

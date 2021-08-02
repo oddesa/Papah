@@ -11,7 +11,7 @@ import Combine
 
 class EksplorMapViewModel: NSObject {
     
-    init(dummy: Int){
+    init(dummy: Int) {
         
     }
     
