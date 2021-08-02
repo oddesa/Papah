@@ -107,7 +107,11 @@
 		BCEE6E5326B1BCB900D4D250 /* EksplorDetailEarningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEE6E5126B1BCB900D4D250 /* EksplorDetailEarningCell.swift */; };
 		BCEE6E5426B1BCB900D4D250 /* EksplorDetailEarningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCEE6E5226B1BCB900D4D250 /* EksplorDetailEarningCell.xib */; };
 		BCF48A7E26B392B900E7F677 /* TipsDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF48A7D26B392A300E7F677 /* TipsDataRepository.swift */; };
+		BF1C043F26B4FB270099B6E1 /* UserDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C043E26B4FB270099B6E1 /* UserDataRepository.swift */; };
+		BF1C044126B4FB5B0099B6E1 /* MonthlyChallengeDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C044026B4FB5B0099B6E1 /* MonthlyChallengeDataRepository.swift */; };
+		BF1C044326B4FB700099B6E1 /* BadgeDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C044226B4FB700099B6E1 /* BadgeDataRepository.swift */; };
 		BF55702126AFCB030029BB54 /* EksplorListFilter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF55702026AFCB030029BB54 /* EksplorListFilter.storyboard */; };
+		BF9AD07A26B3C6D80010242D /* WbklDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9AD07926B3C6D80010242D /* WbklDataRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -238,7 +242,11 @@
 		BCEE6E5126B1BCB900D4D250 /* EksplorDetailEarningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorDetailEarningCell.swift; sourceTree = "<group>"; };
 		BCEE6E5226B1BCB900D4D250 /* EksplorDetailEarningCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorDetailEarningCell.xib; sourceTree = "<group>"; };
 		BCF48A7D26B392A300E7F677 /* TipsDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsDataRepository.swift; sourceTree = "<group>"; };
+		BF1C043E26B4FB270099B6E1 /* UserDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRepository.swift; sourceTree = "<group>"; };
+		BF1C044026B4FB5B0099B6E1 /* MonthlyChallengeDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyChallengeDataRepository.swift; sourceTree = "<group>"; };
+		BF1C044226B4FB700099B6E1 /* BadgeDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeDataRepository.swift; sourceTree = "<group>"; };
 		BF55702026AFCB030029BB54 /* EksplorListFilter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EksplorListFilter.storyboard; sourceTree = "<group>"; };
+		BF9AD07926B3C6D80010242D /* WbklDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WbklDataRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -671,7 +679,11 @@
 		BC2A95F226ADD37E002AD800 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				BF1C044226B4FB700099B6E1 /* BadgeDataRepository.swift */,
+				BF1C044026B4FB5B0099B6E1 /* MonthlyChallengeDataRepository.swift */,
+				BF9AD07926B3C6D80010242D /* WbklDataRepository.swift */,
 				BCF48A7D26B392A300E7F677 /* TipsDataRepository.swift */,
+				BF1C043E26B4FB270099B6E1 /* UserDataRepository.swift */,
 				BC2AF19426ADD4A9006FFB9F /* s.swift */,
 			);
 			path = Repositories;
@@ -895,7 +907,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\n  exit 0\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#if which swiftlint >/dev/null; then\n#  swiftlint\n#   exit 0\n# else\n#   echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n# fi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -906,6 +918,7 @@
 			files = (
 				BCB6956D26B11411001E90F0 /* TantanganRewardTablecell.swift in Sources */,
 				BCB6955A26B102DE001E90F0 /* TantanganEarningCell.swift in Sources */,
+				BF9AD07A26B3C6D80010242D /* WbklDataRepository.swift in Sources */,
 				981DDBD126ADD8CB00BB60F9 /* AppDelegate.swift in Sources */,
 				BC1F4F8326AF063E00FDC3D3 /* EksplorMapBottomSheet.swift in Sources */,
 				BC8C9B7426AE8AFC0096F0E8 /* EksplorDetailTableCell.swift in Sources */,
@@ -917,6 +930,7 @@
 				BC2BE87126AE83310067DB23 /* Extension+Cell.swift in Sources */,
 				BCB6956926B1102B001E90F0 /* TantanganMonthlyHeadCell.swift in Sources */,
 				BCB6955F26B1038F001E90F0 /* TantanganMonthlyCell.swift in Sources */,
+				BF1C043F26B4FB270099B6E1 /* UserDataRepository.swift in Sources */,
 				BCCA0A0A26B11D0E00C2DD6F /* DynamicHeightCollectionView.swift in Sources */,
 				9866549E26ADBC7E0047D2A7 /* Papah.xcdatamodeld in Sources */,
 				BC2A95ED26ADD073002AD800 /* TipsDetailController.swift in Sources */,
@@ -924,7 +938,9 @@
 				BC2A95C626ADCF24002AD800 /* EksplorListViewModel.swift in Sources */,
 				BC2BE86B26AE82DF0067DB23 /* UIView+Extension.swift in Sources */,
 				BC2A95D826ADCFB1002AD800 /* EksplorListFilterTableCell.swift in Sources */,
+				BF1C044326B4FB700099B6E1 /* BadgeDataRepository.swift in Sources */,
 				BC8C9B7226AE8AD80096F0E8 /* HomepageController.swift in Sources */,
+				BF1C044126B4FB5B0099B6E1 /* MonthlyChallengeDataRepository.swift in Sources */,
 				BCD827B226AEFA90000C2452 /* EksplorMapController+SheetConfig.swift in Sources */,
 				BC2A95D526ADCF98002AD800 /* EksplorListFilterController.swift in Sources */,
 				BC2BE85D26AE82BA0067DB23 /* CommonFunction.swift in Sources */,
