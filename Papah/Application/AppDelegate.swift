@@ -14,8 +14,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        CoreDataManager.sharedManager.deleteAllData()
+        
         CoreDataManager.sharedManager.preloadData()
         
+//        WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 1, title: "Plastik", unit: "Kg", image: Data())
+//        WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 2, title: "Kertas", unit: "Kg", image: Data())
+//        WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 3, title: "Galon", unit: "Kg", image: Data())
+//        
+//        WbklDataRepository.shared.insertWasteAccepted(wbklId: 0, wasteAccId: 1, wasteCategoryId: 1, price: 1000)
+//        WbklDataRepository.shared.insertWasteAccepted(wbklId: 0, wasteAccId: 2, wasteCategoryId: 2, price: 1000)
+//        WbklDataRepository.shared.insertWasteAccepted(wbklId: 0, wasteAccId: 3, wasteCategoryId: 3, price: 1000)
+
         return true
     }
 
