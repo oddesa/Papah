@@ -12,7 +12,8 @@ import UIKit
 class MonthlyChallengeDataRepository {
     
     static let shared = MonthlyChallengeDataRepository()
-    let entityName = MonthlyChallenge.self.description()
+    let montlyChallengeEntity = MonthlyChallenge.self.description()
+    let mcpEntity = MonthlyChallengeProgress.self.description()
     
     func insertMonthlyChallenge(userId: Int,
                                 badgeCategoryId: Int,
@@ -48,11 +49,11 @@ class MonthlyChallengeDataRepository {
     }
     
     
- func insertMonthlyChallengeProgress(userId: Int,
-                                     mcId: Int,
-                                     mcpId: Int,
-                                     status: Bool,
-                                     currentValue: Float) {
+    func insertMonthlyChallengeProgress(userId: Int,
+                                        mcId: Int,
+                                        mcpId: Int,
+                                        status: Bool,
+                                        currentValue: Float) {
         
         do {
             
@@ -81,7 +82,7 @@ class MonthlyChallengeDataRepository {
     func getMonthlyChallengeByMCId(id: Int) -> MonthlyChallenge? {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: montlyChallengeEntity)
         fetchRequest.predicate = NSPredicate(format: "monthly_challenge_id == %d", id)
         
         do {
@@ -100,7 +101,7 @@ class MonthlyChallengeDataRepository {
     func getAllMonthlyChallenge() -> [MonthlyChallenge]? {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: montlyChallengeEntity)
         
         do {
             
@@ -118,7 +119,7 @@ class MonthlyChallengeDataRepository {
     func getMCPById(mcpId: Int) -> [MonthlyChallengeProgress]? {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: mcpEntity)
         fetchRequest.predicate = NSPredicate(format: "mcp_id == %d", mcpId)
         
         do {
@@ -134,41 +135,50 @@ class MonthlyChallengeDataRepository {
     }
     
     //MARK: Update
-    func updateMonthlyChallengeProgress(mcpId: Int, value: Float) -> Bool{
+    func updateMonthlyChallengeProgress(mcId: Int, mcpId: Int, value: Float) -> Float{
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: mcpEntity)
         fetchRequest.predicate = NSPredicate(format: "mcp_id == %d", mcpId)
         
         do {
+            let item = try context.fetch(fetchRequest) as? [MonthlyChallengeProgress]
             
-            let item = try context.fetch(fetchRequest) as? MonthlyChallengeProgress
+            let mcp = item?.first
+            let currentValue = mcp?.current_value ?? 0
+            let totalValue = currentValue + value
             
-            
-            let totalValue = item?.current_value ?? 0 + value
-            /*Pseudo:
-             if maxValue > totalValue maka currentValue = totalValue
-             else maka currentValue == maxValue
-             status claim_avail == true
-            */
-            item?.current_value =  totalValue
-            
-            return true
+            let fetchMC = NSFetchRequest<NSManagedObject>(entityName: montlyChallengeEntity)
+            fetchMC.predicate = NSPredicate(format: "monthly_challenge_id == %d", mcId)
+            do {
+                let monthlyChallenge = try context.fetch(fetchRequest) as? [MonthlyChallenge]
+                
+                let mc = monthlyChallenge?.first
+                
+                if mcp?.mcp_id == mc?.monthly_challenge_id {
+                    let maxValue = mc?.max_value ?? 0
+                    if mcp?.status == false {
+                        if maxValue > totalValue {
+                            mcp?.current_value = totalValue
+                        } else {
+                            mcp?.current_value = maxValue
+                            mcp?.status = true
+                        }
+                    } else {
+                        //udah max progress
+                        return value
+                    }
+                }
+                return totalValue
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
         
-        return false
+        return 0
     }
-    
-    func claimMonthlyChallengePoints() {
-        /*Pseudo:
-         masukin claimed date
-         claim_avail == false
-         status claimed == true
-         panggil fungsi add user point di vc nya
-        */
-    }
-    
     
     //MARK: Delete
     func deleteMonthlyChallenge(data: MonthlyChallenge) {
@@ -185,13 +195,12 @@ class MonthlyChallengeDataRepository {
         
     }
     
-    
     func deleteAllMonthlyChallenge() {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
         do {
-            let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entityName)
+            let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: montlyChallengeEntity)
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
             
             try context.execute(deleteRequest)
