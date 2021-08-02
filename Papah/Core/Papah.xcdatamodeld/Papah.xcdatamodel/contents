@@ -91,6 +91,7 @@
         <attribute name="unit" optional="YES" attributeType="String"/>
         <attribute name="waste_category_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="wasteAccepted" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WasteAccepted" inverseName="wasteCategory" inverseEntity="WasteAccepted"/>
+        <relationship name="wbkl" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wbkl" inverseName="wasteCategory" inverseEntity="Wbkl"/>
     </entity>
     <entity name="Wbkl" representedClassName="Wbkl" syncable="YES" codeGenerationType="class">
         <attribute name="address" optional="YES" attributeType="String"/>
@@ -104,7 +105,7 @@
         <attribute name="wbkl_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="wbkl_type" optional="YES" attributeType="String"/>
         <relationship name="wasteAccepted" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WasteAccepted" inverseName="ofWbkl" inverseEntity="WasteAccepted"/>
-        <relationship name="wasteCategory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WasteCategory"/>
+        <relationship name="wasteCategory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WasteCategory" inverseName="wbkl" inverseEntity="WasteCategory"/>
     </entity>
     <elements>
         <element name="Badge" positionX="0" positionY="153" width="128" height="164"/>
@@ -116,7 +117,7 @@
         <element name="SampahDetail" positionX="-54" positionY="-9" width="128" height="119"/>
         <element name="User" positionX="9" positionY="171" width="128" height="164"/>
         <element name="WasteAccepted" positionX="-18" positionY="135" width="128" height="134"/>
-        <element name="WasteCategory" positionX="0" positionY="144" width="128" height="104"/>
+        <element name="WasteCategory" positionX="0" positionY="144" width="128" height="119"/>
         <element name="Wbkl" positionX="-36" positionY="63" width="128" height="209"/>
     </elements>
 </model>

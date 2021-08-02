@@ -25,7 +25,7 @@ class BadgeDataRepository {
         do {
             let context = CoreDataManager.sharedManager.persistentContainer.viewContext
             
-            //Add evaluation photo
+            //Add badge
             let badge = Badge(context: context)
             badge.badge_id = Int32(badgeId)
             badge.title = title
@@ -159,7 +159,7 @@ class BadgeDataRepository {
     }
     
     //MARK: Update
-    func updateBagdeProgress(){
+    func updateBagdeProgress(badgeId: Int){
      /*Pseudo
          if get == false {
          if belum max value, maka simpen valuenya

@@ -120,7 +120,8 @@ class WbklDataRepository {
                 wasteCategory.image = image
                 
                 //add to waste accepted
-           
+                
+                
                 
                 
                 try context.save()
@@ -187,6 +188,7 @@ class WbklDataRepository {
         return []
     }
     
+    //on pending
     func getWbklByCategory(category: String) -> [Wbkl]{
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)

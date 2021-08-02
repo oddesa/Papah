@@ -316,11 +316,47 @@ extension CoreDataManager {
         BadgeDataRepository.shared.insertBadge(
             badgeId: 0,
             badgeCategoryId: 0,
-            title: "",
-            desc: "",
-            maxValue: 0,
+            title: "Profesor Limbah",
+            desc: "1 dari 3 kunjungan",
+            maxValue: 3,
             dateAchv: Date(),
             image: UIImage()
+        )
+        BadgeDataRepository.shared.insertBadge(
+            badgeId: 1,
+            badgeCategoryId: 1,
+            title: "Veteran",
+            desc: "Level 1 dari 5",
+            maxValue: 5,
+            dateAchv: Date(),
+            image: UIImage()
+        )
+        BadgeDataRepository.shared.insertBadge(
+            badgeId: 2,
+            badgeCategoryId: 2,
+            title: "Crazy Rich Kurcaci",
+            desc: "Dapatan medali ini ketika kamu berhasil mengumpulkan total 1 juta rupiah dari hasil penyaluran limbah. Sejauh ini kamu baru mengumpulkan Rp500.000.",
+            maxValue: 1000,
+            dateAchv: Date(),
+            image: UIImage()
+        )
+        BadgeDataRepository.shared.insertBadge(
+            badgeId: 3,
+            badgeCategoryId: 3,
+            title: "Kurcaci Guru",
+            desc: "1 dari 5 kg",
+            maxValue: 5,
+            dateAchv: Date(),
+            image: UIImage()
+        )
+    }
+    
+    func preloadBadgeCategory(){
+        BadgeDataRepository.shared.insertBadgeCategory(
+            badgeId: 0,
+            badgeCategoryId: 0,
+            title: "",
+            unit: ""
         )
     }
     
@@ -340,7 +376,7 @@ extension CoreDataManager {
         
         MonthlyChallengeDataRepository.shared.insertMonthlyChallenge(
             userId: 0,
-            badgeCategoryId: 1,
+            badgeCategoryId: 2,
             mcId: 1,
             title: "Sultan Limbah",
             desc: "Kumpulkan Rp50k dari penyaluran limbah",
