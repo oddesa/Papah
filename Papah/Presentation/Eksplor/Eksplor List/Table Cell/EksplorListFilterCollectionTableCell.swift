@@ -9,8 +9,10 @@ import UIKit
 
 class EksplorListFilterCollectionTableCell: UITableViewCell {
 
+    var onDidSelectItem: (() -> ())?
+
+    @IBOutlet weak var filterBtn: DesignableButton!
     @IBOutlet weak var collectionViewOtl: UICollectionView!
-    
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout! {
         didSet {
             collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
@@ -24,9 +26,15 @@ class EksplorListFilterCollectionTableCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
+    
+    
+    @IBAction func filterBtnPressed(_ sender: Any) {
+        print("hiyaaa")
+        self.onDidSelectItem?()
+    }
+    
+    
 }
  // MARK: - CollectionView Configuration
 extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -62,9 +70,9 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
             fatalError("salah identifier si collection")
         }
         
-        if indexPath.row == 0 {
-            cell.categoryLabel.text = "mamamamamamamam"
-        }
+//        if indexPath.row == 0 {
+//            cell.categoryLabel.text = "mamamamamamamam"
+//        }
 
         return cell
     }
@@ -73,12 +81,19 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
         
         guard let cell = collectionView.cellForItem(at: indexPath) as? EksplorListCollectionCell else {fatalError("cugs")}
         
-        if cell.categoryBubble.backgroundColor == .red {
-            cell.categoryBubble.backgroundColor = .clear
-        } else {
-            cell.categoryBubble.backgroundColor = .red
-        }
-        
-        
+//        if cell.categoryBtn.backgroundColor == .white {
+//            cell.categoryBtn.backgroundColor = .lightGray
+//            cell.categoryBtn.borderColor = .iconIolite
+//            cell.categoryBtn.tintColor = .iconIolite
+//            cell.categoryBtn.titleLabel?.textColor = .iconIolite
+//            cell.categoryBtn.titleLabel?.tintColor = .iconIolite
+//        } else {
+//            cell.categoryBtn.backgroundColor = .white
+//            cell.categoryBtn.borderColor = .black
+//            cell.categoryBtn.tintColor = .black
+//            cell.categoryBtn.titleLabel?.textColor = .black
+//            cell.categoryBtn.titleLabel?.tintColor = .black
+//            cell.categoryBtn.setTitleColor(.black, for: .normal)
+//        }
     }
 }

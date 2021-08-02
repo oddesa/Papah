@@ -69,7 +69,6 @@ extension EksplorListController: UISearchResultsUpdating {
                 }
             }
         }
-        
         //logic sorting
 //        filteredData = filteredData.sorted()
 //        var users = [
@@ -111,6 +110,13 @@ extension EksplorListController: UITableViewDataSource {
         //EksplorListFilterCollectionTableCell
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "EksplorListFilterCollectionTableCell", for: indexPath) as? EksplorListFilterCollectionTableCell else {fatalError("identifiernya salah anying")}
+            
+            cell.onDidSelectItem = { () in
+                let controller = EksplorListFilterController.instantiateStoryboard(viewModel: EksplorListFilterViewModel())
+                self.navigationController?.present(controller, animated: true, completion: nil)
+                
+                print("harusnya bisa")
+            }
             return cell
             
         } else {
@@ -150,13 +156,13 @@ extension EksplorListController: UITableViewDataSource {
 extension EksplorListController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         if let viewModel = viewModel, let wbklData = viewModel.getWBklData()?.first {
             let controller = EksplorDetailController.instantiateStoryboard(
                 viewModel: EksplorDetailViewModel(wbklData: wbklData)
             )
             self.navigationController?.pushViewController(controller, animated: true)
         }
+        print("naon ieu")
     }
 }
 

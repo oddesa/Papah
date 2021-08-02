@@ -38,9 +38,9 @@
                                     <constraint firstAttribute="height" constant="34" id="H1Y-Sj-S9s"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                <color key="tintColor" name="icon_iolite"/>
+                                <color key="tintColor" name="text_primary"/>
                                 <state key="normal" title="Filter">
-                                    <color key="titleColor" name="icon_iolite"/>
+                                    <color key="titleColor" name="text_primary"/>
                                     <imageReference key="image" image="line.horizontal.3.decrease.circle" catalog="system" symbolScale="small"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" weight="bold">
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -48,7 +48,7 @@
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" name="icon_iolite"/>
+                                        <color key="value" name="text_primary"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
@@ -60,6 +60,9 @@
                                         <real key="value" value="16"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="filterBtnPressed:" destination="qyW-tI-Uyd" eventType="touchUpInside" id="1Fi-hb-loL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -84,14 +87,15 @@
             <connections>
                 <outlet property="collectionLayout" destination="RHz-EN-Jcu" id="xkl-lU-ZxT"/>
                 <outlet property="collectionViewOtl" destination="gAh-fR-Jkj" id="UIi-rh-m1D"/>
+                <outlet property="filterBtn" destination="Mng-Au-I4H" id="i6u-CS-6dB"/>
             </connections>
             <point key="canvasLocation" x="-39.130434782608695" y="-47.879464285714285"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="line.horizontal.3.decrease.circle" catalog="system" width="128" height="121"/>
-        <namedColor name="icon_iolite">
-            <color red="0.38400000333786011" green="0.21199999749660492" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="text_primary">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
