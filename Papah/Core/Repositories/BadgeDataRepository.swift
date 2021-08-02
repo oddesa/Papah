@@ -12,7 +12,9 @@ import UIKit
 class BadgeDataRepository {
     
     static let shared = BadgeDataRepository()
-    let entityName = Badge.self.description()
+    let badgeEntity = Badge.self.description()
+    let badgeCategoryEntity = BadgeCategory.self.description()
+    let badgeProgressEntity = BadgeProgress.self.description()
     
     func insertBadge(badgeId: Int,
                      badgeCategoryId: Int,
@@ -91,7 +93,7 @@ class BadgeDataRepository {
                 badgeCategory.unit = unit
                 
                 //add to badge category
-                
+                badge.badgeCategory = badgeCategory
                 
                 try context.save()
             }
@@ -106,7 +108,7 @@ class BadgeDataRepository {
     func getBadgeById(id: Int) -> Badge? {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: badgeEntity)
         fetchRequest.predicate = NSPredicate(format: "badge_id == %d", id)
         
         do {
@@ -122,15 +124,15 @@ class BadgeDataRepository {
         return nil
     }
     
-    func getBadgeProgressbyId(bpId: Int) -> BadgeCategory? {
+    func getBadgeProgressbyId(bpId: Int) -> BadgeProgress? {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: badgeProgressEntity)
         fetchRequest.predicate = NSPredicate(format: "bp_id == %d", bpId)
         
         do {
             
-            let item = try context.fetch(fetchRequest) as? [BadgeCategory]
+            let item = try context.fetch(fetchRequest) as? [BadgeProgress]
             
             return item?.first
         } catch let error as NSError {
@@ -144,7 +146,7 @@ class BadgeDataRepository {
     func getAllBadges() -> [Badge]? {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: badgeEntity)
         
         do {
             
@@ -159,13 +161,47 @@ class BadgeDataRepository {
     }
     
     //MARK: Update
-    func updateBagdeProgress(badgeId: Int){
-     /*Pseudo
-         if get == false {
-         if belum max value, maka simpen valuenya
-         kalo uda max, get == true
-         }
-    */
+    func updateBagdeProgress(badgeId: Int, bpId: Int, value: Float) -> Bool{
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        let bpFetchRequest = NSFetchRequest<NSManagedObject>(entityName: badgeProgressEntity)
+        bpFetchRequest.predicate = NSPredicate(format: "bp_id == %d", bpId)
+        
+        do {
+            let item = try context.fetch(bpFetchRequest) as? [BadgeProgress]
+            let bp = item?.first
+            let badgeFetchRequest = NSFetchRequest<NSManagedObject>(entityName: badgeEntity)
+            badgeFetchRequest.predicate = NSPredicate(format: "badge_id == %d", badgeId)
+            
+            do {
+                let fetchedBadge = try context.fetch(bpFetchRequest) as? [Badge]
+                
+                let badge = fetchedBadge?.first
+                
+                if bp?.id == badge?.id {
+                    if bp?.status == false {
+                        let maxValue = badge?.max_value ?? 0
+                        let totalValue = bp?.current_value ?? 0 + value
+                       
+                        if totalValue < maxValue {
+                            bp?.current_value = totalValue
+                        } else {
+                            bp?.current_value = maxValue
+                            bp?.status = true
+                        }
+                    }
+                }
+                //return "Badge Progress Update Success"
+                return true
+            }
+            catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+
+        //return "Could not update badge progress"
+        return false
     }
     
     
@@ -190,7 +226,7 @@ class BadgeDataRepository {
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
         do {
-            let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entityName)
+            let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: badgeEntity)
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
             
             try context.execute(deleteRequest)

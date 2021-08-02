@@ -11,7 +11,9 @@ import UIKit
 
 class WbklDataRepository {
     static let shared = WbklDataRepository()
-    let entityName = "Wbkl"
+    let wbklEntity = Wbkl.self.description()
+    let wbklCategoryEntity = WasteCategory.self.description()
+    let wbklAccEntity = WasteAccepted.self.description()
     
     func insertWbkl(id: Int,
                       name:String,
@@ -22,7 +24,8 @@ class WbklDataRepository {
                       openDay: String,
                       openHour: String,
                       address:String,
-                      phone: String){
+                      phone: String,
+                      claimedDate: Date){
         do {
             let context = CoreDataManager.sharedManager.persistentContainer.viewContext
             
@@ -39,6 +42,7 @@ class WbklDataRepository {
             wbklData.operational_hour = openHour
             wbklData.address = address
             wbklData.phone_number = phone
+            wbklData.claimed_date = claimedDate
             
             try context.save()
             
@@ -49,8 +53,7 @@ class WbklDataRepository {
     
     func insertWasteAccepted(wbklId: Int,
                              wasteAccId: Int,
-                             price: Int,
-                             claimedDate: Date) {
+                             price: Int) {
         
         do {
             let context = CoreDataManager.sharedManager.persistentContainer.viewContext
@@ -60,7 +63,6 @@ class WbklDataRepository {
                 let wasteAcc = WasteAccepted(context: context)
                 wasteAcc.waste_accepted_id = Int32(wasteAccId)
                 wasteAcc.price = Int32(price)
-                wasteAcc.claimed_date = claimedDate
            
                 wbkl.addToWasteAccepted(wasteAcc)
                 
@@ -120,10 +122,8 @@ class WbklDataRepository {
                 wasteCategory.image = image
                 
                 //add to waste accepted
-                
-                
-                
-                
+                wasteAcc.wasteCategory = wasteCategory
+
                 try context.save()
             }
             
@@ -138,7 +138,7 @@ class WbklDataRepository {
     func getWbklById(wbklId: Int) -> Wbkl? {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: wbklEntity)
         fetchRequest.predicate = NSPredicate(format: "wbkl_id == %d", wbklId)
         
         do {
@@ -156,7 +156,7 @@ class WbklDataRepository {
     func getWbklByWasteAccId(id: Int) -> WasteAccepted? {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: wbklAccEntity)
         fetchRequest.predicate = NSPredicate(format: "waste_accepted_id == %d", id)
         
         do {
@@ -173,7 +173,7 @@ class WbklDataRepository {
     
     func getWblkByName(name: String) -> [Wbkl]{
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: wbklEntity)
         fetchRequest.predicate = NSPredicate(format: "name == %d", name)
         
         do {
@@ -191,7 +191,7 @@ class WbklDataRepository {
     //on pending
     func getWbklByCategory(category: String) -> [Wbkl]{
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: wbklCategoryEntity)
         fetchRequest.predicate = NSPredicate(format: "title == %d", category)
         
         do {
@@ -206,14 +206,28 @@ class WbklDataRepository {
         return []
     }
     
-    //ini gimana?
-    func getWbklByNameAndCategory(){
+    //onpending
+    func getWbklByNameAndCategory(name: String, category: String) -> [Wbkl]{
         //bisa berdasar nama atau kategori
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: wbklEntity)
+        fetchRequest.predicate = NSPredicate(format: "title == %d", category)
+        
+        do {
+            
+            let item = try context.fetch(fetchRequest) as! [Wbkl]
+            
+            return item
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return []
     }
     
     func getAllWbkl() -> [Wbkl] {
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: wbklEntity)
         
         do {
             
@@ -233,7 +247,7 @@ class WbklDataRepository {
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
 
         do {
-            let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entityName)
+            let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: wbklEntity)
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
 
             try context.execute(deleteRequest)
