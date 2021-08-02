@@ -17,7 +17,7 @@ class DummyDataUhuy {
 }
 
 
-class EksplorListController: MVVMViewController<EksplorListViewModel>, UITableViewDataSource, UITableViewDelegate {
+class EksplorListController: MVVMViewController<EksplorListViewModel> {
     
     let strings = ["asdfefsa", "hahahah", "xoxoxoox"]
     var searchBarCont = UISearchController()
@@ -157,8 +157,6 @@ extension EksplorListController: UITableViewDelegate {
             )
             self.navigationController?.pushViewController(controller, animated: true)
         }
-        
-        self.navigationController?.pushViewController(EksplorDetailController(viewModel: EksplorDetailViewModel(wbklData: wbklData)).instantiateStoryboard(), animated: true)
     }
 }
 

@@ -45,7 +45,7 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        3
+        5
     }
     
     
