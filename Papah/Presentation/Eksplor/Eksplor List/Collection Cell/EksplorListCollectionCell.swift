@@ -11,10 +11,25 @@ class EksplorListCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var categoryBubble: DesignableView!
     @IBOutlet weak var categoryLabel: UILabel!
-    //apakah button masih perlu?? nnti harusnya cukup dengan ngeklik si collection cell aja udah activate deactivate filter
+  
+    // Note: must be strong
+    @IBOutlet private var maxWidthConstraint: NSLayoutConstraint! {
+        didSet {
+            maxWidthConstraint.isActive = false
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            contentView.leftAnchor.constraint(equalTo: leftAnchor),
+            contentView.rightAnchor.constraint(equalTo: rightAnchor),
+            contentView.topAnchor.constraint(equalTo: topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
     }
 
     var isActive: Bool = false {

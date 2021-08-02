@@ -37,8 +37,10 @@ extension UITabBarController {
 
 extension UIViewController {
 
-    func instantiateStoryboard() -> UIViewController {
-        return UIStoryboard(name: String(describing: type(of: self)).replacingOccurrences(of: "Controller", with: ""), bundle: Bundle.main).instantiateInitialViewController() ?? UIViewController()
+    static func instantiateStoryboard<T>(viewModel: T) -> MVVMViewController<T> {
+        let controller =  UIStoryboard(name: String(describing: Self.self).replacingOccurrences(of: "Controller", with: ""), bundle: Bundle.main).instantiateInitialViewController() as! MVVMViewController<T>
+        controller.viewModel = viewModel
+        return controller
     }
     
     func showAlert(title: String, msg: String) {

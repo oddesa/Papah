@@ -10,6 +10,13 @@ import UIKit
 class EksplorListFilterCollectionTableCell: UITableViewCell {
 
     @IBOutlet weak var collectionViewOtl: UICollectionView!
+    
+    @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout! {
+        didSet {
+            collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
@@ -22,7 +29,7 @@ class EksplorListFilterCollectionTableCell: UITableViewCell {
     }
 }
  // MARK: - CollectionView Configuration
-extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func setupCollectionView() {
         let nibColl = UINib(nibName: "EksplorListCollectionCell", bundle: nil)
@@ -41,6 +48,15 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
         3
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let yourWidth = collectionView.bounds.width/3.0
+        let yourHeight = collectionView.bounds.height
+
+        return CGSize(width: yourWidth, height: yourHeight)
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EksplorListCollectionCell", for: indexPath) as? EksplorListCollectionCell else {
             fatalError("salah identifier si collection")
@@ -49,6 +65,7 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
         if indexPath.row == 0 {
             cell.categoryLabel.text = "mamamamamamamam"
         }
+
         return cell
     }
     

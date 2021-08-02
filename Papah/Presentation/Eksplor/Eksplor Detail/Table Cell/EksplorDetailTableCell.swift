@@ -7,11 +7,53 @@
 
 import UIKit
 
+protocol EksplorDetailTableCellDelegate: AnyObject {
+    func openMaps()
+    func openPhoneCall()
+}
+
 class EksplorDetailTableCell: UITableViewCell {
 
+    @IBOutlet weak var viewPhone: DesignableView!
+    @IBOutlet weak var viewMap: DesignableView!
+    
+    @IBOutlet weak var lblOperationalHours: UILabel!
+    @IBOutlet weak var lblOperationalDay: UILabel!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblType: UILabel!
+    @IBOutlet weak var lblAddress: UILabel!
+    @IBOutlet weak var wbklImage: UIImageView!
+    
+    weak var delegate: EksplorDetailTableCellDelegate?
+    
+    @objc func onPhoneCallTapped(_ sender: Any) {
+        self.delegate?.openPhoneCall()
+    }
+    
+    @objc func onMapTapped(_ sender: Any) {
+        self.delegate?.openMaps()
+    }
+    
+    func updateDataView(wbklData: Wbkl?){
+        
+        if let wbkl = wbklData {
+            lblTitle.text = wbkl.name
+            lblType.text = wbkl.wbkl_type
+            lblAddress.text = wbkl.address
+            lblOperationalDay.text = wbkl.operational_day
+            lblOperationalHours.text = wbkl.operational_hour
+            wbklImage.image = UIImage(data: wbkl.image ?? Data())
+        }
+        
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        viewMap.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onMapTapped(_:))))
+        viewPhone.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onPhoneCallTapped(_:))))
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
