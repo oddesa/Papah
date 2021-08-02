@@ -12,11 +12,27 @@ class EksplorDetailViewModel {
     
     var wbklData: Wbkl?
     
+    var singleEarningData: [Int] = []
+    
     init(wbklData: Wbkl) {
         self.wbklData = wbklData
+        initDataEarning()
     }
     
-    func distanceBetweenTwoLocations(source:CLLocation,destination:CLLocation) -> Double{
+    func initDataEarning() {
+        if let data = self.wbklData?.wasteAccepted?.allObjects {
+            for _ in data {
+                self.singleEarningData.append(0)
+            }
+        }
+    }
+    
+    func getWasteAcceptedData() -> [WasteAccepted]? {
+//        print("TESTT \(self.wbklData)")
+        return self.wbklData?.wasteAccepted?.allObjects as? [WasteAccepted]
+    }
+    
+    func distanceBetweenTwoLocations(source:CLLocation, destination:CLLocation) -> Double {
         
         let distanceMeters = source.distance(from: destination)
         let distanceKM = distanceMeters / 1000

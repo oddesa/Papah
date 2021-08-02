@@ -37,6 +37,9 @@
                     <constraint firstItem="VQZ-tY-wx5" firstAttribute="leading" secondItem="LA8-99-2wL" secondAttribute="leading" constant="16" id="lwT-Io-7ow"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="lblPrice" destination="PVp-AQ-mha" id="pV6-o9-AWQ"/>
+            </connections>
             <point key="canvasLocation" x="126" y="36"/>
         </tableViewCell>
     </objects>

@@ -15,10 +15,11 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
     
     let sectionDetail = 0
     let sectionWaste = 1
+    let sectionEarning = 2
     
     static let footerHeight = 100
     var distanceLocation: Double = 0.0
-        
+
     let locationManager = CLLocationManager()
 
     override func viewDidLoad() {
@@ -26,7 +27,11 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
         
         registerNib()
         attemptLocationAccess()
-        
+        updateView()
+    }
+    
+    func updateView(){
+        self.title = self.viewModel?.wbklData?.name ?? ""
     }
     
     @IBAction func onClaimPoint(_ sender: Any) {
@@ -57,7 +62,7 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return [sectionDetail, sectionWaste].count
+        return [sectionDetail, sectionWaste, sectionEarning].count
     }
     
     func tableviewIdentifier(section: Int) -> [String] {
@@ -66,10 +71,19 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
         if section == sectionDetail {
             identifiers.append(EksplorDetailTableCell.cellIdentifier())
         }
+        
         if section == sectionWaste {
-            identifiers.append(EksplorDetailLimbarCell.cellIdentifier())
+            if let wasteAccData = self.viewModel?.getWasteAcceptedData() {
+                for _ in wasteAccData {
+                    identifiers.append(EksplorDetailLimbarCell.cellIdentifier())
+                }
+            }
+        }
+        
+        if section == sectionEarning {
             identifiers.append(EksplorDetailEarningCell.cellIdentifier())
         }
+        
         return identifiers
     }
     
@@ -83,7 +97,7 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == sectionWaste {
+        if section == sectionEarning {
             return 200
         }
         return 0
@@ -114,12 +128,7 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
         }
         return UIView()
     }
-    
-    //    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-    //        return CGFloat(TantanganListController.footerHeight)
-    //    }
-    
-    
+        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableviewIdentifier(section: section).count
     }
@@ -152,6 +161,21 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             
             cell.selectionStyle = .none
             
+            if let data = self.viewModel?.getWasteAcceptedData()?[indexPath.row] {
+                cell.updateViewData(data: data, edtQuantity: self.viewModel?.singleEarningData[indexPath.row] ?? 0)
+            }
+            
+            cell.textChanged { data in
+                
+                self.viewModel?.singleEarningData[indexPath.row] = Int(data) ?? 0
+
+                DispatchQueue.main.async {
+                    tableView.reloadSections(IndexSet(integer: self.sectionEarning), with: .none)
+//                                                    tableView?.beginUpdates()
+//                                                    tableView?.endUpdates()
+                }
+            }
+            
             return cell
         case EksplorDetailEarningCell.cellIdentifier():
             guard let cell = tableView.dequeueReusableCell(withIdentifier: EksplorDetailEarningCell.cellIdentifier()) as? EksplorDetailEarningCell else {
@@ -159,6 +183,7 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.selectionStyle = .none
+            cell.updateEarning(totalEarnings: getTextFeildValuesFromTableView())
             
             return cell
         default:
@@ -170,9 +195,30 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension EksplorDetailController: EksplorDetailTableCellDelegate {
+    
+    func getTextFeildValuesFromTableView() -> Int {
+        
+        if let data = self.viewModel?.singleEarningData {
+            
+            var totalEarnings = 0
+            
+            print("TEXT datadatadata DATA \(data)")
+
+            for earnings in data {
+                totalEarnings += earnings
+            }
+            return totalEarnings
+
+        }
+        
+        return 0
+    }
+    
     func openMaps() {
-        let mapController = EksplorMapController.instantiateStoryboard(viewModel: EksplorMapViewModel(dummy: 0))
-        self.navigationController?.pushViewController(mapController, animated: true)
+        if let wbklData = self.viewModel?.wbklData {
+            let mapController = EksplorMapController.instantiateStoryboard(viewModel: EksplorMapViewModel(wbklData: wbklData))
+            self.navigationController?.pushViewController(mapController, animated: true)
+        }
     }
     
     func openPhoneCall() {
@@ -184,6 +230,5 @@ extension EksplorDetailController: EksplorDetailTableCellDelegate {
             UIApplication.shared.openURL(url)
         }
     }
-    
     
 }

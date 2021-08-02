@@ -17,23 +17,23 @@ protocol EksplorMapDelegate: AnyObject {
 class EksplorMapController: MVVMViewController<EksplorMapViewModel>, UIGestureRecognizerDelegate {
     
     private var trashBag = Set<AnyCancellable>()
-
+    
     @IBOutlet weak var mapView: MKMapView!
     
     // MARK: - initializers
     weak var delegate: EksplorMapBottomSheetDelegate?
-
+    
     // MARK: - Bottom sheet initializers
     var bottomSheetViewController: EksplorMapBottomSheet = EksplorMapBottomSheet(nibName: EksplorMapBottomSheet.id, bundle: nil)
     var configuration: BottomSheetConfiguration!
     var state: BottomSheetState = .initial
     var topConstraint = NSLayoutConstraint()
-
+    
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupBottomSheet()
         attemptLocationAccess()
         setupViewModel()
@@ -45,16 +45,17 @@ class EksplorMapController: MVVMViewController<EksplorMapViewModel>, UIGestureRe
             self.delegate?.updateAddress(address: address)
         }.store(in: &trashBag)
     }
-
+    
 }
 
 extension EksplorMapController: EksplorMapDelegate {
     
     func beginRouteTracking() {
-        //Dummy location
         guard let coordinate = locationManager.location?.coordinate else {return}
-        let destinationLocation = CLLocationCoordinate2D(latitude: 37.323, longitude: -122.03218)
-        createPath(sourceLocation: coordinate, destinationLocation: destinationLocation)
+        if let wbklData = self.viewModel?.wbklData {
+            let destinationLocation = CLLocationCoordinate2D(latitude: Double(wbklData.latitude), longitude: Double(wbklData.longitude))
+            createPath(sourceLocation: coordinate, destinationLocation: destinationLocation)
+        }
     }
     
 }
