@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EksplorListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EksplorListController: MVVMViewController<EksplorListViewModel>, UITableViewDataSource, UITableViewDelegate {
     
     let strings = ["asdfefsa", "hahahah", "xoxoxoox"]
     var searchBarCont = UISearchController()
@@ -16,23 +16,10 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var tableViewOutlet: UITableView!
     
-    
-    private var viewModel: EksplorListViewModel?
-    
-    init(viewModel: EksplorListViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.viewModel = EksplorListViewModel()
         
         let nibTable = UINib(nibName: "ExplorListTableCell", bundle: nil)
         tableViewOutlet.register(nibTable, forCellReuseIdentifier: "ExplorListTableCell")
@@ -98,9 +85,12 @@ class EksplorListController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let wbklData = WBKL(name: "nama", lng: 1, lat: 2, img: UIImage.whatsAppImage20210719At085013.jpegData(compressionQuality: 1.0) ?? Data(), operationalDay: "08:00", operationalHour: "08:00", address: "213", phoneNumber: "123")
-                
-        self.navigationController?.pushViewController(EksplorDetailController(viewModel: EksplorDetailViewModel(wbklData: wbklData)).instantiateStoryboard(), animated: true)
+        if let viewModel = viewModel, let wbklData = viewModel.getWBklData()?.first {
+            let controller = EksplorDetailController.instantiateStoryboard(
+                viewModel: EksplorDetailViewModel(wbklData: wbklData)
+            )
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
         
     }
 }

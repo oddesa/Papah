@@ -7,26 +7,12 @@
 
 import UIKit
 
-struct WBKL {
-    let name: String
-    let lng: Float
-    let lat: Float
-    let img: Data
-    let operationalDay: String
-    let operationalHour: String
-    let address: String
-    let phoneNumber: String
-}
-
 class EksplorDetailViewModel {
     
-    let dummyData = (title: "Asdsd", desc: "asd")
-    private var wbklData: WBKL
+    var wbklData: Wbkl?
     
-    init(wbklData: WBKL) {
+    init(wbklData: Wbkl) {
         self.wbklData = wbklData
-//        self.wblkData = wblkData
-//        print("WBLK DATAAA \(self.wblkData)")
     }
     
 }

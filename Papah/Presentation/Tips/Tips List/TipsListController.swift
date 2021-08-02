@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TipsListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TipsListController: MVVMViewController<TipsListViewModel>, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tipsList.count
     }
@@ -30,20 +30,11 @@ class TipsListController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.pushViewController(tipsScene, animated: true)
     }
     
-    private var viewModel: TipsListViewModel?
-    
-    init(viewModel: TipsListViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        self.viewModel = TipsListViewModel()
+
         tipsListTableView.delegate = self
         tipsListTableView.dataSource = self
         // Do any additional setup after loading the view.

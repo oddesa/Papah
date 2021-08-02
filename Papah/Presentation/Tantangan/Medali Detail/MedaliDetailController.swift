@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MedaliDetailController: UIViewController {
+class MedaliDetailController: MVVMViewController<MedaliDetailViewModel>  {
 
     
     
@@ -20,16 +20,6 @@ class MedaliDetailController: UIViewController {
     @IBAction func shareMedali( sender: UIBarButtonItem) {
     }
     
-    private var viewModel: MedaliDetailViewModel?
-    
-    init(viewModel: MedaliDetailViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

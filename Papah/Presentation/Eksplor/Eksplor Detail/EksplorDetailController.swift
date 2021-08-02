@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EksplorDetailController: UIViewController {
+class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -15,18 +15,7 @@ class EksplorDetailController: UIViewController {
     private let sectionWaste = 1
     
     static let footerHeight = 100
-    
-    private var viewModel: EksplorDetailViewModel?
-    
-    init(viewModel: EksplorDetailViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -143,6 +132,11 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             }
             cell.selectionStyle = .none
             
+            
+            cell.updateDataView(wbklData: self.viewModel?.wbklData)
+            
+            cell.delegate = self
+            
             return cell
         case EksplorDetailLimbarCell.cellIdentifier():
             guard let cell = tableView.dequeueReusableCell(withIdentifier: EksplorDetailLimbarCell.cellIdentifier()) as? EksplorDetailLimbarCell else {
@@ -163,6 +157,24 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
         default:
             cell.selectionStyle = .none
             return cell
+        }
+    }
+    
+}
+
+extension EksplorDetailController: EksplorDetailTableCellDelegate {
+    func openMaps() {
+        let mapController = EksplorMapController.instantiateStoryboard(viewModel: EksplorMapViewModel(dummy: 0))
+        self.navigationController?.pushViewController(mapController, animated: true)
+    }
+    
+    func openPhoneCall() {
+        guard let url = URL(string: "tel://0811111111"),
+              UIApplication.shared.canOpenURL(url) else { return }
+        if #available(iOS 10, *) {
+            UIApplication.shared.open(url)
+        } else {
+            UIApplication.shared.openURL(url)
         }
     }
     

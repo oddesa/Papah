@@ -96,6 +96,7 @@
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="UCc-GF-nkH" firstAttribute="leading" secondItem="Z2v-64-LV5" secondAttribute="leading" constant="8" id="eNC-OW-dSs"/>
                                     <constraint firstAttribute="bottom" secondItem="UCc-GF-nkH" secondAttribute="bottom" constant="2" id="uAm-tc-n1W"/>
@@ -128,6 +129,7 @@
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="8ux-Dg-Tvx" secondAttribute="trailing" constant="8" id="6XH-5S-cGp"/>
                                     <constraint firstItem="8ux-Dg-Tvx" firstAttribute="top" secondItem="wKe-08-ZAT" secondAttribute="top" constant="8" id="N4o-pm-nQC"/>
@@ -188,6 +190,16 @@
                     <constraint firstItem="NrJ-fm-CDd" firstAttribute="trailing" secondItem="wsj-2n-NYf" secondAttribute="trailing" id="rHW-W7-OsD"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="lblAddress" destination="NrJ-fm-CDd" id="0up-qT-pnN"/>
+                <outlet property="lblOperationalDay" destination="jaS-YH-jdG" id="z04-Oe-Pct"/>
+                <outlet property="lblOperationalHours" destination="8hY-o0-2q9" id="oFL-FL-zgl"/>
+                <outlet property="lblTitle" destination="mV4-nt-hEU" id="hT7-uG-yJd"/>
+                <outlet property="lblType" destination="BRi-th-XVW" id="JI1-KS-W0h"/>
+                <outlet property="viewMap" destination="Z2v-64-LV5" id="V3E-eA-KtY"/>
+                <outlet property="viewPhone" destination="wKe-08-ZAT" id="vwi-DG-Roq"/>
+                <outlet property="wbklImage" destination="HZd-ug-kKv" id="YrZ-Tq-JAx"/>
+            </connections>
             <point key="canvasLocation" x="-16" y="0.0"/>
         </tableViewCell>
     </objects>

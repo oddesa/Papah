@@ -14,7 +14,7 @@ protocol EksplorMapDelegate: AnyObject {
     func beginRouteTracking()
 }
 
-class EksplorMapController: UIViewController, UIGestureRecognizerDelegate {
+class EksplorMapController: MVVMViewController<EksplorMapViewModel>, UIGestureRecognizerDelegate {
     
     private var trashBag = Set<AnyCancellable>()
 
@@ -30,17 +30,6 @@ class EksplorMapController: UIViewController, UIGestureRecognizerDelegate {
     var topConstraint = NSLayoutConstraint()
 
     let locationManager = CLLocationManager()
-
-    var viewModel: EksplorMapViewModel?
-    
-    init(viewModel: EksplorMapViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

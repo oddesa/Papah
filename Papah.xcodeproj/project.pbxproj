@@ -39,6 +39,7 @@
 		98BECA2726B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BECA2526B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.swift */; };
 		98BECA2826B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98BECA2626B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.xib */; };
 		BC14948A26B075EE00C28E62 /* TantanganLevelTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9866552B26ADD0020047D2A7 /* TantanganLevelTableCell.xib */; };
+		BC18594C26B6B9E900FDD552 /* MVVMController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18594B26B6B9E900FDD552 /* MVVMController.swift */; };
 		BC1F4F8326AF063E00FDC3D3 /* EksplorMapBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F4F8226AF063E00FDC3D3 /* EksplorMapBottomSheet.swift */; };
 		BC1F4F8526AF0C4F00FDC3D3 /* EksplorMapController+MapConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F4F8426AF0C4F00FDC3D3 /* EksplorMapController+MapConfig.swift */; };
 		BC2A95B726ADCE90002AD800 /* EksplorMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95B426ADCE89002AD800 /* EksplorMapController.swift */; };
@@ -175,6 +176,7 @@
 		9866552B26ADD0020047D2A7 /* TantanganLevelTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganLevelTableCell.xib; sourceTree = "<group>"; };
 		98BECA2526B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorListFilterCollectionTableCell.swift; sourceTree = "<group>"; };
 		98BECA2626B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorListFilterCollectionTableCell.xib; sourceTree = "<group>"; };
+		BC18594B26B6B9E900FDD552 /* MVVMController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMController.swift; sourceTree = "<group>"; };
 		BC1F4F8226AF063E00FDC3D3 /* EksplorMapBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorMapBottomSheet.swift; sourceTree = "<group>"; };
 		BC1F4F8426AF0C4F00FDC3D3 /* EksplorMapController+MapConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EksplorMapController+MapConfig.swift"; sourceTree = "<group>"; };
 		BC2A95B326ADCE89002AD800 /* EksplorMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EksplorMap.storyboard; sourceTree = "<group>"; };
@@ -672,6 +674,7 @@
 				BC2BE85C26AE82BA0067DB23 /* CommonFunction.swift */,
 				BC2A95F926ADD3E8002AD800 /* Constants.swift */,
 				9866550926ADCDCD0047D2A7 /* s.swift */,
+				BC18594B26B6B9E900FDD552 /* MVVMController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -928,6 +931,7 @@
 				9866552826ADCFE60047D2A7 /* TantanganRewardCell.swift in Sources */,
 				9866551526ADCF010047D2A7 /* MedaliListViewModel.swift in Sources */,
 				BC2BE87126AE83310067DB23 /* Extension+Cell.swift in Sources */,
+				BC18594C26B6B9E900FDD552 /* MVVMController.swift in Sources */,
 				BCB6956926B1102B001E90F0 /* TantanganMonthlyHeadCell.swift in Sources */,
 				BCB6955F26B1038F001E90F0 /* TantanganMonthlyCell.swift in Sources */,
 				BF1C043F26B4FB270099B6E1 /* UserDataRepository.swift in Sources */,
