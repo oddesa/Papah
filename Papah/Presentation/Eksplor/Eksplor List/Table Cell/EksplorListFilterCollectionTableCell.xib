@@ -47,6 +47,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="collectionLayout" destination="RHz-EN-Jcu" id="xkl-lU-ZxT"/>
                 <outlet property="collectionViewOtl" destination="gAh-fR-Jkj" id="UIi-rh-m1D"/>
             </connections>
             <point key="canvasLocation" x="-39.130434782608695" y="-52.232142857142854"/>
