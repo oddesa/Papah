@@ -44,7 +44,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="Pengepul Limbah 2 Km" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRi-th-XVW">
-                        <rect key="frame" x="16" y="42.5" width="358" height="18"/>
+                        <rect key="frame" x="16" y="42.5" width="158" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -157,6 +157,12 @@
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="2KM" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXK-8D-Wow">
+                        <rect key="frame" x="178" y="42.5" width="31.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="W8D-TP-DBI" firstAttribute="leading" secondItem="O3X-MK-ZJd" secondAttribute="leading" constant="16" id="1o5-lL-FHk"/>
@@ -178,7 +184,6 @@
                     <constraint firstItem="mV4-nt-hEU" firstAttribute="leading" secondItem="O3X-MK-ZJd" secondAttribute="leading" constant="16" id="Qzl-OR-Ux9"/>
                     <constraint firstItem="l3E-wq-c7J" firstAttribute="leading" secondItem="O3X-MK-ZJd" secondAttribute="leading" constant="16" id="Tdq-xs-H95"/>
                     <constraint firstItem="BRi-th-XVW" firstAttribute="leading" secondItem="mV4-nt-hEU" secondAttribute="leading" id="WnY-rO-Ngc"/>
-                    <constraint firstAttribute="trailing" secondItem="BRi-th-XVW" secondAttribute="trailing" constant="16" id="Yfw-py-aku"/>
                     <constraint firstItem="gkk-o4-Ue3" firstAttribute="leading" secondItem="HZd-ug-kKv" secondAttribute="leading" id="YtD-gR-89m"/>
                     <constraint firstItem="mV4-nt-hEU" firstAttribute="top" secondItem="O3X-MK-ZJd" secondAttribute="top" constant="16" id="ZLM-bh-hrh"/>
                     <constraint firstItem="mok-hK-0m8" firstAttribute="top" secondItem="l3E-wq-c7J" secondAttribute="bottom" constant="16" id="bDM-XD-ewe"/>
@@ -188,10 +193,13 @@
                     <constraint firstAttribute="trailing" secondItem="W8D-TP-DBI" secondAttribute="trailing" constant="16" id="fIL-Yc-xZ2"/>
                     <constraint firstAttribute="bottom" secondItem="jaS-YH-jdG" secondAttribute="bottom" constant="22" id="qjn-2l-HsR"/>
                     <constraint firstItem="NrJ-fm-CDd" firstAttribute="trailing" secondItem="wsj-2n-NYf" secondAttribute="trailing" id="rHW-W7-OsD"/>
+                    <constraint firstItem="zXK-8D-Wow" firstAttribute="leading" secondItem="BRi-th-XVW" secondAttribute="trailing" constant="4" id="u3Z-Yo-z81"/>
+                    <constraint firstItem="zXK-8D-Wow" firstAttribute="centerY" secondItem="BRi-th-XVW" secondAttribute="centerY" id="wAr-Vv-X91"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="lblAddress" destination="NrJ-fm-CDd" id="0up-qT-pnN"/>
+                <outlet property="lblDistance" destination="zXK-8D-Wow" id="zPi-S5-mbj"/>
                 <outlet property="lblOperationalDay" destination="jaS-YH-jdG" id="z04-Oe-Pct"/>
                 <outlet property="lblOperationalHours" destination="8hY-o0-2q9" id="oFL-FL-zgl"/>
                 <outlet property="lblTitle" destination="mV4-nt-hEU" id="hT7-uG-yJd"/>
@@ -200,7 +208,7 @@
                 <outlet property="viewPhone" destination="wKe-08-ZAT" id="vwi-DG-Roq"/>
                 <outlet property="wbklImage" destination="HZd-ug-kKv" id="YrZ-Tq-JAx"/>
             </connections>
-            <point key="canvasLocation" x="-16" y="0.0"/>
+            <point key="canvasLocation" x="-17.39130434782609" y="0.0"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -76,7 +76,7 @@ class CoreDataManager {
 //MARK: PreloadData
 extension CoreDataManager {
     func preloadData() {
-        
+        preloadDataWbkl()
     }
     
     //MARK: Preload Tips
@@ -249,8 +249,8 @@ extension CoreDataManager {
             id: 0,
             name: "Lapak rongsok RDK",
             wbklType: "Mall Rongsok",
-            longitude:  -6.600046,
-            latitude: 106.819412,
+            longitude:  106.819412,
+            latitude: -6.600046,
             image: UIImage(),
             openDay: "Senin-Minggu",
             openHour: "07.00 - 22.00",
@@ -263,8 +263,8 @@ extension CoreDataManager {
             id: 1,
             name: "Bank Sampah Unit Cendana",
             wbklType: "Bank Sampah",
-            longitude: -6.594889,
-            latitude: 106.779389,
+            longitude: 106.779389,
+            latitude: -6.594889,
             image: UIImage(),
             openDay: "Rabu",
             openHour: "08.00-12.00",
@@ -277,8 +277,8 @@ extension CoreDataManager {
             id: 2,
             name: "Bank Sampah Warung Jambu Bersih",
             wbklType: "Bank Sampah",
-            longitude: -6.567949,
-            latitude: 106.810273,
+            longitude: 106.810273,
+            latitude: -6.567949,
             image: UIImage(),
             openDay: "Minggu",
             openHour: "10.00-14.00",
@@ -291,8 +291,8 @@ extension CoreDataManager {
             id: 3,
             name: "CV Cahaya Berkah",
             wbklType: "Mall Rongsok",
-            longitude: -6.607226,
-            latitude: 106.819158,
+            longitude: 106.819158,
+            latitude: -6.607226,
             image: UIImage(),
             openDay: "Senin - Minggu",
             openHour: "08.00 - 16.00",
@@ -305,8 +305,8 @@ extension CoreDataManager {
             id: 4,
             name: "BSU Rangga Mekar",
             wbklType: "Bank Sampah Unit",
-            longitude: -6.621504,
-            latitude: 106.797850,
+            longitude: 106.797850,
+            latitude: -6.621504,
             image: UIImage(),
             openDay: "Senin - Minggu",
             openHour: "08.00 - 17.00",

@@ -15,5 +15,5 @@ class CommonFunction {
     func playSystemSound(id: UInt32) {
         AudioServicesPlaySystemSound(id)
     }
-    
+  
 }

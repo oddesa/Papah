@@ -9,6 +9,8 @@ import UIKit
 
 class EksplorDetailEarningCell: UITableViewCell {
 
+    @IBOutlet weak var lblPrice: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,6 +20,10 @@ class EksplorDetailEarningCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func updateEarning(totalEarnings: Int) {
+        self.lblPrice.text = "\(totalEarnings.currencyFormatter())"
     }
     
 }
