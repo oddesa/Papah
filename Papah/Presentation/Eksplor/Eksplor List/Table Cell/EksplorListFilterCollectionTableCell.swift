@@ -65,7 +65,6 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
         if indexPath.row == 0 {
             cell.categoryLabel.text = "mamamamamamamam"
         }
-        cell.maxWidth = collectionView.bounds.width - 16
 
         return cell
     }
