@@ -75,6 +75,7 @@
 		BC2BE86E26AE82DF0067DB23 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE86626AE82DF0067DB23 /* UIImage+Extension.swift */; };
 		BC2BE87126AE83310067DB23 /* Extension+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE87026AE83310067DB23 /* Extension+Cell.swift */; };
 		BC2BE87326AE835A0067DB23 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE87226AE83590067DB23 /* Extension+UIButton.swift */; };
+		BC5D17F726B85F73004A7EED /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5D17F626B85F73004A7EED /* Int+Extension.swift */; };
 		BC8C9B6926AE8AD80096F0E8 /* MedaliDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866550C26ADCE780047D2A7 /* MedaliDetailController.swift */; };
 		BC8C9B6A26AE8AD80096F0E8 /* EksplorList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95C526ADCF10002AD800 /* EksplorList.storyboard */; };
 		BC8C9B6B26AE8AD80096F0E8 /* MedaliList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9866551226ADCEEF0047D2A7 /* MedaliList.storyboard */; };
@@ -227,6 +228,7 @@
 		BC2BE86626AE82DF0067DB23 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		BC2BE87026AE83310067DB23 /* Extension+Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+Cell.swift"; sourceTree = "<group>"; };
 		BC2BE87226AE83590067DB23 /* Extension+UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
+		BC5D17F626B85F73004A7EED /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		BCA40FEE26B7AA5C003B0A85 /* EksplorDetailController+MapConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EksplorDetailController+MapConfig.swift"; sourceTree = "<group>"; };
 		BCB6955826B102DE001E90F0 /* TantanganEarningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganEarningCell.swift; sourceTree = "<group>"; };
 		BCB6955926B102DE001E90F0 /* TantanganEarningCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganEarningCell.xib; sourceTree = "<group>"; };
@@ -724,6 +726,7 @@
 				BC2BE86126AE82DE0067DB23 /* UILabel+Extension.swift */,
 				BC2BE86326AE82DE0067DB23 /* UIView+Extension.swift */,
 				BC2BE85F26AE82DE0067DB23 /* UIViewController+Extension.swift */,
+				BC5D17F626B85F73004A7EED /* Int+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -979,6 +982,7 @@
 				9866552C26ADD0020047D2A7 /* TantanganLevelTableCell.swift in Sources */,
 				9866552C26ADD0020047D2A7 /* TantanganLevelTableCell.swift in Sources */,
 				BCB6956326B103B9001E90F0 /* TantanganRewardHeadCell.swift in Sources */,
+				BC5D17F726B85F73004A7EED /* Int+Extension.swift in Sources */,
 				986654ED26ADCA240047D2A7 /* TantanganDetailTableCell.swift in Sources */,
 				BC2BE87326AE835A0067DB23 /* Extension+UIButton.swift in Sources */,
 				BC2BE86C26AE82DF0067DB23 /* String+Extension.swift in Sources */,

@@ -16,16 +16,16 @@ class WbklDataRepository {
     let wbklAccEntity = WasteAccepted.self.description()
     
     func insertWbkl(id: Int,
-                      name:String,
-                      wbklType: String,
-                      longitude: Float,
-                      latitude: Float,
-                      image: UIImage,
-                      openDay: String,
-                      openHour: String,
-                      address:String,
-                      phone: String,
-                      claimedDate: Date){
+                    name:String,
+                    wbklType: String,
+                    longitude: Float,
+                    latitude: Float,
+                    image: UIImage,
+                    openDay: String,
+                    openHour: String,
+                    address:String,
+                    phone: String,
+                    claimedDate: Date){
         do {
             let context = CoreDataManager.sharedManager.persistentContainer.viewContext
             
@@ -53,6 +53,7 @@ class WbklDataRepository {
     
     func insertWasteAccepted(wbklId: Int,
                              wasteAccId: Int,
+                             wasteCategoryId: Int,
                              price: Int) {
         
         do {
@@ -63,7 +64,13 @@ class WbklDataRepository {
                 let wasteAcc = WasteAccepted(context: context)
                 wasteAcc.waste_accepted_id = Int32(wasteAccId)
                 wasteAcc.price = Int32(price)
-           
+                if let wasteCategory = getWasteCategoryById(id: wasteCategoryId) {
+                    wasteAcc.wasteCategory = wasteCategory
+                }
+                wasteAcc.ofWbkl = wbkl
+                wasteAcc.wbkl_id = Int32(wbklId)
+                wasteAcc.waste_category_id = Int32(wasteCategoryId)
+
                 wbkl.addToWasteAccepted(wasteAcc)
                 
                 try context.save()
@@ -75,11 +82,32 @@ class WbklDataRepository {
         }
     }
     
-    func insertWasteCategoryToWbkl(wbklId: Int,
-                             wasteCategoryId: Int,
+    func insertWasteCategory(wasteCategoryId: Int,
                              title: String,
                              unit: String,
                              image: Data) {
+        
+        do {
+            let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+            
+            let wasteCategory = WasteCategory(context: context)
+            wasteCategory.image = image
+            wasteCategory.unit = unit
+            wasteCategory.waste_category_id = Int32(wasteCategoryId)
+            wasteCategory.title = title
+
+            try context.save()
+            
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func insertWasteCategoryToWbkl(wbklId: Int,
+                                   wasteCategoryId: Int,
+                                   title: String,
+                                   unit: String,
+                                   image: Data) {
         
         do {
             let context = CoreDataManager.sharedManager.persistentContainer.viewContext
@@ -91,7 +119,7 @@ class WbklDataRepository {
                 wasteCategory.title = title
                 wasteCategory.unit = unit
                 wasteCategory.image = image
-           
+                
                 wbkl.addToWasteCategory(wasteCategory)
                 
                 try context.save()
@@ -105,10 +133,10 @@ class WbklDataRepository {
     }
     
     func insertWasteCategoryToWasteAcc(id: Int,
-                             wasteCategoryId: Int,
-                             title: String,
-                             unit: String,
-                             image: Data) {
+                                       wasteCategoryId: Int,
+                                       title: String,
+                                       unit: String,
+                                       image: Data) {
         
         do {
             let context = CoreDataManager.sharedManager.persistentContainer.viewContext
@@ -123,7 +151,7 @@ class WbklDataRepository {
                 
                 //add to waste accepted
                 wasteAcc.wasteCategory = wasteCategory
-
+                
                 try context.save()
             }
             
@@ -162,6 +190,24 @@ class WbklDataRepository {
         do {
             
             let item = try context.fetch(fetchRequest) as? [WasteAccepted]
+            
+            return item?.first
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return nil
+    }
+    
+    func getWasteCategoryById(id: Int) -> WasteCategory? {
+        
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: wbklCategoryEntity)
+        fetchRequest.predicate = NSPredicate(format: "waste_category_id == %d", id)
+        
+        do {
+            
+            let item = try context.fetch(fetchRequest) as? [WasteCategory]
             
             return item?.first
         } catch let error as NSError {
@@ -245,11 +291,11 @@ class WbklDataRepository {
     //MARK: Delete Wbkl
     func deleteAllWbKl(){
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
-
+        
         do {
             let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: wbklEntity)
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-
+            
             try context.execute(deleteRequest)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
