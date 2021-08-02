@@ -6,20 +6,27 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
 
 class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private let sectionDetail = 0
-    private let sectionWaste = 1
+    let sectionDetail = 0
+    let sectionWaste = 1
     
     static let footerHeight = 100
+    var distanceLocation: Double = 0.0
         
+    let locationManager = CLLocationManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         registerNib()
+        attemptLocationAccess()
+        
     }
     
     @IBAction func onClaimPoint(_ sender: Any) {
@@ -132,8 +139,8 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             }
             cell.selectionStyle = .none
             
-            
             cell.updateDataView(wbklData: self.viewModel?.wbklData)
+            cell.updateDistance(distance: distanceLocation)
             
             cell.delegate = self
             
