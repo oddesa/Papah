@@ -48,14 +48,11 @@ class EksplorListCollectionCell: UICollectionViewCell {
             categoryBtn.backgroundColor = .lightGray
             categoryBtn.borderColor = .iconIolite
             categoryBtn.tintColor = .iconIolite
-            categoryBtn.titleLabel?.textColor = .iconIolite
-            categoryBtn.titleLabel?.tintColor = .iconIolite
+            categoryBtn.setTitleColor(.iconIolite, for: .normal)
         } else {
             categoryBtn.backgroundColor = .white
             categoryBtn.borderColor = .black
             categoryBtn.tintColor = .black
-            categoryBtn.titleLabel?.textColor = .black
-            categoryBtn.titleLabel?.tintColor = .black
             categoryBtn.setTitleColor(.black, for: .normal)
 
             

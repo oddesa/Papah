@@ -22,14 +22,21 @@ class EksplorListController: MVVMViewController<EksplorListViewModel> {
     let strings = ["asdfefsa", "hahahah", "xoxoxoox"]
     var searchBarCont = UISearchController()
     var filteredData: [String] = []
-    var filterStrings: [String] = []
+    var allWbkl: [Wbkl] = []
     
     @IBOutlet weak var tableViewOutlet: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewModel = EksplorListViewModel()
+        allWbkl = viewModel?.getWBklData() ?? []
+//        var sortedAllWbkl = allWbkl.sort {
+//            $0.name ?? "" < $1.name ?? ""
+//        }
+        
         setupSearchController()
         setupNib()
+        
     }
 }
 
@@ -42,13 +49,12 @@ extension EksplorListController: UISearchResultsUpdating {
         searchBarCont.obscuresBackgroundDuringPresentation = false
         searchBarCont.searchBar.setValue("Batalkan", forKey: "cancelButtonText")
     }
+    
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {
             return
         }
         let splited = text.components(separatedBy: " ")
-        
-        self.viewModel = EksplorListViewModel()
         
         let aaa = DummyDataUhuy(nama: "Ayam Pedes", categori: "Goreng")
         let a11 = DummyDataUhuy(nama: "Ayam Asin Rebus", categori: "Rebus")
@@ -69,6 +75,7 @@ extension EksplorListController: UISearchResultsUpdating {
                 }
             }
         }
+        
         //logic sorting
 //        filteredData = filteredData.sorted()
 //        var users = [
@@ -102,7 +109,7 @@ extension EksplorListController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return allWbkl.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -110,21 +117,21 @@ extension EksplorListController: UITableViewDataSource {
         //EksplorListFilterCollectionTableCell
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "EksplorListFilterCollectionTableCell", for: indexPath) as? EksplorListFilterCollectionTableCell else {fatalError("identifiernya salah anying")}
-            
             cell.onDidSelectItem = { () in
                 let controller = EksplorListFilterController.instantiateStoryboard(viewModel: EksplorListFilterViewModel())
                 self.navigationController?.present(controller, animated: true, completion: nil)
-                
-                print("harusnya bisa")
             }
+            cell.selectionStyle = .none
             return cell
             
         } else {
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath) as? ExplorListTableCell else {fatalError("identifiernya salah anying")}
             
-            cell.wbklNameLabel.text = "test test hah hihi"
-            cell.wbklCategoryLabel.text = "Tukang loak sejati"
+            
+            cell.wbklNameLabel.text = allWbkl[indexPath.row - 1].name
+            cell.wbklCategoryLabel.text = allWbkl[indexPath.row - 1].wbkl_type
+            cell.wbklOperationalLabel.text = (allWbkl[indexPath.row - 1].operational_day ?? " ") + " · " + (allWbkl[indexPath.row - 1].operational_hour ?? " ")
             
             let categories = ["asfaf", "asdasdas", "aasdasdsdasda", "asdasd", "asdaqeqwe", "213"]
             var putihputih = [cell.wbklSampahKategori1, cell.wbklSampahKategori2, cell.wbklSampahKategori3, cell.wbklSampahKategori4]
@@ -147,7 +154,7 @@ extension EksplorListController: UITableViewDataSource {
             for putih in putihputih {
                 putih?.removeFromSuperview()
             }
-            
+            cell.selectionStyle = .none
             return cell
         }
     }
@@ -156,13 +163,13 @@ extension EksplorListController: UITableViewDataSource {
 extension EksplorListController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let viewModel = viewModel, let wbklData = viewModel.getWBklData()?.first {
+        
+        if let viewModel = viewModel {
             let controller = EksplorDetailController.instantiateStoryboard(
-                viewModel: EksplorDetailViewModel(wbklData: wbklData)
+                viewModel: EksplorDetailViewModel(wbklData: allWbkl[indexPath.row - 1])
             )
             self.navigationController?.pushViewController(controller, animated: true)
         }
-        print("naon ieu")
     }
 }
 
