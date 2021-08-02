@@ -11,6 +11,14 @@ disabled_rules: # rule identifiers turned on by default to exclude from running
 opt_in_rules: # some rules are turned off by default, so you need to opt-in
 #  - empty_count # Find all the available rules by running: `swiftlint rules`
 
+function_parameter_count:
+  warning: 10
+  error: 20
+  
+function_body_length:
+  warning: 100
+  error: 200
+
 # Alternatively, specify all rules explicitly by uncommenting this option:
 # only_rules: # delete `disabled_rules` & `opt_in_rules` if using this
 #   - empty_parameters
@@ -54,7 +62,7 @@ type_name:
   allowed_symbols: ["_"] # these are allowed in type names
 identifier_name:
   min_length: # only min_length
-    error: 3 # only error
+    error: 2 # only error
   excluded: # excluded via string array
     - id
     - URL
