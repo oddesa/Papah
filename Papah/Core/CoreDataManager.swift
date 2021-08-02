@@ -255,7 +255,8 @@ extension CoreDataManager {
             openDay: "Senin-Minggu",
             openHour: "07.00 - 22.00",
             address: "Jl. Kp. Sawah, Tanah Baru, Kec. Bogor Utara, Kota Bogor, Jawa Barat",
-            phone: "+6285773094034"
+            phone: "+6285773094034",
+            claimedDate: Date()
         )
         
         WbklDataRepository.shared.insertWbkl(
@@ -268,7 +269,8 @@ extension CoreDataManager {
             openDay: "Rabu",
             openHour: "08.00-12.00",
             address: "Jl. Raya Gn. Batu No.5, RT.06/RW.03, Pasir Jaya, Kecamatan Bogor Baru, Kota Bogor, Jawa Barat 16610",
-            phone: "+6281384151188"
+            phone: "+6281384151188",
+            claimedDate: Date()
         )
         
         WbklDataRepository.shared.insertWbkl(
@@ -281,7 +283,8 @@ extension CoreDataManager {
             openDay: "Minggu",
             openHour: "10.00-14.00",
             address: "Warung Jambu Rt.02/06 (Belakang Kantor Pos, RT.03/RW.01, Bantarjati, Kec. Bogor Utara, Kota Bogor, Jawa Barat 16151",
-            phone: "+6281385143538"
+            phone: "+6281385143538",
+            claimedDate: Date()
         )
         
         WbklDataRepository.shared.insertWbkl(
@@ -294,7 +297,8 @@ extension CoreDataManager {
             openDay: "Senin - Minggu",
             openHour: "08.00 - 16.00",
             address: "Jl. Kol. Ahmad Syam, RT.01/RW.05, Katulampa, Kec. Bogor Tim., Kota Bogor, Jawa Barat 16143",
-            phone: "+6282123488049"
+            phone: "+6282123488049",
+            claimedDate: Date()
         )
         
         WbklDataRepository.shared.insertWbkl(
@@ -307,7 +311,8 @@ extension CoreDataManager {
             openDay: "Senin - Minggu",
             openHour: "08.00 - 17.00",
             address: "Jl. Graha Bogor Indah No.1327, RT.01/RW.04, Ranggamekar, Kec. Bogor Sel., Kota Bogor, Jawa Barat 16136",
-            phone: "+6285777742100"
+            phone: "+6285777742100",
+            claimedDate: Date()
         )
     }
     

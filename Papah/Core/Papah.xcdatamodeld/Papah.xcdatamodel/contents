@@ -77,7 +77,6 @@
         <relationship name="monthlyChallengeProgress" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MonthlyChallengeProgress" inverseName="user" inverseEntity="MonthlyChallengeProgress"/>
     </entity>
     <entity name="WasteAccepted" representedClassName="WasteAccepted" syncable="YES" codeGenerationType="class">
-        <attribute name="claimed_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="price" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="waste_accepted_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="waste_category_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
@@ -95,6 +94,7 @@
     </entity>
     <entity name="Wbkl" representedClassName="Wbkl" syncable="YES" codeGenerationType="class">
         <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="claimed_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -116,8 +116,8 @@
         <element name="Sampah" positionX="-63" positionY="-18" width="128" height="104"/>
         <element name="SampahDetail" positionX="-54" positionY="-9" width="128" height="119"/>
         <element name="User" positionX="9" positionY="171" width="128" height="164"/>
-        <element name="WasteAccepted" positionX="-18" positionY="135" width="128" height="134"/>
+        <element name="WasteAccepted" positionX="-18" positionY="135" width="128" height="119"/>
         <element name="WasteCategory" positionX="0" positionY="144" width="128" height="119"/>
-        <element name="Wbkl" positionX="-36" positionY="63" width="128" height="209"/>
+        <element name="Wbkl" positionX="-36" positionY="63" width="128" height="224"/>
     </elements>
 </model>
