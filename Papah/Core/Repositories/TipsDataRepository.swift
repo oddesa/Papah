@@ -72,7 +72,7 @@ class TipsDataRepository {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
-        fetchRequest.predicate = NSPredicate(format: "sampah_id == %d", sampahId)
+        fetchRequest.predicate = NSPredicate(format: "sampah_id == %i", sampahId)
         
         do {
             
@@ -111,7 +111,7 @@ class TipsDataRepository {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
-        fetchRequest.predicate = NSPredicate(format: "sampah_id == %d", sampahId)
+//        fetchRequest.predicate = NSPredicate(format: "sampah_id == %@", sampahId)
         
         do {
             
