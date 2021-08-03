@@ -30,7 +30,6 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
     var tipsList = TipsDataRepository.shared.getAllTips()
     
     var tesData: String = ""
-    print("yes")
     override func viewDidLoad() {
         super.viewDidLoad()
         tipsDetailCollection.delegate = self
@@ -38,12 +37,6 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var tipsDetailCollection: UICollectionView!
-}
-
-extension TipsDetailController: UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 315, height: 654)
-    }
 }
 
 struct TipsDetail{
