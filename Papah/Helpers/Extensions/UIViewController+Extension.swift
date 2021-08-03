@@ -56,7 +56,7 @@ extension UIViewController {
        
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         
-        let okButton = UIAlertAction(title: confirmMsg, style: .default, handler: { _ in
+        let okButton = UIAlertAction(title: confirmMsg, style: .destructive, handler: { _ in
             
             completionBlock(true)
         })

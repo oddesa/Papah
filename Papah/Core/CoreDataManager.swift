@@ -75,10 +75,26 @@ class CoreDataManager {
 
 //MARK: PreloadData
 extension CoreDataManager {
+    
+    func resetData() {
+        CoreDataManager.sharedManager.deleteAllData()
+        preloadData()
+    }
+
     func preloadData() {
+            
         if WbklDataRepository.shared.getAllWbkl().count == 0 {
-        preloadDataWbkl()
-        print("berhasil di load")
+            preloadDataWbkl()
+            preloadWasteCategoryofWbkl()
+            preloadDataTips()
+            preloadDataTipsDetail()
+            preloadBadges()
+            preloadBadgeCategory()
+            preloadWasteCategory()
+            preloadMonthlyChallenges()
+            preloadMonthlyChallengeProgress()
+            preloadBadgeCategory()
+            print("berhasil di load")
         }
     }
     
