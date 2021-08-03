@@ -319,14 +319,242 @@ extension CoreDataManager {
         )
     }
     
+    func preloadWasteCategoryofWbkl(){
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 0,
+            wasteCategoryId: 0,
+            title: "Besi",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 0,
+            wasteCategoryId: 8,
+            title: "Perabotan",
+            unit: "item",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 0,
+            wasteCategoryId: 3,
+            title: "Kardus",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 1,
+            wasteCategoryId: 0,
+            title: "Besi",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 1,
+            wasteCategoryId: 2,
+            title: "Kaca",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 1,
+            wasteCategoryId: 9,
+            title: "Plastik",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 1,
+            wasteCategoryId: 3,
+            title: "Kardus",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 1,
+            wasteCategoryId: 6,
+            title: "Kertas",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 1,
+            wasteCategoryId: 4,
+            title: "Karet",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 2,
+            wasteCategoryId: 1,
+            title: "Duplek",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 2,
+            wasteCategoryId: 0,
+            title: "Besi",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 2,
+            wasteCategoryId: 2,
+            title: "Kaca",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 2,
+            wasteCategoryId: 7,
+            title: "Minyak Jelantah",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 2,
+            wasteCategoryId: 5,
+            title: "Karung Goni",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 2,
+            wasteCategoryId: 9,
+            title: "Plastik",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 2,
+            wasteCategoryId: 3,
+            title: "Kardus",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 3,
+            wasteCategoryId: 8,
+            title: "Perabotan",
+            unit: "Item",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 4,
+            wasteCategoryId: 1,
+            title: "Duplek",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 4,
+            wasteCategoryId: 0,
+            title: "Besi",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 4,
+            wasteCategoryId: 9,
+            title: "Plastik",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 4,
+            wasteCategoryId: 3,
+            title: "Kardus",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 4,
+            wasteCategoryId: 6,
+            title: "Kertas",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategoryToWbkl(
+            wbklId: 4,
+            wasteCategoryId: 2,
+            title: "Kaca",
+            unit: "kg",
+            image: UIImage()
+        )
+    }
+    
+    //MARK: Waste Category
+    func preloadWasteCategory(){
+        WbklDataRepository.shared.insertWasteCategory(
+            wasteCategoryId: 0,
+            title: "Besi",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategory(
+            wasteCategoryId: 1,
+            title: "Duplek",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategory(
+            wasteCategoryId: 2,
+            title: "Kaca",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategory(
+            wasteCategoryId: 3,
+            title: "Kardus",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategory(
+            wasteCategoryId: 4,
+            title: "Karet",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategory(
+            wasteCategoryId: 5,
+            title: "Karung Goni",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategory(
+            wasteCategoryId: 6,
+            title: "Kertas",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategory(
+            wasteCategoryId: 7,
+            title: "Minyak Jelantah",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategory(
+            wasteCategoryId: 8,
+            title: "Perabotan",
+            unit: "kg",
+            image: UIImage()
+        )
+        WbklDataRepository.shared.insertWasteCategory(
+            wasteCategoryId: 9,
+            title: "Plastik",
+            unit: "kg",
+            image: UIImage()
+        )
+    }
+    
     //MARK: Preload Badges
     func preloadBadges(){
         BadgeDataRepository.shared.insertBadge(
             badgeId: 0,
             badgeCategoryId: 0,
-            title: "Delko Limbah",
-            desc: "1 dari 3 kunjungan",
-            maxValue: 3,
+            title: "Delko Kurcaci",
+            desc: "Peroleh medali ini ketika kamu berhasil menyalurkan total 15 kg sampah inorganik. Sejauh ini kamu sudah mengumpulkan ",
+            maxValue: 15,
             dateAchv: Date(),
             image: UIImage()
         )
@@ -357,6 +585,24 @@ extension CoreDataManager {
             dateAchv: Date(),
             image: UIImage()
         )
+        BadgeDataRepository.shared.insertBadge(
+            badgeId: 4,
+            badgeCategoryId: 4,
+            title: "Tantangan Juli",
+            desc: "Peroleh medali ini ketika kamu berhasil menyelesaikan 2 tantangan bulan Agustus. Sejauh ini kamu telah menyelesaikan ",
+            maxValue: 2,
+            dateAchv: Date(),
+            image: UIImage()
+        )
+        BadgeDataRepository.shared.insertBadge(
+            badgeId: 5,
+            badgeCategoryId: 4,
+            title: "Tantangan Agustus",
+            desc: "Peroleh medali ini ketika kamu berhasil menyelesaikan 2 tantangan bulan Agustus. Sejauh ini kamu telah menyelesaikan ",
+            maxValue: 2,
+            dateAchv: Date(),
+            image: UIImage()
+        )
     }
     
     //konfirm sama wurie
@@ -364,14 +610,38 @@ extension CoreDataManager {
         BadgeDataRepository.shared.insertBadgeCategory(
             badgeId: 0,
             badgeCategoryId: 0,
-            title: "",
-            unit: ""
+            title: "beratSampah",
+            unit: "kg"
         )
         BadgeDataRepository.shared.insertBadgeCategory(
-            badgeId: 0,
+            badgeId: 1,
             badgeCategoryId: 1,
-            title: "",
-            unit: ""
+            title: "level",
+            unit: "level"
+        )
+        BadgeDataRepository.shared.insertBadgeCategory(
+            badgeId: 2,
+            badgeCategoryId: 2,
+            title: "profit",
+            unit: "IDR"
+        )
+        BadgeDataRepository.shared.insertBadgeCategory(
+            badgeId: 3,
+            badgeCategoryId: 3,
+            title: "kategoriSampah",
+            unit: "kategori"
+        )
+        BadgeDataRepository.shared.insertBadgeCategory(
+            badgeId: 4,
+            badgeCategoryId: 4,
+            title: "tantangan",
+            unit: "tantangan"
+        )
+        BadgeDataRepository.shared.insertBadgeCategory(
+            badgeId: 4,
+            badgeCategoryId: 5,
+            title: "agen",
+            unit: "agen"
         )
     }
     
@@ -379,7 +649,7 @@ extension CoreDataManager {
     func preloadMonthlyChallenges(){
         MonthlyChallengeDataRepository.shared.insertMonthlyChallenge(
             userId: 0,
-            badgeCategoryId: 0,
+            badgeCategoryId: 5,
             mcId: 0,
             title: "Turis Sampah",
             desc: "Salurkan limbah & klaim poin ke 1 agen",
@@ -397,13 +667,13 @@ extension CoreDataManager {
             desc: "Kumpulkan Rp50k dari penyaluran limbah",
             month: 7,
             rewardPoint: 300,
-            maxValue: 50,
+            maxValue: 50000,
             image: UIImage()
         )
         
         MonthlyChallengeDataRepository.shared.insertMonthlyChallenge(
             userId: 0,
-            badgeCategoryId: 0,
+            badgeCategoryId: 5,
             mcId: 2,
             title: "Turis Sampah",
             desc: "Salurkan limbah & klaim poin ke 1 agen",
@@ -421,7 +691,7 @@ extension CoreDataManager {
             desc: "Kumpulkan Rp50k dari penyaluran limbah",
             month: 8,
             rewardPoint: 300,
-            maxValue: 50,
+            maxValue: 50000,
             image: UIImage()
         )
     }
