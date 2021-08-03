@@ -23,6 +23,7 @@ class EksplorDetailTableCell: UITableViewCell {
     @IBOutlet weak var lblType: UILabel!
     @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var wbklImage: UIImageView!
+    @IBOutlet weak var lblDistance: UILabel!
     
     weak var delegate: EksplorDetailTableCellDelegate?
     
@@ -45,6 +46,10 @@ class EksplorDetailTableCell: UITableViewCell {
             wbklImage.image = UIImage(data: wbkl.image ?? Data())
         }
         
+    }
+    
+    func updateDistance(distance: Double){
+        lblDistance.text = "· \(String.init(format: "%.0f", distance))km"
     }
     
     override func awakeFromNib() {

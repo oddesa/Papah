@@ -11,8 +11,10 @@ import Combine
 
 class EksplorMapViewModel: NSObject {
     
-    init(dummy: Int) {
-        
+    var wbklData: Wbkl?
+    
+    init(wbklData: Wbkl) {
+        self.wbklData = wbklData
     }
     
     var onAddressString = PassthroughSubject<String, Never>()
