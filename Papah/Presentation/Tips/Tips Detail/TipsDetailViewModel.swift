@@ -8,9 +8,12 @@
 import UIKit
 
 class TipsDetailViewModel: NSObject {
-
-    init(dummy: Int){
+    var tips: Sampah?
+    init(tips: Sampah?){
+        self.tips = tips
+    }
+    func getTipsDetail() -> [SampahDetail]?{
+        return TipsDataRepository.shared.getTipsDetailById(sampahId: Int(self.tips?.sampah_id ?? 0))
         
     }
-    
 }

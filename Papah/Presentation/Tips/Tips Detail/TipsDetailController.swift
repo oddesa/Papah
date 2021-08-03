@@ -8,28 +8,27 @@
 import UIKit
 
 class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tipsDetailDummy.count
+        return self.viewModel?.getTipsDetail()?.count ?? 0
     }
-     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let item = tipsDetailDummy[indexPath.row]
         let cell = tipsDetailCollection.dequeueReusableCell(withReuseIdentifier: "tipsDetailCell", for: indexPath) as! TipsDetailCollectionCell
-//        cell.item = surah
-        cell.setTipsDetailByCategory(with: item)
-        print("CELL \(cell)")
+        
+        if let item = self.viewModel?.getTipsDetail(){
+            cell.setTipsDetailByCategory(with: item[indexPath.row])
+        }
         return cell
     }
     func collectionView(_ tableView: UITableView, widthForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
+
     
-    
-    private let tipsDetailDummy = [ TipsDetail(image: "yes", title: "Memilah Sampah Plastik", desc: "plastik lama terurai"), TipsDetail(image: "yes", title: "Menyalurkan Sampah Plastik", desc: "plastik lama terurai"), TipsDetail(image: "yes", title: "Merecycle plastic", desc: "plastik lama terurai")]
-    
-    var tipsList = TipsDataRepository.shared.getAllTips()
-    
-    var tesData: String = ""
+    func setTipsDetail(with tipsdetail: SampahDetail){
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         tipsDetailCollection.delegate = self
@@ -43,10 +42,4 @@ extension TipsDetailController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 315, height: 654)
     }
-}
-
-struct TipsDetail{
-    let image: String
-    let title: String
-    let desc: String
 }
