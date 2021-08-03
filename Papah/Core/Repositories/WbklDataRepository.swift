@@ -125,7 +125,6 @@ class WbklDataRepository {
                 try context.save()
             }
             
-            
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -235,7 +234,7 @@ class WbklDataRepository {
     }
     
     //on pending
-    func getWbklByCategory(category: String) -> [Wbkl]{
+    func getWbklByCategory(category: [String]) -> [Wbkl]{
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: wbklCategoryEntity)
         fetchRequest.predicate = NSPredicate(format: "title == %d", category)
@@ -257,7 +256,7 @@ class WbklDataRepository {
         //bisa berdasar nama atau kategori
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: wbklEntity)
-        fetchRequest.predicate = NSPredicate(format: "title == %d", category)
+        fetchRequest.predicate = NSPredicate(format: "title == %d IN", category)
         
         do {
             
