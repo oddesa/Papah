@@ -14,8 +14,8 @@ class TipsDetailCollectionCell: UICollectionViewCell {
     @IBOutlet weak var tipsDesc: UITextView!
     
     func setTipsDetailByCategory(with tipsDetail: SampahDetail){
-        tipImage.image = UIImage(data: tipsDetail.image ?? Data())
-        tipTitle.text = tipsDetail.title
-        tipDesc.text = tipsDetail.detail
+        tipsImage.image = UIImage(data: tipsDetail.image ?? Data())
+        tipsTitle.text = tipsDetail.title
+        tipsDesc.text = tipsDetail.detail
     }
 }
