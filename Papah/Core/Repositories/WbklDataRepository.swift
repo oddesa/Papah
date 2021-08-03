@@ -42,7 +42,7 @@ class WbklDataRepository {
             wbklData.operational_hour = openHour
             wbklData.address = address
             wbklData.phone_number = phone
-            wbklData.claimed_date = claimedDate
+//            wbklData.claimed_date = claimedDate
             
             try context.save()
             
@@ -276,9 +276,7 @@ class WbklDataRepository {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: wbklEntity)
         
         do {
-            
             let item = try context.fetch(fetchRequest) as! [Wbkl]
-            
             return item
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")

@@ -11,7 +11,6 @@ import Combine
 
 class EksplorMapViewModel: NSObject {
     
-    
     var wbklData: Wbkl?
     
     init(wbklData: Wbkl) {

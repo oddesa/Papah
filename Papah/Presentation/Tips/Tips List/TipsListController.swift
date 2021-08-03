@@ -56,8 +56,8 @@ class TipsListController: MVVMViewController<TipsListViewModel>, UITableViewDele
 
 }
 
-struct Waste{
+struct Waste {
     let image: String
-    let category : String
-    let desc : String
+    let category: String
+    let desc: String
 }

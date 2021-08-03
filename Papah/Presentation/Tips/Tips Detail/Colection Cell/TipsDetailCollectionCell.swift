@@ -9,9 +9,9 @@ import UIKit
 
 class TipsDetailCollectionCell: UICollectionViewCell {
 
-    @IBOutlet weak var tipImage: UIImageView!
-    @IBOutlet weak var tipTitle: UILabel!
-    @IBOutlet weak var tipDesc: UILabel!
+    @IBOutlet weak var tipsImage: UIImageView!
+    @IBOutlet weak var tipsTitle: UILabel!
+    @IBOutlet weak var tipsDesc: UITextView!
     
     func setTipsDetailByCategory(with tipsDetail: SampahDetail){
         tipImage.image = UIImage(data: tipsDetail.image ?? Data())

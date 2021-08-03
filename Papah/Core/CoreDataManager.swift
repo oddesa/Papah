@@ -76,7 +76,10 @@ class CoreDataManager {
 //MARK: PreloadData
 extension CoreDataManager {
     func preloadData() {
+        if WbklDataRepository.shared.getAllWbkl().count == 0 {
         preloadDataWbkl()
+        print("berhasil di load")
+        }
     }
     
     //MARK: Preload Tips
@@ -252,7 +255,7 @@ extension CoreDataManager {
             longitude:  106.819412,
             latitude: -6.600046,
             image: UIImage(),
-            openDay: "Senin-Minggu",
+            openDay: "Senin - Minggu",
             openHour: "07.00 - 22.00",
             address: "Jl. Kp. Sawah, Tanah Baru, Kec. Bogor Utara, Kota Bogor, Jawa Barat",
             phone: "+6285773094034",
@@ -261,13 +264,13 @@ extension CoreDataManager {
         
         WbklDataRepository.shared.insertWbkl(
             id: 1,
-            name: "Bank Sampah Unit Cendana",
-            wbklType: "Bank Sampah",
+            name: "BSU Cendana",
+            wbklType: "Bank Sampah Unit",    
             longitude: 106.779389,
             latitude: -6.594889,
             image: UIImage(),
             openDay: "Rabu",
-            openHour: "08.00-12.00",
+            openHour: "08.00 - 12.00",
             address: "Jl. Raya Gn. Batu No.5, RT.06/RW.03, Pasir Jaya, Kecamatan Bogor Baru, Kota Bogor, Jawa Barat 16610",
             phone: "+6281384151188",
             claimedDate: Date()
@@ -275,13 +278,13 @@ extension CoreDataManager {
         
         WbklDataRepository.shared.insertWbkl(
             id: 2,
-            name: "Bank Sampah Warung Jambu Bersih",
-            wbklType: "Bank Sampah",
+            name: "BSU Warung Jambu Bersih",
+            wbklType: "Bank Sampah Unit",
             longitude: 106.810273,
             latitude: -6.567949,
             image: UIImage(),
             openDay: "Minggu",
-            openHour: "10.00-14.00",
+            openHour: "10.00 - 14.00",
             address: "Warung Jambu Rt.02/06 (Belakang Kantor Pos, RT.03/RW.01, Bantarjati, Kec. Bogor Utara, Kota Bogor, Jawa Barat 16151",
             phone: "+6281385143538",
             claimedDate: Date()

@@ -10,7 +10,6 @@ import UIKit
 class TantanganListController: MVVMViewController<TantanganListViewModel> {
 
     @IBOutlet weak var tableView: UITableView!
-    
     private let sectionLevel = 0
     private let sectionMonthly = 1
     private let sectionRewards = 2
@@ -26,6 +25,7 @@ class TantanganListController: MVVMViewController<TantanganListViewModel> {
     }
 
 }
+
 
 extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
     
