@@ -8,15 +8,6 @@
 import UIKit
 import CoreLocation
 
-class DummyDataUhuy {
-    let nama: String
-    let categori: String
-    init(nama: String, categori: String) {
-        self.nama = nama
-        self.categori = categori
-    }
-}
-
 class EksplorListController: MVVMViewController<EksplorListViewModel> {
     
     let strings = ["asdfefsa", "hahahah", "xoxoxoox"]
@@ -53,34 +44,31 @@ extension EksplorListController: UISearchResultsUpdating {
         searchBarCont.searchResultsUpdater = self
         searchBarCont.obscuresBackgroundDuringPresentation = false
         searchBarCont.searchBar.setValue("Batalkan", forKey: "cancelButtonText")
+        searchBarCont.searchBar.placeholder = "Agen Sampah"
     }
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {
             return
         }
-        let splited = text.components(separatedBy: " ")
-        
-        let aaa = DummyDataUhuy(nama: "Ayam Pedes", categori: "Goreng")
-        let a11 = DummyDataUhuy(nama: "Ayam Asin Rebus", categori: "Rebus")
-        let bbb = DummyDataUhuy(nama: "Ayam Asin", categori: "Rebus")
-        let ccc = DummyDataUhuy(nama: "Ayam Pahit", categori: "Bakar")
-        let ddd = DummyDataUhuy(nama: "Ikan Duyung", categori: "Rebus")
-        
-        var dummyUntukDifilter = [aaa, a11, bbb, ccc, ddd]
-        var filteredData: [String] = []
-        
-        
-        for dummy in dummyUntukDifilter {
-            for word in splited {
-                if dummy.nama.lowercased().contains(word.lowercased()) || dummy.categori.lowercased().contains(word.lowercased()) {
-                        filteredData.append(dummy.nama)
-                        guard let idx = dummyUntukDifilter.firstIndex(where: { $0 === dummy }) else {return}
-                        dummyUntukDifilter.remove(at: idx)
+        guard var dataWbkl = viewModel?.turnWbklsJarak() else {return}
+        if text.count == 0 {
+            allWbkl = dataWbkl
+        } else {
+            let splited = text.components(separatedBy: " ")
+            allWbkl = []
+            for wbkl in dataWbkl {
+                for word in splited {
+                    if (wbkl.wbklData.name ?? "").lowercased().contains(word.lowercased()) {//|| wbkl.wbklData.categori.lowercased().contains(word.lowercased()) {
+                            allWbkl.append(wbkl)
+                        guard let idx = dataWbkl.firstIndex(where: { $0 === wbkl }) else {return}
+                            dataWbkl.remove(at: idx)
+                    }
                 }
             }
         }
-        
+       
+        tableViewOutlet.reloadData()
         //logic sorting
 //        filteredData = filteredData.sorted()
 //        var users = [
@@ -207,7 +195,14 @@ extension EksplorListController: CLLocationManagerDelegate {
         print("Got location data")
         viewModel?.userLocation = locations
         allWbkl = viewModel?.turnWbklsJarak() ?? []
-        loadingView.hide()
-        tableViewOutlet.reloadData()
+        if loadingView.isHidden() == false {
+            loadingView.hide()
+            tableViewOutlet.reloadData()
+            for wbkl in allWbkl {
+                print(wbkl.wbklData.wasteAccepted)
+                print("-----------------------------------------------")
+                print(wbkl.wbklData.wasteCategory)
+            }
+        }
     }
 }

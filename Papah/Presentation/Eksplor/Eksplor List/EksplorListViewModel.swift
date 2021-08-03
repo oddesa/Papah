@@ -34,7 +34,11 @@ class EksplorListViewModel: NSObject {
         return wbklRepository.getAllWbkl()
     }
     
-   
+//    func getWbklCategory (wbkl: Wbkl) {
+//        return wbkl.wasteAccepted.
+//    }
+    
+
     
     
     // MARK: - Sorter

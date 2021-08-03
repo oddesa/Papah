@@ -235,7 +235,7 @@ class WbklDataRepository {
     }
     
     //on pending
-    func getWbklByCategory(category: String) -> [Wbkl]{
+    func getWbklByCategory(category: String) -> [Wbkl] {
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: wbklCategoryEntity)
         fetchRequest.predicate = NSPredicate(format: "title == %d", category)
