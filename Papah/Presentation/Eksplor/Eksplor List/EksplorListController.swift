@@ -25,16 +25,20 @@ class EksplorListController: MVVMViewController<EksplorListViewModel> {
     var allWbkl: [WbklJarak] = []
     
     @IBOutlet weak var tableViewOutlet: UITableView!
+    private var loadingView: LoadingView!
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarItem.isEnabled = false
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = EksplorListViewModel()
-        allWbkl =  (viewModel?.turnWbklsJarak(wbkls: (viewModel?.getWBklData() ?? []))) ?? []
-        allWbkl = viewModel?.sortBasedOnDistance(wbklJaraks: allWbkl) ?? []
         
-        viewModel?.locationManager.delegate = self
-        viewModel?.locationManager.requestWhenInUseAuthorization()
-        viewModel?.locationManager.requestLocation()
+        loadingView = LoadingView(uiView: self.view, message: "")
+        loadingView.show()
+        
+        setupLocationManager()
         setupSearchController()
         setupNib()
         
@@ -130,10 +134,10 @@ extension EksplorListController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath) as? ExplorListTableCell else {fatalError("identifiernya salah anying")}
             
             let wbkl = allWbkl[indexPath.row - 1].wbklData
-            let currentLocation = (viewModel?.locationDummy)!
+            if let currentLocation = (viewModel?.userLocation?.last) {
                 let distance = viewModel?.getLocationDistance(userLocation: currentLocation, wbklData: wbkl)
                 cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(distance!) km"
-      
+            }
             cell.wbklNameLabel.text = wbkl.name
             
             
@@ -188,6 +192,12 @@ extension EksplorListController: UITableViewDelegate {
 
 // MARK: - CLLocationManagerDelegate
 extension EksplorListController: CLLocationManagerDelegate {
+    
+    func setupLocationManager() {
+        viewModel?.locationManager.delegate = self
+        viewModel?.locationManager.requestWhenInUseAuthorization()
+        viewModel?.locationManager.requestLocation()
+    }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
         
@@ -196,5 +206,8 @@ extension EksplorListController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Got location data")
         viewModel?.userLocation = locations
+        allWbkl = viewModel?.turnWbklsJarak() ?? []
+        loadingView.hide()
+        tableViewOutlet.reloadData()
     }
 }

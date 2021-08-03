@@ -46,18 +46,22 @@ class EksplorListViewModel: NSObject {
     }
     
     // MARK: - Turn to WbklJarak
-    func turnWbklsJarak(wbkls: [Wbkl]) -> [WbklJarak] {
+    func turnWbklsJarak() -> [WbklJarak] {
+        
+        guard let wbkls = getWBklData() else{fatalError("datanya ga keload")}
         var wbklsJarak: [WbklJarak] = []
         for wbkl in wbkls {
-            let wbklJarak = WbklJarak(jarak: getLocationDistance(userLocation: locationDummy, wbklData: wbkl), wbkl: wbkl)
+            let wbklJarak = WbklJarak(jarak: getLocationDistance(userLocation: (userLocation?.last ?? locationDummy), wbklData: wbkl), wbkl: wbkl)
             wbklsJarak.append(wbklJarak)
         }
-        return wbklsJarak
+        let sortedWbklsJarak = sortBasedOnDistance(wbklJaraks: wbklsJarak)
+        return sortedWbklsJarak
     }
     
     // MARK: - Distance Logic
     let locationManager = CLLocationManager()
     var userLocation: [CLLocation]?
+    
     let locationDummy = CLLocation(latitude: -6.636076, longitude: 106.804472)
     
     func distanceBetweenTwoLocations(source: CLLocation, destination: CLLocation) -> Double {
