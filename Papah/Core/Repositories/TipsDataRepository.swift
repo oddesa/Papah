@@ -112,16 +112,12 @@ class TipsDataRepository {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityNameSampahDetail)
-        fetchRequest.predicate = NSPredicate(format: "sampah_id == %@", sampahId)
+        fetchRequest.predicate = NSPredicate(format: "sampah_id == %d", sampahId)
         
-        print("QUERY AMPSH AID  \(sampahId)")
-
         do {
             
             let item = try context.fetch(fetchRequest) as? [SampahDetail]
-            
-            print("QUERY \(item)")
-            
+                        
             return item
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")

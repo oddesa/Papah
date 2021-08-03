@@ -10,7 +10,7 @@ import UIKit
 class TipsDetailViewModel: NSObject {
     var tips: Sampah?
     init(tips: Sampah?){
-        self.tips = tips
+        self.tips = tips        
     }
     func getTipsDetail() -> [SampahDetail]?{
         return TipsDataRepository.shared.getTipsDetailById(sampahId: Int(self.tips?.sampah_id ?? 0))

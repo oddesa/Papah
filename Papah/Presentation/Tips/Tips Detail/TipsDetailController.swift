@@ -9,7 +9,7 @@ import UIKit
 
 class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {        
         return self.viewModel?.getTipsDetail()?.count ?? 0
     }
     
@@ -33,8 +33,6 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
         tipsDetailCollection.delegate = self
         tipsDetailCollection.dataSource = self
         // Do any additional setup after loading the view.
-        print(TipsDataRepository.shared.getTipsDetailById(sampahId: Int(0)))
-
                 
     }
     @IBOutlet weak var tipsDetailCollection: UICollectionView!
