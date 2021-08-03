@@ -26,8 +26,22 @@ class EksplorListController: MVVMViewController<EksplorListViewModel> {
     
     @IBOutlet weak var tableViewOutlet: UITableView!
     
+    private var loadingView: LoadingView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Self.view bisa diganti ke view mana aja, biar ga semua ke cover
+        loadingView = LoadingView(uiView: self.view, message: "")
+        
+        // ini buat start loading
+        loadingView.show()
+        
+        // ini buat stop loading
+        loadingView.hide()
+        
+        
+        
         self.viewModel = EksplorListViewModel()
         allWbkl = viewModel?.getWBklData() ?? []
 //        var sortedAllWbkl = allWbkl.sort {
