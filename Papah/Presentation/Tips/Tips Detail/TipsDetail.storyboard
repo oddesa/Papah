@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -29,66 +29,76 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nei-Pn-TX8">
-                                    <size key="itemSize" width="264" height="667"/>
+                                    <size key="itemSize" width="414" height="719"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tipsDetailCell" id="EUN-5g-F1a" customClass="TipsDetailCollectionCell" customModule="Papah" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="53.5" width="264" height="667"/>
+                                        <rect key="frame" x="0.0" y="27.5" width="414" height="719"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dGs-0h-UZu">
-                                            <rect key="frame" x="0.0" y="0.0" width="264" height="667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="719"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="WhatsApp Image 2021-07-19 at 08.50.13" translatesAutoresizingMaskIntoConstraints="NO" id="Z5a-S6-7kB">
-                                                    <rect key="frame" x="12" y="0.0" width="240" height="491"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Z5a-S6-7kB">
+                                                    <rect key="frame" x="30" y="-1" width="354" height="500.5"/>
+                                                    <color key="tintColor" red="0.78823529410000004" green="0.51372549020000002" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="500" id="Cu0-W4-Aqt"/>
+                                                        <constraint firstAttribute="width" constant="400" id="Sox-Tq-FjD"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Memilah Plastik" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqx-fc-gPH">
-                                                    <rect key="frame" x="12" y="499" width="240" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caranya adalah jeng jeng jeng" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPT-rb-k83">
+                                                    <rect key="frame" x="38" y="536.5" width="338" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Caranya adalah lalalalala" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vxc-9D-rvB">
-                                                    <rect key="frame" x="12" y="528" width="240" height="128"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <color key="textColor" systemColor="labelColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memilah Plastik" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqx-fc-gPH">
+                                                    <rect key="frame" x="38" y="508" width="338" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Tqx-fc-gPH" firstAttribute="top" secondItem="Z5a-S6-7kB" secondAttribute="bottom" constant="8" id="6cO-5V-sHp"/>
-                                                <constraint firstItem="vxc-9D-rvB" firstAttribute="leading" secondItem="dGs-0h-UZu" secondAttribute="leadingMargin" constant="4" id="KjJ-2L-KFK"/>
-                                                <constraint firstItem="Z5a-S6-7kB" firstAttribute="leading" secondItem="dGs-0h-UZu" secondAttribute="leadingMargin" constant="4" id="PKO-AZ-w3J"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="vxc-9D-rvB" secondAttribute="trailing" constant="4" id="Q4Y-Y3-7eS"/>
-                                                <constraint firstItem="Tqx-fc-gPH" firstAttribute="leading" secondItem="dGs-0h-UZu" secondAttribute="leadingMargin" constant="4" id="dlf-3K-CEI"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Tqx-fc-gPH" secondAttribute="trailing" constant="4" id="gbh-Ms-xK4"/>
-                                                <constraint firstItem="vxc-9D-rvB" firstAttribute="top" secondItem="Tqx-fc-gPH" secondAttribute="bottom" constant="8" id="iOD-iU-MDw"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="vxc-9D-rvB" secondAttribute="bottom" id="r0O-Dj-YNG"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Z5a-S6-7kB" secondAttribute="trailing" constant="4" id="zWW-ze-y6s"/>
+                                                <constraint firstItem="Z5a-S6-7kB" firstAttribute="top" secondItem="dGs-0h-UZu" secondAttribute="top" id="2Cb-IM-ZPc"/>
+                                                <constraint firstItem="Tqx-fc-gPH" firstAttribute="top" secondItem="Z5a-S6-7kB" secondAttribute="bottom" constant="8" id="3nC-mp-iKD"/>
+                                                <constraint firstItem="Z5a-S6-7kB" firstAttribute="top" secondItem="dGs-0h-UZu" secondAttribute="top" id="4Ao-XQ-O5o"/>
+                                                <constraint firstAttribute="trailing" secondItem="Z5a-S6-7kB" secondAttribute="trailing" constant="30" id="9GM-zf-UF2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="QPT-rb-k83" secondAttribute="trailing" constant="30" id="DVV-EP-iqs"/>
+                                                <constraint firstItem="Tqx-fc-gPH" firstAttribute="leading" secondItem="dGs-0h-UZu" secondAttribute="leadingMargin" constant="30" id="HZj-uK-D5g"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Tqx-fc-gPH" secondAttribute="trailing" constant="30" id="JlK-B8-Dqd"/>
+                                                <constraint firstItem="Z5a-S6-7kB" firstAttribute="leading" secondItem="dGs-0h-UZu" secondAttribute="leading" constant="30" id="M3e-gW-U8J"/>
+                                                <constraint firstItem="QPT-rb-k83" firstAttribute="top" secondItem="Tqx-fc-gPH" secondAttribute="bottom" constant="8" id="bEa-Qk-hf3"/>
+                                                <constraint firstItem="Tqx-fc-gPH" firstAttribute="top" secondItem="Z5a-S6-7kB" secondAttribute="bottom" constant="8" id="oKY-xR-3bn"/>
+                                                <constraint firstItem="QPT-rb-k83" firstAttribute="leading" secondItem="dGs-0h-UZu" secondAttribute="leadingMargin" constant="30" id="uS3-3r-m4S"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="264" height="667"/>
+                                        <size key="customSize" width="414" height="719"/>
                                         <connections>
-                                            <outlet property="tipsDesc" destination="vxc-9D-rvB" id="fN1-Br-qwY"/>
+                                            <outlet property="tipsDesc" destination="QPT-rb-k83" id="jYd-r9-ETS"/>
                                             <outlet property="tipsImage" destination="Z5a-S6-7kB" id="sOq-bM-JL0"/>
                                             <outlet property="tipsTitle" destination="Tqx-fc-gPH" id="SBG-Xo-RJy"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ESO-u4-dB1">
-                                <rect key="frame" x="146" y="814" width="123" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="pageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="currentPageIndicatorTintColor" systemColor="systemIndigoColor"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="53A-JA-4GW">
+                                <rect key="frame" x="30" y="840" width="354" height="28"/>
+                                <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" systemColor="systemPurpleColor"/>
                             </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="53A-JA-4GW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="VPB-ey-L0Q"/>
+                            <constraint firstAttribute="bottom" secondItem="53A-JA-4GW" secondAttribute="bottom" constant="28" id="o9T-Jl-A5B"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="53A-JA-4GW" secondAttribute="trailing" constant="30" id="vCf-mb-Nab"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tipsDetailCollection" destination="zwB-wu-nme" id="7li-hc-Lpg"/>
@@ -100,16 +110,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="WhatsApp Image 2021-07-19 at 08.50.13" width="478" height="540"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
