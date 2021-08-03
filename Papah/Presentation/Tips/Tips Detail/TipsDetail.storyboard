@@ -46,36 +46,35 @@
                                                     <rect key="frame" x="30" y="-1" width="354" height="500.5"/>
                                                     <color key="tintColor" red="0.78823529410000004" green="0.51372549020000002" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="400" id="0dC-XA-XpS"/>
-                                                        <constraint firstAttribute="height" constant="500" id="365-56-ZUR"/>
+                                                        <constraint firstAttribute="height" constant="500" id="Cu0-W4-Aqt"/>
+                                                        <constraint firstAttribute="width" constant="400" id="Sox-Tq-FjD"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caranya adalah jeng jeng jeng" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPT-rb-k83">
-                                                    <rect key="frame" x="38" y="536.5" width="338" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="QPT-rb-k83" secondAttribute="height" multiplier="338:21" id="ZQO-HR-UhT"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="38" y="536.5" width="338" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memilah Plastik" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqx-fc-gPH">
-                                                    <rect key="frame" x="30" y="508" width="354" height="20.5"/>
+                                                    <rect key="frame" x="38" y="508" width="338" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Z5a-S6-7kB" firstAttribute="top" secondItem="dGs-0h-UZu" secondAttribute="top" id="2Cb-IM-ZPc"/>
                                                 <constraint firstItem="Tqx-fc-gPH" firstAttribute="top" secondItem="Z5a-S6-7kB" secondAttribute="bottom" constant="8" id="3nC-mp-iKD"/>
                                                 <constraint firstItem="Z5a-S6-7kB" firstAttribute="top" secondItem="dGs-0h-UZu" secondAttribute="top" id="4Ao-XQ-O5o"/>
-                                                <constraint firstAttribute="trailing" secondItem="Z5a-S6-7kB" secondAttribute="trailing" constant="30" id="DVK-51-znT"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="QPT-rb-k83" secondAttribute="trailing" constant="30" id="Gzi-8X-lFe"/>
-                                                <constraint firstAttribute="trailing" secondItem="Tqx-fc-gPH" secondAttribute="trailing" constant="30" id="MLF-Ir-Eua"/>
-                                                <constraint firstItem="QPT-rb-k83" firstAttribute="leading" secondItem="dGs-0h-UZu" secondAttribute="leadingMargin" constant="30" id="NlA-We-cll"/>
-                                                <constraint firstItem="Z5a-S6-7kB" firstAttribute="leading" secondItem="dGs-0h-UZu" secondAttribute="leading" constant="30" id="QKy-1L-OUt"/>
-                                                <constraint firstItem="Tqx-fc-gPH" firstAttribute="leading" secondItem="dGs-0h-UZu" secondAttribute="leading" constant="30" id="VeV-Bv-aZT"/>
-                                                <constraint firstItem="QPT-rb-k83" firstAttribute="top" secondItem="Tqx-fc-gPH" secondAttribute="bottom" constant="8" id="nkY-JD-jwN"/>
+                                                <constraint firstAttribute="trailing" secondItem="Z5a-S6-7kB" secondAttribute="trailing" constant="30" id="9GM-zf-UF2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="QPT-rb-k83" secondAttribute="trailing" constant="30" id="DVV-EP-iqs"/>
+                                                <constraint firstItem="Tqx-fc-gPH" firstAttribute="leading" secondItem="dGs-0h-UZu" secondAttribute="leadingMargin" constant="30" id="HZj-uK-D5g"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Tqx-fc-gPH" secondAttribute="trailing" constant="30" id="JlK-B8-Dqd"/>
+                                                <constraint firstItem="Z5a-S6-7kB" firstAttribute="leading" secondItem="dGs-0h-UZu" secondAttribute="leading" constant="30" id="M3e-gW-U8J"/>
+                                                <constraint firstItem="QPT-rb-k83" firstAttribute="top" secondItem="Tqx-fc-gPH" secondAttribute="bottom" constant="8" id="bEa-Qk-hf3"/>
+                                                <constraint firstItem="Tqx-fc-gPH" firstAttribute="top" secondItem="Z5a-S6-7kB" secondAttribute="bottom" constant="8" id="oKY-xR-3bn"/>
+                                                <constraint firstItem="QPT-rb-k83" firstAttribute="leading" secondItem="dGs-0h-UZu" secondAttribute="leadingMargin" constant="30" id="uS3-3r-m4S"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="719"/>
@@ -87,15 +86,19 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ESO-u4-dB1">
-                                <rect key="frame" x="146" y="814" width="123" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="pageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="currentPageIndicatorTintColor" systemColor="systemIndigoColor"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="53A-JA-4GW">
+                                <rect key="frame" x="30" y="840" width="354" height="28"/>
+                                <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" systemColor="systemPurpleColor"/>
                             </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="53A-JA-4GW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="VPB-ey-L0Q"/>
+                            <constraint firstAttribute="bottom" secondItem="53A-JA-4GW" secondAttribute="bottom" constant="28" id="o9T-Jl-A5B"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="53A-JA-4GW" secondAttribute="trailing" constant="30" id="vCf-mb-Nab"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tipsDetailCollection" destination="zwB-wu-nme" id="7li-hc-Lpg"/>
@@ -112,8 +115,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

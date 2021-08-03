@@ -39,6 +39,12 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
     @IBOutlet weak var tipsDetailCollection: UICollectionView!
 }
 
+extension TipsDetailController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 315, height: 654)
+    }
+}
+
 struct TipsDetail{
     let image: String
     let title: String
