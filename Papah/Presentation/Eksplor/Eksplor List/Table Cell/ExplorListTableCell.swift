@@ -30,6 +30,7 @@ class ExplorListTableCell: UITableViewCell {
     
     @IBOutlet weak var wbklSampahKategori4Label: UILabel!
     
+    @IBOutlet weak var nearMarker: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

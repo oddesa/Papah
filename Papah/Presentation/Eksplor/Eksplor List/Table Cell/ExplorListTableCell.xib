@@ -189,6 +189,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="nearMarker" destination="c8m-lR-R4I" id="b5D-hm-qgG"/>
                 <outlet property="wbklCategoryLabel" destination="KvN-LF-VFb" id="meq-Jj-uNP"/>
                 <outlet property="wbklNameLabel" destination="fjP-Io-bN6" id="XAI-72-l2C"/>
                 <outlet property="wbklOperationalLabel" destination="MCI-zh-sQn" id="llL-WO-uXr"/>

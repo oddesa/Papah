@@ -125,6 +125,11 @@ extension EksplorListController: UITableViewDataSource {
             if let currentLocation = (viewModel?.userLocation?.last) {
                 let distance = viewModel?.getLocationDistance(userLocation: currentLocation, wbklData: wbkl)
                 cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(distance!) km"
+                if distance! < 5815 {
+                    cell.nearMarker.backgroundColor = .green
+                } else {
+                    cell.nearMarker.backgroundColor = .clear
+                }
             }
             cell.wbklNameLabel.text = wbkl.name
             
@@ -198,11 +203,11 @@ extension EksplorListController: CLLocationManagerDelegate {
         if loadingView.isHidden() == false {
             loadingView.hide()
             tableViewOutlet.reloadData()
-            for wbkl in allWbkl {
-                print(wbkl.wbklData.wasteAccepted)
-                print("-----------------------------------------------")
-                print(wbkl.wbklData.wasteCategory)
-            }
+//            for wbkl in allWbkl {
+//                print(wbkl.wbklData.wasteAccepted)
+//                print("-----------------------------------------------")
+//                print(wbkl.wbklData.wasteCategory)
+//            }
         }
     }
 }

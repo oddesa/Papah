@@ -35,7 +35,7 @@ class EksplorListViewModel: NSObject {
     }
     
 //    func getWbklCategory (wbkl: Wbkl) {
-//        return wbkl.wasteAccepted.
+//        return
 //    }
     
 
