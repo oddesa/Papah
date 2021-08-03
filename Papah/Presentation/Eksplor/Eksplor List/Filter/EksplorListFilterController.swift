@@ -7,14 +7,14 @@
 
 import UIKit
 
-class EksplorListFilterController: UIViewController {
+class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel> {
     
     @IBOutlet weak var wasteFilterTable: UITableView!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     
     @IBAction func donePressed(_ sender: UIButton) {
-        //send back filter data
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func resetPressed(_ sender: UIButton) {
@@ -28,8 +28,6 @@ class EksplorListFilterController: UIViewController {
         }
         wasteFilterTable.reloadData()
     }
-    
-    private let viewModel = EksplorListFilterViewModel()
     
     var filterArr = [String]()
     var selectedFilter = [Int]()
@@ -45,6 +43,8 @@ class EksplorListFilterController: UIViewController {
         
         wasteFilterTable.dataSource = self
         wasteFilterTable.delegate = self
+        
+        self.viewModel = EksplorListFilterViewModel()
     }
 }
 

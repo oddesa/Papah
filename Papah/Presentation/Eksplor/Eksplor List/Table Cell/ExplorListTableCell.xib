@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,8 +20,11 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n24-Jg-PX7">
                         <rect key="frame" x="16" y="0.0" width="358" height="138.66666666666666"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Bank Sampah Mak Cimet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjP-Io-bN6" customClass="PaddingLabel" customModule="Papah" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="16" width="228.66666666666666" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Bank Sampah Mak Cimet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjP-Io-bN6" customClass="PaddingLabel" customModule="Papah" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="16" width="260" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="CZj-ue-hxo"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -33,11 +37,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutup · 19.00 – 03.00 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCI-zh-sQn" customClass="PaddingLabel" customModule="Papah" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="104.66666666666667" width="149.66666666666666" height="18"/>
+                                <rect key="frame" x="0.0" y="105" width="229" height="18"/>
                                 <color key="tintColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="bE8-Ls-2Ng"/>
-                                    <constraint firstAttribute="width" constant="149.66666666666666" id="rfm-73-Czo"/>
+                                    <constraint firstAttribute="width" constant="229" id="rfm-73-Czo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -142,11 +146,18 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c8m-lR-R4I">
+                                <rect key="frame" x="280" y="110.33333333333333" width="78" height="19.999999999999986"/>
+                                <color key="backgroundColor" name="icon_sapphire"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="78" id="3KT-ix-7kF"/>
+                                    <constraint firstAttribute="height" constant="20" id="yRj-zV-5Ff"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="3aL-RU-FZ8" secondAttribute="trailing" id="1pX-td-9Z3"/>
-                            <constraint firstItem="nzu-nd-gyz" firstAttribute="top" secondItem="n24-Jg-PX7" secondAttribute="top" constant="68" id="37g-B7-laZ"/>
                             <constraint firstItem="BPQ-CH-6lB" firstAttribute="top" secondItem="nzu-nd-gyz" secondAttribute="top" id="5Yk-6y-hu2"/>
                             <constraint firstItem="BPQ-CH-6lB" firstAttribute="bottom" secondItem="nzu-nd-gyz" secondAttribute="bottom" id="AfE-gE-T0L"/>
                             <constraint firstItem="mrc-5E-jeC" firstAttribute="leading" secondItem="n24-Jg-PX7" secondAttribute="leading" id="BnH-0F-3ND"/>
@@ -156,10 +167,12 @@
                             <constraint firstItem="KvN-LF-VFb" firstAttribute="top" secondItem="fjP-Io-bN6" secondAttribute="bottom" id="Gma-Ur-WLI"/>
                             <constraint firstItem="6V9-Pt-UNI" firstAttribute="leading" secondItem="nzu-nd-gyz" secondAttribute="trailing" constant="3" id="HUD-cc-cOc"/>
                             <constraint firstItem="nzu-nd-gyz" firstAttribute="bottom" secondItem="6V9-Pt-UNI" secondAttribute="bottom" id="Mzd-S8-7eA"/>
+                            <constraint firstItem="c8m-lR-R4I" firstAttribute="top" secondItem="3aL-RU-FZ8" secondAttribute="bottom" constant="2" id="OFy-7m-PZn"/>
                             <constraint firstItem="MCI-zh-sQn" firstAttribute="leading" secondItem="n24-Jg-PX7" secondAttribute="leading" id="RFY-nw-OvJ"/>
                             <constraint firstItem="KvN-LF-VFb" firstAttribute="leading" secondItem="n24-Jg-PX7" secondAttribute="leading" id="W5K-g9-zF7"/>
-                            <constraint firstItem="MCI-zh-sQn" firstAttribute="centerX" secondItem="KvN-LF-VFb" secondAttribute="centerX" constant="-39.666666666666671" id="Wk2-ys-erW"/>
+                            <constraint firstItem="MCI-zh-sQn" firstAttribute="centerX" secondItem="KvN-LF-VFb" secondAttribute="centerX" id="Wk2-ys-erW"/>
                             <constraint firstItem="3aL-RU-FZ8" firstAttribute="centerY" secondItem="n24-Jg-PX7" secondAttribute="centerY" id="XQT-Q9-09v"/>
+                            <constraint firstItem="c8m-lR-R4I" firstAttribute="leading" secondItem="3aL-RU-FZ8" secondAttribute="leading" id="Z1i-PF-q8r"/>
                             <constraint firstItem="mrc-5E-jeC" firstAttribute="top" secondItem="KvN-LF-VFb" secondAttribute="bottom" constant="10" id="aaW-JP-DpX"/>
                             <constraint firstItem="fjP-Io-bN6" firstAttribute="top" secondItem="n24-Jg-PX7" secondAttribute="top" constant="16" id="bcR-Lk-PKL"/>
                             <constraint firstItem="MCI-zh-sQn" firstAttribute="top" secondItem="mrc-5E-jeC" secondAttribute="bottom" constant="12" id="ezK-Dt-e2X"/>
@@ -205,6 +218,9 @@
     </designables>
     <resources>
         <image name="WhatsApp Image 2021-07-19 at 08.50.13" width="478" height="540"/>
+        <namedColor name="icon_sapphire">
+            <color red="0.0" green="0.5690000057220459" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

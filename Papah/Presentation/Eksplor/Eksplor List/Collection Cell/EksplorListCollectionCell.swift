@@ -9,12 +9,32 @@ import UIKit
 
 class EksplorListCollectionCell: UICollectionViewCell {
     
-    @IBOutlet weak var categoryBubble: DesignableView!
-    @IBOutlet weak var categoryLabel: UILabel!
-    //apakah button masih perlu?? nnti harusnya cukup dengan ngeklik si collection cell aja udah activate deactivate filter
+    
+    @IBOutlet weak var categoryBtn: DesignableButton!
+    
+    @IBAction func categoryBtnPressed(_ sender: Any) {
+        isActive = !isActive
+    }
+    // Note: must be strong
+    @IBOutlet private var maxWidthConstraint: NSLayoutConstraint! {
+        didSet {
+            maxWidthConstraint.isActive = false
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            contentView.leftAnchor.constraint(equalTo: leftAnchor),
+            contentView.rightAnchor.constraint(equalTo: rightAnchor),
+            contentView.topAnchor.constraint(equalTo: topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+        
+        setupCellView()
     }
 
     var isActive: Bool = false {
@@ -25,18 +45,18 @@ class EksplorListCollectionCell: UICollectionViewCell {
     
     private func setupCellView () {
         if isActive == true {
-            categoryBubble.backgroundColor = .white
-            categoryLabel.textColor = .iconIolite
+            categoryBtn.backgroundColor = .lightGray
+            categoryBtn.borderColor = .iconIolite
+            categoryBtn.tintColor = .iconIolite
+            categoryBtn.setTitleColor(.iconIolite, for: .normal)
         } else {
-            categoryBubble.backgroundColor = .black
-            categoryLabel.textColor = .white
+            categoryBtn.backgroundColor = .white
+            categoryBtn.borderColor = .black
+            categoryBtn.tintColor = .black
+            categoryBtn.setTitleColor(.black, for: .normal)
+
+            
         }
         
     }
-    
-    
-    
-    
-    
-    
 }
