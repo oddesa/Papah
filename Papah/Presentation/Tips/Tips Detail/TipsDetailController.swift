@@ -24,7 +24,6 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
     func collectionView(_ tableView: UITableView, widthForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-
     
     func setTipsDetail(with tipsdetail: SampahDetail){
         
