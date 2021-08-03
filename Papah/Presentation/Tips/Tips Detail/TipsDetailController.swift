@@ -25,6 +25,9 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
         return 150
     }
 
+    private let tipsDetailDummy = [ TipsDetail(image: "yes", title: "Memilah Sampah Plastik", desc: "plastik lama terurai"), TipsDetail(image: "yes", title: "Menyalurkan Sampah Plastik", desc: "plastik lama terurai"), TipsDetail(image: "yes", title: "Merecycle plastic", desc: "plastik lama terurai")]
+
+    var tesData: String = ""
     
     func setTipsDetail(with tipsdetail: SampahDetail){
         
