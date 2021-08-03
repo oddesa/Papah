@@ -9,13 +9,13 @@ import UIKit
 
 class TipsDetailCollectionCell: UICollectionViewCell {
 
-    @IBOutlet weak var tipImage: UIImageView!
-    @IBOutlet weak var tipTitle: UILabel!
-    @IBOutlet weak var tipDesc: UILabel!
+    @IBOutlet weak var tipsImage: UIImageView!
+    @IBOutlet weak var tipsTitle: UILabel!
+    @IBOutlet weak var tipsDesc: UITextView!
     
     func setTipsDetailByCategory(with tipsDetail: TipsDetail){
-        tipTitle.text = tipsDetail.title
-        tipDesc.text = tipsDetail.desc
+        tipsTitle.text = tipsDetail.title
+        tipsDesc.text = tipsDetail.desc
     }
 
 }
