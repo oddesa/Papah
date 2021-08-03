@@ -30,7 +30,7 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
     var tipsList = TipsDataRepository.shared.getAllTips()
     
     var tesData: String = ""
-    
+    print("yes")
     override func viewDidLoad() {
         super.viewDidLoad()
         tipsDetailCollection.delegate = self
