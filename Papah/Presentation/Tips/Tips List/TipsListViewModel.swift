@@ -8,5 +8,12 @@
 import UIKit
 
 class TipsListViewModel: NSObject {
-
+    
+    var tipsData: [Sampah]?
+    
+    let tipsRepository = TipsDataRepository.shared
+    
+    func getTipsData() -> [Sampah]? {
+        return tipsRepository.getAllTips()
+    }
 }

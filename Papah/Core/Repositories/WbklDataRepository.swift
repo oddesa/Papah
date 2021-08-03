@@ -42,7 +42,7 @@ class WbklDataRepository {
             wbklData.operational_hour = openHour
             wbklData.address = address
             wbklData.phone_number = phone
-//            wbklData.claimed_date = claimedDate
+            wbklData.claimed_date = claimedDate
             
             try context.save()
             
@@ -85,13 +85,13 @@ class WbklDataRepository {
     func insertWasteCategory(wasteCategoryId: Int,
                              title: String,
                              unit: String,
-                             image: Data) {
+                             image: UIImage) {
         
         do {
             let context = CoreDataManager.sharedManager.persistentContainer.viewContext
             
             let wasteCategory = WasteCategory(context: context)
-            wasteCategory.image = image
+            wasteCategory.image = image.jpegData(compressionQuality: 1.0)
             wasteCategory.unit = unit
             wasteCategory.waste_category_id = Int32(wasteCategoryId)
             wasteCategory.title = title
@@ -107,7 +107,7 @@ class WbklDataRepository {
                                    wasteCategoryId: Int,
                                    title: String,
                                    unit: String,
-                                   image: Data) {
+                                   image: UIImage) {
         
         do {
             let context = CoreDataManager.sharedManager.persistentContainer.viewContext
@@ -118,13 +118,12 @@ class WbklDataRepository {
                 wasteCategory.waste_category_id = Int32(wasteCategoryId)
                 wasteCategory.title = title
                 wasteCategory.unit = unit
-                wasteCategory.image = image
+                wasteCategory.image = image.jpegData(compressionQuality: 1.0)
                 
                 wbkl.addToWasteCategory(wasteCategory)
                 
                 try context.save()
             }
-            
             
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
@@ -235,7 +234,7 @@ class WbklDataRepository {
     }
     
     //on pending
-    func getWbklByCategory(category: String) -> [Wbkl] {
+    func getWbklByCategory(category: [String]) -> [Wbkl]{
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: wbklCategoryEntity)
         fetchRequest.predicate = NSPredicate(format: "title == %d", category)
@@ -257,7 +256,7 @@ class WbklDataRepository {
         //bisa berdasar nama atau kategori
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: wbklEntity)
-        fetchRequest.predicate = NSPredicate(format: "title == %d", category)
+        fetchRequest.predicate = NSPredicate(format: "title == %d IN", category)
         
         do {
             

@@ -9,11 +9,11 @@ import UIKit
 
 class TipsListController: MVVMViewController<TipsListViewModel>, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tipsList.count
+        return self.viewModel?.getTipsData()?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = tipsList[indexPath.row]
+        let item = self.viewModel?.getTipsData()?[indexPath.row]
         let cell = tipsListTableView.dequeueReusableCell(withIdentifier: "tipsCell", for: indexPath) as! TipsListTableCell
 //        cell.item = surah
         cell.setTips(with: item)
@@ -26,8 +26,14 @@ class TipsListController: MVVMViewController<TipsListViewModel>, UITableViewDele
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("DID SELECT")
-        let tipsScene = UIStoryboard(name: "TipsDetail", bundle: nil).instantiateViewController(withIdentifier: "TipsDetailController") as! TipsDetailController
-        self.navigationController?.pushViewController(tipsScene, animated: true)
+        
+        //-Rizqi's addition-----------------------------------------------------------
+        if let viewModel = viewModel, let tipsData = viewModel.getTipsData()?[indexPath.row] {
+            let controller = TipsDetailController.instantiateStoryboard(
+                viewModel: TipsDetailViewModel(tips: tipsData)
+            )
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     override func viewDidLoad() {
@@ -43,7 +49,6 @@ class TipsListController: MVVMViewController<TipsListViewModel>, UITableViewDele
     @IBOutlet weak var tipsListTableView: UITableView!
     @IBOutlet weak var tipsSearchBar: UISearchBar!
 
-    private let tipsList = [ Waste(image: "yes", category: "plastik", desc: "plastik lama terurai"), Waste(image: "yes", category: "kaleng", desc: "kaleng sangat lama terurai"), Waste(image: "yes", category: "kaleng-kaleng", desc: "juga lama terurai")]
     /*
     // MARK: - Navigation
 
@@ -54,10 +59,4 @@ class TipsListController: MVVMViewController<TipsListViewModel>, UITableViewDele
     }
     */
 
-}
-
-struct Waste {
-    let image: String
-    let category: String
-    let desc: String
 }

@@ -13,7 +13,8 @@ class TipsDataRepository {
     
     static let shared = TipsDataRepository()
     let entityName = Sampah.self.description()
-    
+    let entityNameSampahDetail = SampahDetail.self.description()
+
     func insertTips(title: String,
                     desc: String,
                     sampahId: Int,
@@ -55,7 +56,7 @@ class TipsDataRepository {
                 tipsDetail.detail = detail
                 tipsDetail.image = image.jpegData(compressionQuality: 1.0)
                 tipsDetail.sampah_id = Int32(sampahId)
-                
+                print("SAMPAH ID TIPS DETAIL \(Int32(sampahId))")
                 tips.addToSampahDetail(tipsDetail)
                 
                 try context.save()
@@ -72,7 +73,7 @@ class TipsDataRepository {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
-        fetchRequest.predicate = NSPredicate(format: "sampah_id == %d", sampahId)
+        fetchRequest.predicate = NSPredicate(format: "sampah_id == %i", sampahId)
         
         do {
             
@@ -110,13 +111,13 @@ class TipsDataRepository {
     func getTipsDetailById(sampahId: Int) -> [SampahDetail]? {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityNameSampahDetail)
         fetchRequest.predicate = NSPredicate(format: "sampah_id == %d", sampahId)
         
         do {
             
             let item = try context.fetch(fetchRequest) as? [SampahDetail]
-            
+                        
             return item
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
