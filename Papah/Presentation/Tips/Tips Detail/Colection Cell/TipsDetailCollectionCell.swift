@@ -11,7 +11,7 @@ class TipsDetailCollectionCell: UICollectionViewCell {
 
     @IBOutlet weak var tipsImage: UIImageView!
     @IBOutlet weak var tipsTitle: UILabel!
-    @IBOutlet weak var tipsDesc: UITextView!
+    @IBOutlet weak var tipsDesc: UILabel!
     
     func setTipsDetailByCategory(with tipsDetail: TipsDetail){
         tipsTitle.text = tipsDetail.title
