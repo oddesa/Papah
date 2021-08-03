@@ -16,6 +16,16 @@ struct KangLoak {
     let operasional: String
 }
 
+class WbklJarak: WbklDataRepository {
+    var jarak: Double
+    let wbklData: Wbkl
+    
+    init(jarak: Double, wbkl: Wbkl ) {
+        self.jarak = jarak
+        self.wbklData = wbkl
+    }
+}
+
 class EksplorListViewModel: NSObject {
 
     let wbklRepository = WbklDataRepository.shared
@@ -24,11 +34,32 @@ class EksplorListViewModel: NSObject {
         return wbklRepository.getAllWbkl()
     }
     
+   
+    
+    
+    // MARK: - Sorter
+    func sortBasedOnDistance(wbklJaraks: [WbklJarak]) -> [WbklJarak] {
+        let sortedWbklJarak = wbklJaraks.sorted {
+            $0.jarak < $1.jarak
+        }
+        return sortedWbklJarak
+    }
+    
+    // MARK: - Turn to WbklJarak
+    func turnWbklsJarak(wbkls: [Wbkl]) -> [WbklJarak] {
+        var wbklsJarak: [WbklJarak] = []
+        for wbkl in wbkls {
+            let wbklJarak = WbklJarak(jarak: getLocationDistance(userLocation: locationDummy, wbklData: wbkl), wbkl: wbkl)
+            wbklsJarak.append(wbklJarak)
+        }
+        return wbklsJarak
+    }
+    
+    // MARK: - Distance Logic
     let locationManager = CLLocationManager()
     var userLocation: [CLLocation]?
     let locationDummy = CLLocation(latitude: -6.636076, longitude: 106.804472)
     
-    // MARK: - Distance Logic
     func distanceBetweenTwoLocations(source: CLLocation, destination: CLLocation) -> Double {
         let distanceMeters = source.distance(from: destination)
         let distanceKM = distanceMeters / 1000

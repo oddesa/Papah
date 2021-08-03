@@ -17,20 +17,20 @@ class DummyDataUhuy {
     }
 }
 
-
 class EksplorListController: MVVMViewController<EksplorListViewModel> {
     
     let strings = ["asdfefsa", "hahahah", "xoxoxoox"]
     var searchBarCont = UISearchController()
     var filteredData: [String] = []
-    var allWbkl: [Wbkl] = []
+    var allWbkl: [WbklJarak] = []
     
     @IBOutlet weak var tableViewOutlet: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = EksplorListViewModel()
-        allWbkl = viewModel?.getWBklData() ?? []
+        allWbkl =  (viewModel?.turnWbklsJarak(wbkls: (viewModel?.getWBklData() ?? []))) ?? []
+        allWbkl = viewModel?.sortBasedOnDistance(wbklJaraks: allWbkl) ?? []
         
         viewModel?.locationManager.delegate = self
         viewModel?.locationManager.requestWhenInUseAuthorization()
@@ -129,7 +129,7 @@ extension EksplorListController: UITableViewDataSource {
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath) as? ExplorListTableCell else {fatalError("identifiernya salah anying")}
             
-            let wbkl = allWbkl[indexPath.row - 1]
+            let wbkl = allWbkl[indexPath.row - 1].wbklData
             let currentLocation = (viewModel?.locationDummy)!
                 let distance = viewModel?.getLocationDistance(userLocation: currentLocation, wbklData: wbkl)
                 cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(distance!) km"
@@ -178,7 +178,7 @@ extension EksplorListController: UITableViewDelegate {
         
         if let viewModel = viewModel {
             let controller = EksplorDetailController.instantiateStoryboard(
-                viewModel: EksplorDetailViewModel(wbklData: allWbkl[indexPath.row - 1])
+                viewModel: EksplorDetailViewModel(wbklData: allWbkl[indexPath.row - 1].wbklData)
             )
             self.navigationController?.pushViewController(controller, animated: true)
         }
@@ -196,6 +196,5 @@ extension EksplorListController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Got location data")
         viewModel?.userLocation = locations
-        print(viewModel?.userLocation?.last)
     }
 }
