@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutup · 19.00 – 03.00 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCI-zh-sQn" customClass="PaddingLabel" customModule="Papah" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="105" width="229" height="18"/>
+                                <rect key="frame" x="0.0" y="104.66666666666667" width="229" height="18"/>
                                 <color key="tintColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="bE8-Ls-2Ng"/>

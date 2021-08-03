@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 struct KangLoak {
     let name: String
@@ -19,12 +20,41 @@ class EksplorListViewModel: NSObject {
 
     let wbklRepository = WbklDataRepository.shared
     
-    let dataGblk = KangLoak(name: "Bank Sampah Mak Cimet", jenis: "Godmother", jarak: "100 bulan purnama", kategori: ["Plastik", "Mantan", "Penjahat"], operasional: "Buka, 00.01-23.59")
-    
     func getWBklData() -> [Wbkl]? {
         return wbklRepository.getAllWbkl()
     }
     
+    let locationManager = CLLocationManager()
+    var userLocation: [CLLocation]?
+    let locationDummy = CLLocation(latitude: -6.636076, longitude: 106.804472)
+    
+    // MARK: - Distance Logic
+    func distanceBetweenTwoLocations(source: CLLocation, destination: CLLocation) -> Double {
+        let distanceMeters = source.distance(from: destination)
+        let distanceKM = distanceMeters / 1000
+        let roundedTwoDigit = distanceKM.rounded()
+        return roundedTwoDigit
+    }
+    
+    func getLocationDistance(userLocation: CLLocation, wbklData: Wbkl) -> Double {
+            
+            print("WBKL LOC \(wbklData.latitude) : \(wbklData.longitude)")
+            print("USER LOC \(userLocation.coordinate.latitude) : \(userLocation.coordinate.longitude)")
+
+            let targetLocation = CLLocation(latitude: Double(wbklData.latitude), longitude: Double(wbklData.longitude))
+            let userLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+
+            print("""
+                user loc = \(userLocation)
+                target loc = \(targetLocation)
+                distance = \(distanceBetweenTwoLocations(source: targetLocation, destination: userLocation)) KM
+                """)
+            return distanceBetweenTwoLocations(source: targetLocation, destination: userLocation)
+            
+
+    }
+    
+    // MARK: - Buka Tutup Logic
     func extractNameOfTheDay() -> String {
         let date = Date()
         let dateFormatter = DateFormatter()
@@ -73,8 +103,8 @@ class EksplorListViewModel: NSObject {
         let hourNow = extractHours()
         let minuteNow = extractMinutes()
         let openTimeArr = extractOperationalTime(operationalHour: operationalHour)
-        if openTimeArr[0] <= hourNow && openTimeArr[1] <= minuteNow {
-            if openTimeArr[2] >= hourNow && openTimeArr[3] <= minuteNow {
+        if openTimeArr[0] < hourNow || (openTimeArr[0] == hourNow && openTimeArr[1] <= minuteNow) {
+            if openTimeArr[2] > hourNow || (openTimeArr[2] == hourNow && openTimeArr[3] >= minuteNow) {
                 return true
             } else {return false}
         } else {return false}

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class DummyDataUhuy {
     let nama: String
@@ -30,10 +31,10 @@ class EksplorListController: MVVMViewController<EksplorListViewModel> {
         super.viewDidLoad()
         self.viewModel = EksplorListViewModel()
         allWbkl = viewModel?.getWBklData() ?? []
-//        var sortedAllWbkl = allWbkl.sort {
-//            $0.name ?? "" < $1.name ?? ""
-//        }
         
+        viewModel?.locationManager.delegate = self
+        viewModel?.locationManager.requestWhenInUseAuthorization()
+        viewModel?.locationManager.requestLocation()
         setupSearchController()
         setupNib()
         
@@ -128,10 +129,21 @@ extension EksplorListController: UITableViewDataSource {
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath) as? ExplorListTableCell else {fatalError("identifiernya salah anying")}
             
+            let wbkl = allWbkl[indexPath.row - 1]
+            let currentLocation = (viewModel?.locationDummy)!
+                let distance = viewModel?.getLocationDistance(userLocation: currentLocation, wbklData: wbkl)
+                cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(distance!) km"
+      
+            cell.wbklNameLabel.text = wbkl.name
             
-            cell.wbklNameLabel.text = allWbkl[indexPath.row - 1].name
-            cell.wbklCategoryLabel.text = allWbkl[indexPath.row - 1].wbkl_type
-            cell.wbklOperationalLabel.text = (allWbkl[indexPath.row - 1].operational_day ?? " ") + " · " + (allWbkl[indexPath.row - 1].operational_hour ?? " ")
+            
+            if viewModel?.bukaTutupChecker(operationalDay: wbkl.operational_day ?? "Senin", operationalHour: wbkl.operational_hour ?? "10.00") == true {
+                cell.wbklOperationalLabel.text = "Buka" + " · " + (wbkl.operational_hour ?? " ")
+                cell.wbklOperationalLabel.textColor = .green
+            } else {
+                cell.wbklOperationalLabel.text = "Tutup"
+                cell.wbklOperationalLabel.textColor = .red
+            }
             
             let categories = ["asfaf", "asdasdas", "aasdasdsdasda", "asdasd", "asdaqeqwe", "213"]
             var putihputih = [cell.wbklSampahKategori1, cell.wbklSampahKategori2, cell.wbklSampahKategori3, cell.wbklSampahKategori4]
@@ -174,4 +186,16 @@ extension EksplorListController: UITableViewDelegate {
 }
 
 
-// MARK: - Kuburan
+// MARK: - CLLocationManagerDelegate
+extension EksplorListController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Got location data")
+        viewModel?.userLocation = locations
+        print(viewModel?.userLocation?.last)
+    }
+}
