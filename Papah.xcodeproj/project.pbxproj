@@ -76,6 +76,9 @@
 		BC2BE87126AE83310067DB23 /* Extension+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE87026AE83310067DB23 /* Extension+Cell.swift */; };
 		BC2BE87326AE835A0067DB23 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE87226AE83590067DB23 /* Extension+UIButton.swift */; };
 		BC5D17F726B85F73004A7EED /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5D17F626B85F73004A7EED /* Int+Extension.swift */; };
+		BC6950A426B9B0CA004D37D1 /* PreloadTipsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6950A326B9B0CA004D37D1 /* PreloadTipsData.swift */; };
+		BC6950A626B9B11A004D37D1 /* PreloadWBKLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6950A526B9B11A004D37D1 /* PreloadWBKLData.swift */; };
+		BC6950A726B9B169004D37D1 /* PreloadChallengeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95F626ADD3A7002AD800 /* PreloadChallengeData.swift */; };
 		BC8C9B6926AE8AD80096F0E8 /* MedaliDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866550C26ADCE780047D2A7 /* MedaliDetailController.swift */; };
 		BC8C9B6A26AE8AD80096F0E8 /* EksplorList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95C526ADCF10002AD800 /* EksplorList.storyboard */; };
 		BC8C9B6B26AE8AD80096F0E8 /* MedaliList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9866551226ADCEEF0047D2A7 /* MedaliList.storyboard */; };
@@ -213,7 +216,7 @@
 		BC2A95EE26ADD098002AD800 /* TipsDetailCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsDetailCollectionCell.swift; sourceTree = "<group>"; };
 		BC2A95EF26ADD098002AD800 /* TipsDetailCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TipsDetailCollectionCell.xib; sourceTree = "<group>"; };
 		BC2A95F526ADD3A4002AD800 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
-		BC2A95F626ADD3A7002AD800 /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
+		BC2A95F626ADD3A7002AD800 /* PreloadChallengeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadChallengeData.swift; sourceTree = "<group>"; };
 		BC2A95F726ADD3B6002AD800 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		BC2A95F926ADD3E8002AD800 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BC2AF19426ADD4A9006FFB9F /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
@@ -229,6 +232,8 @@
 		BC2BE87026AE83310067DB23 /* Extension+Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+Cell.swift"; sourceTree = "<group>"; };
 		BC2BE87226AE83590067DB23 /* Extension+UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		BC5D17F626B85F73004A7EED /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		BC6950A326B9B0CA004D37D1 /* PreloadTipsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadTipsData.swift; sourceTree = "<group>"; };
+		BC6950A526B9B11A004D37D1 /* PreloadWBKLData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadWBKLData.swift; sourceTree = "<group>"; };
 		BCA40FEE26B7AA5C003B0A85 /* EksplorDetailController+MapConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EksplorDetailController+MapConfig.swift"; sourceTree = "<group>"; };
 		BCB6955826B102DE001E90F0 /* TantanganEarningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganEarningCell.swift; sourceTree = "<group>"; };
 		BCB6955926B102DE001E90F0 /* TantanganEarningCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganEarningCell.xib; sourceTree = "<group>"; };
@@ -700,7 +705,9 @@
 		BC2A95F326ADD397002AD800 /* Mock Data */ = {
 			isa = PBXGroup;
 			children = (
-				BC2A95F626ADD3A7002AD800 /* s.swift */,
+				BC2A95F626ADD3A7002AD800 /* PreloadChallengeData.swift */,
+				BC6950A326B9B0CA004D37D1 /* PreloadTipsData.swift */,
+				BC6950A526B9B11A004D37D1 /* PreloadWBKLData.swift */,
 			);
 			path = "Mock Data";
 			sourceTree = "<group>";
@@ -973,6 +980,7 @@
 				BC8C9B6E26AE8AD80096F0E8 /* EksplorListController.swift in Sources */,
 				BC8C9B7726AE8AFC0096F0E8 /* EksplorListCollectionCell.swift in Sources */,
 				BC8C9B7126AE8AD80096F0E8 /* EksplorDetailController.swift in Sources */,
+				BC6950A426B9B0CA004D37D1 /* PreloadTipsData.swift in Sources */,
 				9866550F26ADCEAF0047D2A7 /* MedaliDetailViewModel.swift in Sources */,
 				744BDF5B26B1B0CF00F6833C /* MedaliListCollectionViewCell.swift in Sources */,
 				9866552226ADCF830047D2A7 /* TantanganListController.swift in Sources */,
@@ -981,6 +989,7 @@
 				744BDF5726B18B9000F6833C /* MedaliListTableViewCell.swift in Sources */,
 				9866552C26ADD0020047D2A7 /* TantanganLevelTableCell.swift in Sources */,
 				9866552C26ADD0020047D2A7 /* TantanganLevelTableCell.swift in Sources */,
+				BC6950A626B9B11A004D37D1 /* PreloadWBKLData.swift in Sources */,
 				BCB6956326B103B9001E90F0 /* TantanganRewardHeadCell.swift in Sources */,
 				BC5D17F726B85F73004A7EED /* Int+Extension.swift in Sources */,
 				986654ED26ADCA240047D2A7 /* TantanganDetailTableCell.swift in Sources */,
@@ -988,6 +997,7 @@
 				BC2BE86C26AE82DF0067DB23 /* String+Extension.swift in Sources */,
 				BC2A95CB26ADCF4A002AD800 /* ExplorListTableCell.swift in Sources */,
 				BC2A95B826ADCE90002AD800 /* EksplorMapViewModel.swift in Sources */,
+				BC6950A726B9B169004D37D1 /* PreloadChallengeData.swift in Sources */,
 				BC2A95DD26ADCFE6002AD800 /* TipsListController.swift in Sources */,
 				BC2BE86D26AE82DF0067DB23 /* UIColor+Extension.swift in Sources */,
 				BC2A95F026ADD098002AD800 /* TipsDetailCollectionCell.swift in Sources */,

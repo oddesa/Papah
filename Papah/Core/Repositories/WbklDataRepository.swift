@@ -284,6 +284,19 @@ class WbklDataRepository {
         return []
     }
     
+    func getAllWasteCategory() -> [WasteCategory] {
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: wbklCategoryEntity)
+        
+        do {
+            let item = try context.fetch(fetchRequest) as! [WasteCategory]
+            return item
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return []
+    }
     
     //MARK: Delete Wbkl
     func deleteAllWbKl(){

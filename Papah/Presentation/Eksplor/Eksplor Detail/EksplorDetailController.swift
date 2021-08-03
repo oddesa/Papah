@@ -8,11 +8,16 @@
 import UIKit
 import CoreLocation
 import MapKit
+import Combine
 
 class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var btnClaimPoint: DesignableButton!
+    @IBOutlet weak var lblClaimPointDetail: UILabel!
     
+    private var trashBag = Set<AnyCancellable>()
+
     let sectionDetail = 0
     let sectionWaste = 1
     let sectionEarning = 2
@@ -28,12 +33,34 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
         registerNib()
         attemptLocationAccess()
         updateView()
+        setupViewModel()
     }
     
     func updateView(){
         self.title = self.viewModel?.wbklData?.name ?? ""
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+ 
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+
+
     }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height/2
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
     @IBAction func onClaimPoint(_ sender: Any) {
         
         let myAlert = CompletionAlert(nibName: CompletionAlert.id, bundle: nil)
@@ -42,6 +69,19 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
         myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
 
         self.tabBarController?.present(myAlert, animated: true, completion: nil)
+        
+    }
+    
+    func setupViewModel(){
+        self.viewModel?.onClaimPointReady.sink(receiveValue: { isReady in
+            if !isReady {
+                self.btnClaimPoint.isUserInteractionEnabled = false
+                self.btnClaimPoint.backgroundColor = .disabled
+            } else {
+                self.btnClaimPoint.backgroundColor = .iconIolite
+                self.btnClaimPoint.isUserInteractionEnabled = true
+            }
+        }).store(in: &trashBag)
         
     }
     
@@ -171,8 +211,6 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
 
                 DispatchQueue.main.async {
                     tableView.reloadSections(IndexSet(integer: self.sectionEarning), with: .none)
-//                                                    tableView?.beginUpdates()
-//                                                    tableView?.endUpdates()
                 }
             }
             
@@ -183,7 +221,7 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.selectionStyle = .none
-            cell.updateEarning(totalEarnings: getTextFeildValuesFromTableView())
+            cell.updateEarning(totalEarnings: self.viewModel?.getEarningTotal() ?? 0)
             
             return cell
         default:
@@ -195,24 +233,6 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension EksplorDetailController: EksplorDetailTableCellDelegate {
-    
-    func getTextFeildValuesFromTableView() -> Int {
-        
-        if let data = self.viewModel?.singleEarningData {
-            
-            var totalEarnings = 0
-            
-            print("TEXT datadatadata DATA \(data)")
-
-            for earnings in data {
-                totalEarnings += earnings
-            }
-            return totalEarnings
-
-        }
-        
-        return 0
-    }
     
     func openMaps() {
         if let wbklData = self.viewModel?.wbklData {
