@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,42 +32,69 @@
                                     <tabBarItem systemItem="more" id="pSl-fR-2B6"/>
                                 </items>
                             </tabBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memilah Sampah Berdasar Kategori" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBP-tN-dEB">
-                                <rect key="frame" x="20" y="148" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MENYALURKAN LIMBAH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBP-tN-dEB">
+                                <rect key="frame" x="16" y="148" width="378" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" name="text_secondary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fRX-R7-cN3">
-                                <rect key="frame" x="0.0" y="177" width="414" height="685"/>
+                                <rect key="frame" x="0.0" y="174" width="414" height="688"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tipsCell" rowHeight="137" id="J6T-pi-yGW" customClass="TipsListTableCell" customModule="Papah" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="137"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tipsCell" id="J6T-pi-yGW" customClass="TipsListTableCell" customModule="Papah" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="137.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J6T-pi-yGW" id="7aN-Jt-XLU" customClass="TipsListTableCell" customModule="Papah" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="137"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="137.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="trash.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9Yd-AP-VgQ">
-                                                    <rect key="frame" x="20" y="7" width="128" height="122"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9Yd-AP-VgQ">
+                                                    <rect key="frame" x="20" y="18.5" width="100" height="99.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="100" id="1Q6-Jz-tAm"/>
+                                                        <constraint firstAttribute="width" constant="100" id="Jao-yj-Mlw"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kaleng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4e-W5-dcN">
-                                                    <rect key="frame" x="178" y="11" width="53" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kaleng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4e-W5-dcN">
+                                                    <rect key="frame" x="134" y="18" width="55" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="Ne6-1M-7Df"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ini deskripsi ttg kaleng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPH-wz-Etd">
-                                                    <rect key="frame" x="178" y="40" width="170" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Mvs-nF-DzV">
+                                                    <rect key="frame" x="383" y="60.5" width="11" height="17.5"/>
+                                                    <color key="tintColor" name="chevron"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="a7c-Qj-JIo"/>
+                                                    </constraints>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                    </preferredSymbolConfiguration>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ini deskripsi ttg kaleng ncireuncirenenncfijernfrncirejncrvcernvcrev" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPH-wz-Etd">
+                                                    <rect key="frame" x="134" y="42" width="229" height="54.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9Yd-AP-VgQ" secondAttribute="bottom" constant="8" id="2kj-Ua-x4E"/>
+                                                <constraint firstItem="tPH-wz-Etd" firstAttribute="leading" secondItem="9Yd-AP-VgQ" secondAttribute="trailing" constant="14" id="GuC-dX-CGU"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="tPH-wz-Etd" secondAttribute="bottom" constant="30" id="HF7-bZ-VDU"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Mvs-nF-DzV" secondAttribute="trailing" id="QPY-ec-rBS"/>
+                                                <constraint firstItem="Mvs-nF-DzV" firstAttribute="leading" secondItem="tPH-wz-Etd" secondAttribute="trailing" constant="20" id="T31-dg-xha"/>
+                                                <constraint firstItem="tPH-wz-Etd" firstAttribute="top" secondItem="D4e-W5-dcN" secondAttribute="bottom" constant="2" id="Tpv-aT-ddr"/>
+                                                <constraint firstItem="9Yd-AP-VgQ" firstAttribute="top" secondItem="7aN-Jt-XLU" secondAttribute="topMargin" constant="7" id="WUs-Do-DsH"/>
+                                                <constraint firstItem="Mvs-nF-DzV" firstAttribute="centerY" secondItem="7aN-Jt-XLU" secondAttribute="centerY" id="itr-vy-PuZ"/>
+                                                <constraint firstItem="D4e-W5-dcN" firstAttribute="leading" secondItem="9Yd-AP-VgQ" secondAttribute="trailing" constant="14" id="vgl-31-8FJ"/>
+                                                <constraint firstItem="9Yd-AP-VgQ" firstAttribute="leading" secondItem="7aN-Jt-XLU" secondAttribute="leadingMargin" id="vwk-VC-yeJ"/>
+                                                <constraint firstItem="D4e-W5-dcN" firstAttribute="top" secondItem="9Yd-AP-VgQ" secondAttribute="top" id="zVA-B6-iOZ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="categoryImage" destination="9Yd-AP-VgQ" id="Gfx-au-PWg"/>
@@ -85,7 +113,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wBP-tN-dEB" secondAttribute="trailing" constant="20" id="CzK-mz-Mot"/>
                             <constraint firstItem="twp-KV-TEk" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="GFo-Gy-xaP"/>
                             <constraint firstItem="wBP-tN-dEB" firstAttribute="top" secondItem="twp-KV-TEk" secondAttribute="bottom" constant="8" id="KOo-qb-veO"/>
-                            <constraint firstItem="wBP-tN-dEB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="US0-e2-WK0"/>
+                            <constraint firstItem="wBP-tN-dEB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="US0-e2-WK0"/>
                             <constraint firstItem="twp-KV-TEk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="deG-9k-9wv"/>
                             <constraint firstItem="fRX-R7-cN3" firstAttribute="top" secondItem="wBP-tN-dEB" secondAttribute="bottom" constant="8" id="pL7-Pw-bjM"/>
                             <constraint firstItem="fRX-R7-cN3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="teR-HE-SlF"/>
@@ -102,7 +130,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="trash.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="chevron">
+            <color red="0.76899999380111694" green="0.76899999380111694" blue="0.77600002288818359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="text_secondary">
+            <color red="0.54100000858306885" green="0.54100000858306885" blue="0.55699998140335083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -559,8 +559,8 @@
 		986654DC26ADC6510047D2A7 /* Medali List */ = {
 			isa = PBXGroup;
 			children = (
-				9866551026ADCED30047D2A7 /* MedaliListController.swift */,
 				9866551226ADCEEF0047D2A7 /* MedaliList.storyboard */,
+				9866551026ADCED30047D2A7 /* MedaliListController.swift */,
 				9866551426ADCF010047D2A7 /* MedaliListViewModel.swift */,
 				986654E426ADC8890047D2A7 /* Cell */,
 			);
@@ -645,10 +645,10 @@
 		986654E526ADC88D0047D2A7 /* Table Cell */ = {
 			isa = PBXGroup;
 			children = (
-				744BDF5126B1891300F6833C /* SubtitleTableViewCell.swift */,
 				744BDF5226B1891300F6833C /* SubtitleTableViewCell.xib */,
-				744BDF5526B18B9000F6833C /* MedaliListTableViewCell.swift */,
+				744BDF5126B1891300F6833C /* SubtitleTableViewCell.swift */,
 				744BDF5626B18B9000F6833C /* MedaliListTableViewCell.xib */,
+				744BDF5526B18B9000F6833C /* MedaliListTableViewCell.swift */,
 			);
 			path = "Table Cell";
 			sourceTree = "<group>";
