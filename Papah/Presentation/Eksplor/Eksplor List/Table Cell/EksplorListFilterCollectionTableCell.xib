@@ -41,7 +41,7 @@
                                 <color key="tintColor" name="text_primary"/>
                                 <state key="normal" title="Filter">
                                     <color key="titleColor" name="text_primary"/>
-                                    <imageReference key="image" image="line.horizontal.3.decrease.circle" catalog="system" symbolScale="small"/>
+                                    <imageReference key="image" image="line.horizontal.3.decrease.circle" catalog="system" symbolScale="medium"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" weight="bold">
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                     </preferredSymbolConfiguration>
@@ -94,7 +94,7 @@
     </objects>
     <designables>
         <designable name="Mng-Au-I4H">
-            <size key="intrinsicContentSize" width="49" height="17.5"/>
+            <size key="intrinsicContentSize" width="53" height="20"/>
         </designable>
     </designables>
     <resources>

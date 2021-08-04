@@ -28,6 +28,10 @@ class EksplorListViewModel: NSObject {
         return wbklRepository.getAllWbkl()
     }
     
+    func getAllWasteCategory() -> [WasteCategory] {
+        return wbklRepository.getAllWasteCategory()
+    }
+    
     func getWbklCategoriesName (wbkl: Wbkl) -> [String] {
         let categoriesData = wbkl.wasteAccepted?.allObjects as! [WasteAccepted]
         var categoriesString: [String] = []
@@ -44,6 +48,27 @@ class EksplorListViewModel: NSObject {
             }
         }
         return false
+    }
+
+    
+    func removeDuplicatesWbkl(wbklPros: [WbklPro]) -> [WbklPro] {
+        var uniques = [WbklPro]()
+        for wbkl in wbklPros {
+            if !uniques.contains(where: {$0.wbklData.id == wbkl.wbklData.id}) {
+                uniques.append(wbkl)
+            }
+        }
+        return uniques
+    }
+    
+    func removeDuplicatesCategories(categories: [WasteCategory]) -> [WasteCategory] {
+        var uniques = [WasteCategory]()
+        for cat in categories {
+            if !uniques.contains(where: {$0.title == cat.title }) {
+                uniques.append(cat)
+            }
+        }
+        return uniques
     }
     
     // MARK: - Sorter
@@ -67,14 +92,13 @@ class EksplorListViewModel: NSObject {
 //        rearrangeArray(array: array, fromIndex: <#T##Int#>, toIndex: <#T##Int#>)
 //    }
     
-    // MARK: - Turn to WbklJarak
+    // MARK: - Turn to WbklPro
     func turnWbklsPro() -> [WbklPro] {
         guard let wbkls = getWBklData() else{fatalError("datanya ga keload")}
         var wbklsPro: [WbklPro] = []
         for wbkl in wbkls {
             let wbklPro = WbklPro(jarak: getLocationDistance(userLocation: (userLocation?.last ?? locationDummy), wbklData: wbkl), wbkl: wbkl, categories: getWbklCategoriesName(wbkl: wbkl))
             wbklsPro.append(wbklPro)
-            print(wbklPro.categories)
             if wbklPro.categories.count == 0 {
                 fatalError("cuagas")
             }

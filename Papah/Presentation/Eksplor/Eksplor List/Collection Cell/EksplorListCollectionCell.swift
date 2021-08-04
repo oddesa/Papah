@@ -11,9 +11,10 @@ class EksplorListCollectionCell: UICollectionViewCell {
     
     
     @IBOutlet weak var categoryBtn: DesignableButton!
-    
+    var onDidSelectItem: (() -> ())?
     @IBAction func categoryBtnPressed(_ sender: Any) {
         isActive = !isActive
+        self.onDidSelectItem?()
     }
     // Note: must be strong
     @IBOutlet private var maxWidthConstraint: NSLayoutConstraint! {
@@ -45,17 +46,17 @@ class EksplorListCollectionCell: UICollectionViewCell {
     
     private func setupCellView () {
         if isActive == true {
-            categoryBtn.backgroundColor = .lightGray
-            categoryBtn.borderColor = .iconIolite
+            categoryBtn.backgroundColor = .iconIolite.withAlphaComponent(0.15)
+            categoryBtn.borderColor = .iconIolite.withAlphaComponent(0.6)
+            categoryBtn.borderWidth = 0.5
             categoryBtn.tintColor = .iconIolite
             categoryBtn.setTitleColor(.iconIolite, for: .normal)
         } else {
+            categoryBtn.borderWidth = 0.5
             categoryBtn.backgroundColor = .white
             categoryBtn.borderColor = .black
             categoryBtn.tintColor = .black
             categoryBtn.setTitleColor(.black, for: .normal)
-
-            
         }
         
     }

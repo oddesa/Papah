@@ -7,14 +7,25 @@
 
 import UIKit
 
+
 class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel> {
+    
     
     @IBOutlet weak var wasteFilterTable: UITableView!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     
     @IBAction func donePressed(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            let controller = MVVMViewController<EksplorListController>()
+            controller.viewModel?.filterCategories = self.dataPassinga
+            print("berhasil dipassing")
+////            controller.viewModel?.filterCategories =
+            
+//            self.navigationController?.children[1].
+        }
+        
+        
     }
     
     @IBAction func resetPressed(_ sender: UIButton) {
@@ -31,20 +42,27 @@ class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel
     
     var filterArr = [String]()
     var selectedFilter = [Int]()
-    var filterData = [FilterWaste]()
+    var filterData = [CategoryPro]() {
+        didSet{
+            for filter in filterData {
+                print(filter.categoryData.title)
+            }
+        }
+    }
+    var dataPassinga: [WasteCategory] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.viewModel = EksplorListFilterViewModel()
         nibSetup()
         tableViewSetup()
         
-        filterData = FilterWaste.getFilterWasteData()
+        filterData = viewModel?.turnCategoriesPro() ?? []
         
         wasteFilterTable.dataSource = self
         wasteFilterTable.delegate = self
         
-        self.viewModel = EksplorListFilterViewModel()
+       
     }
 }
 
@@ -70,10 +88,10 @@ extension EksplorListFilterController {
 extension EksplorListFilterController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "filterCell") as! EksplorListFilterTableCell
-        
+        let imageDummy: UIImage = .whatsAppImage20210719At085013
         let filter = filterData[indexPath.row]
-        cell.wasteIcon.image = filter.img
-        cell.wasteTitle.text = filter.title
+        cell.wasteIcon.image = imageDummy
+        cell.wasteTitle.text = filter.categoryData.title
         if filter.isSelected == false {
             cell.wasteChecklist.isHidden = true
         } else {
@@ -96,11 +114,12 @@ extension EksplorListFilterController: UITableViewDataSource, UITableViewDelegat
         if filterData[indexPath.row].isSelected == false {
             filterData[indexPath.row].isSelected = true
             cell.wasteChecklist.isHidden = false
+            dataPassinga.append(filterData[indexPath.row].categoryData)
         } else {
             filterData[indexPath.row].isSelected = false
             cell.wasteChecklist.isHidden = true
+//            dataPassinga.filter(<#T##isIncluded: (CategoryPro) throws -> Bool##(CategoryPro) throws -> Bool#>)
         }
-        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
