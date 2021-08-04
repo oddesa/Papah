@@ -13,7 +13,7 @@ class EksplorListController: MVVMViewController<EksplorListViewModel> {
     let strings = ["asdfefsa", "hahahah", "xoxoxoox"]
     var searchBarCont = UISearchController()
     var filteredData: [String] = []
-    var allWbkl: [WbklJarak] = []
+    var allWbkl: [WbklPro] = []
     
     @IBOutlet weak var tableViewOutlet: UITableView!
     private var loadingView: LoadingView!
@@ -37,61 +37,104 @@ class EksplorListController: MVVMViewController<EksplorListViewModel> {
 }
 
     // MARK: - UISearchController
-extension EksplorListController: UISearchResultsUpdating {
+extension EksplorListController: UISearchResultsUpdating, UISearchControllerDelegate {
     
     func setupSearchController() {
         navigationItem.searchController = searchBarCont
         searchBarCont.searchResultsUpdater = self
+        searchBarCont.delegate = self
         searchBarCont.obscuresBackgroundDuringPresentation = false
         searchBarCont.searchBar.setValue("Batalkan", forKey: "cancelButtonText")
         searchBarCont.searchBar.placeholder = "Agen Sampah"
+    }
+    
+    func didDismissSearchController(_ searchController: UISearchController) {
+        guard var dataWbkl = viewModel?.turnWbklsPro() else {return}
+        allWbkl = dataWbkl
+        tableViewOutlet.reloadData()
     }
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {
             return
         }
-        guard var dataWbkl = viewModel?.turnWbklsJarak() else {return}
+        let splited = text.components(separatedBy: " ")
+        guard var dataWbkl = viewModel?.turnWbklsPro() else {return}
+        
         if text.count == 0 {
-            allWbkl = dataWbkl
-        } else {
-            let splited = text.components(separatedBy: " ")
             allWbkl = []
+        } else {
+            
+            allWbkl = []
+            print("restart")
             for wbkl in dataWbkl {
-                for word in splited {
-                    if (wbkl.wbklData.name ?? "").lowercased().contains(word.lowercased()) {//|| wbkl.wbklData.categori.lowercased().contains(word.lowercased()) {
+                print("gantiWBKL")
+                if (wbkl.wbklData.name ?? "").lowercased().contains(text.lowercased()) || (viewModel?.categoriesChecker(wbkl: wbkl, word: text))! {
+                    print("keluarga cendana")
+                    print(text.lowercased())
+                    
+                    if (viewModel?.categoriesChecker(wbkl: wbkl, word: text))! {
+                        if let index = wbkl.categories.firstIndex(of: text.capitalized) {
+                            wbkl.categories = viewModel?.rearrangeArray(array: wbkl.categories, fromIndex: index, toIndex: 0) ?? ["mantan"]
+                        }
+                    }
+                    
+                    allWbkl.append(wbkl)
+                    print("keluarga cendana2")
+//                    if let idx = dataWbkl.firstIndex(where: { $0 === wbkl }) {
+//                        dataWbkl.remove(at: idx)
+//                    }
+                } else {
+                    print("keluarga cendana3")
+                    for word in splited {
+                        if (wbkl.wbklData.name ?? "").lowercased().contains(word.lowercased()) || (viewModel?.categoriesChecker(wbkl: wbkl, word: word))! {
+                            print(word.lowercased())
+                            
+                            if (viewModel?.categoriesChecker(wbkl: wbkl, word: word))! {
+                                if let index = wbkl.categories.firstIndex(of: word.capitalized) {
+                                    wbkl.categories = viewModel?.rearrangeArray(array: wbkl.categories, fromIndex: index, toIndex: 0) ?? ["mantan"]
+                                }
+                            }
                             allWbkl.append(wbkl)
-                        guard let idx = dataWbkl.firstIndex(where: { $0 === wbkl }) else {return}
-                            dataWbkl.remove(at: idx)
+//                            if let idx = dataWbkl.firstIndex(where: { $0 === wbkl }) {
+//                                dataWbkl.remove(at: idx)
+//                            }
+                                                        
+                        }
                     }
                 }
             }
         }
-       
+        
+        for wbkl in allWbkl {
+            var textName = text
+            
+            for word in splited {
+                if (viewModel?.categoriesChecker(wbkl: wbkl, word: word))! {
+                    textName = textName.lowercased().replacingOccurrences(of: " \(word.lowercased())", with: "")
+                    textName = textName.lowercased().replacingOccurrences(of: "\(word.lowercased()) ", with: "")
+//                    textName = textName.replacingOccurrences(of: "  ", with: " ")
+                    print("---------------- \(textName)")
+                    if let index = wbkl.categories.firstIndex(of: word.capitalized) {
+                        wbkl.categories = viewModel?.rearrangeArray(array: wbkl.categories, fromIndex: index, toIndex: 0) ?? ["mantan"]
+                    }
+                }
+            }
+            print("ini bsu cendana \(textName)")
+            print(textName.count)
+            if (wbkl.wbklData.name?.lowercased().contains(textName.lowercased()))!  {
+                let idx = allWbkl.firstIndex(where: { $0 === wbkl })
+                allWbkl = (viewModel?.rearrangeArray(array: allWbkl, fromIndex: idx!, toIndex: 0))!
+                print("bisa nih ")
+            }
+        }
         tableViewOutlet.reloadData()
-        //logic sorting
-//        filteredData = filteredData.sorted()
-//        var users = [
-//            User(firstName: "Jemima", home: "Alabama"),
-//            User(firstName: "Peter", home: "Bogor"),
-//            User(firstName: "David", home: "AAA"),
-//            User(firstName: "Kelly", home: "zebratown"),
-//            User(firstName: "Isabella", home: "lololo")
-//        ]
-//
-//        users.sort {
-//            $0.firstName > $1.firstName
-//        }
-//
-//        let sortedUsers = users.sorted {
-//            $0.firstName < $1.firstName
-//        }
-//
-//        users.sort {
-//            $0.home < $1.home
-//        }
     }
+    
+    
+    
 }
+
     // MARK: - TableView DataSource
 extension EksplorListController: UITableViewDataSource {
     func setupNib() {
@@ -121,7 +164,11 @@ extension EksplorListController: UITableViewDataSource {
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath) as? ExplorListTableCell else {fatalError("identifiernya salah anying")}
             
+            if allWbkl.count == 0 {
+                fatalError("kosong tapi tampil")
+            }
             let wbkl = allWbkl[indexPath.row - 1].wbklData
+            
             if let currentLocation = (viewModel?.userLocation?.last) {
                 let distance = viewModel?.getLocationDistance(userLocation: currentLocation, wbklData: wbkl)
                 cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(distance!) km"
@@ -142,10 +189,22 @@ extension EksplorListController: UITableViewDataSource {
                 cell.wbklOperationalLabel.textColor = .red
             }
             
-            let categories = ["asfaf", "asdasdas", "aasdasdsdasda", "asdasd", "asdaqeqwe", "213"]
+            var categories = allWbkl[indexPath.row - 1].categories
+            
+            if (viewModel?.categoriesChecker(wbkl: allWbkl[indexPath.row - 1], word: "karung goni"))! {
+                let text = "karung goni"
+                if let index = categories.firstIndex(of: text.capitalized) {
+                    categories = viewModel?.rearrangeArray(array: categories, fromIndex: index, toIndex: categories.count-1 ) ?? ["mantan"]
+                }
+              
+            }
+            
             var putihputih = [cell.wbklSampahKategori1, cell.wbklSampahKategori2, cell.wbklSampahKategori3, cell.wbklSampahKategori4]
             let textPutihPutih = [cell.wbklSampahKateogri1Label, cell.wbklSampahKategori2Label, cell.wbklSampahKategori3Label, cell.wbklSampahKategori4Label]
             
+            for putih in putihputih {
+                putih?.alpha = 1
+            }
             
             
             for int in 0..<categories.count {
@@ -161,7 +220,7 @@ extension EksplorListController: UITableViewDataSource {
             }
             
             for putih in putihputih {
-                putih?.removeFromSuperview()
+                putih?.alpha = 0
             }
             cell.selectionStyle = .none
             return cell
@@ -199,7 +258,7 @@ extension EksplorListController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Got location data")
         viewModel?.userLocation = locations
-        allWbkl = viewModel?.turnWbklsJarak() ?? []
+        allWbkl = viewModel?.turnWbklsPro() ?? []
         if loadingView.isHidden() == false {
             loadingView.hide()
             tableViewOutlet.reloadData()

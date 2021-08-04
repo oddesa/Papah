@@ -8,21 +8,15 @@
 import UIKit
 import CoreLocation
 
-struct KangLoak {
-    let name: String
-    let jenis: String
-    let jarak: String
-    let kategori: [String]
-    let operasional: String
-}
-
-class WbklJarak: WbklDataRepository {
+class WbklPro: WbklDataRepository {
     var jarak: Double
     let wbklData: Wbkl
+    var categories: [String]
     
-    init(jarak: Double, wbkl: Wbkl ) {
+    init(jarak: Double, wbkl: Wbkl, categories: [String] ) {
         self.jarak = jarak
         self.wbklData = wbkl
+        self.categories = categories
     }
 }
 
@@ -34,31 +28,58 @@ class EksplorListViewModel: NSObject {
         return wbklRepository.getAllWbkl()
     }
     
-//    func getWbklCategory (wbkl: Wbkl) {
-//        return
-//    }
+    func getWbklCategoriesName (wbkl: Wbkl) -> [String] {
+        let categoriesData = wbkl.wasteAccepted?.allObjects as! [WasteAccepted]
+        var categoriesString: [String] = []
+        for category in categoriesData {
+            categoriesString.append(category.wasteCategory?.title ?? "Mantan")
+        }
+        return categoriesString
+    }
     
-
-    
+    func categoriesChecker(wbkl: WbklPro, word: String) -> Bool {
+        for category in wbkl.categories {
+            if category.lowercased().contains(word.lowercased()) {
+                return true
+            }
+        }
+        return false
+    }
     
     // MARK: - Sorter
-    func sortBasedOnDistance(wbklJaraks: [WbklJarak]) -> [WbklJarak] {
-        let sortedWbklJarak = wbklJaraks.sorted {
+    func sortBasedOnDistance(wbklPros: [WbklPro]) -> [WbklPro] {
+        let sortedWbklJarak = wbklPros.sorted {
             $0.jarak < $1.jarak
         }
         return sortedWbklJarak
     }
+
+    
+    func rearrangeArray<T>(array: Array<T>, fromIndex: Int, toIndex: Int) -> Array<T> {
+        var arr = array
+        let element = arr.remove(at: fromIndex)
+        arr.insert(element, at: toIndex)
+        return arr
+    }
+    
+//    func becomeFirstCategory<T>(array: Array<T>, element: String) -> Array<T> {
+//        guard let idx = array.firstIndex(where: { $0 === element }) else {return}
+//        rearrangeArray(array: array, fromIndex: <#T##Int#>, toIndex: <#T##Int#>)
+//    }
     
     // MARK: - Turn to WbklJarak
-    func turnWbklsJarak() -> [WbklJarak] {
-        
+    func turnWbklsPro() -> [WbklPro] {
         guard let wbkls = getWBklData() else{fatalError("datanya ga keload")}
-        var wbklsJarak: [WbklJarak] = []
+        var wbklsPro: [WbklPro] = []
         for wbkl in wbkls {
-            let wbklJarak = WbklJarak(jarak: getLocationDistance(userLocation: (userLocation?.last ?? locationDummy), wbklData: wbkl), wbkl: wbkl)
-            wbklsJarak.append(wbklJarak)
+            let wbklPro = WbklPro(jarak: getLocationDistance(userLocation: (userLocation?.last ?? locationDummy), wbklData: wbkl), wbkl: wbkl, categories: getWbklCategoriesName(wbkl: wbkl))
+            wbklsPro.append(wbklPro)
+            print(wbklPro.categories)
+            if wbklPro.categories.count == 0 {
+                fatalError("cuagas")
+            }
         }
-        let sortedWbklsJarak = sortBasedOnDistance(wbklJaraks: wbklsJarak)
+        let sortedWbklsJarak = sortBasedOnDistance(wbklPros: wbklsPro)
         return sortedWbklsJarak
     }
     
@@ -77,17 +98,17 @@ class EksplorListViewModel: NSObject {
     
     func getLocationDistance(userLocation: CLLocation, wbklData: Wbkl) -> Double {
             
-            print("WBKL LOC \(wbklData.latitude) : \(wbklData.longitude)")
-            print("USER LOC \(userLocation.coordinate.latitude) : \(userLocation.coordinate.longitude)")
+//            print("WBKL LOC \(wbklData.latitude) : \(wbklData.longitude)")
+//            print("USER LOC \(userLocation.coordinate.latitude) : \(userLocation.coordinate.longitude)")
 
             let targetLocation = CLLocation(latitude: Double(wbklData.latitude), longitude: Double(wbklData.longitude))
             let userLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
 
-            print("""
-                user loc = \(userLocation)
-                target loc = \(targetLocation)
-                distance = \(distanceBetweenTwoLocations(source: targetLocation, destination: userLocation)) KM
-                """)
+//            print("""
+//                user loc = \(userLocation)
+//                target loc = \(targetLocation)
+//                distance = \(distanceBetweenTwoLocations(source: targetLocation, destination: userLocation)) KM
+//                """)
             return distanceBetweenTwoLocations(source: targetLocation, destination: userLocation)
             
 
