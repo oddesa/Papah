@@ -118,6 +118,7 @@
 		BF1C044326B4FB700099B6E1 /* BadgeDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C044226B4FB700099B6E1 /* BadgeDataRepository.swift */; };
 		BF55702126AFCB030029BB54 /* EksplorListFilter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF55702026AFCB030029BB54 /* EksplorListFilter.storyboard */; };
 		BF9AD07A26B3C6D80010242D /* WbklDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9AD07926B3C6D80010242D /* WbklDataRepository.swift */; };
+		BFA4BD9B26BB487900978A23 /* PreloadUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA4BD9A26BB487900978A23 /* PreloadUserData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -258,6 +259,7 @@
 		BF1C044226B4FB700099B6E1 /* BadgeDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeDataRepository.swift; sourceTree = "<group>"; };
 		BF55702026AFCB030029BB54 /* EksplorListFilter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EksplorListFilter.storyboard; sourceTree = "<group>"; };
 		BF9AD07926B3C6D80010242D /* WbklDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WbklDataRepository.swift; sourceTree = "<group>"; };
+		BFA4BD9A26BB487900978A23 /* PreloadUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadUserData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -708,6 +710,7 @@
 				BC2A95F626ADD3A7002AD800 /* PreloadChallengeData.swift */,
 				BC6950A326B9B0CA004D37D1 /* PreloadTipsData.swift */,
 				BC6950A526B9B11A004D37D1 /* PreloadWBKLData.swift */,
+				BFA4BD9A26BB487900978A23 /* PreloadUserData.swift */,
 			);
 			path = "Mock Data";
 			sourceTree = "<group>";
@@ -972,6 +975,7 @@
 				BC2A95D426ADCF98002AD800 /* EksplorListFilterViewModel.swift in Sources */,
 				986654E926ADC96D0047D2A7 /* CompletionAlert.swift in Sources */,
 				BC8C9B6F26AE8AD80096F0E8 /* EksplorDetailViewModel.swift in Sources */,
+				BFA4BD9B26BB487900978A23 /* PreloadUserData.swift in Sources */,
 				BCF48A7E26B392B900E7F677 /* TipsDataRepository.swift in Sources */,
 				BC8C9B6926AE8AD80096F0E8 /* MedaliDetailController.swift in Sources */,
 				BC1F4F8526AF0C4F00FDC3D3 /* EksplorMapController+MapConfig.swift in Sources */,
