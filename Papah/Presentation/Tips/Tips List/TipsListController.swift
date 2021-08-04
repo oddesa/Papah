@@ -14,7 +14,7 @@ class TipsListController: MVVMViewController<TipsListViewModel>, UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self.viewModel?.getTipsData()?[indexPath.row]
-        let cell = tipsListTableView.dequeueReusableCell(withIdentifier: "tipsCell", for: indexPath) as! TipsListTableCell
+        let cell = tipsListTableView.dequeueReusableCell(withIdentifier: TipsListTableCell.cellIdentifier(), for: indexPath) as! TipsListTableCell
 //        cell.item = surah
         cell.setTips(with: item)
         print("CELL \(cell)")
@@ -33,14 +33,33 @@ class TipsListController: MVVMViewController<TipsListViewModel>, UITableViewDele
         }
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerFrame = tableView.frame
+        
+        let title = UILabel()
+        title.frame =  CGRect(x: 16, y: 0, width: headerFrame.size.width-20, height: 20) //width equals to parent view with 10 left and right margin
+        title.font = title.font.withSize(14)
+        title.text = "MENYALURKAN LIMBAH"
+        //        title.text = self.tableView(tableView, titleForHeaderInSection: section) //This will take title of section from 'titleForHeaderInSection' method or you can write directly
+        title.textColor = .gray
+        
+        let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: headerFrame.size.width, height: headerFrame.size.height))
+        headerView.addSubview(title)
+        return headerView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+
         self.viewModel = TipsListViewModel()
 
-        tipsListTableView.delegate = self
-        tipsListTableView.dataSource = self
-        // Do any additional setup after loading the view.
+        setupXib()
+        
+    }
+    
+    func setupXib(){
+        self.tipsListTableView.register(TipsListTableCell.nib, forCellReuseIdentifier: TipsListTableCell.cellIdentifier())
     }
     
     @IBOutlet weak var tipsListTableView: UITableView!
