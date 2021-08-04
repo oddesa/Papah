@@ -83,6 +83,7 @@ extension CoreDataManager {
     func preloadData() {
             
         if WbklDataRepository.shared.getAllWbkl().count == 0 {
+            preloadUserIntialData()
             preloadDataWbkl()
             preloadBadgeCategory()
             preloadWasteCategoryofWbkl()

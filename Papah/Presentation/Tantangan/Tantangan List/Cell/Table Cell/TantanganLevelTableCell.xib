@@ -135,6 +135,12 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="levelProgressBar" destination="Ad4-ts-r7e" id="btm-UT-vuG"/>
+                <outlet property="levelValue" destination="sMy-I8-kZf" id="xbx-LV-Vcy"/>
+                <outlet property="userLevel" destination="xsR-eX-77W" id="joU-qD-MwW"/>
+                <outlet property="userPoin" destination="bcH-8l-p0m" id="vXO-40-Bar"/>
+            </connections>
             <point key="canvasLocation" x="-332" y="286"/>
         </tableViewCell>
     </objects>

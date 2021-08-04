@@ -122,6 +122,15 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="mcClaimPointDesc" destination="5Bo-ag-kpO" id="Ebe-AL-jNu"/>
+                <outlet property="mcClaimPointIcon" destination="1F9-fR-qB9" id="SkZ-gq-VeE"/>
+                <outlet property="mcDesc" destination="zsA-0W-Tjg" id="qRA-V5-E5J"/>
+                <outlet property="mcImage" destination="5vf-NV-cED" id="Jfp-pp-7dU"/>
+                <outlet property="mcProgressBar" destination="CNy-d2-tNi" id="JdJ-qt-HLJ"/>
+                <outlet property="mcTextProgress" destination="n9b-46-5b9" id="lt9-2j-gMJ"/>
+                <outlet property="mcTitle" destination="18T-N9-TKA" id="mju-Wn-F66"/>
+            </connections>
             <point key="canvasLocation" x="109" y="124"/>
         </tableViewCell>
     </objects>

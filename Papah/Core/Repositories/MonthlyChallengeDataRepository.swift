@@ -181,6 +181,24 @@ class MonthlyChallengeDataRepository {
         return nil
     }
     
+    func getMCPByUserID(userId: Int) -> [MonthlyChallengeProgress]? {
+        
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: mcpEntity)
+        fetchRequest.predicate = NSPredicate(format: "user_id == %d", userId)
+        
+        do {
+            
+            let item = try context.fetch(fetchRequest) as? [MonthlyChallengeProgress]
+            
+            return item
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return nil
+    }
+    
     //MARK: Update
     func updateMonthlyChallengeProgress(mcpId: Int, value: Float){
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
