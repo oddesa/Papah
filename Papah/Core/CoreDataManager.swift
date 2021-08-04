@@ -85,16 +85,17 @@ extension CoreDataManager {
             
         if WbklDataRepository.shared.getAllWbkl().count == 0 {
             preloadDataWbkl()
+            preloadBadgeCategory()
             preloadWasteCategoryofWbkl()
             preloadDataTips()
             preloadDataTipsDetail()
             preloadBadges()
-            preloadBadgeCategory()
             preloadWasteCategory()
             preloadMonthlyChallenges()
             preloadMonthlyChallengeProgress()
-            preloadBadgeCategory()
             preloadWasteAccWbkl()
+            preloadUSer()
+            preloadBadgeProgress()
             print("berhasil di load")
         }
     }

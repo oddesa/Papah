@@ -42,6 +42,10 @@
 		BC18594C26B6B9E900FDD552 /* MVVMController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18594B26B6B9E900FDD552 /* MVVMController.swift */; };
 		BC1F4F8326AF063E00FDC3D3 /* EksplorMapBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F4F8226AF063E00FDC3D3 /* EksplorMapBottomSheet.swift */; };
 		BC1F4F8526AF0C4F00FDC3D3 /* EksplorMapController+MapConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F4F8426AF0C4F00FDC3D3 /* EksplorMapController+MapConfig.swift */; };
+		BC226ECE26BAE0D0002F3917 /* PreloadUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC226ECD26BAE0D0002F3917 /* PreloadUserData.swift */; };
+		BC226ED026BAE333002F3917 /* MonthlyCPRepositoryUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC226ECF26BAE333002F3917 /* MonthlyCPRepositoryUnitTest.swift */; };
+		BC226ED226BAE6ED002F3917 /* PreloadBadgeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC226ED126BAE6ED002F3917 /* PreloadBadgeData.swift */; };
+		BC226ED426BAE9E0002F3917 /* UtilsUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC226ED326BAE9E0002F3917 /* UtilsUnitTest.swift */; };
 		BC2A95B726ADCE90002AD800 /* EksplorMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95B426ADCE89002AD800 /* EksplorMapController.swift */; };
 		BC2A95B826ADCE90002AD800 /* EksplorMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95B526ADCE89002AD800 /* EksplorMapViewModel.swift */; };
 		BC2A95BD26ADCECE002AD800 /* EksplorDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95B926ADCEBE002AD800 /* EksplorDetail.storyboard */; };
@@ -184,6 +188,11 @@
 		BC18594B26B6B9E900FDD552 /* MVVMController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMController.swift; sourceTree = "<group>"; };
 		BC1F4F8226AF063E00FDC3D3 /* EksplorMapBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorMapBottomSheet.swift; sourceTree = "<group>"; };
 		BC1F4F8426AF0C4F00FDC3D3 /* EksplorMapController+MapConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EksplorMapController+MapConfig.swift"; sourceTree = "<group>"; };
+		BC226ECC26BADCFE002F3917 /* LocationSample.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocationSample.gpx; sourceTree = "<group>"; };
+		BC226ECD26BAE0D0002F3917 /* PreloadUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadUserData.swift; sourceTree = "<group>"; };
+		BC226ECF26BAE333002F3917 /* MonthlyCPRepositoryUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyCPRepositoryUnitTest.swift; sourceTree = "<group>"; };
+		BC226ED126BAE6ED002F3917 /* PreloadBadgeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadBadgeData.swift; sourceTree = "<group>"; };
+		BC226ED326BAE9E0002F3917 /* UtilsUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsUnitTest.swift; sourceTree = "<group>"; };
 		BC2A95B326ADCE89002AD800 /* EksplorMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EksplorMap.storyboard; sourceTree = "<group>"; };
 		BC2A95B426ADCE89002AD800 /* EksplorMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorMapController.swift; sourceTree = "<group>"; };
 		BC2A95B526ADCE89002AD800 /* EksplorMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorMapViewModel.swift; sourceTree = "<group>"; };
@@ -288,6 +297,7 @@
 		9866548726ADBC7D0047D2A7 = {
 			isa = PBXGroup;
 			children = (
+				BC226ECC26BADCFE002F3917 /* LocationSample.gpx */,
 				9866549226ADBC7D0047D2A7 /* Papah */,
 				986654AC26ADBC800047D2A7 /* PapahTests */,
 				986654B726ADBC800047D2A7 /* PapahUITests */,
@@ -322,6 +332,8 @@
 			isa = PBXGroup;
 			children = (
 				986654AD26ADBC800047D2A7 /* TipsRepositoryUnitTest.swift */,
+				BC226ED326BAE9E0002F3917 /* UtilsUnitTest.swift */,
+				BC226ECF26BAE333002F3917 /* MonthlyCPRepositoryUnitTest.swift */,
 				986654AF26ADBC800047D2A7 /* Info.plist */,
 			);
 			path = PapahTests;
@@ -706,6 +718,8 @@
 			isa = PBXGroup;
 			children = (
 				BC2A95F626ADD3A7002AD800 /* PreloadChallengeData.swift */,
+				BC226ED126BAE6ED002F3917 /* PreloadBadgeData.swift */,
+				BC226ECD26BAE0D0002F3917 /* PreloadUserData.swift */,
 				BC6950A326B9B0CA004D37D1 /* PreloadTipsData.swift */,
 				BC6950A526B9B11A004D37D1 /* PreloadWBKLData.swift */,
 			);
@@ -959,6 +973,7 @@
 				BF1C044326B4FB700099B6E1 /* BadgeDataRepository.swift in Sources */,
 				BC8C9B7226AE8AD80096F0E8 /* HomepageController.swift in Sources */,
 				BF1C044126B4FB5B0099B6E1 /* MonthlyChallengeDataRepository.swift in Sources */,
+				BC226ED226BAE6ED002F3917 /* PreloadBadgeData.swift in Sources */,
 				BCD827B226AEFA90000C2452 /* EksplorMapController+SheetConfig.swift in Sources */,
 				BC2A95D526ADCF98002AD800 /* EksplorListFilterController.swift in Sources */,
 				BC2BE85D26AE82BA0067DB23 /* CommonFunction.swift in Sources */,
@@ -969,6 +984,7 @@
 				BC2A95DE26ADCFE6002AD800 /* TipsListViewModel.swift in Sources */,
 				BC2A95E226ADD002002AD800 /* TipsListTableCell.swift in Sources */,
 				986654F426ADCB430047D2A7 /* TantanganDetailViewModel.swift in Sources */,
+				BC226ECE26BAE0D0002F3917 /* PreloadUserData.swift in Sources */,
 				BC2A95D426ADCF98002AD800 /* EksplorListFilterViewModel.swift in Sources */,
 				986654E926ADC96D0047D2A7 /* CompletionAlert.swift in Sources */,
 				BC8C9B6F26AE8AD80096F0E8 /* EksplorDetailViewModel.swift in Sources */,
@@ -1014,7 +1030,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC226ED426BAE9E0002F3917 /* UtilsUnitTest.swift in Sources */,
 				986654AE26ADBC800047D2A7 /* TipsRepositoryUnitTest.swift in Sources */,
+				BC226ED026BAE333002F3917 /* MonthlyCPRepositoryUnitTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
