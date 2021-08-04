@@ -63,6 +63,8 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
     }
     @IBAction func onClaimPoint(_ sender: Any) {
         
+        self.viewModel?.onPointClaimed()
+        
         let myAlert = CompletionAlert(nibName: CompletionAlert.id, bundle: nil)
         myAlert.delegate = self
         myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
@@ -89,7 +91,7 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
 
 extension EksplorDetailController: CompletionAlertProtocol {
     func onConfirmButton() {
-        
+        self.tabBarController?.selectedIndex = 2
     }
 }
 
@@ -202,12 +204,12 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             
             if let data = self.viewModel?.getWasteAcceptedData()?[indexPath.row] {
-                cell.updateViewData(data: data, edtQuantity: self.viewModel?.singleEarningData[indexPath.row] ?? 0)
+                cell.updateViewData(data: data, edtQuantity: self.viewModel?.singleEarningData[indexPath.row].berat ?? 0)
             }
             
             cell.textChanged { data in
                 
-                self.viewModel?.singleEarningData[indexPath.row] = Int(data) ?? 0
+                self.viewModel?.singleEarningData[indexPath.row].berat = Float(data) ?? 0
 
                 DispatchQueue.main.async {
                     tableView.reloadSections(IndexSet(integer: self.sectionEarning), with: .none)
