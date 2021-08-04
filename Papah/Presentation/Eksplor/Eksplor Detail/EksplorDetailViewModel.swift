@@ -47,7 +47,7 @@ class EksplorDetailViewModel {
         let hour = Calendar.current.dateComponents([.hour], from:self.wbklData?.claimed_date ?? Date(), to: Date()+1000).hour ?? 0
         
         if self.distanceMeter < Constants.claimPointDistance && //First condition (location)
-//            hour > Constants.claimPointHours && //Second condition (hour)
+            hour > Constants.claimPointHours && //Second condition (hour)
             self.totalEarnings > 0 //Last condition (earning estimate)
         {
             currentCondition = true
