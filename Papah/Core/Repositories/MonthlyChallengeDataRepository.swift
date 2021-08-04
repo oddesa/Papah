@@ -30,6 +30,12 @@ class MonthlyChallengeDataRepository {
             
             //Add monthlyChallenge
             let monthlyChallenge = MonthlyChallenge(context: context)
+            
+            if let badgeCategory = BadgeDataRepository.shared.getBadgeCategoryById(id: badgeCategoryId) {
+                monthlyChallenge.badgeCategory = badgeCategory
+
+            }
+            
             monthlyChallenge.user_id = Int32(userId)
             monthlyChallenge.badge_category_id = Int32(badgeCategoryId)
             monthlyChallenge.monthly_challenge_id = Int32(mcId)
@@ -39,6 +45,8 @@ class MonthlyChallengeDataRepository {
             monthlyChallenge.reward_point = Int32(rewardPoint)
             monthlyChallenge.max_value = Float(maxValue)
             monthlyChallenge.image = image.jpegData(compressionQuality: 1.0)
+            
+          
             
             try context.save()
             
@@ -116,6 +124,27 @@ class MonthlyChallengeDataRepository {
     }
     
     
+    func getCurrentChallengeCompleted(month: Int) -> [MonthlyChallengeProgress]? {
+        
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: mcpEntity)
+        fetchRequest.predicate = NSPredicate(format: "status == %d", true)
+        
+        do {
+            
+            var item = try context.fetch(fetchRequest) as? [MonthlyChallengeProgress]
+            
+            item = item?.filter { $0.monthlyChallenge?.month == Int32(month)}
+            
+            return item
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return []
+    }
+    
+    
     func getMCPById(mcpId: Int) -> [MonthlyChallengeProgress]? {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
@@ -134,8 +163,26 @@ class MonthlyChallengeDataRepository {
         return nil
     }
     
+    
+    func getAllMonthlyChallengeProgress() -> [MonthlyChallengeProgress]? {
+        
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: mcpEntity)
+        
+        do {
+            
+            let item = try context.fetch(fetchRequest) as? [MonthlyChallengeProgress]
+            
+            return item
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return nil
+    }
+    
     //MARK: Update
-    func updateMonthlyChallengeProgress(mcId: Int, mcpId: Int, value: Float) -> Float{
+    func updateMonthlyChallengeProgress(mcpId: Int, value: Float){
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: mcpEntity)
         fetchRequest.predicate = NSPredicate(format: "mcp_id == %d", mcpId)
@@ -147,37 +194,57 @@ class MonthlyChallengeDataRepository {
             let currentValue = mcp?.current_value ?? 0
             let totalValue = currentValue + value
             
-            let fetchMC = NSFetchRequest<NSManagedObject>(entityName: montlyChallengeEntity)
-            fetchMC.predicate = NSPredicate(format: "monthly_challenge_id == %d", mcId)
-            do {
-                let monthlyChallenge = try context.fetch(fetchRequest) as? [MonthlyChallenge]
+            if let monthlyChallenge = mcp?.monthlyChallenge {
                 
-                let mc = monthlyChallenge?.first
-                
-                if mcp?.mcp_id == mc?.monthly_challenge_id {
-                    let maxValue = mc?.max_value ?? 0
+                if mcp?.mcp_id == monthlyChallenge.monthly_challenge_id {
+                    let maxValue = monthlyChallenge.max_value
                     if mcp?.status == false {
                         if maxValue > totalValue {
                             mcp?.current_value = totalValue
                         } else {
                             mcp?.current_value = maxValue
                             mcp?.status = true
+                            
+                            UserDataRepository.shared.updatePoint(userId: 0, newPoint: Int(mcp?.monthlyChallenge?.reward_point ?? 0))
+
                         }
-                    } else {
-                        //udah max progress
-                        return value
                     }
                 }
-                return totalValue
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
+                try context.save()
             }
+            
+
+//            let fetchMC = NSFetchRequest<NSManagedObject>(entityName: montlyChallengeEntity)
+//            fetchMC.predicate = NSPredicate(format: "monthly_challenge_id == %d", mcId)
+//            do {
+//                let monthlyChallenge = try context.fetch(fetchRequest) as? [MonthlyChallenge]
+//
+//                let mc = monthlyChallenge?.first
+//
+//                if mcp?.mcp_id == mc?.monthly_challenge_id {
+//                    let maxValue = mc?.max_value ?? 0
+//                    if mcp?.status == false {
+//                        if maxValue > totalValue {
+//                            mcp?.current_value = totalValue
+//                        } else {
+//                            mcp?.current_value = maxValue
+//                            mcp?.status = true
+//
+//                            UserDataRepository.shared.updatePoint(userId: 0, newPoint: Int(mcp?.monthlyChallenge?.reward_point ?? 0))
+//
+//                        }
+//                    }
+//                }
+//
+//                try context.save()
+//
+//            } catch let error as NSError {
+//                print("Could not save. \(error), \(error.userInfo)")
+//            }
 
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-        
-        return 0
     }
     
     //MARK: Delete

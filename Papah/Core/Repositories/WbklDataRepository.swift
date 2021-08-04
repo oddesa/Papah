@@ -51,6 +51,20 @@ class WbklDataRepository {
         }
     }
     
+    func updateWbklClaimDate(wbklId: Int, claimedDate: Date){
+        do {
+            let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+            
+            if let wbkl = getWbklById(wbklId: wbklId) {
+                wbkl.claimed_date = claimedDate
+                try context.save()
+            }
+            
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
     func insertWasteAccepted(wbklId: Int,
                              wasteAccId: Int,
                              wasteCategoryId: Int,

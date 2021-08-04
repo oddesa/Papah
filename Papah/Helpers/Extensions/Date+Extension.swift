@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal extension Date {
+extension Date {
     
     // swiftlint:disable identifier_name
     enum ISO8601Format: String {
@@ -117,6 +117,12 @@ internal extension Date {
         formatter.dateStyle = .short
         formatter.dateFormat = format.rawValue
         return formatter.string(from: self)
+    }
+    
+    var month: Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M"
+        return Int(dateFormatter.string(from: self)) ?? 0
     }
     
 }
