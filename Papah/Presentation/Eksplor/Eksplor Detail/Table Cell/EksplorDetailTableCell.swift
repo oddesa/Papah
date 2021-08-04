@@ -48,7 +48,7 @@ class EksplorDetailTableCell: UITableViewCell {
         
     }
     
-    func updateDistance(distance: Double){
+    func updateDistance(distance: Double) {
         lblDistance.text = "· \(String.init(format: "%.0f", distance))km"
     }
     

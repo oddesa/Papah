@@ -6,34 +6,30 @@
 //
 
 import UIKit
-
-class DummyDataUhuy {
-    let nama: String
-    let categori: String
-    init(nama: String, categori: String) {
-        self.nama = nama
-        self.categori = categori
-    }
-}
-
+import CoreLocation
 
 class EksplorListController: MVVMViewController<EksplorListViewModel> {
     
     let strings = ["asdfefsa", "hahahah", "xoxoxoox"]
     var searchBarCont = UISearchController()
     var filteredData: [String] = []
-    var allWbkl: [Wbkl] = []
+    var allWbkl: [WbklJarak] = []
     
     @IBOutlet weak var tableViewOutlet: UITableView!
+    private var loadingView: LoadingView!
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarItem.isEnabled = false
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = EksplorListViewModel()
-        allWbkl = viewModel?.getWBklData() ?? []
-//        var sortedAllWbkl = allWbkl.sort {
-//            $0.name ?? "" < $1.name ?? ""
-//        }
         
+        loadingView = LoadingView(uiView: self.view, message: "")
+        loadingView.show()
+        
+        setupLocationManager()
         setupSearchController()
         setupNib()
         
@@ -48,34 +44,31 @@ extension EksplorListController: UISearchResultsUpdating {
         searchBarCont.searchResultsUpdater = self
         searchBarCont.obscuresBackgroundDuringPresentation = false
         searchBarCont.searchBar.setValue("Batalkan", forKey: "cancelButtonText")
+        searchBarCont.searchBar.placeholder = "Agen Sampah"
     }
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {
             return
         }
-        let splited = text.components(separatedBy: " ")
-        
-        let aaa = DummyDataUhuy(nama: "Ayam Pedes", categori: "Goreng")
-        let a11 = DummyDataUhuy(nama: "Ayam Asin Rebus", categori: "Rebus")
-        let bbb = DummyDataUhuy(nama: "Ayam Asin", categori: "Rebus")
-        let ccc = DummyDataUhuy(nama: "Ayam Pahit", categori: "Bakar")
-        let ddd = DummyDataUhuy(nama: "Ikan Duyung", categori: "Rebus")
-        
-        var dummyUntukDifilter = [aaa, a11, bbb, ccc, ddd]
-        var filteredData: [String] = []
-        
-        
-        for dummy in dummyUntukDifilter {
-            for word in splited {
-                if dummy.nama.lowercased().contains(word.lowercased()) || dummy.categori.lowercased().contains(word.lowercased()) {
-                        filteredData.append(dummy.nama)
-                        guard let idx = dummyUntukDifilter.firstIndex(where: { $0 === dummy }) else {return}
-                        dummyUntukDifilter.remove(at: idx)
+        guard var dataWbkl = viewModel?.turnWbklsJarak() else {return}
+        if text.count == 0 {
+            allWbkl = dataWbkl
+        } else {
+            let splited = text.components(separatedBy: " ")
+            allWbkl = []
+            for wbkl in dataWbkl {
+                for word in splited {
+                    if (wbkl.wbklData.name ?? "").lowercased().contains(word.lowercased()) {//|| wbkl.wbklData.categori.lowercased().contains(word.lowercased()) {
+                            allWbkl.append(wbkl)
+                        guard let idx = dataWbkl.firstIndex(where: { $0 === wbkl }) else {return}
+                            dataWbkl.remove(at: idx)
+                    }
                 }
             }
         }
-        
+       
+        tableViewOutlet.reloadData()
         //logic sorting
 //        filteredData = filteredData.sorted()
 //        var users = [
@@ -128,10 +121,26 @@ extension EksplorListController: UITableViewDataSource {
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath) as? ExplorListTableCell else {fatalError("identifiernya salah anying")}
             
+            let wbkl = allWbkl[indexPath.row - 1].wbklData
+            if let currentLocation = (viewModel?.userLocation?.last) {
+                let distance = viewModel?.getLocationDistance(userLocation: currentLocation, wbklData: wbkl)
+                cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(distance!) km"
+                if distance! < 5815 {
+                    cell.nearMarker.backgroundColor = .green
+                } else {
+                    cell.nearMarker.backgroundColor = .clear
+                }
+            }
+            cell.wbklNameLabel.text = wbkl.name
             
-            cell.wbklNameLabel.text = allWbkl[indexPath.row - 1].name
-            cell.wbklCategoryLabel.text = allWbkl[indexPath.row - 1].wbkl_type
-            cell.wbklOperationalLabel.text = (allWbkl[indexPath.row - 1].operational_day ?? " ") + " · " + (allWbkl[indexPath.row - 1].operational_hour ?? " ")
+            
+            if viewModel?.bukaTutupChecker(operationalDay: wbkl.operational_day ?? "Senin", operationalHour: wbkl.operational_hour ?? "10.00") == true {
+                cell.wbklOperationalLabel.text = "Buka" + " · " + (wbkl.operational_hour ?? " ")
+                cell.wbklOperationalLabel.textColor = .green
+            } else {
+                cell.wbklOperationalLabel.text = "Tutup"
+                cell.wbklOperationalLabel.textColor = .red
+            }
             
             let categories = ["asfaf", "asdasdas", "aasdasdsdasda", "asdasd", "asdaqeqwe", "213"]
             var putihputih = [cell.wbklSampahKategori1, cell.wbklSampahKategori2, cell.wbklSampahKategori3, cell.wbklSampahKategori4]
@@ -166,7 +175,7 @@ extension EksplorListController: UITableViewDelegate {
         
         if let viewModel = viewModel {
             let controller = EksplorDetailController.instantiateStoryboard(
-                viewModel: EksplorDetailViewModel(wbklData: allWbkl[indexPath.row - 1])
+                viewModel: EksplorDetailViewModel(wbklData: allWbkl[indexPath.row - 1].wbklData)
             )
             self.navigationController?.pushViewController(controller, animated: true)
         }
@@ -174,4 +183,31 @@ extension EksplorListController: UITableViewDelegate {
 }
 
 
-// MARK: - Kuburan
+// MARK: - CLLocationManagerDelegate
+extension EksplorListController: CLLocationManagerDelegate {
+    
+    func setupLocationManager() {
+        viewModel?.locationManager.delegate = self
+        viewModel?.locationManager.requestWhenInUseAuthorization()
+        viewModel?.locationManager.requestLocation()
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Got location data")
+        viewModel?.userLocation = locations
+        allWbkl = viewModel?.turnWbklsJarak() ?? []
+        if loadingView.isHidden() == false {
+            loadingView.hide()
+            tableViewOutlet.reloadData()
+//            for wbkl in allWbkl {
+//                print(wbkl.wbklData.wasteAccepted)
+//                print("-----------------------------------------------")
+//                print(wbkl.wbklData.wasteCategory)
+//            }
+        }
+    }
+}
