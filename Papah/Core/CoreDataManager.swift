@@ -25,7 +25,6 @@ class CoreDataManager {
         })
         container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         container.viewContext.shouldDeleteInaccessibleFaults = true
-        
         container.viewContext.automaticallyMergesChangesFromParent = true
         
         return container

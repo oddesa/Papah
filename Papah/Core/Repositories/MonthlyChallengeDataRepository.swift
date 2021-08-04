@@ -30,6 +30,12 @@ class MonthlyChallengeDataRepository {
             
             //Add monthlyChallenge
             let monthlyChallenge = MonthlyChallenge(context: context)
+            
+            if let badgeCategory = BadgeDataRepository.shared.getBadgeCategoryById(id: badgeCategoryId) {
+                monthlyChallenge.badgeCategory = badgeCategory
+
+            }
+            
             monthlyChallenge.user_id = Int32(userId)
             monthlyChallenge.badge_category_id = Int32(badgeCategoryId)
             monthlyChallenge.monthly_challenge_id = Int32(mcId)
@@ -40,12 +46,7 @@ class MonthlyChallengeDataRepository {
             monthlyChallenge.max_value = Float(maxValue)
             monthlyChallenge.image = image.jpegData(compressionQuality: 1.0)
             
-            if let badgeCategory = BadgeDataRepository.shared.getBadgeCategoryById(id: badgeCategoryId) {
-                print("BADGE CATEGORY SAVEEDDDDD \(badgeCategory)")
-                monthlyChallenge.badgeCategory = badgeCategory
-                print("BADGE CATEGORY SAVEEDDDDD NOOOWW \(monthlyChallenge.badgeCategory)")
-
-            }
+          
             
             try context.save()
             
@@ -123,15 +124,17 @@ class MonthlyChallengeDataRepository {
     }
     
     
-    func getCurrentChallengeCompleted() -> [MonthlyChallenge]? {
+    func getCurrentChallengeCompleted(month: Int) -> [MonthlyChallengeProgress]? {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: montlyChallengeEntity)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: mcpEntity)
         fetchRequest.predicate = NSPredicate(format: "status == %d", true)
         
         do {
             
-            let item = try context.fetch(fetchRequest) as? [MonthlyChallenge]
+            var item = try context.fetch(fetchRequest) as? [MonthlyChallengeProgress]
+            
+            item = item?.filter { $0.monthlyChallenge?.month == Int32(month)}
             
             return item
         } catch let error as NSError {

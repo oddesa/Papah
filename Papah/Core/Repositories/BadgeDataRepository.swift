@@ -223,11 +223,11 @@ class BadgeDataRepository {
             let bp = item?.first
             
             if let badge = bp?.badge {
-                
-                if bp?.id == badge.id {
+//
+//                if bp?.id == badge.id {
                     if bp?.status == false {
                         let maxValue = badge.max_value
-                        let totalValue = bp?.current_value ?? 0 + value
+                        let totalValue = Float(bp?.current_value ?? 0) + value
                         
                         if totalValue < maxValue {
                             bp?.current_value = totalValue
@@ -236,7 +236,8 @@ class BadgeDataRepository {
                             bp?.status = true
                         }
                     }
-                }
+//                }
+                
                 try context.save()
             }
             

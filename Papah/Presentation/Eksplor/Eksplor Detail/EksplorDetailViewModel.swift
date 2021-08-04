@@ -216,40 +216,39 @@ extension EksplorDetailViewModel {
             for badge in badgeProgress {
                 if !badge.status  {
                     
-                    print("BADGE CURRENT \(badge.badge?.badgeCategory)")
-
+                    print("SADSADDSA \(badge.badge?.badgeCategory?.badge_category_id)")
                     // Berat Sampah
                     if Int(badge.badge?.badgeCategory?.badge_category_id ?? 0) == 0 {
-                        badgeRepo.updateBagdeProgress(bpId: Int(badge.badge_id), value: self.getWeightTotal())
+                        badgeRepo.updateBagdeProgress(bpId: Int(badge.bp_id), value: self.getWeightTotal())
                     }
 
                     // Profit
                     if Int(badge.badge?.badgeCategory?.badge_category_id ?? 0) == 2 {
-                        badgeRepo.updateBagdeProgress(bpId: Int(badge.badge_id), value: self.getEarningTotal())
+                        badgeRepo.updateBagdeProgress(bpId: Int(badge.bp_id), value: self.getEarningTotal())
                     }
 
                     // Kategori Sampah
                     if Int(badge.badge?.badgeCategory?.badge_category_id ?? 0) == 3 {
-                        badgeRepo.updateBagdeProgress(bpId: Int(badge.badge_id), value: self.getCategoryUsedTotal())
+                        badgeRepo.updateBagdeProgress(bpId: Int(badge.bp_id), value: self.getCategoryUsedTotal())
                     }
 
                     // Tantangan Sampah
                     if Int(badge.badge?.badgeCategory?.badge_category_id ?? 0) == 4 {
                         // Tidak ada challenge progress yang berisi tantangan (tantangan ception?)
-                        if let monthlyChallengeCompleted = challengeRepo.getCurrentChallengeCompleted() {
-                            badgeRepo.updateBagdeProgress(bpId: Int(badge.badge_id), value: Float(monthlyChallengeCompleted.count))
+                        if let monthlyChallengeCompleted = challengeRepo.getCurrentChallengeCompleted(month: Date().month) {
+                            badgeRepo.updateBagdeProgress(bpId: Int(badge.bp_id), value: Float(monthlyChallengeCompleted.count))
                         }
                     }
 
                     // Agen
                     if Int(badge.badge?.badgeCategory?.badge_category_id ?? 0) == 5 {
-                        badgeRepo.updateBagdeProgress(bpId: Int(badge.badge_id), value: 1)
+                        badgeRepo.updateBagdeProgress(bpId: Int(badge.bp_id), value: 1)
                     }
 
                     // Level
                     if Int(badge.badge?.badgeCategory?.badge_category_id ?? 0) == 1 {
                         badgeRepo.updateBagdeProgress(
-                            bpId: Int(badge.badge_id),
+                            bpId: Int(badge.bp_id),
                             value: Float(userRepo.getUserById(id: 0)?.level ?? 0)
                         )
 
