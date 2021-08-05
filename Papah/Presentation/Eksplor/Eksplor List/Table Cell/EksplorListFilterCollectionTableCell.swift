@@ -10,8 +10,12 @@ import UIKit
 class EksplorListFilterCollectionTableCell: UITableViewCell {
 
     var onDidSelectItem: (() -> ())?
-
+    var onDidSelectItemSecond: ((CategoryPro) -> ())?
+    private var categories = [CategoryPro]()
+    let wbklRepository = WbklDataRepository.shared
+    
     @IBOutlet weak var filterBtn: DesignableButton!
+    
     @IBOutlet weak var collectionViewOtl: UICollectionView!
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout! {
         didSet {
@@ -22,15 +26,48 @@ class EksplorListFilterCollectionTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
+        categories = turnCategoriesPro()
     }
+    
+    
+    
+    func getAllWasteCategory() -> [WasteCategory]? {
+        let categories = wbklRepository.getAllWasteCategory()
+        return removeDuplicatesCategories(categories: categories)
+    }
+    
+    func removeDuplicatesCategories(categories: [WasteCategory]) -> [WasteCategory] {
+        var uniques = [WasteCategory]()
+        for cat in categories {
+            if !uniques.contains(where: {$0.title == cat.title }) {
+                uniques.append(cat)
+            }
+        }
+        return uniques
+    }
+    
+    
+    func turnCategoriesPro() -> [CategoryPro] {
+        guard let categories = getAllWasteCategory() else{fatalError("datanya ga keload")}
+        var categoriesPro: [CategoryPro] = []
+        for cat in categories {
+            let catPro = CategoryPro(category: cat)
+            categoriesPro.append(catPro)
+        }
+        return categoriesPro
+    }
+    
+    
+    
+   
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
+   
     
     @IBAction func filterBtnPressed(_ sender: Any) {
-        print("hiyaaa")
         self.onDidSelectItem?()
     }
     
@@ -53,7 +90,12 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        if categories.count > 5 {
+            return 5
+        } else {
+            return categories.count
+        }
+        
     }
     
     
@@ -70,30 +112,41 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
             fatalError("salah identifier si collection")
         }
         
+        let title = (categories[indexPath.row].categoryData.title ?? "mantan")
+        cell.categoryBtn.setTitle(title, for: .normal)
+
+        switch title {
+        case "Kertas":
+            cell.categoryBtn.setImage(UIImage(systemName: "newspaper"), for: .normal)
+        case "Kardus":
+            cell.categoryBtn.setImage(UIImage(systemName: "shippingbox"), for: .normal)
+        case "Perabotan":
+            cell.categoryBtn.setImage(UIImage(systemName: "bed.double"), for: .normal)
+        default:
+            cell.categoryBtn.setImage(UIImage(systemName: "line.horizontal.3.decrease.circle"), for: .normal)
+        }
+        cell.categoryBtn.scalesLargeContentImage = false
 //        if indexPath.row == 0 {
 //            cell.categoryLabel.text = "mamamamamamamam"
 //        }
 
+        cell.onDidSelectItem  = { () in
+            self.onDidSelectItemSecond?(self.categories[indexPath.row])
+            print("ieu ajibbb")
+        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         guard let cell = collectionView.cellForItem(at: indexPath) as? EksplorListCollectionCell else {fatalError("cugs")}
-        
-//        if cell.categoryBtn.backgroundColor == .white {
-//            cell.categoryBtn.backgroundColor = .lightGray
-//            cell.categoryBtn.borderColor = .iconIolite
-//            cell.categoryBtn.tintColor = .iconIolite
-//            cell.categoryBtn.titleLabel?.textColor = .iconIolite
-//            cell.categoryBtn.titleLabel?.tintColor = .iconIolite
-//        } else {
-//            cell.categoryBtn.backgroundColor = .white
-//            cell.categoryBtn.borderColor = .black
-//            cell.categoryBtn.tintColor = .black
-//            cell.categoryBtn.titleLabel?.textColor = .black
-//            cell.categoryBtn.titleLabel?.tintColor = .black
-//            cell.categoryBtn.setTitleColor(.black, for: .normal)
+//        cell.onDidSelectItem  = { () in
+//            print("ieu ajibbb")
 //        }
+
+        
+        
+        
     }
 }

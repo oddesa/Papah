@@ -158,6 +158,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="3aL-RU-FZ8" secondAttribute="trailing" id="1pX-td-9Z3"/>
+                            <constraint firstItem="3aL-RU-FZ8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BPQ-CH-6lB" secondAttribute="trailing" constant="3" id="3cz-IS-efn"/>
                             <constraint firstItem="BPQ-CH-6lB" firstAttribute="top" secondItem="nzu-nd-gyz" secondAttribute="top" id="5Yk-6y-hu2"/>
                             <constraint firstItem="BPQ-CH-6lB" firstAttribute="bottom" secondItem="nzu-nd-gyz" secondAttribute="bottom" id="AfE-gE-T0L"/>
                             <constraint firstItem="mrc-5E-jeC" firstAttribute="leading" secondItem="n24-Jg-PX7" secondAttribute="leading" id="BnH-0F-3ND"/>
