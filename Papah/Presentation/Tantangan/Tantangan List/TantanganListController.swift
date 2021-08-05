@@ -50,7 +50,7 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
             identifiers.append(TantanganEarningCell.cellIdentifier())
         }
         if section == sectionMonthly {
-            if let monthlyChallengeData = self.viewModel?.getMonthlyChallenge() {
+            if let monthlyChallengeData = self.viewModel?.getMonthlyChallenge(currentMonth: 8) {
                 for _ in monthlyChallengeData {
                     identifiers.append(TantanganMonthlyCell.cellIdentifier())
                 }
@@ -94,6 +94,9 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
             guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "TantanganMonthlyHeadCell") as? TantanganMonthlyHeadCell else {
                 return UIView()
             }
+            
+            headerView.updateMonthlyTitle(currentMonth: 8)
+            
             let backgroundView = UIView(frame: headerView.bounds)
             backgroundView.backgroundColor = .clear
             headerView.backgroundView = backgroundView
@@ -168,7 +171,7 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             
             cell.updateDataView(
-                mcData: self.viewModel?.getMonthlyChallenge()?[indexPath.row],
+                mcData: self.viewModel?.getMonthlyChallenge(currentMonth: 8)?[indexPath.row],
                 mcProgress: self.viewModel?.getMonthlyChallengeProgress()?[indexPath.row])
             
             return cell
