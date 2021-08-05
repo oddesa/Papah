@@ -69,14 +69,13 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="15"/>
                             </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="NO"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="b4m-B0-1HI" secondAttribute="trailing" constant="16" id="6la-la-AEQ"/>
                     <constraint firstItem="keY-gF-F3o" firstAttribute="leading" secondItem="f54-O0-4HY" secondAttribute="trailing" constant="14" id="6to-g6-ekc"/>
-                    <constraint firstAttribute="trailing" secondItem="keY-gF-F3o" secondAttribute="trailing" constant="229" id="H2H-GY-dde"/>
                     <constraint firstItem="f54-O0-4HY" firstAttribute="leading" secondItem="9dg-wE-ipo" secondAttribute="leading" constant="16" id="Hdo-qV-R6w"/>
                     <constraint firstItem="keY-gF-F3o" firstAttribute="top" secondItem="9dg-wE-ipo" secondAttribute="top" constant="30" id="M27-L8-fjS"/>
                     <constraint firstItem="NLW-J7-xzC" firstAttribute="top" secondItem="keY-gF-F3o" secondAttribute="bottom" constant="2" id="Mf0-4r-t9K"/>
