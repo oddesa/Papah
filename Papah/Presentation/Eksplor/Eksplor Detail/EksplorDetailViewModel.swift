@@ -46,9 +46,12 @@ class EksplorDetailViewModel {
         
         let hour = Calendar.current.dateComponents([.hour], from:self.wbklData?.claimed_date ?? Date(), to: Date()+1000).hour ?? 0
         
-        if self.distanceMeter < Constants.claimPointDistance && //First condition (location)
-            hour > Constants.claimPointHours && //Second condition (hour)
-            self.totalEarnings > 0 //Last condition (earning estimate)
+        let isOpen = CommonFunction.shared.bukaTutupChecker(operationalDay: self.wbklData?.operational_day ?? "Senin", operationalHour: self.wbklData?.operational_hour ?? "10.00")
+                
+        if self.distanceMeter < Constants.claimPointDistance //First condition (location)
+//            && hour > Constants.claimPointHours //Second condition (hour)
+            && self.totalEarnings > 0 //Last condition (earning estimate)
+//            && isOpen
         {
             currentCondition = true
         }
@@ -147,6 +150,7 @@ extension EksplorDetailViewModel {
     // MARK: User section
     func updateUserSection(){
         userRepo.updateTotalUang(userId: 0, income: Int(self.getEarningTotal()))
+        UserDataRepository.shared.updatePoint(userId: 0, newPoint: Constants.claimPointWBKL)
     }
     
     // MARK: WBKL section

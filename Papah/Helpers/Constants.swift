@@ -16,5 +16,7 @@ class Constants {
     
     static let claimPointDistance = 300.0 //meters
     static let claimPointHours = 4 //hours
-    
+    static let claimPointWBKL = 100 //point
+    static let userLevelScope = 500 //Level up criteria
+
 }
