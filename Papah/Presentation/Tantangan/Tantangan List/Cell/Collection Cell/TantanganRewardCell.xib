@@ -85,6 +85,8 @@
             </constraints>
             <size key="customSize" width="120" height="176"/>
             <connections>
+                <outlet property="monthlyChallengeDesc" destination="jBp-Bw-0jZ" id="wT4-gn-1FS"/>
+                <outlet property="montlyChallengenTitle" destination="fZK-g4-NIj" id="oSK-GJ-IXm"/>
                 <outlet property="viewContent" destination="onS-Lo-GqL" id="4Zf-H1-aLu"/>
             </connections>
             <point key="canvasLocation" x="101.44927536231884" y="192.1875"/>

@@ -73,6 +73,10 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="descForLevelUp" destination="R2z-ND-ZkW" id="b7y-NI-VDq"/>
+                <outlet property="moneyValue" destination="Lin-hB-hmP" id="sas-Nz-lwh"/>
+            </connections>
             <point key="canvasLocation" x="109" y="20"/>
         </tableViewCell>
     </objects>

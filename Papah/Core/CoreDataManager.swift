@@ -110,11 +110,9 @@ extension CoreDataManager {
             
         if WbklDataRepository.shared.getAllWbkl().count == 0 {
             preloadDataWbkl()
-            preloadBadgeCategory()
             preloadWasteCategoryofWbkl()
             preloadDataTips()
             preloadDataTipsDetail()
-            preloadBadges()
             preloadWasteCategory()
             preloadMonthlyChallenges()
             preloadMonthlyChallengeProgress()

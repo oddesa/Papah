@@ -50,7 +50,11 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
             identifiers.append(TantanganEarningCell.cellIdentifier())
         }
         if section == sectionMonthly {
-            identifiers.append(TantanganMonthlyCell.cellIdentifier())
+            if let monthlyChallengeData = self.viewModel?.getMonthlyChallenge(currentMonth: 8) {
+                for _ in monthlyChallengeData {
+                    identifiers.append(TantanganMonthlyCell.cellIdentifier())
+                }
+            }
         }
         if section == sectionRewards {
             identifiers.append(TantanganRewardTablecell.cellIdentifier())
@@ -90,6 +94,9 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
             guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "TantanganMonthlyHeadCell") as? TantanganMonthlyHeadCell else {
                 return UIView()
             }
+            
+            headerView.updateMonthlyTitle(currentMonth: Date().month)
+            
             let backgroundView = UIView(frame: headerView.bounds)
             backgroundView.backgroundColor = .clear
             headerView.backgroundView = backgroundView
@@ -144,13 +151,16 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
             }
             cell.selectionStyle = .none
             
+            cell.updateDataView(userData: self.viewModel?.getUserData())
+            
             return cell
         case TantanganEarningCell.cellIdentifier():
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TantanganEarningCell.cellIdentifier()) as? TantanganEarningCell else {
                 return UITableViewCell()
             }
-          
             cell.selectionStyle = .none
+            
+            cell.updateDataView(userData: self.viewModel?.getUserData())
             
             return cell
         case TantanganMonthlyCell.cellIdentifier():
@@ -159,6 +169,8 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
             }
           
             cell.selectionStyle = .none
+            
+            cell.updateDataView(mcProgress: self.viewModel?.getMonthlyChallengeProgress(currentMonth: Date().month)?[indexPath.row])
             
             return cell
         case TantanganRewardTablecell.cellIdentifier():

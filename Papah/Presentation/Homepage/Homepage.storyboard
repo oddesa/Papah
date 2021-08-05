@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -46,6 +47,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
+                        <color key="selectedImageTintColor" name="purple_one"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Nkl-Ic-lfr" appends="YES" id="NHj-Ha-y3c"/>
                         </connections>
@@ -69,7 +71,7 @@
         <scene sceneID="F3h-nU-pHg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZYB-7f-TaZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Eksplor" id="2Y6-5c-e3u"/>
+                    <tabBarItem key="tabBarItem" title="Eksplor" image="safari.fill" catalog="system" id="2Y6-5c-e3u"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Oci-PD-6Kh">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -88,7 +90,7 @@
         <scene sceneID="qkq-6C-GDR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aWI-aK-uUX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tips" id="sck-EG-Rki"/>
+                    <tabBarItem key="tabBarItem" title="Tips" image="lightbulb.fill" catalog="system" id="sck-EG-Rki"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="tvq-Xi-0iH">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -107,7 +109,7 @@
         <scene sceneID="shn-7U-y5K">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q9h-KS-GB3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tantangan" id="x72-hs-o6J"/>
+                    <tabBarItem key="tabBarItem" title="Tantangan" image="star.circle.fill" catalog="system" id="x72-hs-o6J"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ol2-Dl-psb">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -123,4 +125,12 @@
             <point key="canvasLocation" x="1086" y="450"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="lightbulb.fill" catalog="system" width="113" height="128"/>
+        <image name="safari.fill" catalog="system" width="128" height="121"/>
+        <image name="star.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="purple_one">
+            <color red="0.3449999988079071" green="0.40000000596046448" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
