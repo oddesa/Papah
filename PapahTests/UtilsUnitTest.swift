@@ -27,13 +27,6 @@ class UtilsUnitTest: XCTestCase {
         XCTAssertEqual(month, month)
         expectation.fulfill()
         
-//        if let result = month {
-//            XCTAssertEqual(result.title, "test")
-//            expectation.fulfill()
-//        } else {
-//            XCTFail("Should return proper response")
-//        }
-        
         // then
         wait(for: [expectation], timeout: 5)
     }

@@ -98,6 +98,7 @@
 		BC8C9B7626AE8AFC0096F0E8 /* ExplorListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95CA26ADCF4A002AD800 /* ExplorListTableCell.xib */; };
 		BC8C9B7726AE8AFC0096F0E8 /* EksplorListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95CD26ADCF65002AD800 /* EksplorListCollectionCell.swift */; };
 		BCA40FEF26B7AA5C003B0A85 /* EksplorDetailController+MapConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA40FEE26B7AA5C003B0A85 /* EksplorDetailController+MapConfig.swift */; };
+		BCAA523C26BBA517005E59F0 /* CoreDataManagerUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAA523B26BBA517005E59F0 /* CoreDataManagerUnitTest.swift */; };
 		BCB6955A26B102DE001E90F0 /* TantanganEarningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6955826B102DE001E90F0 /* TantanganEarningCell.swift */; };
 		BCB6955B26B102DE001E90F0 /* TantanganEarningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCB6955926B102DE001E90F0 /* TantanganEarningCell.xib */; };
 		BCB6955F26B1038F001E90F0 /* TantanganMonthlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6955D26B1038F001E90F0 /* TantanganMonthlyCell.swift */; };
@@ -244,6 +245,7 @@
 		BC6950A326B9B0CA004D37D1 /* PreloadTipsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadTipsData.swift; sourceTree = "<group>"; };
 		BC6950A526B9B11A004D37D1 /* PreloadWBKLData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadWBKLData.swift; sourceTree = "<group>"; };
 		BCA40FEE26B7AA5C003B0A85 /* EksplorDetailController+MapConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EksplorDetailController+MapConfig.swift"; sourceTree = "<group>"; };
+		BCAA523B26BBA517005E59F0 /* CoreDataManagerUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerUnitTest.swift; sourceTree = "<group>"; };
 		BCB6955826B102DE001E90F0 /* TantanganEarningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganEarningCell.swift; sourceTree = "<group>"; };
 		BCB6955926B102DE001E90F0 /* TantanganEarningCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganEarningCell.xib; sourceTree = "<group>"; };
 		BCB6955D26B1038F001E90F0 /* TantanganMonthlyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganMonthlyCell.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 		986654AC26ADBC800047D2A7 /* PapahTests */ = {
 			isa = PBXGroup;
 			children = (
+				BCAA523B26BBA517005E59F0 /* CoreDataManagerUnitTest.swift */,
 				986654AD26ADBC800047D2A7 /* TipsRepositoryUnitTest.swift */,
 				BC226ED326BAE9E0002F3917 /* UtilsUnitTest.swift */,
 				BC226ECF26BAE333002F3917 /* MonthlyCPRepositoryUnitTest.swift */,
@@ -1032,6 +1035,7 @@
 			files = (
 				BC226ED426BAE9E0002F3917 /* UtilsUnitTest.swift in Sources */,
 				986654AE26ADBC800047D2A7 /* TipsRepositoryUnitTest.swift in Sources */,
+				BCAA523C26BBA517005E59F0 /* CoreDataManagerUnitTest.swift in Sources */,
 				BC226ED026BAE333002F3917 /* MonthlyCPRepositoryUnitTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
