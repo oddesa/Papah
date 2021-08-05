@@ -18,6 +18,10 @@ class TantanganListViewModel: NSObject {
         return user
     }
     
+    func getMonthlyChallenge(currentMonth: Int) -> [MonthlyChallenge]? {
+        return MonthlyChallengeDataRepository.shared.getMonthlyChallengebyMonth(currentMonth: currentMonth)
+    }
+    
     func getMonthlyChallengeProgress(currentMonth: Int) -> [MonthlyChallengeProgress]? {
         return MonthlyChallengeDataRepository.shared.getMCPByUserIdAndMonth(userId: 0, currentMonth: currentMonth)
     }
