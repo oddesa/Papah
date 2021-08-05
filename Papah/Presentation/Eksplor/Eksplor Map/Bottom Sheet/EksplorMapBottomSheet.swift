@@ -29,15 +29,11 @@ class EksplorMapBottomSheet: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.layer.cornerRadius = 20
-        self.view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        self.view.layer.shadowColor = UIColor.black.cgColor
-        self.view.layer.shadowOffset = .init(width: 0, height: -2)
-        self.view.layer.shadowRadius = 20
-        self.view.layer.shadowOpacity = 0.5
+    
         
         // Do any additional setup after loading the view.
+        setupShadow()
+        setupView()
     }
     
     func initBottomSheet(viewModel: EksplorMapViewModel, delegate: EksplorMapDelegate, eksplorMapVC: EksplorMapController) {
@@ -45,6 +41,21 @@ class EksplorMapBottomSheet: UIViewController {
         self.delegate = delegate
         self.eksplorMapVC = eksplorMapVC
         self.eksplorMapVC?.delegate = self
+    }
+    
+    func setupShadow(){
+        self.view.layer.cornerRadius = 20
+        self.view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        self.view.layer.shadowColor = UIColor.black.cgColor
+        self.view.layer.shadowOffset = .init(width: 0, height: -2)
+        self.view.layer.shadowRadius = 20
+        self.view.layer.shadowOpacity = 0.5
+    }
+    
+    func setupView() {
+        self.lblTitle.text = self.viewModel?.wbklData?.name ?? ""
+        self.lblDesc.text = self.viewModel?.wbklData?.wbkl_type ?? ""
+        self.lblAddress.text = self.viewModel?.wbklData?.address ?? ""
     }
 
 }
@@ -54,12 +65,10 @@ extension EksplorMapBottomSheet: EksplorMapBottomSheetDelegate {
     }
     
     func updateInfo() {
-        self.lblTitle.text = "Kang asep"
-        self.lblDesc.text = "Kang dadang"
     }
     
     func updateAddress(address: String) {
-        self.lblAddress.text = address
+//        self.lblAddress.text = address
     }
     
     
