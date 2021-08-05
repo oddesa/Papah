@@ -49,9 +49,9 @@ class EksplorDetailViewModel {
         let isOpen = CommonFunction.shared.bukaTutupChecker(operationalDay: self.wbklData?.operational_day ?? "Senin", operationalHour: self.wbklData?.operational_hour ?? "10.00")
                 
         if self.distanceMeter < Constants.claimPointDistance //First condition (location)
-//            && hour > Constants.claimPointHours //Second condition (hour)
+            && hour > Constants.claimPointHours //Second condition (hour)
             && self.totalEarnings > 0 //Last condition (earning estimate)
-//            && isOpen
+            && isOpen
         {
             currentCondition = true
         }
@@ -67,7 +67,6 @@ class EksplorDetailViewModel {
     func distanceBetweenTwoLocations(source:CLLocation, destination:CLLocation) -> Double {
         
         let distanceMeters = source.distance(from: destination)
-        print("USER distanceMeters \(distanceMeters)")
 
         let distanceKM = distanceMeters / 1000
         let roundedTwoDigit = distanceKM
@@ -220,7 +219,6 @@ extension EksplorDetailViewModel {
             for badge in badgeProgress {
                 if !badge.status  {
                     
-                    print("SADSADDSA \(badge.badge?.badgeCategory?.badge_category_id)")
                     // Berat Sampah
                     if Int(badge.badge?.badgeCategory?.badge_category_id ?? 0) == 0 {
                         badgeRepo.updateBagdeProgress(bpId: Int(badge.bp_id), value: self.getWeightTotal())
