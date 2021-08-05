@@ -164,7 +164,7 @@ extension CoreDataManager {
             mcId: 0,
             mcpId: 0,
             status: true,
-            currentValue: 300
+            currentValue: 1
         )
         
         MonthlyChallengeDataRepository.shared.insertMonthlyChallengeProgress(
@@ -172,7 +172,7 @@ extension CoreDataManager {
             mcId: 1,
             mcpId: 1,
             status: true,
-            currentValue: 300
+            currentValue: 50000
         )
         
         MonthlyChallengeDataRepository.shared.insertMonthlyChallengeProgress(
@@ -180,7 +180,7 @@ extension CoreDataManager {
             mcId: 2,
             mcpId: 2,
             status: false,
-            currentValue: 300
+            currentValue: 0
         )
         
         MonthlyChallengeDataRepository.shared.insertMonthlyChallengeProgress(
@@ -188,7 +188,7 @@ extension CoreDataManager {
             mcId: 3,
             mcpId: 3,
             status: false,
-            currentValue: 300
+            currentValue: 0
         )
     }
 }

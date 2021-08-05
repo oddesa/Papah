@@ -11,15 +11,13 @@ class TantanganMonthlyHeadCell: UITableViewHeaderFooterView {
 
     @IBOutlet weak var mcTitle: UILabel!
     
-    func updateMonthlyTitle(mcData: MonthlyChallenge?){
-        if let mc = mcData {
-            if mc.month == 7 {
-                mc.title = "Tantangan Juli"
+    func updateMonthlyTitle(currentMonth: Int){
+            if currentMonth == 7 {
+                mcTitle.text = "Tantangan Juli"
             } else {
-                mc.title = "Tantangan Agustus"
+                mcTitle.text = "Tantangan Agustus"
             }
         }
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -10,6 +10,7 @@ import UIKit
 class TantanganListViewModel: NSObject {
     var user: User?
     var monthlyChallenge: [MonthlyChallenge]?
+    var mc: MonthlyChallenge?
     var badges: Badge?
     
     func getUserData() -> User? {
@@ -19,23 +20,22 @@ class TantanganListViewModel: NSObject {
         return user
     }
     
-    func getMonthlyChallenge() -> [MonthlyChallenge]? {
+    func getMonthlyChallenge(currentMonth: Int) -> [MonthlyChallenge]? {
         if monthlyChallenge == nil {
-            monthlyChallenge = MonthlyChallengeDataRepository.shared.getAllMonthlyChallenge()
+            monthlyChallenge = MonthlyChallengeDataRepository.shared.getMonthlyChallengebyMonth(currentMonth: currentMonth)
         }
+        
         return monthlyChallenge
     }
     
     func getMonthlyChallengeProgress() -> [MonthlyChallengeProgress]? {
+        //panggil relation dari monthlychallenge aja
         return MonthlyChallengeDataRepository.shared.getMCPByUserID(userId: 0)
+        //return self.mc?.monthlyCP?.allObjects as? [MonthlyChallengeProgress]
     }
     
     func getAllBadges() -> [Badge]?{
+        //sort by status == true
         return BadgeDataRepository.shared.getAllBadges()
     }
-    
-    //    func getTipsDetail() -> [SampahDetail]?{
-    //        return TipsDataRepository.shared.getTipsDetailById(sampahId: Int(self.tips?.sampah_id ?? 0))
-    //
-    //    }
 }
