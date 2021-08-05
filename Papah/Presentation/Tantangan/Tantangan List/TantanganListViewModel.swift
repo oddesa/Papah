@@ -9,8 +9,6 @@ import UIKit
 
 class TantanganListViewModel: NSObject {
     var user: User?
-    var monthlyChallenge: [MonthlyChallenge]?
-    var mc: MonthlyChallenge?
     var badges: Badge?
     
     func getUserData() -> User? {
@@ -20,18 +18,8 @@ class TantanganListViewModel: NSObject {
         return user
     }
     
-    func getMonthlyChallenge(currentMonth: Int) -> [MonthlyChallenge]? {
-        if monthlyChallenge == nil {
-            monthlyChallenge = MonthlyChallengeDataRepository.shared.getMonthlyChallengebyMonth(currentMonth: currentMonth)
-        }
-        
-        return monthlyChallenge
-    }
-    
-    func getMonthlyChallengeProgress() -> [MonthlyChallengeProgress]? {
-        //panggil relation dari monthlychallenge aja
-        return MonthlyChallengeDataRepository.shared.getMCPByUserID(userId: 0)
-        //return self.mc?.monthlyCP?.allObjects as? [MonthlyChallengeProgress]
+    func getMonthlyChallengeProgress(currentMonth: Int) -> [MonthlyChallengeProgress]? {
+        return MonthlyChallengeDataRepository.shared.getMCPByUserIdAndMonth(userId: 0, currentMonth: currentMonth)
     }
     
     func getAllBadges() -> [Badge]?{

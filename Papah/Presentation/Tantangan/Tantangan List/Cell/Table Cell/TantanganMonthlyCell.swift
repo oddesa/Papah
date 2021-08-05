@@ -17,20 +17,23 @@ class TantanganMonthlyCell: UITableViewCell {
     @IBOutlet weak var mcClaimPointIcon: UIImageView!
     @IBOutlet weak var mcClaimPointDesc: UILabel!
     
-    func updateDataView(mcData: MonthlyChallenge?, mcProgress: MonthlyChallengeProgress?) {
-        if let mc = mcData {
+    func updateDataView(mcProgress: MonthlyChallengeProgress?) {
+        if let mcp = mcProgress {
+            let currentValue = String(format: "%.0f", mcp.current_value)
+            let maxValue = String(format: "%.0f", Float(mcp.monthlyChallenge?.max_value ?? 0))
             //mcImage.image = mc.image
-            mcTitle.text = mc.title
-            mcDesc.text = mc.desc
-            if let mcp = mcProgress {
-                let currentValue = String(format: "%.0f", mcp.current_value)
-                let maxValue = String(format: "%.0f", mc.max_value)
-                mcTextProgress.text = "\(currentValue) / \(maxValue)"
-                if mcp.status == true {
-                    mcClaimPointIcon.tintColor = .green
-                } else {
-                    mcClaimPointIcon.tintColor = .gray
-                }
+            mcTitle.text = mcp.monthlyChallenge?.title
+            mcDesc.text = mcp.monthlyChallenge?.desc
+            mcTextProgress.text = "\(currentValue) / \(maxValue)"
+
+            if mcp.status == true {
+                mcClaimPointDesc.text = "Kamu telah klaim 300 poin"
+                mcClaimPointIcon.tintColor = .systemGreen
+                mcClaimPointDesc.textColor = .systemGreen
+            } else {
+                mcClaimPointDesc.text = "Selesaikan misi untuk mendapatkan 300 poin"
+                mcClaimPointDesc.textColor = .gray
+                mcClaimPointIcon.tintColor = .gray
             }
         }
     }
