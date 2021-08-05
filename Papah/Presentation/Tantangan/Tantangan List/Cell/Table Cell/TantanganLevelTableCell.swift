@@ -13,6 +13,7 @@ class TantanganLevelTableCell: UITableViewCell {
     @IBOutlet weak var userPoin: UILabel!
     @IBOutlet weak var levelProgressBar: UIProgressView!
     @IBOutlet weak var levelValue: UILabel!
+    @IBOutlet weak var pointLeftDesc: UILabel!
     
     func updateDataView(userData: User?){
         if let user = userData {
@@ -20,6 +21,7 @@ class TantanganLevelTableCell: UITableViewCell {
             userLevel.text = "Level \(user.level): Murid Kurcaci"
             userPoin.text = userPoint
             levelValue.text = "\(userPoint) / 500"
+            pointLeftDesc.text = "Kumpulkan 500 poin lagi untuk naik level"
         }
     }
     

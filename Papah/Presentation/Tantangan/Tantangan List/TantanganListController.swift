@@ -95,7 +95,7 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
                 return UIView()
             }
             
-            headerView.updateMonthlyTitle(currentMonth: 8)
+            headerView.updateMonthlyTitle(currentMonth: Date().month)
             
             let backgroundView = UIView(frame: headerView.bounds)
             backgroundView.backgroundColor = .clear
@@ -170,9 +170,7 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
           
             cell.selectionStyle = .none
             
-            cell.updateDataView(
-                mcData: self.viewModel?.getMonthlyChallenge(currentMonth: 8)?[indexPath.row],
-                mcProgress: self.viewModel?.getMonthlyChallengeProgress()?[indexPath.row])
+            cell.updateDataView(mcProgress: self.viewModel?.getMonthlyChallengeProgress(currentMonth: Date().month)?[indexPath.row])
             
             return cell
         case TantanganRewardTablecell.cellIdentifier():
