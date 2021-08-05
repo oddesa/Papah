@@ -25,7 +25,7 @@ class CompletionAlert: UIViewController {
         blurFxView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.insertSubview(blurFxView, at: 0)
         
-//        self.lblPointClaim.text = "Kamu berhasil mengklaim \(Constants) poin dari penyaluran limbah"
+        self.lblPointClaim.text = "Kamu berhasil mengklaim \(Constants.claimPointWBKL) poin dari penyaluran limbah"
 
     }
     
