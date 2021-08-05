@@ -13,11 +13,15 @@ import CoreData
 class TipsRepositoryUnitTest: XCTestCase {
     var tipsRepo = TipsDataRepository.shared
     let entityName = Sampah.self.description()
-
+    
     override func tearDown() {
         super.tearDown()
-        tipsRepo.deleteAllTips()
     }
+    
+    override func setUp() {
+        CoreDataManager.sharedManager.setContainer(container: CoreDataManagerUniTest.mockContainer())
+    }
+    
     func test_tipsInsertData() {
         
         let expectation = self.expectation(description: "Should return correct data")
@@ -45,10 +49,6 @@ class TipsRepositoryUnitTest: XCTestCase {
         expectation.expectedFulfillmentCount = 1
         
         // when
-        
-//        let entity = NSEntityDescription.entity(forEntityName: entityName, in: CoreDataManager.sharedManager.persistentContainer.viewContext)
-//        let challenges = SampahDetail(entity: entity!, insertInto: CoreDataManager.sharedManager.persistentContainer.viewContext)
-
         tipsRepo.insertTips(title: "test1", desc: "test", sampahId: 1, image: UIImage.init())
         tipsRepo.insertTipsDetail(title: "test2", detail: "test", sampahId: 1, sampahDetailId: 1, image: UIImage.init())
         
