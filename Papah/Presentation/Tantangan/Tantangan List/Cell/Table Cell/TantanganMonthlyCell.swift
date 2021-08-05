@@ -8,7 +8,7 @@
 import UIKit
 
 class TantanganMonthlyCell: UITableViewCell {
-
+    
     @IBOutlet weak var mcImage: UIImageView!
     @IBOutlet weak var mcTitle: UILabel!
     @IBOutlet weak var mcDesc: UILabel!
@@ -22,15 +22,15 @@ class TantanganMonthlyCell: UITableViewCell {
             //mcImage.image = mc.image
             mcTitle.text = mc.title
             mcDesc.text = mc.desc
-        }
-        
-        if let mcp = mcProgress {
-            mcTextProgress.text = String(mcp.current_value)
-            
-            if mcp.status == true {
-                mcClaimPointIcon.tintColor = .green
-            } else {
-                mcClaimPointIcon.tintColor = .gray
+            if let mcp = mcProgress {
+                let currentValue = String(format: "%.0f", mcp.current_value)
+                let maxValue = String(format: "%.0f", mc.max_value)
+                mcTextProgress.text = "\(currentValue) / \(maxValue)"
+                if mcp.status == true {
+                    mcClaimPointIcon.tintColor = .green
+                } else {
+                    mcClaimPointIcon.tintColor = .gray
+                }
             }
         }
     }
@@ -40,10 +40,10 @@ class TantanganMonthlyCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     

@@ -123,6 +123,24 @@ class MonthlyChallengeDataRepository {
         return []
     }
     
+    func getMonthlyChallengebyMonth(currentMonth: Int) -> [MonthlyChallenge]? {
+        
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: montlyChallengeEntity)
+        fetchRequest.predicate = NSPredicate(format: "month == %d", currentMonth)
+        
+        do {
+            
+            let item = try context.fetch(fetchRequest) as? [MonthlyChallenge]
+            
+            return item
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return []
+    }
+    
     
     func getCurrentChallengeCompleted(month: Int) -> [MonthlyChallengeProgress]? {
         

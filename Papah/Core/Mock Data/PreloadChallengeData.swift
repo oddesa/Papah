@@ -65,16 +65,16 @@ extension CoreDataManager {
             userId: 0,
             mcId: 0,
             mcpId: 0,
-            status: false,
-            currentValue: 0
+            status: true,
+            currentValue: 1
         )
         
         MonthlyChallengeDataRepository.shared.insertMonthlyChallengeProgress(
             userId: 0,
             mcId: 1,
             mcpId: 1,
-            status: false,
-            currentValue: 0
+            status: true,
+            currentValue: 50000
         )
         
         MonthlyChallengeDataRepository.shared.insertMonthlyChallengeProgress(
