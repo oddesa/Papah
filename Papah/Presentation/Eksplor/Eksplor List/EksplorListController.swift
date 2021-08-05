@@ -267,7 +267,7 @@ extension EksplorListController: UITableViewDataSource {
             cell.wbklNameLabel.text = wbkl.name
             
             
-            if viewModel?.bukaTutupChecker(operationalDay: wbkl.operational_day ?? "Senin", operationalHour: wbkl.operational_hour ?? "10.00") == true {
+            if CommonFunction.shared.bukaTutupChecker(operationalDay: wbkl.operational_day ?? "Senin", operationalHour: wbkl.operational_hour ?? "10.00") == true {
                 cell.wbklOperationalLabel.text = "Buka" + " · " + (wbkl.operational_hour ?? " ")
                 cell.wbklOperationalLabel.textColor = .green
             } else {
