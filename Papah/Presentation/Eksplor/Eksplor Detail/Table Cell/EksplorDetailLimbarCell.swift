@@ -24,7 +24,7 @@ class EksplorDetailLimbarCell: UITableViewCell, UITextFieldDelegate {
         edtQuantity.isHidden = false
     }
     
-    func updateViewData(data: WasteAccepted?, edtQuantity: Int) {
+    func updateViewData(data: WasteAccepted?, edtQuantity: Float) {
         self.lblLimbah.text = data?.wasteCategory?.title
         self.lblLimbahDesc.text = "Estimasi \(data?.price ?? 0) per-\(data?.wasteCategory?.unit ?? "")"
         self.edtQuantity.text = edtQuantity == 0 ? "" : String(edtQuantity)

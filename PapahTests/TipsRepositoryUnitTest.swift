@@ -54,7 +54,7 @@ class TipsRepositoryUnitTest: XCTestCase {
         
         let data = tipsRepo.getAllTips()
         
-        if let result = data?.first, let tipsDetail = result.sampahDetail?.allObjects.last as? SampahDetail {
+        if let result = data?.first, let tipsDetail = result.sampahDetail?.allObjects.first as? SampahDetail {
             XCTAssertEqual(result.title, "test1")
             XCTAssertEqual(tipsDetail.title, "test2")
             expectation.fulfill()

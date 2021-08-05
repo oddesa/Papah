@@ -22,7 +22,7 @@ class EksplorDetailEarningCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateEarning(totalEarnings: Int) {
+    func updateEarning(totalEarnings: Float) {
         self.lblPrice.text = "\(totalEarnings.currencyFormatter())"
     }
     

@@ -64,7 +64,7 @@ class UserDataRepository {
         
     }
     
-    func updateTotalUang(userId: Int, income: Int) -> Bool {
+    func updateTotalUang(userId: Int, income: Int) {
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
         fetchRequest.predicate = NSPredicate(format: "user_id == %d", userId)
@@ -77,15 +77,15 @@ class UserDataRepository {
             
             user?.total_uang = totalUang + Int32(income)
             
-            return true
+            try context.save()
+
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
         
-        return false
     }
     
-    func updatePoint(userId: Int, newPoint: Float, monthlyPoint: Float) -> Bool{
+    func updatePoint(userId: Int, newPoint: Int){
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
         fetchRequest.predicate = NSPredicate(format: "user_id == %d", userId)
@@ -94,29 +94,28 @@ class UserDataRepository {
             
             let item = try context.fetch(fetchRequest) as? [User]
             let user = item?.first
-            let userPoint = user?.point ?? 0
-            let userLevel = user?.level ?? 1
+            let userPoint = Int(user?.point ?? 0)
+            let userLevel = Int(user?.level ?? 1)
             
-            let totalPoint = Float(userPoint) + newPoint + monthlyPoint
-            let userLevelScope: Float = 0
+            let totalPoint = userPoint + newPoint
+            let userLevelScope = 0
             
             if userLevelScope > totalPoint {
                 user?.point = Int32(totalPoint)
             } else if userLevelScope == totalPoint {
                 user?.point = 0
-                user?.level = userLevel + 1
+                user?.level = Int32(userLevel + 1)
             } else {
-                user?.point = Int32(totalPoint) - userPoint
-                user?.level = userLevel + 1
+                user?.point = Int32(totalPoint - userPoint)
+                user?.level = Int32(userLevel + 1)
             }
             
-            return true
-            
+            try context.save()
+
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
         
-        return false
     }
     
     

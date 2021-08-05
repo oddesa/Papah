@@ -14,4 +14,7 @@ class Constants {
     // swiftlint:enable identifier_name
     static let dataModel = "Papah"
     
+    static let claimPointDistance = 300.0 //meters
+    static let claimPointHours = 4 //hours
+    
 }
