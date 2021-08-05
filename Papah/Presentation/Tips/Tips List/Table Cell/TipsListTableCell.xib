@@ -3,21 +3,108 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TipsListTableCell" customModule="Papah" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TipsListTableCell" id="uX4-Sc-wx5" customClass="TipsListTableCell" customModule="Papah" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uX4-Sc-wx5" id="9dg-wE-ipo">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kaleng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keY-gF-F3o">
+                        <rect key="frame" x="130" y="30" width="55" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="IcF-Sd-o0L"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="b4m-B0-1HI">
+                        <rect key="frame" x="388" y="51.5" width="10" height="17.5"/>
+                        <color key="tintColor" name="chevron"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="2a3-X0-JPS"/>
+                            <constraint firstAttribute="height" constant="20" id="88H-3G-ATY"/>
+                        </constraints>
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                        </preferredSymbolConfiguration>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ini deskripsi ttg kaleng ncireuncirenenncfijernfrncirejncrvcernvcrev" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLW-J7-xzC">
+                        <rect key="frame" x="130" y="54" width="201" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="201" id="usq-Ka-Xh1"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f54-O0-4HY" customClass="DesignableView" customModule="Papah" customModuleProvider="target">
+                        <rect key="frame" x="16" y="10" width="100" height="100"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aQ2-A3-Dex">
+                                <rect key="frame" x="20" y="20.5" width="60" height="59"/>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="das-35-qWZ"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="26G-aV-NJv"/>
+                            <constraint firstItem="das-35-qWZ" firstAttribute="trailing" secondItem="aQ2-A3-Dex" secondAttribute="trailing" constant="20" id="AjZ-85-wbl"/>
+                            <constraint firstItem="das-35-qWZ" firstAttribute="bottom" secondItem="aQ2-A3-Dex" secondAttribute="bottom" constant="20" id="H58-nb-viW"/>
+                            <constraint firstAttribute="height" constant="100" id="MOr-S3-33o"/>
+                            <constraint firstItem="aQ2-A3-Dex" firstAttribute="leading" secondItem="das-35-qWZ" secondAttribute="leading" constant="20" id="VmX-Di-gH0"/>
+                            <constraint firstItem="aQ2-A3-Dex" firstAttribute="top" secondItem="das-35-qWZ" secondAttribute="top" constant="20" id="fZy-lA-Qa3"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="b4m-B0-1HI" secondAttribute="trailing" constant="16" id="6la-la-AEQ"/>
+                    <constraint firstItem="keY-gF-F3o" firstAttribute="leading" secondItem="f54-O0-4HY" secondAttribute="trailing" constant="14" id="6to-g6-ekc"/>
+                    <constraint firstItem="f54-O0-4HY" firstAttribute="leading" secondItem="9dg-wE-ipo" secondAttribute="leading" constant="16" id="Hdo-qV-R6w"/>
+                    <constraint firstItem="keY-gF-F3o" firstAttribute="top" secondItem="9dg-wE-ipo" secondAttribute="top" constant="30" id="M27-L8-fjS"/>
+                    <constraint firstItem="NLW-J7-xzC" firstAttribute="top" secondItem="keY-gF-F3o" secondAttribute="bottom" constant="2" id="Mf0-4r-t9K"/>
+                    <constraint firstItem="NLW-J7-xzC" firstAttribute="leading" secondItem="f54-O0-4HY" secondAttribute="trailing" constant="14" id="Nz9-gi-AVd"/>
+                    <constraint firstItem="b4m-B0-1HI" firstAttribute="centerY" secondItem="9dg-wE-ipo" secondAttribute="centerY" id="Stw-3s-Yzi"/>
+                    <constraint firstItem="f54-O0-4HY" firstAttribute="top" secondItem="9dg-wE-ipo" secondAttribute="top" constant="10" id="VK4-BV-KwH"/>
+                    <constraint firstItem="NLW-J7-xzC" firstAttribute="leading" secondItem="keY-gF-F3o" secondAttribute="leading" id="VPI-8f-qRa"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NLW-J7-xzC" secondAttribute="bottom" constant="10" id="Yd5-cj-Muu"/>
+                    <constraint firstAttribute="bottom" secondItem="f54-O0-4HY" secondAttribute="bottom" constant="10" id="az0-A3-Hrw"/>
+                </constraints>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="133" y="72"/>
+            <connections>
+                <outlet property="categoryLabel" destination="keY-gF-F3o" id="y3Q-vI-3ys"/>
+                <outlet property="descLabel" destination="NLW-J7-xzC" id="5on-Pz-iJP"/>
+            </connections>
+            <point key="canvasLocation" x="-459.4202898550725" y="34.151785714285715"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="trash.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="chevron">
+            <color red="0.76899999380111694" green="0.76899999380111694" blue="0.77600002288818359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

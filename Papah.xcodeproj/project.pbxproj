@@ -13,6 +13,7 @@
 		744BDF5826B18B9000F6833C /* MedaliListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744BDF5626B18B9000F6833C /* MedaliListTableViewCell.xib */; };
 		744BDF5B26B1B0CF00F6833C /* MedaliListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744BDF5926B1B0CF00F6833C /* MedaliListCollectionViewCell.swift */; };
 		744BDF5C26B1B0CF00F6833C /* MedaliListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744BDF5A26B1B0CF00F6833C /* MedaliListCollectionViewCell.xib */; };
+		744BDF5E26BAD4A800F6833C /* TipsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 744BDF5D26BAD4A800F6833C /* TipsList.storyboard */; };
 		981DDBD126ADD8CB00BB60F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866549326ADBC7D0047D2A7 /* AppDelegate.swift */; };
 		9866549626ADBC7D0047D2A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866549526ADBC7D0047D2A7 /* SceneDelegate.swift */; };
 		9866549E26ADBC7E0047D2A7 /* Papah.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9866549C26ADBC7E0047D2A7 /* Papah.xcdatamodeld */; };
@@ -58,7 +59,6 @@
 		BC2A95D926ADCFB1002AD800 /* EksplorListFilterTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95D726ADCFB1002AD800 /* EksplorListFilterTableCell.xib */; };
 		BC2A95DD26ADCFE6002AD800 /* TipsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95DC26ADCFD0002AD800 /* TipsListController.swift */; };
 		BC2A95DE26ADCFE6002AD800 /* TipsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95DA26ADCFD0002AD800 /* TipsListViewModel.swift */; };
-		BC2A95DF26ADCFE6002AD800 /* TipsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95DB26ADCFD0002AD800 /* TipsList.storyboard */; };
 		BC2A95E226ADD002002AD800 /* TipsListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95E026ADD002002AD800 /* TipsListTableCell.swift */; };
 		BC2A95E326ADD002002AD800 /* TipsListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95E126ADD002002AD800 /* TipsListTableCell.xib */; };
 		BC2A95E726ADD021002AD800 /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC2A95E426ADD00D002AD800 /* Homepage.storyboard */; };
@@ -148,6 +148,7 @@
 		744BDF5626B18B9000F6833C /* MedaliListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedaliListTableViewCell.xib; sourceTree = "<group>"; };
 		744BDF5926B1B0CF00F6833C /* MedaliListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedaliListCollectionViewCell.swift; sourceTree = "<group>"; };
 		744BDF5A26B1B0CF00F6833C /* MedaliListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedaliListCollectionViewCell.xib; sourceTree = "<group>"; };
+		744BDF5D26BAD4A800F6833C /* TipsList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TipsList.storyboard; sourceTree = "<group>"; };
 		9866549026ADBC7D0047D2A7 /* Papah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Papah.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9866549326ADBC7D0047D2A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9866549526ADBC7D0047D2A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,7 +214,6 @@
 		BC2A95D626ADCFB1002AD800 /* EksplorListFilterTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorListFilterTableCell.swift; sourceTree = "<group>"; };
 		BC2A95D726ADCFB1002AD800 /* EksplorListFilterTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorListFilterTableCell.xib; sourceTree = "<group>"; };
 		BC2A95DA26ADCFD0002AD800 /* TipsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsListViewModel.swift; sourceTree = "<group>"; };
-		BC2A95DB26ADCFD0002AD800 /* TipsList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TipsList.storyboard; sourceTree = "<group>"; };
 		BC2A95DC26ADCFD0002AD800 /* TipsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsListController.swift; sourceTree = "<group>"; };
 		BC2A95E026ADD002002AD800 /* TipsListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsListTableCell.swift; sourceTree = "<group>"; };
 		BC2A95E126ADD002002AD800 /* TipsListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TipsListTableCell.xib; sourceTree = "<group>"; };
@@ -454,7 +454,7 @@
 		986654D126ADC3A20047D2A7 /* Tips List */ = {
 			isa = PBXGroup;
 			children = (
-				BC2A95DB26ADCFD0002AD800 /* TipsList.storyboard */,
+				744BDF5D26BAD4A800F6833C /* TipsList.storyboard */,
 				BC2A95DC26ADCFD0002AD800 /* TipsListController.swift */,
 				BC2A95DA26ADCFD0002AD800 /* TipsListViewModel.swift */,
 				986654D426ADC3D50047D2A7 /* Table Cell */,
@@ -576,8 +576,8 @@
 		986654DC26ADC6510047D2A7 /* Medali List */ = {
 			isa = PBXGroup;
 			children = (
-				9866551026ADCED30047D2A7 /* MedaliListController.swift */,
 				9866551226ADCEEF0047D2A7 /* MedaliList.storyboard */,
+				9866551026ADCED30047D2A7 /* MedaliListController.swift */,
 				9866551426ADCF010047D2A7 /* MedaliListViewModel.swift */,
 				986654E426ADC8890047D2A7 /* Cell */,
 			);
@@ -662,10 +662,10 @@
 		986654E526ADC88D0047D2A7 /* Table Cell */ = {
 			isa = PBXGroup;
 			children = (
-				744BDF5126B1891300F6833C /* SubtitleTableViewCell.swift */,
 				744BDF5226B1891300F6833C /* SubtitleTableViewCell.xib */,
-				744BDF5526B18B9000F6833C /* MedaliListTableViewCell.swift */,
+				744BDF5126B1891300F6833C /* SubtitleTableViewCell.swift */,
 				744BDF5626B18B9000F6833C /* MedaliListTableViewCell.xib */,
+				744BDF5526B18B9000F6833C /* MedaliListTableViewCell.swift */,
 			);
 			path = "Table Cell";
 			sourceTree = "<group>";
@@ -880,11 +880,11 @@
 				986654A026ADBC800047D2A7 /* Assets.xcassets in Resources */,
 				986654F026ADCA530047D2A7 /* TantanganDetail.storyboard in Resources */,
 				BCB6955B26B102DE001E90F0 /* TantanganEarningCell.xib in Resources */,
+				744BDF5E26BAD4A800F6833C /* TipsList.storyboard in Resources */,
 				BC8C9B7626AE8AFC0096F0E8 /* ExplorListTableCell.xib in Resources */,
 				BC2A95E726ADD021002AD800 /* Homepage.storyboard in Resources */,
 				98BECA2826B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.xib in Resources */,
 				744BDF5426B1891400F6833C /* SubtitleTableViewCell.xib in Resources */,
-				BC2A95DF26ADCFE6002AD800 /* TipsList.storyboard in Resources */,
 				BF55702126AFCB030029BB54 /* EksplorListFilter.storyboard in Resources */,
 				BC2A95E326ADD002002AD800 /* TipsListTableCell.xib in Resources */,
 				744BDF5826B18B9000F6833C /* MedaliListTableViewCell.xib in Resources */,
