@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -27,7 +26,7 @@
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Fl9-QA-uOj" secondAttribute="bottom" constant="16" id="8W7-kk-urd"/>
                                     <constraint firstAttribute="width" secondItem="T7L-4z-vlx" secondAttribute="height" multiplier="1:1" id="NPB-7B-Xy9"/>
@@ -39,7 +38,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
@@ -92,14 +91,14 @@
             <size key="customSize" width="120" height="176"/>
             <connections>
                 <outlet property="MedaliDetail" destination="JY1-LD-uki" id="0Kc-iN-Suj"/>
+                <outlet property="medalDesc" destination="s9n-bf-SZk" id="JVi-qV-Hal"/>
+                <outlet property="medalImg" destination="Fl9-QA-uOj" id="djb-RN-Niu"/>
+                <outlet property="medalTitle" destination="4dg-20-xLH" id="tVg-6h-H6r"/>
             </connections>
             <point key="canvasLocation" x="101.44927536231884" y="192.1875"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="star.circle.fill" catalog="system" width="128" height="121"/>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>
