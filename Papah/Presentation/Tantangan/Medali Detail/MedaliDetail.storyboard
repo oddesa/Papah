@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -41,7 +42,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhatsApp Image 2021-07-19 at 08.50.13" translatesAutoresizingMaskIntoConstraints="NO" id="jZy-lz-3aj">
-                                <rect key="frame" x="53" y="266" width="308" height="308"/>
+                                <rect key="frame" x="53" y="208" width="308" height="308"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="308" id="468-84-0lT"/>
                                     <constraint firstAttribute="height" constant="308" id="9c3-vT-6mC"/>
@@ -55,15 +56,16 @@
                             <constraint firstAttribute="bottom" secondItem="V3H-Qc-Ln0" secondAttribute="bottom" constant="116" id="8Tk-7f-gyH"/>
                             <constraint firstAttribute="centerX" secondItem="c0O-Fk-2DC" secondAttribute="centerX" id="BKU-vX-NeB"/>
                             <constraint firstAttribute="trailing" secondItem="V3H-Qc-Ln0" secondAttribute="trailing" constant="20" id="JlJ-PR-cD5"/>
-                            <constraint firstItem="c0O-Fk-2DC" firstAttribute="top" secondItem="jZy-lz-3aj" secondAttribute="bottom" constant="135" id="R41-YM-JqL"/>
                             <constraint firstItem="jZy-lz-3aj" firstAttribute="centerX" secondItem="TQQ-2i-PQg" secondAttribute="centerX" id="UmL-ab-Nvq"/>
                             <constraint firstItem="V3H-Qc-Ln0" firstAttribute="leading" secondItem="TQQ-2i-PQg" secondAttribute="leading" constant="20" id="cM7-9N-yr2"/>
                             <constraint firstItem="V3H-Qc-Ln0" firstAttribute="top" secondItem="c0O-Fk-2DC" secondAttribute="bottom" constant="8" id="dY5-jL-ae3"/>
+                            <constraint firstItem="jZy-lz-3aj" firstAttribute="top" secondItem="s6g-FI-On5" secondAttribute="top" constant="120" id="qVb-6f-7aT"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="bv3-aP-8qK">
                         <barButtonItem key="rightBarButtonItem" image="square.and.arrow.up" catalog="system" id="qBt-Fg-h0f">
+                            <color key="tintColor" name="purple_one"/>
                             <connections>
                                 <action selector="shareMedaliWithSender:" destination="CMW-DR-JN2" id="xKd-hV-yvq"/>
                             </connections>
@@ -84,6 +86,9 @@
     <resources>
         <image name="WhatsApp Image 2021-07-19 at 08.50.13" width="478" height="540"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <namedColor name="purple_one">
+            <color red="0.3449999988079071" green="0.40000000596046448" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

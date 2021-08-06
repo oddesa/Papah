@@ -98,7 +98,7 @@ class UserDataRepository {
             let userLevel = Int(user?.level ?? 1)
             
             let totalPoint = userPoint + newPoint
-            let userLevelScope = 0
+            let userLevelScope = Constants.userLevelScope
             
             if userLevelScope > totalPoint {
                 user?.point = Int32(totalPoint)

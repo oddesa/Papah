@@ -27,6 +27,9 @@
                 <constraint firstAttribute="bottom" secondItem="c8T-M6-GbA" secondAttribute="bottom" constant="10" id="gPg-Dw-bPz"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="mcTitle" destination="c8T-M6-GbA" id="ihG-s6-xHr"/>
+            </connections>
             <point key="canvasLocation" x="669.56521739130437" y="149.66517857142856"/>
         </view>
     </objects>

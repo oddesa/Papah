@@ -21,7 +21,7 @@ class TantanganRewardTablecell: UITableViewCell {
     }
     
     func setData() {
-        
+        //a
         collectionView.reloadData()
         
     }

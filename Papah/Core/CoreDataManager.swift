@@ -10,13 +10,21 @@ import CoreData
 import UIKit
 
 class CoreDataManager {
-    static let sharedManager = CoreDataManager()
+    static let sharedManager = CoreDataManager(container: CoreDataManager.appScopeContainer())
     
-    lazy var persistentContainer: NSPersistentContainer = {
-        
+    var persistentContainer: NSPersistentContainer!
+    
+    //MARK: Init with dependency
+    init(container: NSPersistentContainer) {
+        self.persistentContainer = container
+    }
+    
+    func setContainer(container: NSPersistentContainer) {
+        self.persistentContainer = container
+    }
+    
+    static func appScopeContainer() -> NSPersistentContainer {
         let container = NSPersistentContainer(name: Constants.dataModel)
-        
-        
         container.loadPersistentStores(completionHandler: { (_, error) in
             
             if let error = error as NSError? {
@@ -28,7 +36,25 @@ class CoreDataManager {
         container.viewContext.automaticallyMergesChangesFromParent = true
         
         return container
-    }()
+    }
+    
+//    lazy var persistentContainer: NSPersistentContainer = {
+//
+//        let container = NSPersistentContainer(name: Constants.dataModel)
+//
+//
+//        container.loadPersistentStores(completionHandler: { (_, error) in
+//
+//            if let error = error as NSError? {
+//                fatalError("Unresolved error \(error), \(error.userInfo)")
+//            }
+//        })
+//        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+//        container.viewContext.shouldDeleteInaccessibleFaults = true
+//        container.viewContext.automaticallyMergesChangesFromParent = true
+//
+//        return container
+//    }()
     
     func saveContext () {
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
@@ -84,11 +110,9 @@ extension CoreDataManager {
             
         if WbklDataRepository.shared.getAllWbkl().count == 0 {
             preloadDataWbkl()
-            preloadBadgeCategory()
             preloadWasteCategoryofWbkl()
             preloadDataTips()
             preloadDataTipsDetail()
-            preloadBadges()
             preloadWasteCategory()
             preloadMonthlyChallenges()
             preloadMonthlyChallengeProgress()
