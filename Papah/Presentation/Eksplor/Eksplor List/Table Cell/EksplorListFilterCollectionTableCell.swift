@@ -16,7 +16,6 @@ class EksplorListFilterCollectionTableCell: UITableViewCell {
             collectionViewOtl.reloadData()
         }
     }
-    var guardianIndex = [false, false, false, false, false]
     
     private var categories = [CategoryPro]()
     let wbklRepository = WbklDataRepository.shared
