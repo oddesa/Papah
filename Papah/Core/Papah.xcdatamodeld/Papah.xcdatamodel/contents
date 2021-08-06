@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G80" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Badge" representedClassName="Badge" syncable="YES" codeGenerationType="class">
         <attribute name="badge_category_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="badge_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="date_achieved" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="image_achieved" optional="YES" attributeType="Binary"/>
         <attribute name="max_value" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="badgeCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BadgeCategory" inverseName="badge" inverseEntity="BadgeCategory"/>
@@ -108,7 +109,7 @@
         <relationship name="wasteCategory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WasteCategory" inverseName="wbkl" inverseEntity="WasteCategory"/>
     </entity>
     <elements>
-        <element name="Badge" positionX="0" positionY="153" width="128" height="164"/>
+        <element name="Badge" positionX="0" positionY="153" width="128" height="179"/>
         <element name="BadgeCategory" positionX="-9" positionY="144" width="128" height="104"/>
         <element name="BadgeProgress" positionX="-18" positionY="135" width="128" height="134"/>
         <element name="MonthlyChallenge" positionX="-27" positionY="126" width="128" height="209"/>

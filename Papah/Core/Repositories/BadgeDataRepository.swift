@@ -22,7 +22,8 @@ class BadgeDataRepository {
                      desc: String,
                      maxValue: Float,
                      dateAchv: Date,
-                     image: UIImage) {
+                     image: UIImage,
+                     imgAchieved: UIImage) {
         
         do {
             let context = CoreDataManager.sharedManager.persistentContainer.viewContext
@@ -36,6 +37,7 @@ class BadgeDataRepository {
             badge.max_value = maxValue
             badge.date_achieved = dateAchv
             badge.image = image.jpegData(compressionQuality: 1.0)
+            badge.image_achieved = imgAchieved.jpegData(compressionQuality: 1.0)
             
             if let badgeCategory = getBadgeCategoryById(id: badgeCategoryId) {
                 badge.badgeCategory = badgeCategory
@@ -199,6 +201,28 @@ class BadgeDataRepository {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: badgeProgressEntity)
+        
+        do {
+            
+            let item = try context.fetch(fetchRequest) as? [BadgeProgress]
+            
+            return item
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return []
+    }
+    
+    func getBadgeProgressByUserId(userId: Int) -> [BadgeProgress]?{
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: badgeProgressEntity)
+        /*let statusSortDescriptor = NSSortDescriptor(key: #keyPath(BadgeProgress.status), ascending: true)
+        let valueSortDescriptor = NSSortDescriptor(key: #keyPath(BadgeProgress.current_value), ascending: true)
+        
+        //gak jalan TT
+        fetchRequest.sortDescriptors = [statusSortDescriptor, valueSortDescriptor]*/
+        fetchRequest.predicate = NSPredicate(format: "user_id == %d", userId)
         
         do {
             

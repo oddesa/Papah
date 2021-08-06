@@ -15,7 +15,7 @@ class TantanganEarningCell: UITableViewCell {
     func updateDataView(userData: User?){
         if let user = userData {
             let userMoney = Int(user.total_uang).currencyFormatter()
-            descForLevelUp.text = "Kumpulkan 500 poin lagi untuk naik level"
+            descForLevelUp.text = "Total uang terkumpul dari penjualan limbah"
             moneyValue.text = "\(userMoney)"
         }
     }

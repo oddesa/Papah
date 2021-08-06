@@ -12,6 +12,7 @@ class TantanganRewardTablecell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
 
     var onDidSelectItem: ((IndexPath) -> ())?
+    var badgeProgressData: [BadgeProgress] = []
 
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -20,8 +21,9 @@ class TantanganRewardTablecell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData() {
-        //a
+    func setData(badgeData: [BadgeProgress]?) {
+        badgeProgressData = badgeData ?? []
+        
         collectionView.reloadData()
         
     }
@@ -59,12 +61,22 @@ extension TantanganRewardTablecell: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return badgeProgressData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TantanganRewardCell", for: indexPath) as! TantanganRewardCell
+        
+        let currentValue = String(format: "%.0f", badgeProgressData[indexPath.row].current_value)
+        let maxValue =  String(format: "%.0f",badgeProgressData[indexPath.row].badge?.max_value ?? 0)
+        let imgAchieved = UIImage(data:badgeProgressData[indexPath.row].badge?.image_achieved ?? Data())
+        let imgNotAchieved = UIImage(data:badgeProgressData[indexPath.row].badge?.image ?? Data())
+        let img =  badgeProgressData[indexPath.row].status ?  imgAchieved : imgNotAchieved
+        
+        cell.montlyChallengenTitle.text = badgeProgressData[indexPath.row].badge?.title
+        cell.monthlyChallengeDesc.text =  badgeProgressData[indexPath.row].status ? "Finished" : "\(currentValue) dari \(maxValue) selesai"
+        cell.monthlyChallengeImg.image = img
         
         return cell
     }

@@ -19,12 +19,15 @@ class TantanganMonthlyCell: UITableViewCell {
     
     func updateDataView(mcProgress: MonthlyChallengeProgress?) {
         if let mcp = mcProgress {
+            let maxValueFloat = Float(mcp.monthlyChallenge?.max_value ?? 0)
             let currentValue = String(format: "%.0f", mcp.current_value)
-            let maxValue = String(format: "%.0f", Float(mcp.monthlyChallenge?.max_value ?? 0))
+            let maxValue = String(format: "%.0f", maxValueFloat)
+           
             //mcImage.image = mc.image
             mcTitle.text = mcp.monthlyChallenge?.title
             mcDesc.text = mcp.monthlyChallenge?.desc
             mcTextProgress.text = "\(currentValue) / \(maxValue)"
+            mcProgressBar.progress = mcp.current_value / maxValueFloat
 
             if mcp.status == true {
                 mcClaimPointDesc.text = "Kamu telah klaim 300 poin"

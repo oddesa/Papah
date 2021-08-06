@@ -8,18 +8,14 @@
 import UIKit
 
 class MedaliListController: MVVMViewController<MedaliListViewModel>   {
-
+    
     @IBOutlet var tableView: UITableView!
     
     let subtitleText = ["Tantangan Bulanan", "Tantangan Lainnya"]
     
-    var medaliBulanan = ["Tantangan Juni", "Tantangan Juli"]
-    var medaliLainnya = ["Veteran", "Crazy Rich Kurcaci", "Professor Limbah", "Kurcaci Guru"]
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupTableView()
     }
 }
@@ -47,16 +43,56 @@ extension MedaliListController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = self.tableViewIdentifier()[indexPath.row]
+        let badgeProgress = self.viewModel?.badgeProgress
+        
         switch identifier {
         case MedaliListTableViewCell.identifier:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? MedaliListTableViewCell else {
                 return UITableViewCell()
             }
+            let temp = badgeProgress ?? []
+            var mbData = [BadgeProgress]()
+            var medalData = [BadgeProgress]()
             
-            cell.onDidSelectItem = {(indexPath) in
-                let mdData = MedaliDetailData(image: UIImage.whatsAppImage20210719At085013, title: "akhirnya bisa yolo", desc: "kunci dari ngoding adalah tidur apabila pusyang berkepanjangan")
-                let mdDatas = [mdData]
-                self.navigationController?.pushViewController(MedaliDetailController.instantiateStoryboard(viewModel: MedaliDetailViewModel(datasVM: mdDatas)), animated: true)
+            for i in 0..<temp.count {
+                if temp[i].badge?.badge_category_id == 4 {
+                    mbData.append(temp[i])
+                }
+                if temp[i].badge?.badge_category_id != 4 {
+                    medalData.append(temp[i])
+                }
+            }
+            
+            if indexPath.row == 1 {
+                cell.setData(bpData: mbData, tableIndex: indexPath.row)
+                cell.onDidSelectItem = {(i) in
+                    let badge = mbData[i.row].badge
+                    let imgAchieved = badge?.image_achieved ?? Data()
+                    let imgNotAchieved = badge?.image ?? Data()
+                    let img = mbData[i.row].status ?  imgAchieved : imgNotAchieved
+                    
+                    let title =   badge?.title ?? ""
+                    let desc =  badge?.desc ?? ""
+                    let mdData = MedaliDetailData(image: UIImage(data: img) ?? UIImage(), title: title , desc:desc)
+                    
+                    let mdDatas = [mdData]
+                    self.navigationController?.pushViewController(MedaliDetailController.instantiateStoryboard(viewModel: MedaliDetailViewModel(datasVM: mdDatas)), animated: true)
+                }
+            } else if indexPath.row == 3 {
+                cell.setData(bpData: medalData, tableIndex: indexPath.row)
+                cell.onDidSelectItem = {(i) in
+                    let badge = medalData[i.row].badge
+                    let imgAchieved = badge?.image_achieved ?? Data()
+                    let imgNotAchieved = badge?.image ?? Data()
+                    let img = medalData[i.row].status ?  imgAchieved : imgNotAchieved
+      
+                    let title =   badge?.title ?? ""
+                    let desc =  badge?.desc ?? ""
+                    let mdData = MedaliDetailData(image: UIImage(data: img) ?? UIImage(), title: title , desc:desc)
+                    
+                    let mdDatas = [mdData]
+                    self.navigationController?.pushViewController(MedaliDetailController.instantiateStoryboard(viewModel: MedaliDetailViewModel(datasVM: mdDatas)), animated: true)
+                }
             }
             
             return cell
@@ -64,9 +100,26 @@ extension MedaliListController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? SubtitleTableViewCell else {
                 return UITableViewCell()
             }
+            
+            cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0);
+            if indexPath.row == 0 {
+                cell.updateTitleLabel(title: subtitleText[0])
+            } else if indexPath.row == 2 {
+                cell.updateTitleLabel(title: subtitleText[1])
+            }
+            
+            
             return cell
         default:
             return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 3 {
+            return tableView.bounds.height
+        } else {
+            return UITableView.automaticDimension
         }
     }
 }

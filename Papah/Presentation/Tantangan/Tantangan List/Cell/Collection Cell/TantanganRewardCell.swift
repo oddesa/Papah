@@ -12,6 +12,7 @@ class TantanganRewardCell: UICollectionViewCell {
     @IBOutlet weak var viewContent: DesignableView!
     @IBOutlet weak var montlyChallengenTitle: UILabel!
     @IBOutlet weak var monthlyChallengeDesc: UILabel!
+    @IBOutlet weak var monthlyChallengeImg: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -42,6 +42,8 @@ extension TantanganDetailController: UITableViewDataSource {
         cell.guideTitle.text = cdData?.title
         cell.guideDesc.text = cdData?.desc
         
+        cell.guideImage.tintColor = UIColor.purpleTwo
+        
         return cell
     }
     
