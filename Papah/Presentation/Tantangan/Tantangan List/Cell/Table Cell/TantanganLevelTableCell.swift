@@ -22,6 +22,8 @@ class TantanganLevelTableCell: UITableViewCell {
             userPoin.text = userPoint
             levelValue.text = "\(userPoint) / 500"
             pointLeftDesc.text = "Kumpulkan 500 poin lagi untuk naik level"
+            
+            levelProgressBar.progress = Float(user.point)/500
         }
     }
     

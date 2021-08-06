@@ -24,22 +24,16 @@ class MedaliDetailController: MVVMViewController<MedaliDetailViewModel>  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let badgeData = self.viewModel?.datas[0]
+        
+        medaliTitle.text = badgeData?.title
+        medaliDescription.text = badgeData?.desc
+        medaliImage.image = badgeData?.image
+        
 //        UIImageView.image = UIImage(named: "whatsapp")
 //        UIImageView.backgroundColor = .red
 //        UIImageView.ContentMode = .scaleAspectFill
 //        UIImageView.layer.borderColor = .blue
-
-        // Do any additional setup after loading the view.
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

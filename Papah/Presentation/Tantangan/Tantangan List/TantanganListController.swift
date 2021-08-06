@@ -50,7 +50,7 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
             identifiers.append(TantanganEarningCell.cellIdentifier())
         }
         if section == sectionMonthly {
-            if let monthlyChallengeData = self.viewModel?.getMonthlyChallenge(currentMonth: 8) {
+            if let monthlyChallengeData = self.viewModel?.getMonthlyChallenge(currentMonth: Date().month) {
                 for _ in monthlyChallengeData {
                     identifiers.append(TantanganMonthlyCell.cellIdentifier())
                 }
@@ -117,7 +117,7 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
 //            headerView.tmpilkanOutlet as! UIButton
             
             headerView.onDidSelectItem = { () in
-                self.navigationController?.pushViewController(MedaliListController.instantiateStoryboard(viewModel: MedaliListViewModel(dummy: 4)), animated: true)
+                self.navigationController?.pushViewController(MedaliListController.instantiateStoryboard(viewModel: MedaliListViewModel(badges: self.viewModel?.badgeProgress ?? [])), animated: true)
             }
 
             return headerView
@@ -185,7 +185,7 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
 
             }
             
-            cell.setData()
+            cell.setData(badgeData: self.viewModel?.getAllBadgesProgress(userId: 0))
           
             cell.selectionStyle = .none
             

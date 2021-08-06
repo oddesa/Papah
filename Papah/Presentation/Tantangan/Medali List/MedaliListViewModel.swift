@@ -8,9 +8,21 @@
 import UIKit
 
 class MedaliListViewModel: NSObject {
+    
+    var badgeProgress: [BadgeProgress]?
+    var badges: [Badge]?
 
-    init(dummy: Int) {
-        
+    init(badges: [BadgeProgress]) {
+        badgeProgress = badges
+    }
+    
+    func getBadgeProgressData() -> [BadgeProgress]{
+        return badgeProgress ?? []
+    }
+    
+    func getBadgeData(index: Int) -> Badge?{
+        let data = badgeProgress?[index].badge ?? nil
+        return data
     }
     
 }

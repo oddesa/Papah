@@ -27,7 +27,7 @@
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="nSo-oJ-LKb" secondAttribute="trailing" constant="16" id="HHY-Yp-7xp"/>
                                     <constraint firstItem="nSo-oJ-LKb" firstAttribute="leading" secondItem="onS-Lo-GqL" secondAttribute="leading" constant="16" id="JSn-hY-nsu"/>
@@ -86,6 +86,7 @@
             <size key="customSize" width="120" height="176"/>
             <connections>
                 <outlet property="monthlyChallengeDesc" destination="jBp-Bw-0jZ" id="wT4-gn-1FS"/>
+                <outlet property="monthlyChallengeImg" destination="nSo-oJ-LKb" id="TRv-Tw-9xO"/>
                 <outlet property="montlyChallengenTitle" destination="fZK-g4-NIj" id="oSK-GJ-IXm"/>
                 <outlet property="viewContent" destination="onS-Lo-GqL" id="4Zf-H1-aLu"/>
             </connections>
@@ -96,9 +97,6 @@
         <image name="star.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

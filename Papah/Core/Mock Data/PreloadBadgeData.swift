@@ -18,6 +18,9 @@ extension CoreDataManager {
         BadgeDataRepository.shared.insertBadgeProgress(badgeId: 3, bpId: 3, userId: 0, currentValue: 0, status: false)
         BadgeDataRepository.shared.insertBadgeProgress(badgeId: 4, bpId: 4, userId: 0, currentValue: 0, status: false)
         BadgeDataRepository.shared.insertBadgeProgress(badgeId: 5, bpId: 5, userId: 0, currentValue: 0, status: false)
+        //monthly challenge
+        BadgeDataRepository.shared.insertBadgeProgress(badgeId: 6, bpId: 6, userId: 0, currentValue: 2, status: true)
+        BadgeDataRepository.shared.insertBadgeProgress(badgeId: 7, bpId: 7, userId: 0, currentValue: 0, status: false)
 
     }
     
@@ -31,7 +34,8 @@ extension CoreDataManager {
             desc: "Peroleh medali ini ketika kamu berhasil menyalurkan total 15 kg sampah inorganik. Sejauh ini kamu sudah mengumpulkan ",
             maxValue: 15,
             dateAchv: Date(),
-            image: UIImage()
+            image: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemGray) ?? UIImage(),
+            imgAchieved: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemYellow) ?? UIImage()
         )
         BadgeDataRepository.shared.insertBadge(
             badgeId: 1,
@@ -40,7 +44,8 @@ extension CoreDataManager {
             desc: "Peroleh medali ini ketika anda berhasil mencapai Level 5. Saat ini kamu sudah ada di Level ",
             maxValue: 5,
             dateAchv: Date(),
-            image: UIImage()
+            image: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemGray) ?? UIImage(),
+            imgAchieved: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemYellow) ?? UIImage()
         )
         BadgeDataRepository.shared.insertBadge(
             badgeId: 2,
@@ -49,7 +54,8 @@ extension CoreDataManager {
             desc: "Peroleh medali ini ketika kamu berhasil mengumpulkan total Rp50k dari hasil penyaluran sampah inorganik. Sejauh ini kamu telah mengumpulkan Rp.",
             maxValue: 1000,
             dateAchv: Date(),
-            image: UIImage()
+            image: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemGray) ?? UIImage(),
+            imgAchieved: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemYellow) ?? UIImage()
         )
         BadgeDataRepository.shared.insertBadge(
             badgeId: 3,
@@ -58,26 +64,20 @@ extension CoreDataManager {
             desc: "Peroleh medali ini ketika kamu berhasil menyalurkan 5 kategori sampah inorganik yang berbeda. Sejauh ini kamu sudah menyalurkan sekian kategori sampah.",
             maxValue: 5,
             dateAchv: Date(),
-            image: UIImage()
+            image: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemGray) ?? UIImage(),
+            imgAchieved: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemYellow) ?? UIImage()
         )
         BadgeDataRepository.shared.insertBadge(
-            badgeId: 4,
+            badgeId: 6,
             badgeCategoryId: 4,
             title: "Tantangan Juli",
-            desc: "Peroleh medali ini ketika kamu berhasil menyelesaikan 2 tantangan bulan Agustus. Sejauh ini kamu telah menyelesaikan ",
+            desc: "Peroleh medali ini ketika kamu berhasil menyelesaikan 2 tantangan bulan Juli. Sejauh ini kamu telah menyelesaikan ",
             maxValue: 2,
             dateAchv: Date(),
-            image: UIImage()
+            image: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemGray) ?? UIImage(),
+            imgAchieved: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemYellow) ?? UIImage()
         )
-        BadgeDataRepository.shared.insertBadge(
-            badgeId: 5,
-            badgeCategoryId: 4,
-            title: "Tantangan Agustus",
-            desc: "Peroleh medali ini ketika kamu berhasil menyelesaikan 2 tantangan bulan Agustus. Sejauh ini kamu telah menyelesaikan ",
-            maxValue: 2,
-            dateAchv: Date(),
-            image: UIImage()
-        )
+       
     }
     
     //konfirm sama wurie

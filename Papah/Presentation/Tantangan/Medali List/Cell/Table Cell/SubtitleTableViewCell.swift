@@ -13,6 +13,10 @@ class SubtitleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var subtitleLabel: UILabel!
     
+    func updateTitleLabel(title: String){
+        subtitleLabel.text = title
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

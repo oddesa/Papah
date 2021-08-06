@@ -10,12 +10,16 @@ import UIKit
 class MedaliListTableViewCell: UITableViewCell {
 
     static let identifier = "MedaliListTableViewCell"
+    var tableIndex = 0
+    var badgeProgressData: [BadgeProgress] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     var onDidSelectItem: ((IndexPath) -> ())?
     
-    func setData() {
+    func setData(bpData: [BadgeProgress]?, tableIndex: Int) {
+        badgeProgressData = bpData ?? []
+        
         collectionView.reloadData()
     }
     
@@ -31,7 +35,14 @@ extension MedaliListTableViewCell: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let yourWidth = collectionView.bounds.width/3.0
-        let yourHeight = collectionView.bounds.height
+        var yourHeight = collectionView.bounds.height
+        
+        if badgeProgressData[indexPath.row].badge?.badge_category_id != 4 {
+            yourHeight = collectionView.bounds.height/4.0
+        } else {
+            yourHeight = collectionView.bounds.height
+        }
+        
         
         return CGSize(width: yourWidth, height: yourHeight)
     }
@@ -49,7 +60,7 @@ extension MedaliListTableViewCell: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return badgeProgressData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -59,6 +70,15 @@ extension MedaliListTableViewCell: UICollectionViewDataSource, UICollectionViewD
             .dequeueReusableCell(withReuseIdentifier:
             "MedaliListCollectionViewCell", for: indexPath) as!
             MedaliListCollectionViewCell
+        
+        
+        let currentValue = String(format: "%.0f", badgeProgressData[indexPath.row].current_value)
+        let maxValue =  String(format: "%.0f",badgeProgressData[indexPath.row].badge?.max_value ?? 0)
+        let desc = badgeProgressData[indexPath.row].status ? "Finished" : "\(currentValue) dari \(maxValue) selesai"
+        
+        cell.medalTitle.text = badgeProgressData[indexPath.row].badge?.title
+        cell.medalDesc.text = desc
+        cell.medalImg.image = badgeProgressData[indexPath.row].status ? UIImage(data: badgeProgressData[indexPath.row].badge?.image_achieved ?? Data()) :  UIImage(data:badgeProgressData[indexPath.row].badge?.image ?? Data())
         
             return cell
     }

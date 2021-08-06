@@ -10,6 +10,7 @@ import UIKit
 class TantanganListViewModel: NSObject {
     var user: User?
     var badges: Badge?
+    var badgeProgress: [BadgeProgress]?
     
     func getUserData() -> User? {
         if user == nil {
@@ -26,8 +27,8 @@ class TantanganListViewModel: NSObject {
         return MonthlyChallengeDataRepository.shared.getMCPByUserIdAndMonth(userId: 0, currentMonth: currentMonth)
     }
     
-    func getAllBadges() -> [Badge]?{
-        //sort by status == true
-        return BadgeDataRepository.shared.getAllBadges()
+    func getAllBadgesProgress(userId: Int) -> [BadgeProgress]?{
+        badgeProgress = BadgeDataRepository.shared.getBadgeProgressByUserId(userId: userId)
+        return badgeProgress
     }
 }
