@@ -9,13 +9,22 @@ import UIKit
 
 class EksplorListCollectionCell: UICollectionViewCell {
     
-    
+   
     @IBOutlet weak var categoryBtn: DesignableButton!
-    var onDidSelectItem: (() -> ())?
+    
     @IBAction func categoryBtnPressed(_ sender: Any) {
         isActive = !isActive
         self.onDidSelectItem?()
     }
+    var onDidSelectItem: (() -> ())?
+    
+//    var filterPassinganColCell = [WasteCategory]() {
+//        didSet{
+//            if
+//        }
+//    }
+    
+    
     // Note: must be strong
     @IBOutlet private var maxWidthConstraint: NSLayoutConstraint! {
         didSet {
@@ -34,7 +43,6 @@ class EksplorListCollectionCell: UICollectionViewCell {
             contentView.topAnchor.constraint(equalTo: topAnchor),
             contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-        
         setupCellView()
     }
 
@@ -44,7 +52,7 @@ class EksplorListCollectionCell: UICollectionViewCell {
         }
     }
     
-    private func setupCellView () {
+    func setupCellView () {
         if isActive == true {
             categoryBtn.backgroundColor = .iconIolite.withAlphaComponent(0.15)
             categoryBtn.borderColor = .iconIolite.withAlphaComponent(0.6)
@@ -53,7 +61,7 @@ class EksplorListCollectionCell: UICollectionViewCell {
             categoryBtn.setTitleColor(.iconIolite, for: .normal)
         } else {
             categoryBtn.borderWidth = 0.5
-            categoryBtn.backgroundColor = .white
+            categoryBtn.backgroundColor = .backgroundPrimary
             categoryBtn.borderColor = .black
             categoryBtn.tintColor = .black
             categoryBtn.setTitleColor(.black, for: .normal)

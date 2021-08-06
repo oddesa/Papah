@@ -8,29 +8,24 @@
 import UIKit
 
 
+
 class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel> {
     
-    
+    var delegate: isAbleToReceiveData?
     @IBOutlet weak var wasteFilterTable: UITableView!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     
     @IBAction func donePressed(_ sender: UIButton) {
-        self.dismiss(animated: true) {
-            let controller = MVVMViewController<EksplorListController>()
-            controller.viewModel?.filterCategories = self.dataPassinga
-            print("berhasil dipassing")
-////            controller.viewModel?.filterCategories =
-            
-//            self.navigationController?.children[1].
-        }
-        
+        delegate?.pass(categories: dataPassingan)
+        self .dismiss(animated: true, completion: nil)
         
     }
     
     @IBAction func resetPressed(_ sender: UIButton) {
         //reset all filter
         // swiftlint:disable identifier_name
+        dataPassingan.removeAll()
         for i in 0..<filterData.count {
             // swiftlint:enable identifier_name
             if filterData[i].isSelected == true {
@@ -45,11 +40,11 @@ class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel
     var filterData = [CategoryPro]() {
         didSet{
             for filter in filterData {
-                print(filter.categoryData.title)
+//                print(filter.categoryData.title)
             }
         }
     }
-    var dataPassinga: [WasteCategory] = []
+    var dataPassingan: [WasteCategory] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,22 +81,31 @@ extension EksplorListFilterController {
 
 //MARK: Tableview
 extension EksplorListFilterController: UITableViewDataSource, UITableViewDelegate {
+   
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "filterCell") as! EksplorListFilterTableCell
         let imageDummy: UIImage = .whatsAppImage20210719At085013
         let filter = filterData[indexPath.row]
         cell.wasteIcon.image = imageDummy
         cell.wasteTitle.text = filter.categoryData.title
-        if filter.isSelected == false {
-            cell.wasteChecklist.isHidden = true
-        } else {
+        if dataPassingan.contains(filter.categoryData) {
             cell.wasteChecklist.isHidden = false
+        } else {
+            cell.wasteChecklist.isHidden = true
         }
         
         cell.wasteIcon.contentMode = UIView.ContentMode.scaleAspectFill
         cell.wasteIcon.layer.masksToBounds = false
         cell.wasteIcon.clipsToBounds = true
         cell.wasteIcon.layer.cornerRadius = cell.wasteIcon.frame.size.width / 2
+        
+        if dataPassingan.contains(filter.categoryData) {
+            cell.wasteChecklist.isHidden = false
+        } else {
+            cell.wasteChecklist.isHidden = true
+        }
+        
+//        cell.backgroundColor =
         
         return cell
     }
@@ -110,15 +114,15 @@ extension EksplorListFilterController: UITableViewDataSource, UITableViewDelegat
         guard let cell = tableView.cellForRow(at: indexPath) as? EksplorListFilterTableCell else {
                return
            }
-        
-        if filterData[indexPath.row].isSelected == false {
+        if !(dataPassingan.contains(filterData[indexPath.row].categoryData)) {
             filterData[indexPath.row].isSelected = true
             cell.wasteChecklist.isHidden = false
-            dataPassinga.append(filterData[indexPath.row].categoryData)
+            dataPassingan.append(filterData[indexPath.row].categoryData)
+            print(dataPassingan.count)
         } else {
             filterData[indexPath.row].isSelected = false
             cell.wasteChecklist.isHidden = true
-//            dataPassinga.filter(<#T##isIncluded: (CategoryPro) throws -> Bool##(CategoryPro) throws -> Bool#>)
+            dataPassingan = dataPassingan.filter {$0 != filterData[indexPath.row].categoryData}
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

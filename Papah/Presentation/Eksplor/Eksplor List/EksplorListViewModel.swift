@@ -115,26 +115,39 @@ class EksplorListViewModel: NSObject {
     
     func distanceBetweenTwoLocations(source: CLLocation, destination: CLLocation) -> Double {
         let distanceMeters = source.distance(from: destination)
-        let distanceKM = distanceMeters / 1000
-        let roundedTwoDigit = distanceKM.rounded()
-        return roundedTwoDigit
+//        let distanceKM = distanceMeters / 1000
+//        let roundedTwoDigit = distanceKM.rounded()
+        return distanceMeters
     }
     
     func getLocationDistance(userLocation: CLLocation, wbklData: Wbkl) -> Double {
             
-//            print("WBKL LOC \(wbklData.latitude) : \(wbklData.longitude)")
-//            print("USER LOC \(userLocation.coordinate.latitude) : \(userLocation.coordinate.longitude)")
-
-            let targetLocation = CLLocation(latitude: Double(wbklData.latitude), longitude: Double(wbklData.longitude))
-            let userLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-
-//            print("""
-//                user loc = \(userLocation)
-//                target loc = \(targetLocation)
-//                distance = \(distanceBetweenTwoLocations(source: targetLocation, destination: userLocation)) KM
-//                """)
-            return distanceBetweenTwoLocations(source: targetLocation, destination: userLocation)
-            
-
+        //            print("WBKL LOC \(wbklData.latitude) : \(wbklData.longitude)")
+        //            print("USER LOC \(userLocation.coordinate.latitude) : \(userLocation.coordinate.longitude)")
+        
+        let targetLocation = CLLocation(latitude: Double(wbklData.latitude), longitude: Double(wbklData.longitude))
+        let userLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        return distanceBetweenTwoLocations(source: targetLocation, destination: userLocation)
+        
+        //            print("""
+        //                user loc = \(userLocation)
+        //                target loc = \(targetLocation)
+        //                distance = \(distanceBetweenTwoLocations(source: targetLocation, destination: userLocation)) KM
+        //                """)
+    }
+    
+    func locationDistanceString(distanceInMeter: Double) -> String {
+        var distanceInMeter = distanceInMeter
+        var distanceInString: String
+        if distanceInMeter >= 1000 {
+            let distanceInKM = distanceInMeter / 1000
+            let distanceInKMRounded = distanceInKM.rounded()
+            distanceInString = "\(distanceInKMRounded) km"
+        }
+        else {
+            distanceInMeter = distanceInMeter.rounded()
+            distanceInString = "\(distanceInMeter) m"
+        }
+        return distanceInString
     }
 }

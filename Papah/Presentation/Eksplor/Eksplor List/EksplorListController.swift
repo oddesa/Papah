@@ -8,7 +8,18 @@
 import UIKit
 import CoreLocation
 
-class EksplorListController: MVVMViewController<EksplorListViewModel> {
+protocol isAbleToReceiveData {
+    func pass(categories: [WasteCategory])
+}
+
+class EksplorListController: MVVMViewController<EksplorListViewModel>, isAbleToReceiveData {
+    func pass(categories: [WasteCategory]) {
+        filterCategories = []
+        for cat in categories {
+            filterCategories.append(cat)
+        }
+        tableViewOutlet.reloadData()
+    }
     
     
     
@@ -207,9 +218,12 @@ extension EksplorListController: UITableViewDataSource {
         //EksplorListFilterCollectionTableCell
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "EksplorListFilterCollectionTableCell", for: indexPath) as? EksplorListFilterCollectionTableCell else {fatalError("identifiernya salah anying")}
+            
             cell.onDidSelectItem = { () in
-                let controller = EksplorListFilterController.instantiateStoryboard(viewModel: EksplorListFilterViewModel())
-                self.navigationController?.present(controller, animated: true, completion: nil)
+                let controller = EksplorListFilterController.instantiateStoryboard(viewModel: EksplorListFilterViewModel()) as? EksplorListFilterController
+                controller?.delegate = self
+                controller?.dataPassingan = self.filterCategories
+                self.navigationController?.present(controller!, animated: true, completion: nil)
             }
             
             cell.onDidSelectItemSecond = { (category) in
@@ -223,13 +237,14 @@ extension EksplorListController: UITableViewDataSource {
                 }
             }
             
+            cell.filterPassingan = self.filterCategories
+            
             if filterCategories.count == 0 {
                 cell.filterBtn.borderWidth = 0.5
                 cell.filterBtn.backgroundColor = .white
                 cell.filterBtn.borderColor = .black
                 cell.filterBtn.tintColor = .black
                 cell.filterBtn.setTitleColor(.black, for: .normal)
-                print("Bisa nih3")
             } else {
                 cell.filterBtn.backgroundColor = .iconIolite.withAlphaComponent(0.15)
                 cell.filterBtn.borderColor = .iconIolite.withAlphaComponent(0.6)
@@ -238,7 +253,7 @@ extension EksplorListController: UITableViewDataSource {
                 cell.filterBtn.setTitleColor(.iconIolite, for: .normal)
                 print("Bisa nih2")
             }
-            
+            cell.backgroundColor = .backgroundPrimary
             cell.selectionStyle = .none
             return cell
             
@@ -254,8 +269,9 @@ extension EksplorListController: UITableViewDataSource {
             
             if let currentLocation = (viewModel?.userLocation?.last) {
                 let distance = viewModel?.getLocationDistance(userLocation: currentLocation, wbklData: wbkl)
-                cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(distance!) km"
-                if distance! < 5815 {
+                let distanceInString = viewModel?.locationDistanceString(distanceInMeter: distance ?? 1000)
+                cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(distanceInString!)"
+                if distance! < Constants.claimPointDistance {
                     cell.nearMarker.backgroundColor = .green
                 } else {
                     cell.nearMarker.backgroundColor = .clear
@@ -265,6 +281,7 @@ extension EksplorListController: UITableViewDataSource {
                 cell.nearMarker.backgroundColor = .clear
             }
             cell.wbklNameLabel.text = wbkl.name
+            cell.wbklPhoto.image = UIImage(data: wbkl.image ?? Data())
             
             
             if CommonFunction.shared.bukaTutupChecker(operationalDay: wbkl.operational_day ?? "Senin", operationalHour: wbkl.operational_hour ?? "10.00") == true {
@@ -290,12 +307,14 @@ extension EksplorListController: UITableViewDataSource {
             
             for putih in putihputih {
                 putih?.alpha = 1
+                putih?.backgroundColor = .backgroundSecondary
             }
             
             
             for int in 0..<categories.count {
                 if int < 3 {
                     textPutihPutih[int]?.text = categories[int]
+                    textPutihPutih[int]?.textColor = .textPrimary
                 } else {
                     textPutihPutih[3]?.text = "+\(categories.count-3)"
                 }
@@ -308,6 +327,7 @@ extension EksplorListController: UITableViewDataSource {
             for putih in putihputih {
                 putih?.alpha = 0
             }
+            cell.backgroundColor = .backgroundPrimary
             cell.selectionStyle = .none
             return cell
         }
@@ -335,6 +355,9 @@ extension EksplorListController: CLLocationManagerDelegate {
         viewModel?.locationManager.delegate = self
         viewModel?.locationManager.requestWhenInUseAuthorization()
         viewModel?.locationManager.requestLocation()
+        viewModel?.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        viewModel?.locationManager.distanceFilter = kCLDistanceFilterNone
+        viewModel?.locationManager.startUpdatingLocation()
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
