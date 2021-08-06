@@ -18,6 +18,7 @@ class EksplorListController: MVVMViewController<EksplorListViewModel>, isAbleToR
         for cat in categories {
             filterCategories.append(cat)
         }
+        tableViewOutlet.reloadData()
     }
     
     
@@ -217,6 +218,7 @@ extension EksplorListController: UITableViewDataSource {
         //EksplorListFilterCollectionTableCell
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "EksplorListFilterCollectionTableCell", for: indexPath) as? EksplorListFilterCollectionTableCell else {fatalError("identifiernya salah anying")}
+            
             cell.onDidSelectItem = { () in
                 let controller = EksplorListFilterController.instantiateStoryboard(viewModel: EksplorListFilterViewModel()) as? EksplorListFilterController
                 controller?.delegate = self
@@ -235,13 +237,14 @@ extension EksplorListController: UITableViewDataSource {
                 }
             }
             
+            cell.filterPassingan = self.filterCategories
+            
             if filterCategories.count == 0 {
                 cell.filterBtn.borderWidth = 0.5
                 cell.filterBtn.backgroundColor = .white
                 cell.filterBtn.borderColor = .black
                 cell.filterBtn.tintColor = .black
                 cell.filterBtn.setTitleColor(.black, for: .normal)
-                print("Bisa nih3")
             } else {
                 cell.filterBtn.backgroundColor = .iconIolite.withAlphaComponent(0.15)
                 cell.filterBtn.borderColor = .iconIolite.withAlphaComponent(0.6)

@@ -18,7 +18,6 @@ class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel
     
     @IBAction func donePressed(_ sender: UIButton) {
         delegate?.pass(categories: dataPassingan)
-        print("berhasil dipassing")
         self .dismiss(animated: true, completion: nil)
         
     }
@@ -41,7 +40,7 @@ class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel
     var filterData = [CategoryPro]() {
         didSet{
             for filter in filterData {
-                print(filter.categoryData.title)
+//                print(filter.categoryData.title)
             }
         }
     }
@@ -113,7 +112,6 @@ extension EksplorListFilterController: UITableViewDataSource, UITableViewDelegat
         guard let cell = tableView.cellForRow(at: indexPath) as? EksplorListFilterTableCell else {
                return
            }
-        
         if !(dataPassingan.contains(filterData[indexPath.row].categoryData)) {
             filterData[indexPath.row].isSelected = true
             cell.wasteChecklist.isHidden = false
