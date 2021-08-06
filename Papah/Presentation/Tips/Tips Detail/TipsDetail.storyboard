@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tips Detail Controller-->
+        <!--Plastik-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="TipsDetailController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="TipsDetailController" customModule="Papah" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,81 +17,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" backIndicatorImage="chevron.left" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="RlQ-A2-gdk">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Plastik" id="4yT-Zh-ADg"/>
-                                </items>
-                            </navigationBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zwB-wu-nme">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nei-Pn-TX8">
-                                    <size key="itemSize" width="264" height="667"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tipsDetailCell" id="EUN-5g-F1a" customClass="TipsDetailCollectionCell" customModule="Papah" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="53.5" width="264" height="667"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dGs-0h-UZu">
-                                            <rect key="frame" x="0.0" y="0.0" width="264" height="667"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="WhatsApp Image 2021-07-19 at 08.50.13" translatesAutoresizingMaskIntoConstraints="NO" id="Z5a-S6-7kB">
-                                                    <rect key="frame" x="12" y="0.0" width="240" height="491"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Memilah Plastik" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqx-fc-gPH">
-                                                    <rect key="frame" x="12" y="499" width="240" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Caranya adalah lalalalala" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vxc-9D-rvB">
-                                                    <rect key="frame" x="12" y="528" width="240" height="128"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <color key="textColor" systemColor="labelColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Tqx-fc-gPH" firstAttribute="top" secondItem="Z5a-S6-7kB" secondAttribute="bottom" constant="8" id="6cO-5V-sHp"/>
-                                                <constraint firstItem="vxc-9D-rvB" firstAttribute="leading" secondItem="dGs-0h-UZu" secondAttribute="leadingMargin" constant="4" id="KjJ-2L-KFK"/>
-                                                <constraint firstItem="Z5a-S6-7kB" firstAttribute="leading" secondItem="dGs-0h-UZu" secondAttribute="leadingMargin" constant="4" id="PKO-AZ-w3J"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="vxc-9D-rvB" secondAttribute="trailing" constant="4" id="Q4Y-Y3-7eS"/>
-                                                <constraint firstItem="Tqx-fc-gPH" firstAttribute="leading" secondItem="dGs-0h-UZu" secondAttribute="leadingMargin" constant="4" id="dlf-3K-CEI"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Tqx-fc-gPH" secondAttribute="trailing" constant="4" id="gbh-Ms-xK4"/>
-                                                <constraint firstItem="vxc-9D-rvB" firstAttribute="top" secondItem="Tqx-fc-gPH" secondAttribute="bottom" constant="8" id="iOD-iU-MDw"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="vxc-9D-rvB" secondAttribute="bottom" id="r0O-Dj-YNG"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Z5a-S6-7kB" secondAttribute="trailing" constant="4" id="zWW-ze-y6s"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="264" height="667"/>
-                                        <connections>
-                                            <outlet property="tipsDesc" destination="vxc-9D-rvB" id="fN1-Br-qwY"/>
-                                            <outlet property="tipsImage" destination="Z5a-S6-7kB" id="sOq-bM-JL0"/>
-                                            <outlet property="tipsTitle" destination="Tqx-fc-gPH" id="SBG-Xo-RJy"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ESO-u4-dB1">
-                                <rect key="frame" x="146" y="814" width="123" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="pageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="currentPageIndicatorTintColor" systemColor="systemIndigoColor"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RqZ-XD-7RB">
+                                <rect key="frame" x="20" y="108" width="374" height="516"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memilih limbah" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7S-lq-blF">
+                                <rect key="frame" x="20" y="644" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1o-HE-6hb">
+                                <rect key="frame" x="20" y="672.5" width="374" height="122"/>
+                                <string key="text">Caranya adalah satu dua tiga empat lima enam tujuh delapan Caranya adalah satu dua tiga empat lima enam tujuh delapan Caranya adalah satu dua tiga empat lima enam tujuh delapan Caranya adalah satu dua tiga empat lima enam tujuh delapan </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="eKe-Zg-uv7">
+                                <rect key="frame" x="145.5" y="814.5" width="123" height="27.5"/>
+                                <color key="pageIndicatorTintColor" name="separator"/>
+                                <color key="currentPageIndicatorTintColor" name="text_primary"/>
+                                <connections>
+                                    <action selector="pageChanged:" destination="Y6W-OH-hqX" eventType="valueChanged" id="UML-Qa-Y9X"/>
+                                </connections>
                             </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="eKe-Zg-uv7" secondAttribute="bottom" constant="20" id="1cc-8A-V8N"/>
+                            <constraint firstItem="eKe-Zg-uv7" firstAttribute="top" secondItem="Z1o-HE-6hb" secondAttribute="bottom" constant="20" id="2la-N1-xav"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="C7S-lq-blF" secondAttribute="trailing" constant="20" id="41q-HD-8ez"/>
+                            <constraint firstItem="Z1o-HE-6hb" firstAttribute="top" secondItem="C7S-lq-blF" secondAttribute="bottom" constant="8" id="BJJ-hT-pTN"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Z1o-HE-6hb" secondAttribute="trailing" constant="20" id="NUx-qI-J39"/>
+                            <constraint firstItem="RqZ-XD-7RB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="Rbg-dz-8Ug"/>
+                            <constraint firstItem="RqZ-XD-7RB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="dyN-hk-o1O"/>
+                            <constraint firstItem="C7S-lq-blF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="fvr-EP-bnT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="RqZ-XD-7RB" secondAttribute="trailing" constant="20" id="hzz-Pi-pg8"/>
+                            <constraint firstItem="Z1o-HE-6hb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="uXv-rA-xnr"/>
+                            <constraint firstItem="C7S-lq-blF" firstAttribute="top" secondItem="RqZ-XD-7RB" secondAttribute="bottom" constant="20" id="wvc-UE-jTp"/>
+                            <constraint firstItem="eKe-Zg-uv7" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="zmd-0n-PPv"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Plastik" id="wC2-29-eV1"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="tipsDetailCollection" destination="zwB-wu-nme" id="7li-hc-Lpg"/>
+                        <outlet property="pageControl" destination="eKe-Zg-uv7" id="Pcl-B8-LDB"/>
+                        <outlet property="tipsDesc" destination="Z1o-HE-6hb" id="Ldz-Ym-cA2"/>
+                        <outlet property="tipsImageScrollView" destination="RqZ-XD-7RB" id="uxc-Jh-lBy"/>
+                        <outlet property="tipsTitle" destination="C7S-lq-blF" id="3IE-OX-qGa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -100,16 +74,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="WhatsApp Image 2021-07-19 at 08.50.13" width="478" height="540"/>
-        <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="separator">
+            <color red="0.72500002384185791" green="0.72500002384185791" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="text_primary">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
