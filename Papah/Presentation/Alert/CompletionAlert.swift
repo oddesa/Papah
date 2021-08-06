@@ -15,6 +15,7 @@ class CompletionAlert: UIViewController {
 
     weak var delegate: CompletionAlertProtocol?
 
+    @IBOutlet weak var lblPointClaim: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +24,8 @@ class CompletionAlert: UIViewController {
         blurFxView.frame = view.bounds
         blurFxView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.insertSubview(blurFxView, at: 0)
+        
+        self.lblPointClaim.text = "Kamu berhasil mengklaim \(Constants.claimPointWBKL) poin dari penyaluran limbah"
 
     }
     
