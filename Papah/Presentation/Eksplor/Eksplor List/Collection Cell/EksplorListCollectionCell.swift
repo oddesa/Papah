@@ -11,6 +11,7 @@ class EksplorListCollectionCell: UICollectionViewCell {
     
    
     @IBOutlet weak var categoryBtn: DesignableButton!
+    
     @IBAction func categoryBtnPressed(_ sender: Any) {
         isActive = !isActive
         self.onDidSelectItem?()
@@ -42,7 +43,6 @@ class EksplorListCollectionCell: UICollectionViewCell {
             contentView.topAnchor.constraint(equalTo: topAnchor),
             contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-        
         setupCellView()
     }
 
@@ -61,7 +61,7 @@ class EksplorListCollectionCell: UICollectionViewCell {
             categoryBtn.setTitleColor(.iconIolite, for: .normal)
         } else {
             categoryBtn.borderWidth = 0.5
-            categoryBtn.backgroundColor = .white
+            categoryBtn.backgroundColor = .backgroundPrimary
             categoryBtn.borderColor = .black
             categoryBtn.tintColor = .black
             categoryBtn.setTitleColor(.black, for: .normal)

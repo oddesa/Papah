@@ -105,6 +105,8 @@ extension EksplorListFilterController: UITableViewDataSource, UITableViewDelegat
             cell.wasteChecklist.isHidden = true
         }
         
+//        cell.backgroundColor =
+        
         return cell
     }
     

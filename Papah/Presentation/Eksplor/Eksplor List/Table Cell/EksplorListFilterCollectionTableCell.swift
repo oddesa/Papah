@@ -122,7 +122,6 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
             cell.isActive = true
             print("-------------------aaaa kepassing tapi active -----------------")
         } else {
-            guardianIndex[indexPath.row] = false
             cell.isActive = false
             print("-------------------aaaa kepassing false-----------------")
         }

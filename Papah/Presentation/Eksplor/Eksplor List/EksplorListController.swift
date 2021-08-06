@@ -253,7 +253,7 @@ extension EksplorListController: UITableViewDataSource {
                 cell.filterBtn.setTitleColor(.iconIolite, for: .normal)
                 print("Bisa nih2")
             }
-            
+            cell.backgroundColor = .backgroundPrimary
             cell.selectionStyle = .none
             return cell
             
@@ -307,12 +307,14 @@ extension EksplorListController: UITableViewDataSource {
             
             for putih in putihputih {
                 putih?.alpha = 1
+                putih?.backgroundColor = .backgroundSecondary
             }
             
             
             for int in 0..<categories.count {
                 if int < 3 {
                     textPutihPutih[int]?.text = categories[int]
+                    textPutihPutih[int]?.textColor = .textPrimary
                 } else {
                     textPutihPutih[3]?.text = "+\(categories.count-3)"
                 }
@@ -325,6 +327,7 @@ extension EksplorListController: UITableViewDataSource {
             for putih in putihputih {
                 putih?.alpha = 0
             }
+            cell.backgroundColor = .backgroundPrimary
             cell.selectionStyle = .none
             return cell
         }
