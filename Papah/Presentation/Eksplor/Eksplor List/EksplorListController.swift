@@ -70,6 +70,7 @@ class EksplorListController: MVVMViewController<EksplorListViewModel>, isAbleToR
 //            print(filter.title)
 //            print(filterCategories.count)
 //        }
+        tableViewOutlet.separatorColor = .separator
         tableViewOutlet.reloadData()
     }
 }
@@ -84,6 +85,7 @@ extension EksplorListController: UISearchResultsUpdating, UISearchControllerDele
         searchBarCont.obscuresBackgroundDuringPresentation = false
         searchBarCont.searchBar.setValue("Batalkan", forKey: "cancelButtonText")
         searchBarCont.searchBar.placeholder = "Agen Sampah"
+        searchBarCont.searchBar.tintColor = .iconIolite
     }
     
     func didDismissSearchController(_ searchController: UISearchController) {
@@ -241,10 +243,10 @@ extension EksplorListController: UITableViewDataSource {
             
             if filterCategories.count == 0 {
                 cell.filterBtn.borderWidth = 0.5
-                cell.filterBtn.backgroundColor = .white
-                cell.filterBtn.borderColor = .black
-                cell.filterBtn.tintColor = .black
-                cell.filterBtn.setTitleColor(.black, for: .normal)
+                cell.filterBtn.backgroundColor = .backgroundPrimary
+                cell.filterBtn.borderColor = .chevron
+                cell.filterBtn.tintColor = .textPrimary
+                cell.filterBtn.setTitleColor(.textPrimary, for: .normal)
             } else {
                 cell.filterBtn.backgroundColor = .iconIolite.withAlphaComponent(0.15)
                 cell.filterBtn.borderColor = .iconIolite.withAlphaComponent(0.6)

@@ -38,7 +38,7 @@ class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel
     var filterArr = [String]()
     var selectedFilter = [Int]()
     var filterData = [CategoryPro]() {
-        didSet{
+        didSet {
             for filter in filterData {
 //                print(filter.categoryData.title)
             }
@@ -70,7 +70,7 @@ extension EksplorListFilterController {
     
     func tableViewSetup() {
         wasteFilterTable.layer.masksToBounds = true
-        wasteFilterTable.backgroundColor = UIColor(red: 241.0 / 255.0, green: 242.0 / 255.0, blue: 246.0 / 255.0, alpha: 1.0)
+//        wasteFilterTable.backgroundColor = UIColor(red: 241.0 / 255.0, green: 242.0 / 255.0, blue: 246.0 / 255.0, alpha: 1.0)
         
         let header  = UIView(frame: CGRect(x: 0, y: 0, width: wasteFilterTable.frame.width, height: 0.5))
         header.backgroundColor = .separator
@@ -99,13 +99,12 @@ extension EksplorListFilterController: UITableViewDataSource, UITableViewDelegat
         cell.wasteIcon.clipsToBounds = true
         cell.wasteIcon.layer.cornerRadius = cell.wasteIcon.frame.size.width / 2
         
+        
         if dataPassingan.contains(filter.categoryData) {
             cell.wasteChecklist.isHidden = false
         } else {
             cell.wasteChecklist.isHidden = true
         }
-        
-//        cell.backgroundColor =
         
         return cell
     }
