@@ -220,6 +220,7 @@ extension EksplorListController: UITableViewDataSource {
             cell.onDidSelectItem = { () in
                 let controller = EksplorListFilterController.instantiateStoryboard(viewModel: EksplorListFilterViewModel()) as? EksplorListFilterController
                 controller?.delegate = self
+                controller?.dataPassingan = self.filterCategories
                 self.navigationController?.present(controller!, animated: true, completion: nil)
             }
             
@@ -265,8 +266,9 @@ extension EksplorListController: UITableViewDataSource {
             
             if let currentLocation = (viewModel?.userLocation?.last) {
                 let distance = viewModel?.getLocationDistance(userLocation: currentLocation, wbklData: wbkl)
-                cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(distance!) km"
-                if distance! < 5815 {
+                let distanceInString = viewModel?.locationDistanceString(distanceInMeter: distance ?? 1000)
+                cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(distanceInString!)"
+                if distance! < Constants.claimPointDistance {
                     cell.nearMarker.backgroundColor = .green
                 } else {
                     cell.nearMarker.backgroundColor = .clear
@@ -276,6 +278,7 @@ extension EksplorListController: UITableViewDataSource {
                 cell.nearMarker.backgroundColor = .clear
             }
             cell.wbklNameLabel.text = wbkl.name
+            cell.wbklPhoto.image = UIImage(data: wbkl.image ?? Data())
             
             
             if CommonFunction.shared.bukaTutupChecker(operationalDay: wbkl.operational_day ?? "Senin", operationalHour: wbkl.operational_hour ?? "10.00") == true {
@@ -346,6 +349,9 @@ extension EksplorListController: CLLocationManagerDelegate {
         viewModel?.locationManager.delegate = self
         viewModel?.locationManager.requestWhenInUseAuthorization()
         viewModel?.locationManager.requestLocation()
+        viewModel?.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        viewModel?.locationManager.distanceFilter = kCLDistanceFilterNone
+        viewModel?.locationManager.startUpdatingLocation()
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)

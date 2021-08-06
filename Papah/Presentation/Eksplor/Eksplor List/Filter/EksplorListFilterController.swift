@@ -17,7 +17,7 @@ class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel
     @IBOutlet weak var resetButton: UIButton!
     
     @IBAction func donePressed(_ sender: UIButton) {
-        delegate?.pass(categories: dataPassinga)
+        delegate?.pass(categories: dataPassingan)
         print("berhasil dipassing")
         self .dismiss(animated: true, completion: nil)
         
@@ -26,6 +26,7 @@ class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel
     @IBAction func resetPressed(_ sender: UIButton) {
         //reset all filter
         // swiftlint:disable identifier_name
+        dataPassingan.removeAll()
         for i in 0..<filterData.count {
             // swiftlint:enable identifier_name
             if filterData[i].isSelected == true {
@@ -44,7 +45,7 @@ class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel
             }
         }
     }
-    var dataPassinga: [WasteCategory] = []
+    var dataPassingan: [WasteCategory] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,22 +82,29 @@ extension EksplorListFilterController {
 
 //MARK: Tableview
 extension EksplorListFilterController: UITableViewDataSource, UITableViewDelegate {
+   
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "filterCell") as! EksplorListFilterTableCell
         let imageDummy: UIImage = .whatsAppImage20210719At085013
         let filter = filterData[indexPath.row]
         cell.wasteIcon.image = imageDummy
         cell.wasteTitle.text = filter.categoryData.title
-        if filter.isSelected == false {
-            cell.wasteChecklist.isHidden = true
-        } else {
+        if dataPassingan.contains(filter.categoryData) {
             cell.wasteChecklist.isHidden = false
+        } else {
+            cell.wasteChecklist.isHidden = true
         }
         
         cell.wasteIcon.contentMode = UIView.ContentMode.scaleAspectFill
         cell.wasteIcon.layer.masksToBounds = false
         cell.wasteIcon.clipsToBounds = true
         cell.wasteIcon.layer.cornerRadius = cell.wasteIcon.frame.size.width / 2
+        
+        if dataPassingan.contains(filter.categoryData) {
+            cell.wasteChecklist.isHidden = false
+        } else {
+            cell.wasteChecklist.isHidden = true
+        }
         
         return cell
     }
@@ -106,15 +114,15 @@ extension EksplorListFilterController: UITableViewDataSource, UITableViewDelegat
                return
            }
         
-        if filterData[indexPath.row].isSelected == false {
+        if !(dataPassingan.contains(filterData[indexPath.row].categoryData)) {
             filterData[indexPath.row].isSelected = true
             cell.wasteChecklist.isHidden = false
-            dataPassinga.append(filterData[indexPath.row].categoryData)
-            print(dataPassinga.count)
+            dataPassingan.append(filterData[indexPath.row].categoryData)
+            print(dataPassingan.count)
         } else {
             filterData[indexPath.row].isSelected = false
             cell.wasteChecklist.isHidden = true
-//            dataPassinga.filter(<#T##isIncluded: (CategoryPro) throws -> Bool##(CategoryPro) throws -> Bool#>)
+            dataPassingan = dataPassingan.filter {$0 != filterData[indexPath.row].categoryData}
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
