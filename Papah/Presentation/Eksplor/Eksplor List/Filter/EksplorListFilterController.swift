@@ -8,23 +8,18 @@
 import UIKit
 
 
+
 class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel> {
     
-    
+    var delegate: isAbleToReceiveData?
     @IBOutlet weak var wasteFilterTable: UITableView!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     
     @IBAction func donePressed(_ sender: UIButton) {
-        self.dismiss(animated: true) {
-            let controller = MVVMViewController<EksplorListController>()
-            controller.viewModel?.filterCategories = self.dataPassinga
-            print("berhasil dipassing")
-////            controller.viewModel?.filterCategories =
-            
-//            self.navigationController?.children[1].
-        }
-        
+        delegate?.pass(categories: dataPassinga)
+        print("berhasil dipassing")
+        self .dismiss(animated: true, completion: nil)
         
     }
     
@@ -115,6 +110,7 @@ extension EksplorListFilterController: UITableViewDataSource, UITableViewDelegat
             filterData[indexPath.row].isSelected = true
             cell.wasteChecklist.isHidden = false
             dataPassinga.append(filterData[indexPath.row].categoryData)
+            print(dataPassinga.count)
         } else {
             filterData[indexPath.row].isSelected = false
             cell.wasteChecklist.isHidden = true

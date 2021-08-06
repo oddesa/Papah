@@ -18,6 +18,7 @@ class TipsRepositoryUnitTest: XCTestCase {
         super.tearDown()
         tipsRepo.deleteAllTips()
     }
+    
     func test_tipsInsertData() {
         
         let expectation = self.expectation(description: "Should return correct data")

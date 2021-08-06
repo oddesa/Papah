@@ -8,7 +8,17 @@
 import UIKit
 import CoreLocation
 
-class EksplorListController: MVVMViewController<EksplorListViewModel> {
+protocol isAbleToReceiveData {
+    func pass(categories: [WasteCategory])
+}
+
+class EksplorListController: MVVMViewController<EksplorListViewModel>, isAbleToReceiveData {
+    func pass(categories: [WasteCategory]) {
+        filterCategories = []
+        for cat in categories {
+            filterCategories.append(cat)
+        }
+    }
     
     
     
@@ -208,8 +218,9 @@ extension EksplorListController: UITableViewDataSource {
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "EksplorListFilterCollectionTableCell", for: indexPath) as? EksplorListFilterCollectionTableCell else {fatalError("identifiernya salah anying")}
             cell.onDidSelectItem = { () in
-                let controller = EksplorListFilterController.instantiateStoryboard(viewModel: EksplorListFilterViewModel())
-                self.navigationController?.present(controller, animated: true, completion: nil)
+                let controller = EksplorListFilterController.instantiateStoryboard(viewModel: EksplorListFilterViewModel()) as? EksplorListFilterController
+                controller?.delegate = self
+                self.navigationController?.present(controller!, animated: true, completion: nil)
             }
             
             cell.onDidSelectItemSecond = { (category) in

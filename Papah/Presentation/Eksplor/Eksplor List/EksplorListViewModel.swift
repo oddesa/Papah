@@ -115,9 +115,9 @@ class EksplorListViewModel: NSObject {
     
     func distanceBetweenTwoLocations(source: CLLocation, destination: CLLocation) -> Double {
         let distanceMeters = source.distance(from: destination)
-        let distanceKM = distanceMeters / 1000
-        let roundedTwoDigit = distanceKM.rounded()
-        return roundedTwoDigit
+//        let distanceKM = distanceMeters / 1000
+//        let roundedTwoDigit = distanceKM.rounded()
+        return distanceMeters
     }
     
     func getLocationDistance(userLocation: CLLocation, wbklData: Wbkl) -> Double {
