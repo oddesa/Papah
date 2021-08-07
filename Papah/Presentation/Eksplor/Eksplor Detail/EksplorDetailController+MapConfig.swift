@@ -116,5 +116,4 @@ extension EksplorDetailController: CLLocationManagerDelegate {
         }
         print("\nlocationManager(): \(error.localizedDescription)")
     }
-    
 }

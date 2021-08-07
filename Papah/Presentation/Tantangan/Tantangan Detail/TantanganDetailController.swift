@@ -21,10 +21,10 @@ class TantanganDetailController: MVVMViewController<TantanganDetailViewModel> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         nibSetup()
         tableViewSetup()
         navigationController?.navigationBar.tintColor = .purpleTwo
+        navBar.tintColor = .purpleTwo
     }
 }
 

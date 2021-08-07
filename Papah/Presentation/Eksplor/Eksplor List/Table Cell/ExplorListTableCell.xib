@@ -33,7 +33,7 @@
                                 <rect key="frame" x="0.0" y="40" width="229" height="18"/>
                                 <color key="tintColor" systemColor="systemBlueColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <color key="textColor" name="text_secondary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutup · 19.00 – 03.00 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCI-zh-sQn" customClass="PaddingLabel" customModule="Papah" customModuleProvider="target">
@@ -57,7 +57,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="button_small"/>
                                 <constraints>
                                     <constraint firstItem="q52-m8-6vm" firstAttribute="leading" secondItem="mrc-5E-jeC" secondAttribute="leading" constant="10" id="4FI-If-ToT"/>
                                     <constraint firstAttribute="trailing" secondItem="q52-m8-6vm" secondAttribute="trailing" constant="10" id="6rO-IV-UZj"/>
@@ -87,7 +87,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="button_small"/>
                                 <constraints>
                                     <constraint firstItem="Sf5-te-2MZ" firstAttribute="leading" secondItem="nzu-nd-gyz" secondAttribute="leading" constant="10" id="52U-LH-VOe"/>
                                     <constraint firstItem="Sf5-te-2MZ" firstAttribute="top" secondItem="nzu-nd-gyz" secondAttribute="top" constant="5" id="JEj-5I-e8w"/>
@@ -110,7 +110,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="button_small"/>
                                 <constraints>
                                     <constraint firstItem="yUi-Tc-QoF" firstAttribute="top" secondItem="6V9-Pt-UNI" secondAttribute="top" constant="5" id="TDO-SQ-GOg"/>
                                     <constraint firstItem="yUi-Tc-QoF" firstAttribute="leading" secondItem="6V9-Pt-UNI" secondAttribute="leading" constant="10" id="cLk-yb-VOC"/>
@@ -133,7 +133,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="button_small"/>
                                 <constraints>
                                     <constraint firstItem="XNV-hH-wQ9" firstAttribute="leading" secondItem="BPQ-CH-6lB" secondAttribute="leading" constant="10" id="0rT-7s-ZKT"/>
                                     <constraint firstAttribute="trailing" secondItem="XNV-hH-wQ9" secondAttribute="trailing" constant="10" id="L99-eE-avd"/>
@@ -224,8 +224,14 @@
         <namedColor name="background_primary">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="button_small">
+            <color red="0.94499999284744263" green="0.94900000095367432" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="icon_sapphire">
             <color red="0.0" green="0.5690000057220459" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="text_secondary">
+            <color red="0.54100000858306885" green="0.54100000858306885" blue="0.55699998140335083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

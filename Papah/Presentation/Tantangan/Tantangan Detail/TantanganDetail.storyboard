@@ -61,6 +61,7 @@ dari penyaluran limbah </string>
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qvl-Qd-uCn">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="tintColor" name="purple_two"/>
                                 <color key="barTintColor" name="background_primary"/>
                                 <items>
                                     <navigationItem id="0up-V3-biS">
@@ -68,6 +69,7 @@ dari penyaluran limbah </string>
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Cc2-vp-9o7">
                                                 <rect key="frame" x="302" y="7" width="92" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <state key="normal" title="Selesai">
                                                     <color key="titleColor" name="purple_two"/>
                                                 </state>
