@@ -57,9 +57,8 @@ class EksplorListViewModel: NSObject {
     }
     
     func getWbklBasedOnSearch(text: String, dataWbkl: [WbklPro],
-                              filterCategories: [WasteCategory]) -> [WbklPro] {
+                              filterCategories: [WasteCategory]) {
         
-        var allWbkl = [WbklPro]()
         let splited = text.components(separatedBy: " ")
     
         if text.count == 0 {
@@ -116,7 +115,6 @@ class EksplorListViewModel: NSObject {
                 allWbkl = (rearrangeArray(array: allWbkl, fromIndex: idx!, toIndex: 0))
             }
         }
-        return allWbkl
     }
     
     // MARK: - Duplicate Remover Logic (non hashable)
@@ -182,6 +180,12 @@ class EksplorListViewModel: NSObject {
         }
         let sortedWbklsJarak = sortBasedOnDistance(wbklPros: wbklsPro)
         return sortedWbklsJarak
+    }
+    
+    
+    func returnWbklsBasedOnCat(filterCategories: [WasteCategory]) {
+        allWbkl = turnWbklsPro()
+        allWbkl = filterBasedOnCat(allWbkl: allWbkl, filterCategories: filterCategories)
     }
     
     // MARK: - Distance Logic

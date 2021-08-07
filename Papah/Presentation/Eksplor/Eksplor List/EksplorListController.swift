@@ -19,8 +19,7 @@ class EksplorListController: MVVMViewController<EksplorListViewModel>, isAbleToR
     
     var filterCategories: [WasteCategory] = [] {
         didSet {
-            viewModel?.allWbkl = viewModel?.turnWbklsPro() ?? []
-            viewModel?.allWbkl = (viewModel?.filterBasedOnCat(allWbkl: viewModel?.allWbkl ?? [], filterCategories: filterCategories))!
+            viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories)
             tableViewOutlet.reloadData()
         }
     }
@@ -31,7 +30,7 @@ class EksplorListController: MVVMViewController<EksplorListViewModel>, isAbleToR
         setupLocationManager()
         setupSearchController()
         setupNib()
-        viewModel?.allWbkl = viewModel?.turnWbklsPro() ?? []
+        viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories)
         tableViewOutlet.separatorColor = .separator
         tableViewOutlet.reloadData()
     }
@@ -59,9 +58,7 @@ extension EksplorListController: UISearchResultsUpdating, UISearchControllerDele
     }
     
     func didDismissSearchController(_ searchController: UISearchController) {
-        guard var dataWbkl = viewModel?.turnWbklsPro() else {return}
-        dataWbkl = (viewModel?.filterBasedOnCat(allWbkl: dataWbkl, filterCategories: filterCategories))!
-        viewModel?.allWbkl = dataWbkl
+        viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories)
         tableViewOutlet.reloadData()
     }
     
@@ -71,7 +68,7 @@ extension EksplorListController: UISearchResultsUpdating, UISearchControllerDele
         }
         guard var dataWbkl = viewModel?.turnWbklsPro() else {return}
         dataWbkl = (viewModel?.filterBasedOnCat(allWbkl: dataWbkl, filterCategories: filterCategories))!
-        viewModel?.allWbkl = viewModel?.getWbklBasedOnSearch(text: text, dataWbkl: dataWbkl, filterCategories: filterCategories) ?? []
+        viewModel?.getWbklBasedOnSearch(text: text, dataWbkl: dataWbkl, filterCategories: filterCategories)
         tableViewOutlet.reloadData()
     }
     
@@ -248,7 +245,7 @@ extension EksplorListController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         viewModel?.userLocation = locations
-        viewModel?.allWbkl = viewModel?.turnWbklsPro() ?? []
+        viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories)
         tableViewOutlet.reloadData()
     }
 }

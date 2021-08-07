@@ -24,12 +24,7 @@ class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel
     @IBAction func resetPressed(_ sender: UIButton) {
         // swiftlint:disable identifier_name
         viewModel!.dataPassingan.removeAll()
-        for i in 0..<(viewModel?.filterData.count)! {
-            // swiftlint:enable identifier_name
-            if viewModel?.filterData[i].isSelected == true {
-                viewModel?.filterData[i].isSelected = false
-            }
-        }
+        viewModel?.resetFilterData()
         wasteFilterTable.reloadData()
     }
     
@@ -38,7 +33,6 @@ class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.viewModel = EksplorListFilterViewModel()
         nibSetup()
         tableViewSetup()
         
@@ -60,8 +54,6 @@ extension EksplorListFilterController {
     
     func tableViewSetup() {
         wasteFilterTable.layer.masksToBounds = true
-//        wasteFilterTable.backgroundColor = UIColor(red: 241.0 / 255.0, green: 242.0 / 255.0, blue: 246.0 / 255.0, alpha: 1.0)
-        
         let header  = UIView(frame: CGRect(x: 0, y: 0, width: wasteFilterTable.frame.width, height: 0.5))
         header.backgroundColor = .separator
         wasteFilterTable.tableHeaderView = header

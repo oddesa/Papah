@@ -27,6 +27,16 @@ class EksplorListFilterViewModel: NSObject {
         return removeDuplicatesCategories(categories: categories)
     }
     
+    func resetFilterData() {
+        // swiftlint:disable identifier_name
+        for i in 0..<(filterData.count) {
+            // swiftlint:enable identifier_name
+            if filterData[i].isSelected == true {
+                filterData[i].isSelected = false
+            }
+        }
+    }
+    
     func removeDuplicatesCategories(categories: [WasteCategory]) -> [WasteCategory] {
         var uniques = [WasteCategory]()
         for cat in categories {
