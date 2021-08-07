@@ -14,8 +14,15 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnClaimPoint: DesignableButton!
-    @IBOutlet weak var lblClaimPointDetail: UILabel!
-    
+    @IBOutlet weak var lblRequirementLocation: UILabel!
+    @IBOutlet weak var lblRequirementOpen: UILabel!
+    @IBOutlet weak var lblRequirementHour: UILabel!
+    @IBOutlet weak var lblRequirementCategory: UILabel!
+    @IBOutlet weak var checkRequirementLocation: UIImageView!
+    @IBOutlet weak var checkRequirementOpen: UIImageView!
+    @IBOutlet weak var checkRequirementHour: UIImageView!
+    @IBOutlet weak var checkRequirementCategory: UIImageView!
+
     private var trashBag = Set<AnyCancellable>()
 
     let sectionDetail = 0
@@ -32,19 +39,22 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
         
         registerNib()
         attemptLocationAccess()
-        updateView()
+        setupView()
         setupViewModel()
     }
     
-    func updateView(){
+    func setupView(){
         self.title = self.viewModel?.wbklData?.name ?? ""
-        
+        self.lblRequirementOpen.text = L10n.claimPointRequirementOpen
+        self.lblRequirementLocation.text = "\(L10n.claimPointRequirementLocation(Constants.claimPointDistance))"
+        self.lblRequirementHour.text = L10n.claimPointRequirementHour(Constants.claimPointHours)
+        self.lblRequirementCategory.text = L10n.claimPointRequirementCategory(Constants.claimPoinCategory)
+
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
  
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
-
 
     }
     
@@ -75,16 +85,64 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
     }
     
     func setupViewModel(){
-        self.viewModel?.onClaimPointReady.sink(receiveValue: { isReady in
-            if !isReady {
-                self.btnClaimPoint.isUserInteractionEnabled = false
-                self.btnClaimPoint.backgroundColor = .disabled
-            } else {
-                self.btnClaimPoint.backgroundColor = .iconIolite
-                self.btnClaimPoint.isUserInteractionEnabled = true
-            }
+        self.viewModel?.onRequirementCheck.sink(receiveValue: { requirementCheck in
+           
+            self.updateClaimPointState(requirement: requirementCheck)
+            
         }).store(in: &trashBag)
         
+    }
+    
+    func updateClaimPointState(requirement: EksplorDetailViewModel.RequirementCheck){
+        
+        if requirement.category {
+            self.checkRequirementCategory.tintColor = .systemGreen
+            self.lblRequirementCategory.textColor = .systemGreen
+        } else {
+            self.checkRequirementCategory.tintColor = .systemRed
+            self.lblRequirementCategory.textColor = .systemRed
+        }
+        
+        if requirement.hour {
+            self.checkRequirementHour.tintColor = .systemGreen
+            self.lblRequirementHour.textColor = .systemGreen
+            self.lblRequirementHour.text = L10n.claimPointRequirementHour(Constants.claimPointHours)
+        } else {
+            self.checkRequirementHour.tintColor = .systemRed
+            self.lblRequirementHour.textColor = .systemRed
+            self.lblRequirementHour.text = "\(L10n.claimPointRequirementHour(Constants.claimPointHours)) (\(self.viewModel?.getHourLeftToClaimPoint() ?? ""))"
+        }
+
+        if requirement.isOpen {
+            self.checkRequirementOpen.tintColor = .systemGreen
+            self.lblRequirementOpen.textColor = .systemGreen
+        } else {
+            self.checkRequirementOpen.tintColor = .systemRed
+            self.lblRequirementOpen.textColor = .systemRed
+        }
+        
+        if locationManager.authorizationStatus == .denied ||
+            locationManager.authorizationStatus == .notDetermined ||
+            locationManager.authorizationStatus == .restricted {
+            self.checkRequirementLocation.tintColor = .systemRed
+            self.lblRequirementLocation.textColor = .systemRed
+        } else {
+            if requirement.location {
+                self.checkRequirementLocation.tintColor = .systemGreen
+                self.lblRequirementLocation.textColor = .systemGreen
+            } else {
+                self.checkRequirementLocation.tintColor = .systemRed
+                self.lblRequirementLocation.textColor = .systemRed
+            }
+        }
+        
+        if requirement.category && requirement.hour && requirement.isOpen && requirement.location  {
+            self.btnClaimPoint.backgroundColor = .iconIolite
+            self.btnClaimPoint.isUserInteractionEnabled = true
+        } else {
+            self.btnClaimPoint.isUserInteractionEnabled = false
+            self.btnClaimPoint.backgroundColor = .disabled
+        }
     }
     
 }
