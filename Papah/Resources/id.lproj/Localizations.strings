@@ -1,0 +1,12 @@
+/*
+  Localization.strings
+  Papah
+
+  Created by Dhiky Aldwiansyah on 07/08/21.
+  
+*/
+
+"claim_point_requirement_location" = "Mengizinkan lokasi dan berada kurang dari sampai dengan %@ meter dari Agen sampah";
+"claim_point_requirement_open" = "Agen sampah yang dikunjungi berstatus “Buka”";
+"claim_point_requirement_hour" = "Kamu dapat mengklaim poin setiap %@ jam";
+"claim_point_requirement_category" = "Memasukan minimal %@ kategori limbah";
