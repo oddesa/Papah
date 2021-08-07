@@ -113,6 +113,8 @@
 		BCCA0A0A26B11D0E00C2DD6F /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0A0926B11D0E00C2DD6F /* DynamicHeightCollectionView.swift */; };
 		BCD827B226AEFA90000C2452 /* EksplorMapController+SheetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD827B126AEFA90000C2452 /* EksplorMapController+SheetConfig.swift */; };
 		BCD827B426AF0264000C2452 /* EksplorMapBottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD827B326AF0264000C2452 /* EksplorMapBottomSheet.xib */; };
+		BCE41E3E26BED46300578277 /* Localizations.strings in Resources */ = {isa = PBXBuildFile; fileRef = BCE41E4026BED46300578277 /* Localizations.strings */; };
+		BCE41E4426BED4FA00578277 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE41E4326BED4FA00578277 /* L10n.swift */; };
 		BCEE6E4F26B1BCA700D4D250 /* EksplorDetailLimbarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEE6E4D26B1BCA700D4D250 /* EksplorDetailLimbarCell.swift */; };
 		BCEE6E5026B1BCA700D4D250 /* EksplorDetailLimbarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCEE6E4E26B1BCA700D4D250 /* EksplorDetailLimbarCell.xib */; };
 		BCEE6E5326B1BCB900D4D250 /* EksplorDetailEarningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEE6E5126B1BCB900D4D250 /* EksplorDetailEarningCell.swift */; };
@@ -156,7 +158,6 @@
 		9866549526ADBC7D0047D2A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9866549D26ADBC7E0047D2A7 /* Papah.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Papah.xcdatamodel; sourceTree = "<group>"; };
 		9866549F26ADBC800047D2A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		986654A226ADBC800047D2A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		986654A426ADBC800047D2A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		986654A926ADBC800047D2A7 /* PapahTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PapahTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		986654AD26ADBC800047D2A7 /* TipsRepositoryUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsRepositoryUnitTest.swift; sourceTree = "<group>"; };
@@ -260,6 +261,10 @@
 		BCCA0A0926B11D0E00C2DD6F /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
 		BCD827B126AEFA90000C2452 /* EksplorMapController+SheetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EksplorMapController+SheetConfig.swift"; sourceTree = "<group>"; };
 		BCD827B326AF0264000C2452 /* EksplorMapBottomSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorMapBottomSheet.xib; sourceTree = "<group>"; };
+		BCE41E3A26BED42300578277 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BCE41E3F26BED46300578277 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizations.strings; sourceTree = "<group>"; };
+		BCE41E4126BED47100578277 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizations.strings; sourceTree = "<group>"; };
+		BCE41E4326BED4FA00578277 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		BCEE6E4D26B1BCA700D4D250 /* EksplorDetailLimbarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorDetailLimbarCell.swift; sourceTree = "<group>"; };
 		BCEE6E4E26B1BCA700D4D250 /* EksplorDetailLimbarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorDetailLimbarCell.xib; sourceTree = "<group>"; };
 		BCEE6E5126B1BCB900D4D250 /* EksplorDetailEarningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorDetailEarningCell.swift; sourceTree = "<group>"; };
@@ -687,9 +692,11 @@
 		9866550426ADCD5B0047D2A7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BCE41E4326BED4FA00578277 /* L10n.swift */,
 				9866550626ADCD940047D2A7 /* Colors.xcassets */,
 				9866549F26ADBC800047D2A7 /* Assets.xcassets */,
 				986654A126ADBC800047D2A7 /* LaunchScreen.storyboard */,
+				BCE41E4026BED46300578277 /* Localizations.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -853,6 +860,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = 9866548726ADBC7D0047D2A7;
 			productRefGroup = 9866549126ADBC7D0047D2A7 /* Products */;
@@ -892,6 +900,7 @@
 				98BECA2826B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.xib in Resources */,
 				744BDF5426B1891400F6833C /* SubtitleTableViewCell.xib in Resources */,
 				BF55702126AFCB030029BB54 /* EksplorListFilter.storyboard in Resources */,
+				BCE41E3E26BED46300578277 /* Localizations.strings in Resources */,
 				BC2A95E326ADD002002AD800 /* TipsListTableCell.xib in Resources */,
 				744BDF5826B18B9000F6833C /* MedaliListTableViewCell.xib in Resources */,
 				986654EA26ADC96D0047D2A7 /* CompletionAlert.xib in Resources */,
@@ -1007,6 +1016,7 @@
 				9866550F26ADCEAF0047D2A7 /* MedaliDetailViewModel.swift in Sources */,
 				744BDF5B26B1B0CF00F6833C /* MedaliListCollectionViewCell.swift in Sources */,
 				9866552226ADCF830047D2A7 /* TantanganListController.swift in Sources */,
+				BCE41E4426BED4FA00578277 /* L10n.swift in Sources */,
 				BC2BE86826AE82DF0067DB23 /* Date+Extension.swift in Sources */,
 				9866552526ADCFC30047D2A7 /* TantanganListViewModel.swift in Sources */,
 				744BDF5726B18B9000F6833C /* MedaliListTableViewCell.swift in Sources */,
@@ -1071,9 +1081,18 @@
 		986654A126ADBC800047D2A7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				986654A226ADBC800047D2A7 /* Base */,
+				BCE41E3A26BED42300578277 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BCE41E4026BED46300578277 /* Localizations.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCE41E3F26BED46300578277 /* en */,
+				BCE41E4126BED47100578277 /* id */,
+			);
+			name = Localizations.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1083,6 +1102,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1144,6 +1164,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
