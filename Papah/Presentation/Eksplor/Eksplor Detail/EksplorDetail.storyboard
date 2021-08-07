@@ -66,7 +66,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="button_small"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="lSp-Ox-ec4" secondAttribute="bottom" id="8ym-5e-R39"/>
                                             <constraint firstItem="lSp-Ox-ec4" firstAttribute="leading" secondItem="Ls0-TP-38Y" secondAttribute="trailing" constant="8" id="NJE-GY-2rL"/>
@@ -95,7 +95,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="button_small"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="KWf-Po-L4T" secondAttribute="trailing" id="4dQ-ES-kZs"/>
                                             <constraint firstItem="UkP-RL-cL2" firstAttribute="top" secondItem="FoA-X2-nF2" secondAttribute="top" id="8JN-hL-abh"/>
@@ -124,7 +124,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="button_small"/>
                                         <constraints>
                                             <constraint firstItem="W1z-cJ-KyQ" firstAttribute="top" secondItem="VrF-Ld-9BF" secondAttribute="top" id="1OJ-x7-Xae"/>
                                             <constraint firstItem="VrF-Ld-9BF" firstAttribute="top" secondItem="Urk-TW-oIo" secondAttribute="top" id="BzR-y8-Nva"/>
@@ -153,7 +153,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="button_small"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="rOY-LG-Obg" secondAttribute="bottom" id="0w9-jL-w9u"/>
                                             <constraint firstItem="rOY-LG-Obg" firstAttribute="top" secondItem="X3u-ra-clC" secondAttribute="top" id="Ahn-c2-5br"/>
@@ -236,9 +236,6 @@
         <namedColor name="white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
