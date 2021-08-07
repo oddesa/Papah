@@ -138,6 +138,8 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
             cell.categoryBtn.setImage(UIImage(systemName: "shippingbox"), for: .normal)
         case "Perabotan":
             cell.categoryBtn.setImage(UIImage(systemName: "bed.double"), for: .normal)
+        case "Plastik":
+            cell.categoryBtn.setImage(UIImage(systemName: "takeoutbag.and.cup.and.straw"), for: .normal)
         default:
             cell.categoryBtn.setImage(UIImage(systemName: "line.horizontal.3.decrease.circle"), for: .normal)
         }
@@ -145,7 +147,6 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
 
         cell.onDidSelectItem  = { () in
             self.onDidSelectItemSecond?(self.categories[indexPath.row])
-            print("ieu ajibbb")
         }
         
         return cell

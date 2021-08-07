@@ -60,3 +60,16 @@ class EksplorListFilterViewModel: NSObject {
     
     
 }
+
+//switch title {
+//case "Kertas":
+//    cell.categoryBtn.setImage(UIImage(systemName: "newspaper"), for: .normal)
+//case "Kardus":
+//    cell.categoryBtn.setImage(UIImage(systemName: "shippingbox"), for: .normal)
+//case "Perabotan":
+//    cell.categoryBtn.setImage(UIImage(systemName: "bed.double"), for: .normal)
+//case "Plastik":
+//    cell.categoryBtn.setImage(UIImage(systemName: "takeoutbag.and.cup.and.straw"), for: .normal)
+//default:
+//    cell.categoryBtn.setImage(UIImage(systemName: "line.horizontal.3.decrease.circle"), for: .normal)
+//}

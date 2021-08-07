@@ -24,6 +24,7 @@ class TantanganDetailController: MVVMViewController<TantanganDetailViewModel> {
         
         nibSetup()
         tableViewSetup()
+        navigationController?.navigationBar.tintColor = .purpleTwo
     }
 }
 

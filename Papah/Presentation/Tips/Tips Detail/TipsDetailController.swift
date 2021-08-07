@@ -19,18 +19,15 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UIScrollVie
     override func viewDidLayoutSubviews() {
         scrollWidth = tipsImageScrollView.frame.size
             .width
-        scrollHeight = tipsImageScrollView.frame.size.width
+        scrollHeight = tipsImageScrollView.frame.size.height
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
-        
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationController?.navigationBar.backgroundColor = .white
-        self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.tintColor = .black
-        
+        tabBarController?.tabBar.isHidden = true
+
+        self.navigationController?.navigationBar.tintColor = .purpleTwo
         self.tipsImageScrollView.delegate = self
         tipsImageScrollView.isPagingEnabled = true
         tipsImageScrollView.showsVerticalScrollIndicator = false
@@ -48,8 +45,12 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UIScrollVie
 
                 //subview
                 let imageView = UIImageView.init(image:UIImage.init(data:(imgs[index].image ?? UIImage.whatsAppImage20210719At085013.jpegData(compressionQuality: 100)) ?? Data()))
-                imageView.frame = CGRect(x: 0, y:0, width: scrollWidth, height: scrollHeight)
-                imageView.contentMode = .scaleAspectFill
+                imageView.frame = CGRect(x: 0, y:0, width: scrollWidth, height: scrollHeight - 100)
+                imageView.contentMode = .scaleToFill
+                
+                imageView.layer.masksToBounds = false
+                imageView.clipsToBounds = true
+                imageView.layer.cornerRadius = 10
 
                 slide.addSubview(imageView)
                 tipsImageScrollView.addSubview(slide)

@@ -3,22 +3,22 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--TipsListController-->
+        <!--Tips-->
         <scene sceneID="yOP-0k-ARF">
             <objects>
-                <viewController storyboardIdentifier="TipsListController" title="TipsListController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jtS-Xe-qLN" customClass="TipsListController" customModule="Papah" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TipsListController" title="Tips" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jtS-Xe-qLN" customClass="TipsListController" customModule="Papah" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zog-fx-PT1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="20" estimatedSectionHeaderHeight="10" sectionFooterHeight="20" estimatedSectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Vmf-fs-NtG">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" name="background_primary"/>
                                 <connections>
                                     <outlet property="dataSource" destination="jtS-Xe-qLN" id="pGu-7I-4ou"/>
                                     <outlet property="delegate" destination="jtS-Xe-qLN" id="DYg-IT-4YN"/>
@@ -26,7 +26,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JLd-q9-bTr"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="background_primary"/>
                         <constraints>
                             <constraint firstItem="Vmf-fs-NtG" firstAttribute="top" secondItem="JLd-q9-bTr" secondAttribute="top" id="2ib-lD-AhB"/>
                             <constraint firstItem="Vmf-fs-NtG" firstAttribute="trailing" secondItem="JLd-q9-bTr" secondAttribute="trailing" id="BIC-lG-Ukx"/>
@@ -34,8 +34,8 @@
                             <constraint firstItem="Vmf-fs-NtG" firstAttribute="leading" secondItem="JLd-q9-bTr" secondAttribute="leading" id="hrF-Gc-lGt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Tips" largeTitleDisplayMode="always" id="UUa-VV-h0h"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tipsListTableView" destination="Vmf-fs-NtG" id="Eah-EK-6KE"/>
                     </connections>
@@ -46,8 +46,8 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="background_primary">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

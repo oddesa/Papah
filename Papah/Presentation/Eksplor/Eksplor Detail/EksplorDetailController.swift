@@ -80,7 +80,7 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
                 self.btnClaimPoint.isUserInteractionEnabled = false
                 self.btnClaimPoint.backgroundColor = .disabled
             } else {
-                self.btnClaimPoint.backgroundColor = .iconIolite
+                self.btnClaimPoint.backgroundColor = .purpleTwo
                 self.btnClaimPoint.isUserInteractionEnabled = true
             }
         }).store(in: &trashBag)

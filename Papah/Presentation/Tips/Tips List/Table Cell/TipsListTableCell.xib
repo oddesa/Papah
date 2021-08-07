@@ -39,7 +39,7 @@
                         </preferredSymbolConfiguration>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ini deskripsi ttg kaleng ncireuncirenenncfijernfrncirejncrvcernvcrev" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLW-J7-xzC">
-                        <rect key="frame" x="130" y="54" width="201" height="43"/>
+                        <rect key="frame" x="130" y="54" width="201" height="44"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="201" id="usq-Ka-Xh1"/>
                         </constraints>
@@ -72,19 +72,30 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="NO"/>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0L0-W7-jHu">
+                        <rect key="frame" x="124" y="119" width="274" height="1"/>
+                        <color key="backgroundColor" name="separator"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="iQf-qG-Bsj"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="b4m-B0-1HI" secondAttribute="trailing" constant="16" id="6la-la-AEQ"/>
                     <constraint firstItem="keY-gF-F3o" firstAttribute="leading" secondItem="f54-O0-4HY" secondAttribute="trailing" constant="14" id="6to-g6-ekc"/>
                     <constraint firstItem="f54-O0-4HY" firstAttribute="leading" secondItem="9dg-wE-ipo" secondAttribute="leading" constant="16" id="Hdo-qV-R6w"/>
+                    <constraint firstItem="0L0-W7-jHu" firstAttribute="top" secondItem="NLW-J7-xzC" secondAttribute="bottom" constant="21" id="Jic-kb-QJW"/>
                     <constraint firstItem="keY-gF-F3o" firstAttribute="top" secondItem="9dg-wE-ipo" secondAttribute="top" constant="30" id="M27-L8-fjS"/>
                     <constraint firstItem="NLW-J7-xzC" firstAttribute="top" secondItem="keY-gF-F3o" secondAttribute="bottom" constant="2" id="Mf0-4r-t9K"/>
                     <constraint firstItem="NLW-J7-xzC" firstAttribute="leading" secondItem="f54-O0-4HY" secondAttribute="trailing" constant="14" id="Nz9-gi-AVd"/>
+                    <constraint firstAttribute="trailing" secondItem="0L0-W7-jHu" secondAttribute="trailing" constant="16" id="O0x-RJ-PQN"/>
                     <constraint firstItem="b4m-B0-1HI" firstAttribute="centerY" secondItem="9dg-wE-ipo" secondAttribute="centerY" id="Stw-3s-Yzi"/>
                     <constraint firstItem="f54-O0-4HY" firstAttribute="top" secondItem="9dg-wE-ipo" secondAttribute="top" constant="10" id="VK4-BV-KwH"/>
                     <constraint firstItem="NLW-J7-xzC" firstAttribute="leading" secondItem="keY-gF-F3o" secondAttribute="leading" id="VPI-8f-qRa"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NLW-J7-xzC" secondAttribute="bottom" constant="10" id="Yd5-cj-Muu"/>
                     <constraint firstAttribute="bottom" secondItem="f54-O0-4HY" secondAttribute="bottom" constant="10" id="az0-A3-Hrw"/>
+                    <constraint firstItem="0L0-W7-jHu" firstAttribute="leading" secondItem="9dg-wE-ipo" secondAttribute="leading" constant="124" id="bAA-A7-D3k"/>
+                    <constraint firstAttribute="bottom" secondItem="0L0-W7-jHu" secondAttribute="bottom" id="syN-f6-NiX"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -99,6 +110,9 @@
         <image name="trash.circle" catalog="system" width="128" height="121"/>
         <namedColor name="chevron">
             <color red="0.76899999380111694" green="0.76899999380111694" blue="0.77600002288818359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="separator">
+            <color red="0.72500002384185791" green="0.72500002384185791" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
