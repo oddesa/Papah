@@ -69,10 +69,10 @@
 		<string>tel</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Anda akan mendapatkan petunjuk arah, estimasi waktu perjalanan, dan klaim poin sehingga satu langkah lebih dekat ke sebuah penghargaan</string>
+	<string>Anda akan dapat mengakses daftar agen sampah disekitar, petunjuk arah, dan kemampuan untuk klaim poin.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Anda akan mendapatkan petunjuk arah, estimasi waktu perjalanan, dan klaim poin sehingga satu langkah lebih dekat ke sebuah penghargaan</string>
+	<string>Anda akan dapat mengakses daftar agen sampah disekitar, petunjuk arah, dan kemampuan untuk klaim poin.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Anda akan mendapatkan petunjuk arah, estimasi waktu perjalanan, dan klaim poin sehingga satu langkah lebih dekat ke sebuah penghargaan</string>
+	<string>Anda akan dapat mengakses daftar agen sampah disekitar, petunjuk arah, dan kemampuan untuk klaim poin.</string>
 </dict>
 </plist>

@@ -12,11 +12,10 @@ import Combine
 class EksplorDetailViewModel {
     
     typealias Earnings = (wasteCategory:Int, berat:Float)
-
+    typealias RequirementCheck = (hour: Bool, location: Bool, isOpen: Bool, category: Bool)
+    
     var wbklData: Wbkl?
     var singleEarningData: [Earnings] = [Earnings]()
-    
-    var onClaimPointReady = CurrentValueSubject<Bool,Never>(false)
     var distanceMeter = 0.0
     var totalEarnings:Float = 0
     
@@ -24,7 +23,10 @@ class EksplorDetailViewModel {
     var challengeRepo = MonthlyChallengeDataRepository.shared
     var badgeRepo = BadgeDataRepository.shared
     var userRepo = UserDataRepository.shared
-
+    
+    // Combine
+    var onRequirementCheck = CurrentValueSubject<RequirementCheck,Never>(RequirementCheck(hour: false, location: false, isOpen: false, category: false))
+    
     init(wbklData: Wbkl) {
         self.wbklData = wbklData
         initDataEarning()
@@ -41,23 +43,23 @@ class EksplorDetailViewModel {
     }
     
     func checkClaimPoint(){
+            
+        let hour = Calendar.current.dateComponents([.hour], from:self.wbklData?.claimed_date ?? Date(), to: Date()).hour ?? 0
         
-        var currentCondition = false
-        
-        let hour = Calendar.current.dateComponents([.hour], from:self.wbklData?.claimed_date ?? Date(), to: Date()+1000).hour ?? 0
-        
+        let locationCondition = self.distanceMeter < Constants.claimPointDistance //First condition (location)
+        let hourCondition = hour > Constants.claimPointHours //Second condition (hour)
+//        let hourCondition = true //Second condition (hour)
+        let earningCondition = self.totalEarnings > 0 //Last condition (earning estimate)
+//        let isOpen = true
         let isOpen = CommonFunction.shared.bukaTutupChecker(operationalDay: self.wbklData?.operational_day ?? "Senin", operationalHour: self.wbklData?.operational_hour ?? "10.00")
-                
-        if self.distanceMeter < Constants.claimPointDistance //First condition (location)
-            && hour > Constants.claimPointHours //Second condition (hour)
-            && self.totalEarnings > 0 //Last condition (earning estimate)
-            && isOpen
-        {
-            currentCondition = true
-        }
+
+        self.onRequirementCheck.send(RequirementCheck(hour: hourCondition, location: locationCondition, isOpen: isOpen, category: earningCondition))
         
-        self.onClaimPointReady.send(currentCondition)
-        
+    }
+    
+    func getHourLeftToClaimPoint() -> String {
+        let hour = Calendar.current.dateComponents([.hour], from:self.wbklData?.claimed_date ?? Date(), to: Date()).hour ?? 0
+        return "Tunggu \(Constants.claimPointHours - hour) jam lagi"
     }
     
     func getWasteAcceptedData() -> [WasteAccepted]? {
@@ -67,7 +69,7 @@ class EksplorDetailViewModel {
     func distanceBetweenTwoLocations(source:CLLocation, destination:CLLocation) -> Double {
         
         let distanceMeters = source.distance(from: destination)
-
+        
         let distanceKM = distanceMeters / 1000
         let roundedTwoDigit = distanceKM
         
@@ -196,7 +198,7 @@ extension EksplorDetailViewModel {
                             mcpId: Int(mcp.mcp_id ),
                             value: 1)
                     }
-                                        
+                    
                     // Level
                     if Int(mcp.monthlyChallenge?.badgeCategory?.badge_category_id ?? 0) == 1 {
                         challengeRepo.updateMonthlyChallengeProgress(
@@ -223,17 +225,17 @@ extension EksplorDetailViewModel {
                     if Int(badge.badge?.badgeCategory?.badge_category_id ?? 0) == 0 {
                         badgeRepo.updateBagdeProgress(bpId: Int(badge.bp_id), value: self.getWeightTotal())
                     }
-
+                    
                     // Profit
                     if Int(badge.badge?.badgeCategory?.badge_category_id ?? 0) == 2 {
                         badgeRepo.updateBagdeProgress(bpId: Int(badge.bp_id), value: self.getEarningTotal())
                     }
-
+                    
                     // Kategori Sampah
                     if Int(badge.badge?.badgeCategory?.badge_category_id ?? 0) == 3 {
                         badgeRepo.updateBagdeProgress(bpId: Int(badge.bp_id), value: self.getCategoryUsedTotal())
                     }
-
+                    
                     // Tantangan Sampah
                     if Int(badge.badge?.badgeCategory?.badge_category_id ?? 0) == 4 {
                         // Tidak ada challenge progress yang berisi tantangan (tantangan ception?)
@@ -241,19 +243,19 @@ extension EksplorDetailViewModel {
                             badgeRepo.updateBagdeProgress(bpId: Int(badge.bp_id), value: Float(monthlyChallengeCompleted.count))
                         }
                     }
-
+                    
                     // Agen
                     if Int(badge.badge?.badgeCategory?.badge_category_id ?? 0) == 5 {
                         badgeRepo.updateBagdeProgress(bpId: Int(badge.bp_id), value: 1)
                     }
-
+                    
                     // Level
                     if Int(badge.badge?.badgeCategory?.badge_category_id ?? 0) == 1 {
                         badgeRepo.updateBagdeProgress(
                             bpId: Int(badge.bp_id),
                             value: Float(userRepo.getUserById(id: 0)?.level ?? 0)
                         )
-
+                        
                     }
                 }
             }

@@ -15,7 +15,9 @@ class Constants {
     static let dataModel = "Papah"
     
     static let claimPointDistance = 300.0 //meters
-    static let claimPointHours = 4 //hours
+    static let claimPointHours = 24 //hours
+    static let claimPoinCategory = 1 //category
+    
     static let claimPointWBKL = 100 //point
     static let userLevelScope = 500 //Level up criteria
 

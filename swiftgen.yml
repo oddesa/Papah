@@ -17,3 +17,8 @@ xcassets:
           enumName: UIImage
           publicAccess: true
           allValues: true
+strings:
+  inputs: Papah/Resources/en.lproj
+  outputs:
+    - templateName: structured-swift5
+      output: Papah/Resources/L10n.swift
