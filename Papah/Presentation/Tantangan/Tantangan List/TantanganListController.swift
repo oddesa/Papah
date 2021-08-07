@@ -191,7 +191,6 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.setData(badgeData: self.viewModel?.getAllBadgesProgress(userId: 0))
-          
             cell.selectionStyle = .none
             
             return cell

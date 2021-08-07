@@ -15,7 +15,7 @@ class MedaliListController: MVVMViewController<MedaliListViewModel>   {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.tintColor = .purpleTwo
         setupTableView()
     }
 }
@@ -24,6 +24,7 @@ extension MedaliListController: UITableViewDelegate, UITableViewDataSource {
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorColor = .separator
         
         tableView.register(UINib(nibName: MedaliListTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: MedaliListTableViewCell.identifier)
         tableView.register(UINib(nibName: SubtitleTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: SubtitleTableViewCell.identifier)

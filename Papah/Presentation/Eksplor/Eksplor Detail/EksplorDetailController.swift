@@ -137,7 +137,7 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
         }
         
         if requirement.category && requirement.hour && requirement.isOpen && requirement.location  {
-            self.btnClaimPoint.backgroundColor = .iconIolite
+            self.btnClaimPoint.backgroundColor = .purpleTwo
             self.btnClaimPoint.isUserInteractionEnabled = true
         } else {
             self.btnClaimPoint.isUserInteractionEnabled = false

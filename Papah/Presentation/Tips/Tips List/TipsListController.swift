@@ -8,6 +8,28 @@
 import UIKit
 
 class TipsListController: MVVMViewController<TipsListViewModel>, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tipsListTableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.viewModel = TipsListViewModel()
+        
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+        setupXib()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+
+// MARK: - TableView Delegate & Data Source
+    func setupXib() {
+        self.tipsListTableView.register(TipsListTableCell.nib, forCellReuseIdentifier: TipsListTableCell.cellIdentifier())
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel?.getTipsData()?.count ?? 0
     }
@@ -17,20 +39,23 @@ class TipsListController: MVVMViewController<TipsListViewModel>, UITableViewDele
         let cell = tipsListTableView.dequeueReusableCell(withIdentifier: TipsListTableCell.cellIdentifier(), for: indexPath) as! TipsListTableCell
 //        cell.item = surah
         cell.setTips(with: item)
-        print("CELL \(cell)")
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("DID SELECT")
-        
         //-Rizqi's addition-----------------------------------------------------------
-        if let viewModel = viewModel, let tipsData = viewModel.getTipsData()?[indexPath.row] {
-            let controller = TipsDetailController.instantiateStoryboard(
-                viewModel: TipsDetailViewModel(tips: tipsData)
-            )
-            self.navigationController?.pushViewController(controller, animated: true)
+        
+        if indexPath.row == 4 {
+            if let viewModel = viewModel, let tipsData = viewModel.getTipsData()?[indexPath.row] {
+                let controller = TipsDetailController.instantiateStoryboard(
+                    viewModel: TipsDetailViewModel(tips: tipsData)
+                )
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
+        } else {
+            self.showAlert(title: "Ora iso", msg: "Belom ada kontennya lur")
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -49,30 +74,6 @@ class TipsListController: MVVMViewController<TipsListViewModel>, UITableViewDele
         return headerView
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.viewModel = TipsListViewModel()
-
-        setupXib()
-        
-    }
     
-    func setupXib(){
-        self.tipsListTableView.register(TipsListTableCell.nib, forCellReuseIdentifier: TipsListTableCell.cellIdentifier())
-    }
     
-    @IBOutlet weak var tipsListTableView: UITableView!
-    @IBOutlet weak var tipsSearchBar: UISearchBar!
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -54,7 +54,7 @@ extension EksplorListController: UISearchResultsUpdating, UISearchControllerDele
         searchBarCont.obscuresBackgroundDuringPresentation = false
         searchBarCont.searchBar.setValue("Batalkan", forKey: "cancelButtonText")
         searchBarCont.searchBar.placeholder = "Agen Sampah"
-        searchBarCont.searchBar.tintColor = .iconIolite
+        searchBarCont.searchBar.tintColor = .purpleTwo
     }
     
     func didDismissSearchController(_ searchController: UISearchController) {
@@ -123,11 +123,11 @@ extension EksplorListController: UITableViewDataSource {
                 cell.filterBtn.tintColor = .textPrimary
                 cell.filterBtn.setTitleColor(.textPrimary, for: .normal)
             } else {
-                cell.filterBtn.backgroundColor = .iconIolite.withAlphaComponent(0.15)
-                cell.filterBtn.borderColor = .iconIolite.withAlphaComponent(0.6)
+                cell.filterBtn.backgroundColor = .purpleTwo.withAlphaComponent(0.15)
+                cell.filterBtn.borderColor = .purpleTwo.withAlphaComponent(0.6)
                 cell.filterBtn.borderWidth = 0.5
-                cell.filterBtn.tintColor = .iconIolite
-                cell.filterBtn.setTitleColor(.iconIolite, for: .normal)
+                cell.filterBtn.tintColor = .purpleTwo
+                cell.filterBtn.setTitleColor(.purpleTwo, for: .normal)
                 print("Bisa nih2")
             }
             cell.backgroundColor = .backgroundPrimary

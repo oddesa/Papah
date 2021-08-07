@@ -75,6 +75,7 @@ dari penyaluran limbah </string>
                                                     <action selector="donePressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QgU-LG-umr"/>
                                                 </connections>
                                             </button>
+                                            <color key="tintColor" name="purple_two"/>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
