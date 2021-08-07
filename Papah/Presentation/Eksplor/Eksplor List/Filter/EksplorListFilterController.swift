@@ -19,11 +19,9 @@ class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel
     @IBAction func donePressed(_ sender: UIButton) {
         delegate?.pass(categories: dataPassingan)
         self .dismiss(animated: true, completion: nil)
-        
     }
     
     @IBAction func resetPressed(_ sender: UIButton) {
-        //reset all filter
         // swiftlint:disable identifier_name
         dataPassingan.removeAll()
         for i in 0..<filterData.count {
@@ -35,15 +33,7 @@ class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel
         wasteFilterTable.reloadData()
     }
     
-    var filterArr = [String]()
-    var selectedFilter = [Int]()
-    var filterData = [CategoryPro]() {
-        didSet {
-            for filter in filterData {
-//                print(filter.categoryData.title)
-            }
-        }
-    }
+    var filterData = [CategoryPro]()
     var dataPassingan: [WasteCategory] = []
     
     override func viewDidLoad() {
