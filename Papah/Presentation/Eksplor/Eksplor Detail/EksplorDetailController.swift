@@ -92,6 +92,7 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
 extension EksplorDetailController: CompletionAlertProtocol {
     func onConfirmButton() {
         self.tabBarController?.selectedIndex = 2
+        self.navigationController?.popViewController(animated: false)
     }
 }
 
