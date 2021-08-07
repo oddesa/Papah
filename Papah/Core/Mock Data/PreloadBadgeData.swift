@@ -52,7 +52,7 @@ extension CoreDataManager {
             badgeCategoryId: 2,
             title: "Crazy Rich Kurcaci",
             desc: "Peroleh medali ini ketika kamu berhasil mengumpulkan total Rp50k dari hasil penyaluran sampah inorganik. Sejauh ini kamu telah mengumpulkan Rp.",
-            maxValue: 1000,
+            maxValue: 50000,
             dateAchv: Date(),
             image: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemGray) ?? UIImage(),
             imgAchieved: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemYellow) ?? UIImage()

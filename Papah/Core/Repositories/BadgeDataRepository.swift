@@ -251,7 +251,15 @@ class BadgeDataRepository {
 //                if bp?.id == badge.id {
                     if bp?.status == false {
                         let maxValue = badge.max_value
-                        let totalValue = Float(bp?.current_value ?? 0) + value
+                        
+                        
+                        var totalValue: Float = 0
+                        // Check if current category is level progress
+                        if Int(bp?.badge?.badgeCategory?.badge_category_id ?? 0) == 1 {
+                            totalValue = value
+                        } else {
+                            totalValue = Float(bp?.current_value ?? 0) + value
+                        }
                         
                         if totalValue < maxValue {
                             bp?.current_value = totalValue
