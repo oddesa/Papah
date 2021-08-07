@@ -184,10 +184,19 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
                 }
             //buatnavigasi lewat collectionCell
             cell.onDidSelectItem = {(indexPath) in
-                let mdData = MedaliDetailData(image: UIImage.whatsAppImage20210719At085013, title: "akhirnya bisa yolo", desc: "kunci dari ngoding adalah tidur apabila pusyang berkepanjangan")
-                let mdDatas = [mdData]
-                self.navigationController?.pushViewController(MedaliDetailController.instantiateStoryboard(viewModel: MedaliDetailViewModel(datasVM: mdDatas)), animated: true)
-
+                if let badgeProgress = self.viewModel?.badgeProgress {
+                    let badge = badgeProgress[indexPath.row].badge
+                    let imgAchieved = badge?.image_achieved ?? Data()
+                    let imgNotAchieved = badge?.image ?? Data()
+                    let img = badgeProgress[indexPath.row].status ?  imgAchieved : imgNotAchieved
+                    
+                    let title =  badge?.title ?? ""
+                    let desc =  badge?.desc ?? ""
+                    let mdData = MedaliDetailData(image: UIImage(data: img) ?? UIImage(), title: title , desc:desc)
+                    
+                    let mdDatas = [mdData]
+                    self.navigationController?.pushViewController(MedaliDetailController.instantiateStoryboard(viewModel: MedaliDetailViewModel(datasVM: mdDatas)), animated: true)
+                }
             }
             
             cell.setData(badgeData: self.viewModel?.getAllBadgesProgress(userId: 0))

@@ -47,11 +47,13 @@ class EksplorDetailViewModel {
         let hour = Calendar.current.dateComponents([.hour], from:self.wbklData?.claimed_date ?? Date(), to: Date()).hour ?? 0
         
         let locationCondition = self.distanceMeter < Constants.claimPointDistance //First condition (location)
-        let hourCondition = hour > Constants.claimPointHours //Second condition (hour)
-//        let hourCondition = true //Second condition (hour)
+        var hourCondition = hour > Constants.claimPointHours //Second condition (hour)
         let earningCondition = self.totalEarnings > 0 //Last condition (earning estimate)
-//        let isOpen = true
-        let isOpen = CommonFunction.shared.bukaTutupChecker(operationalDay: self.wbklData?.operational_day ?? "Senin", operationalHour: self.wbklData?.operational_hour ?? "10.00")
+        var isOpen = CommonFunction.shared.bukaTutupChecker(operationalDay: self.wbklData?.operational_day ?? "Senin", operationalHour: self.wbklData?.operational_hour ?? "10.00")
+
+        // Debug
+        hourCondition = true
+        isOpen = true
 
         self.onRequirementCheck.send(RequirementCheck(hour: hourCondition, location: locationCondition, isOpen: isOpen, category: earningCondition))
         
@@ -137,10 +139,10 @@ class EksplorDetailViewModel {
     
     func onPointClaimed() {
         
+        updateUserSection()
         updateWBKLSection()
         updateChallengeSection()
         updateBadgeSection()
-        updateUserSection()
         
     }
     
