@@ -183,7 +183,7 @@ extension EksplorListController: UITableViewDataSource {
                 
                 for putih in putihputih {
                     putih?.alpha = 1
-                    putih?.backgroundColor = .backgroundSecondary
+                    putih?.backgroundColor = .buttonSmall
                 }
                 
                 

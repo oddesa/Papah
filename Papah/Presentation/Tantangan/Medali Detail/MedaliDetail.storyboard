@@ -24,46 +24,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crazy Rich Kurcaci" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0O-Fk-2DC">
-                                <rect key="frame" x="139" y="709" width="136" height="21"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhatsApp Image 2021-07-19 at 08.50.13" translatesAutoresizingMaskIntoConstraints="NO" id="jZy-lz-3aj">
+                                <rect key="frame" x="41" y="214" width="332" height="308"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="e1O-nD-e2E"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3H-Qc-Ln0">
-                                <rect key="frame" x="20" y="738" width="374" height="42"/>
-                                <string key="text">Dapatan medali ini ketika kamu berhasil mengumpulkan total 1 juta rupiah dari hasil penyaluran limbah. Sejauh ini kamu baru mengumpulkan Rp500.000.</string>
-                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="12"/>
-                                <color key="textColor" systemColor="systemGray2Color"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhatsApp Image 2021-07-19 at 08.50.13" translatesAutoresizingMaskIntoConstraints="NO" id="jZy-lz-3aj">
-                                <rect key="frame" x="53" y="208" width="308" height="308"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="308" id="468-84-0lT"/>
-                                    <constraint firstAttribute="height" constant="308" id="9c3-vT-6mC"/>
+                                    <constraint firstAttribute="height" constant="308" id="z94-zp-480"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKv-LU-bpC">
+                                <rect key="frame" x="20" y="687" width="374" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crazy Rich Kurcaci" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0O-Fk-2DC">
+                                        <rect key="frame" x="119" y="0.0" width="136" height="19"/>
+                                        <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3H-Qc-Ln0">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="42"/>
+                                        <string key="text">Dapatan medali ini ketika kamu berhasil mengumpulkan total 1 juta rupiah dari hasil penyaluran limbah. Sejauh ini kamu baru mengumpulkan Rp500.000.</string>
+                                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemGray2Color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="V3H-Qc-Ln0" firstAttribute="leading" secondItem="FKv-LU-bpC" secondAttribute="leading" id="3c6-5J-bXh"/>
+                                    <constraint firstItem="V3H-Qc-Ln0" firstAttribute="top" secondItem="c0O-Fk-2DC" secondAttribute="bottom" constant="9" id="9Pu-i9-amO"/>
+                                    <constraint firstItem="c0O-Fk-2DC" firstAttribute="top" secondItem="FKv-LU-bpC" secondAttribute="top" id="Fy9-4W-8ZF"/>
+                                    <constraint firstAttribute="trailing" secondItem="V3H-Qc-Ln0" secondAttribute="trailing" id="KkX-WY-ljy"/>
+                                    <constraint firstItem="V3H-Qc-Ln0" firstAttribute="centerX" secondItem="FKv-LU-bpC" secondAttribute="centerX" id="NVh-uc-i93"/>
+                                    <constraint firstItem="c0O-Fk-2DC" firstAttribute="centerX" secondItem="FKv-LU-bpC" secondAttribute="centerX" id="fa9-2O-sPf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="s6g-FI-On5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="V3H-Qc-Ln0" secondAttribute="centerX" id="4Tq-aT-zKH"/>
-                            <constraint firstAttribute="bottom" secondItem="V3H-Qc-Ln0" secondAttribute="bottom" constant="116" id="8Tk-7f-gyH"/>
-                            <constraint firstAttribute="centerX" secondItem="c0O-Fk-2DC" secondAttribute="centerX" id="BKU-vX-NeB"/>
-                            <constraint firstAttribute="trailing" secondItem="V3H-Qc-Ln0" secondAttribute="trailing" constant="20" id="JlJ-PR-cD5"/>
-                            <constraint firstItem="jZy-lz-3aj" firstAttribute="centerX" secondItem="TQQ-2i-PQg" secondAttribute="centerX" id="UmL-ab-Nvq"/>
-                            <constraint firstItem="V3H-Qc-Ln0" firstAttribute="leading" secondItem="TQQ-2i-PQg" secondAttribute="leading" constant="20" id="cM7-9N-yr2"/>
-                            <constraint firstItem="V3H-Qc-Ln0" firstAttribute="top" secondItem="c0O-Fk-2DC" secondAttribute="bottom" constant="8" id="dY5-jL-ae3"/>
-                            <constraint firstItem="jZy-lz-3aj" firstAttribute="top" secondItem="s6g-FI-On5" secondAttribute="top" constant="120" id="qVb-6f-7aT"/>
+                            <constraint firstItem="s6g-FI-On5" firstAttribute="bottom" secondItem="FKv-LU-bpC" secondAttribute="bottom" constant="36" id="69c-fO-mWs"/>
+                            <constraint firstItem="jZy-lz-3aj" firstAttribute="centerY" secondItem="TQQ-2i-PQg" secondAttribute="centerY" constant="-80" id="GQl-6Q-D54"/>
+                            <constraint firstItem="jZy-lz-3aj" firstAttribute="centerX" secondItem="FKv-LU-bpC" secondAttribute="centerX" id="KIB-sB-XN5"/>
+                            <constraint firstItem="jZy-lz-3aj" firstAttribute="leading" secondItem="s6g-FI-On5" secondAttribute="leading" constant="41" id="MeT-JJ-6b2"/>
+                            <constraint firstItem="FKv-LU-bpC" firstAttribute="leading" secondItem="s6g-FI-On5" secondAttribute="leading" constant="20" id="cwO-Nj-SKP"/>
+                            <constraint firstItem="s6g-FI-On5" firstAttribute="trailing" secondItem="FKv-LU-bpC" secondAttribute="trailing" constant="20" id="m0s-Ss-Hpf"/>
+                            <constraint firstItem="FKv-LU-bpC" firstAttribute="top" secondItem="jZy-lz-3aj" secondAttribute="bottom" constant="165" id="mj3-OT-en6"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="bv3-aP-8qK"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="medaliDescription" destination="V3H-Qc-Ln0" id="QXp-bA-ax6"/>
                         <outlet property="medaliImage" destination="jZy-lz-3aj" id="ncu-P4-zsx"/>

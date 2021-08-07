@@ -37,6 +37,8 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.tintColor = .purpleTwo
+        navigationController?.navigationBar.prefersLargeTitles = true
         registerNib()
         attemptLocationAccess()
         setupView()
