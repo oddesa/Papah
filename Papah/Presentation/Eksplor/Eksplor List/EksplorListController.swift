@@ -13,22 +13,14 @@ protocol isAbleToReceiveData {
 }
 
 class EksplorListController: MVVMViewController<EksplorListViewModel>, isAbleToReceiveData {
-    func pass(categories: [WasteCategory]) {
-        filterCategories = []
-        for cat in categories {
-            filterCategories.append(cat)
-        }
-        tableViewOutlet.reloadData()
-    }
     
     @IBOutlet weak var tableViewOutlet: UITableView!
     var searchBarCont = UISearchController()
-    var allWbkl: [WbklPro] = []
-    var filterCategories: [WasteCategory] = []
-    {
+    
+    var filterCategories: [WasteCategory] = [] {
         didSet {
-            allWbkl = viewModel?.turnWbklsPro() ?? []
-            allWbkl = (viewModel?.filterBasedOnCat(allWbkl: allWbkl, filterCategories: filterCategories))!
+            viewModel?.allWbkl = viewModel?.turnWbklsPro() ?? []
+            viewModel?.allWbkl = (viewModel?.filterBasedOnCat(allWbkl: viewModel?.allWbkl ?? [], filterCategories: filterCategories))!
             tableViewOutlet.reloadData()
         }
     }
@@ -39,8 +31,16 @@ class EksplorListController: MVVMViewController<EksplorListViewModel>, isAbleToR
         setupLocationManager()
         setupSearchController()
         setupNib()
-        allWbkl = viewModel?.turnWbklsPro() ?? []
+        viewModel?.allWbkl = viewModel?.turnWbklsPro() ?? []
         tableViewOutlet.separatorColor = .separator
+        tableViewOutlet.reloadData()
+    }
+    
+    func pass(categories: [WasteCategory]) {
+        filterCategories = []
+        for cat in categories {
+            filterCategories.append(cat)
+        }
         tableViewOutlet.reloadData()
     }
 }
@@ -61,7 +61,7 @@ extension EksplorListController: UISearchResultsUpdating, UISearchControllerDele
     func didDismissSearchController(_ searchController: UISearchController) {
         guard var dataWbkl = viewModel?.turnWbklsPro() else {return}
         dataWbkl = (viewModel?.filterBasedOnCat(allWbkl: dataWbkl, filterCategories: filterCategories))!
-        allWbkl = dataWbkl
+        viewModel?.allWbkl = dataWbkl
         tableViewOutlet.reloadData()
     }
     
@@ -71,7 +71,7 @@ extension EksplorListController: UISearchResultsUpdating, UISearchControllerDele
         }
         guard var dataWbkl = viewModel?.turnWbklsPro() else {return}
         dataWbkl = (viewModel?.filterBasedOnCat(allWbkl: dataWbkl, filterCategories: filterCategories))!
-        allWbkl = viewModel?.getWbklBasedOnSearch(text: text, dataWbkl: dataWbkl, filterCategories: filterCategories) ?? []
+        viewModel?.allWbkl = viewModel?.getWbklBasedOnSearch(text: text, dataWbkl: dataWbkl, filterCategories: filterCategories) ?? []
         tableViewOutlet.reloadData()
     }
     
@@ -89,7 +89,7 @@ extension EksplorListController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allWbkl.count + 1
+        return (viewModel?.allWbkl.count ?? 0) + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,7 +101,8 @@ extension EksplorListController: UITableViewDataSource {
             cell.onDidSelectItem = { () in
                 let controller = EksplorListFilterController.instantiateStoryboard(viewModel: EksplorListFilterViewModel()) as? EksplorListFilterController
                 controller?.delegate = self
-                controller?.dataPassingan = self.filterCategories
+                controller?.viewModel = EksplorListFilterViewModel()
+                controller?.viewModel?.dataPassingan = self.filterCategories
                 self.navigationController?.present(controller!, animated: true, completion: nil)
             }
             
@@ -140,72 +141,74 @@ extension EksplorListController: UITableViewDataSource {
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath) as? ExplorListTableCell else {fatalError("identifiernya salah anying")}
             
-            if allWbkl.count == 0 {
+            if viewModel?.allWbkl.count == 0 {
                 fatalError("kosong tapi tampil")
             }
             
-            let wbkl = allWbkl[indexPath.row - 1].wbklData
-            
-            if let currentLocation = (viewModel?.userLocation?.last) {
-                let distance = viewModel?.getLocationDistance(userLocation: currentLocation, wbklData: wbkl)
-                let distanceInString = viewModel?.locationDistanceString(distanceInMeter: distance ?? 1000)
-                cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(distanceInString!)"
-                if distance! < Constants.claimPointDistance {
-                    cell.nearMarker.backgroundColor = .green
+            if let wbkl = viewModel?.allWbkl[indexPath.row - 1].wbklData {
+                if let currentLocation = (viewModel?.userLocation?.last) {
+                    let distance = viewModel?.getLocationDistance(userLocation: currentLocation, wbklData: wbkl)
+                    let distanceInString = viewModel?.locationDistanceString(distanceInMeter: distance ?? 1000)
+                    cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(distanceInString!)"
+                    if distance! < Constants.claimPointDistance {
+                        cell.nearMarker.backgroundColor = .green
+                    } else {
+                        cell.nearMarker.backgroundColor = .clear
+                    }
                 } else {
+                    cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu")
                     cell.nearMarker.backgroundColor = .clear
                 }
-            } else {
-                cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu")
-                cell.nearMarker.backgroundColor = .clear
-            }
-            cell.wbklNameLabel.text = wbkl.name
-            cell.wbklPhoto.image = UIImage(data: wbkl.image ?? Data())
-            
-            
-            if CommonFunction.shared.bukaTutupChecker(operationalDay: wbkl.operational_day ?? "Senin", operationalHour: wbkl.operational_hour ?? "10.00") == true {
-                cell.wbklOperationalLabel.text = "Buka" + " · " + (wbkl.operational_hour ?? " ")
-                cell.wbklOperationalLabel.textColor = .green
-            } else {
-                cell.wbklOperationalLabel.text = "Tutup"
-                cell.wbklOperationalLabel.textColor = .red
-            }
-            
-            var categories = allWbkl[indexPath.row - 1].categories
-            
-            if (viewModel?.categoriesChecker(wbkl: allWbkl[indexPath.row - 1], word: "karung goni"))! {
-                let text = "karung goni"
-                if let index = categories.firstIndex(of: text.capitalized) {
-                    categories = viewModel?.rearrangeArray(array: categories, fromIndex: index, toIndex: categories.count-1 ) ?? ["mantan"]
-                }
-              
-            }
-            
-            var putihputih = [cell.wbklSampahKategori1, cell.wbklSampahKategori2, cell.wbklSampahKategori3, cell.wbklSampahKategori4]
-            let textPutihPutih = [cell.wbklSampahKateogri1Label, cell.wbklSampahKategori2Label, cell.wbklSampahKategori3Label, cell.wbklSampahKategori4Label]
-            
-            for putih in putihputih {
-                putih?.alpha = 1
-                putih?.backgroundColor = .backgroundSecondary
-            }
-            
-            
-            for int in 0..<categories.count {
-                if int < 3 {
-                    textPutihPutih[int]?.text = categories[int]
-                    textPutihPutih[int]?.textColor = .textPrimary
+                cell.wbklNameLabel.text = wbkl.name
+                cell.wbklPhoto.image = UIImage(data: wbkl.image ?? Data())
+                
+                
+                if CommonFunction.shared.bukaTutupChecker(operationalDay: wbkl.operational_day ?? "Senin", operationalHour: wbkl.operational_hour ?? "10.00") == true {
+                    cell.wbklOperationalLabel.text = "Buka" + " · " + (wbkl.operational_hour ?? " ")
+                    cell.wbklOperationalLabel.textColor = .green
                 } else {
-                    textPutihPutih[3]?.text = "+\(categories.count-3)"
+                    cell.wbklOperationalLabel.text = "Tutup"
+                    cell.wbklOperationalLabel.textColor = .red
+                }
+                
+                var categories = viewModel?.allWbkl[indexPath.row - 1].categories
+                
+                if (viewModel?.categoriesChecker(wbkl: (viewModel?.allWbkl[indexPath.row - 1])!, word: "karung goni"))! {
+                    let text = "karung goni"
+                    if let index = categories!.firstIndex(of: text.capitalized) {
+                        categories = viewModel?.rearrangeArray(array: categories!, fromIndex: index, toIndex: categories!.count-1 ) ?? ["mantan"]
+                    }
+                  
+                }
+                
+                var putihputih = [cell.wbklSampahKategori1, cell.wbklSampahKategori2, cell.wbklSampahKategori3, cell.wbklSampahKategori4]
+                let textPutihPutih = [cell.wbklSampahKateogri1Label, cell.wbklSampahKategori2Label, cell.wbklSampahKategori3Label, cell.wbklSampahKategori4Label]
+                
+                for putih in putihputih {
+                    putih?.alpha = 1
+                    putih?.backgroundColor = .backgroundSecondary
+                }
+                
+                
+                for int in 0..<categories!.count {
+                    if int < 3 {
+                        textPutihPutih[int]?.text = categories![int]
+                        textPutihPutih[int]?.textColor = .textPrimary
+                    } else {
+                        textPutihPutih[3]?.text = "+\(categories!.count-3)"
+                    }
+                }
+                
+                for int in 0..<categories!.count where int < 4 {
+                    putihputih.remove(at: 0)
+                }
+                
+                for putih in putihputih {
+                    putih?.alpha = 0
                 }
             }
             
-            for int in 0..<categories.count where int < 4 {
-                putihputih.remove(at: 0)
-            }
             
-            for putih in putihputih {
-                putih?.alpha = 0
-            }
             cell.backgroundColor = .backgroundPrimary
             cell.selectionStyle = .none
             return cell
@@ -219,7 +222,7 @@ extension EksplorListController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row != 0 {
             let controller = EksplorDetailController.instantiateStoryboard(
-                viewModel: EksplorDetailViewModel(wbklData: allWbkl[indexPath.row - 1].wbklData)
+                viewModel: EksplorDetailViewModel(wbklData: (viewModel?.allWbkl[indexPath.row - 1].wbklData)!)
             )
             self.navigationController?.pushViewController(controller, animated: true)
         }
@@ -245,7 +248,7 @@ extension EksplorListController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         viewModel?.userLocation = locations
-        allWbkl = viewModel?.turnWbklsPro() ?? []
+        viewModel?.allWbkl = viewModel?.turnWbklsPro() ?? []
         tableViewOutlet.reloadData()
     }
 }
