@@ -19,11 +19,9 @@ class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel
     @IBAction func donePressed(_ sender: UIButton) {
         delegate?.pass(categories: dataPassingan)
         self .dismiss(animated: true, completion: nil)
-        
     }
     
     @IBAction func resetPressed(_ sender: UIButton) {
-        //reset all filter
         // swiftlint:disable identifier_name
         dataPassingan.removeAll()
         for i in 0..<filterData.count {
@@ -35,15 +33,7 @@ class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel
         wasteFilterTable.reloadData()
     }
     
-    var filterArr = [String]()
-    var selectedFilter = [Int]()
-    var filterData = [CategoryPro]() {
-        didSet{
-            for filter in filterData {
-//                print(filter.categoryData.title)
-            }
-        }
-    }
+    var filterData = [CategoryPro]()
     var dataPassingan: [WasteCategory] = []
     
     override func viewDidLoad() {
@@ -70,7 +60,7 @@ extension EksplorListFilterController {
     
     func tableViewSetup() {
         wasteFilterTable.layer.masksToBounds = true
-        wasteFilterTable.backgroundColor = UIColor(red: 241.0 / 255.0, green: 242.0 / 255.0, blue: 246.0 / 255.0, alpha: 1.0)
+//        wasteFilterTable.backgroundColor = UIColor(red: 241.0 / 255.0, green: 242.0 / 255.0, blue: 246.0 / 255.0, alpha: 1.0)
         
         let header  = UIView(frame: CGRect(x: 0, y: 0, width: wasteFilterTable.frame.width, height: 0.5))
         header.backgroundColor = .separator
@@ -99,13 +89,12 @@ extension EksplorListFilterController: UITableViewDataSource, UITableViewDelegat
         cell.wasteIcon.clipsToBounds = true
         cell.wasteIcon.layer.cornerRadius = cell.wasteIcon.frame.size.width / 2
         
+        
         if dataPassingan.contains(filter.categoryData) {
             cell.wasteChecklist.isHidden = false
         } else {
             cell.wasteChecklist.isHidden = true
         }
-        
-//        cell.backgroundColor =
         
         return cell
     }

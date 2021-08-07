@@ -62,9 +62,9 @@ class EksplorListCollectionCell: UICollectionViewCell {
         } else {
             categoryBtn.borderWidth = 0.5
             categoryBtn.backgroundColor = .backgroundPrimary
-            categoryBtn.borderColor = .black
-            categoryBtn.tintColor = .black
-            categoryBtn.setTitleColor(.black, for: .normal)
+            categoryBtn.borderColor = .chevron
+            categoryBtn.tintColor = .textPrimary
+            categoryBtn.setTitleColor(.textPrimary, for: .normal)
         }
         
     }

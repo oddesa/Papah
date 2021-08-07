@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +19,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nrK-4w-ZFy">
                                 <rect key="frame" x="0.0" y="139" width="390" height="671"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="background_secondary"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="ZoX-fB-tFj" customClass="ExplorListTableCell" customModule="Papah" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="100"/>
@@ -27,6 +28,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="background_primary"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -38,6 +40,10 @@
                             </label>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YHx-hh-Vvh">
                                 <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                                <color key="backgroundColor" name="background_secondary"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" name="text_primary"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Filter" id="djF-Wt-4br">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="GnX-N1-8iw">
@@ -45,7 +51,7 @@
                                                 <rect key="frame" x="16" y="7" width="86" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Reset">
-                                                    <color key="titleColor" red="0.0" green="0.097714149759999994" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="titleColor" name="icon_iolite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="resetPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1XQ-C1-kdJ"/>
@@ -57,7 +63,7 @@
                                                 <rect key="frame" x="288" y="7" width="86" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Selesai">
-                                                    <color key="titleColor" red="0.0" green="0.097714149759999994" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="titleColor" name="icon_iolite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="donePressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="NFT-hc-PIb"/>
@@ -69,7 +75,7 @@
                             </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" red="0.94522148370000003" green="0.94877177479999997" blue="0.96470862629999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="background_secondary"/>
                         <constraints>
                             <constraint firstItem="KiE-Wb-0SU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="2hD-nZ-SQE"/>
                             <constraint firstItem="KiE-Wb-0SU" firstAttribute="top" secondItem="YHx-hh-Vvh" secondAttribute="bottom" constant="20" id="D1m-FN-OcS"/>
@@ -95,9 +101,18 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="background_primary">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="background_secondary">
+            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="icon_iolite">
+            <color red="0.38400000333786011" green="0.21199999749660492" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="text_primary">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

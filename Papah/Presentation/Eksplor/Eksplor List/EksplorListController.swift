@@ -21,55 +21,26 @@ class EksplorListController: MVVMViewController<EksplorListViewModel>, isAbleToR
         tableViewOutlet.reloadData()
     }
     
-    
-    
-    let strings = ["asdfefsa", "hahahah", "xoxoxoox"]
+    @IBOutlet weak var tableViewOutlet: UITableView!
     var searchBarCont = UISearchController()
     var allWbkl: [WbklPro] = []
     var filterCategories: [WasteCategory] = []
     {
         didSet {
             allWbkl = viewModel?.turnWbklsPro() ?? []
-            for wbkl in allWbkl {
-                for category in filterCategories {
-                    if !(wbkl.categories.contains(category.title!)) {
-                        if let idx = allWbkl.firstIndex(where: { $0 === wbkl }) {
-                            allWbkl.remove(at: idx)
-                        }
-                    }
-                }
-            }
+            allWbkl = (viewModel?.filterBasedOnCat(allWbkl: allWbkl, filterCategories: filterCategories))!
             tableViewOutlet.reloadData()
         }
     }
     
-    
-    @IBOutlet weak var tableViewOutlet: UITableView!
-    private var loadingView: LoadingView!
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        tabBarItem.isEnabled = false
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = EksplorListViewModel()
-        
-//        loadingView = LoadingView(uiView: self.view, message: "")
-//        loadingView.show()
-        
         setupLocationManager()
         setupSearchController()
         setupNib()
         allWbkl = viewModel?.turnWbklsPro() ?? []
-//        filterCategories = viewModel?.getAllWasteCategory() ?? []
-        
-        
-//        filterCategories = viewModel?.removeDuplicatesCategories(categories: filterCategories) ?? []
-//        for filter in filterCategories {
-//            print(filter.title)
-//            print(filterCategories.count)
-//        }
+        tableViewOutlet.separatorColor = .separator
         tableViewOutlet.reloadData()
     }
 }
@@ -84,19 +55,12 @@ extension EksplorListController: UISearchResultsUpdating, UISearchControllerDele
         searchBarCont.obscuresBackgroundDuringPresentation = false
         searchBarCont.searchBar.setValue("Batalkan", forKey: "cancelButtonText")
         searchBarCont.searchBar.placeholder = "Agen Sampah"
+        searchBarCont.searchBar.tintColor = .iconIolite
     }
     
     func didDismissSearchController(_ searchController: UISearchController) {
         guard var dataWbkl = viewModel?.turnWbklsPro() else {return}
-        for wbkl in dataWbkl {
-            for category in filterCategories {
-                if !(wbkl.categories.contains(category.title!)) {
-                    if let idx = dataWbkl.firstIndex(where: { $0 === wbkl }) {
-                        dataWbkl.remove(at: idx)
-                    }
-                }
-            }
-        }
+        dataWbkl = (viewModel?.filterBasedOnCat(allWbkl: dataWbkl, filterCategories: filterCategories))!
         allWbkl = dataWbkl
         tableViewOutlet.reloadData()
     }
@@ -105,94 +69,9 @@ extension EksplorListController: UISearchResultsUpdating, UISearchControllerDele
         guard let text = searchController.searchBar.text else {
             return
         }
-        let splited = text.components(separatedBy: " ")
         guard var dataWbkl = viewModel?.turnWbklsPro() else {return}
-        for wbkl in dataWbkl {
-            for category in filterCategories {
-                if !(wbkl.categories.contains(category.title!)) {
-                    if let idx = dataWbkl.firstIndex(where: { $0 === wbkl }) {
-                        dataWbkl.remove(at: idx)
-                    }
-                }
-            }
-        }
-        
-        
-        if text.count == 0 {
-            allWbkl = []
-        } else {
-            allWbkl = []
-            print("restart")
-            for wbkl in dataWbkl {
-                print("gantiWBKL")
-                if (wbkl.wbklData.name ?? "").lowercased().contains(text.lowercased()) || (viewModel?.categoriesChecker(wbkl: wbkl, word: text))! {
-                    print("keluarga cendana")
-                    print(text.lowercased())
-                    
-                    if (viewModel?.categoriesChecker(wbkl: wbkl, word: text))! {
-                        if let index = wbkl.categories.firstIndex(of: text.capitalized) {
-                            wbkl.categories = viewModel?.rearrangeArray(array: wbkl.categories, fromIndex: index, toIndex: 0) ?? ["mantan"]
-                        }
-                    }
-                    
-                    allWbkl.append(wbkl)
-                    print("keluarga cendana2")
-//                    if let idx = dataWbkl.firstIndex(where: { $0 === wbkl }) {
-//                        dataWbkl.remove(at: idx)
-//                    }
-                } else {
-                    print("keluarga cendana3")
-                    for word in splited {
-                        if (wbkl.wbklData.name ?? "").lowercased().contains(word.lowercased()) || (viewModel?.categoriesChecker(wbkl: wbkl, word: word))! {
-                            print(word.lowercased())
-                            
-                            if (viewModel?.categoriesChecker(wbkl: wbkl, word: word))! {
-                                if let index = wbkl.categories.firstIndex(of: word.capitalized) {
-                                    wbkl.categories = viewModel?.rearrangeArray(array: wbkl.categories, fromIndex: index, toIndex: 0) ?? ["mantan"]
-                                }
-                            }
-                            allWbkl.append(wbkl)
-//                            if let idx = dataWbkl.firstIndex(where: { $0 === wbkl }) {
-//                                dataWbkl.remove(at: idx)
-//                            }
-                                                        
-                        }
-                    }
-                }
-            }
-        }
-        allWbkl = (viewModel?.removeDuplicatesWbkl(wbklPros: allWbkl))!
-        for wbkl in allWbkl {
-            var textName = text
-            
-            for word in splited {
-                if (viewModel?.categoriesChecker(wbkl: wbkl, word: word))! {
-                    textName = textName.lowercased().replacingOccurrences(of: " \(word.lowercased())", with: "")
-                    textName = textName.lowercased().replacingOccurrences(of: "\(word.lowercased()) ", with: "")
-//                    textName = textName.replacingOccurrences(of: "  ", with: " ")
-                    if let index = wbkl.categories.firstIndex(of: word.capitalized) {
-                        wbkl.categories = viewModel?.rearrangeArray(array: wbkl.categories, fromIndex: index, toIndex: 0) ?? ["mantan"]
-                    }
-                }
-            }
-            print(textName.count)
-            if (wbkl.wbklData.name?.lowercased().contains(textName.lowercased()))!  {
-                let idx = allWbkl.firstIndex(where: { $0 === wbkl })
-                allWbkl = (viewModel?.rearrangeArray(array: allWbkl, fromIndex: idx!, toIndex: 0))!
-            }
-        }
-//        for wbkl in allWbkl {
-//            for word in splited {
-//                if (viewModel?.categoriesChecker(wbkl: wbkl, word: word))! {
-//                    if (wbkl.categories.contains(word)) {
-//                        if let idx = allWbkl.firstIndex(where: { $0 === wbkl }) {
-//                            allWbkl.remove(at: idx)
-//                        }
-//                    }
-//                }
-//            }
-//        }
-        
+        dataWbkl = (viewModel?.filterBasedOnCat(allWbkl: dataWbkl, filterCategories: filterCategories))!
+        allWbkl = viewModel?.getWbklBasedOnSearch(text: text, dataWbkl: dataWbkl, filterCategories: filterCategories) ?? []
         tableViewOutlet.reloadData()
     }
     
@@ -241,10 +120,10 @@ extension EksplorListController: UITableViewDataSource {
             
             if filterCategories.count == 0 {
                 cell.filterBtn.borderWidth = 0.5
-                cell.filterBtn.backgroundColor = .white
-                cell.filterBtn.borderColor = .black
-                cell.filterBtn.tintColor = .black
-                cell.filterBtn.setTitleColor(.black, for: .normal)
+                cell.filterBtn.backgroundColor = .backgroundPrimary
+                cell.filterBtn.borderColor = .chevron
+                cell.filterBtn.tintColor = .textPrimary
+                cell.filterBtn.setTitleColor(.textPrimary, for: .normal)
             } else {
                 cell.filterBtn.backgroundColor = .iconIolite.withAlphaComponent(0.15)
                 cell.filterBtn.borderColor = .iconIolite.withAlphaComponent(0.6)
@@ -335,9 +214,9 @@ extension EksplorListController: UITableViewDataSource {
 }
 // MARK: - TableView Delegate
 extension EksplorListController: UITableViewDelegate {
+  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         if indexPath.row != 0 {
             let controller = EksplorDetailController.instantiateStoryboard(
                 viewModel: EksplorDetailViewModel(wbklData: allWbkl[indexPath.row - 1].wbklData)
@@ -359,22 +238,14 @@ extension EksplorListController: CLLocationManagerDelegate {
         viewModel?.locationManager.distanceFilter = kCLDistanceFilterNone
         viewModel?.locationManager.startUpdatingLocation()
     }
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("Got location data")
         viewModel?.userLocation = locations
         allWbkl = viewModel?.turnWbklsPro() ?? []
-//            loadingView.hide()
-            tableViewOutlet.reloadData()
-//            for wbkl in allWbkl {
-//                print(wbkl.wbklData.wasteAccepted)
-//                print("-----------------------------------------------")
-//                print(wbkl.wbklData.wasteCategory)
-//            }
-        
+        tableViewOutlet.reloadData()
     }
 }

@@ -49,7 +49,91 @@ class EksplorListViewModel: NSObject {
         }
         return false
     }
-
+    
+    func filterBasedOnCat(allWbkl: [WbklPro], filterCategories: [WasteCategory]) -> [WbklPro]{
+        var dataWbkl = allWbkl
+        for wbkl in dataWbkl {
+            for category in filterCategories {
+                if !(wbkl.categories.contains(category.title!)) {
+                    if let idx = dataWbkl.firstIndex(where: { $0 === wbkl }) {
+                        dataWbkl.remove(at: idx)
+                    }
+                }
+            }
+        }
+        return dataWbkl
+    }
+    
+    func getWbklBasedOnSearch(text: String, dataWbkl: [WbklPro],
+                              filterCategories: [WasteCategory]) -> [WbklPro] {
+        
+        var allWbkl = [WbklPro]()
+        let splited = text.components(separatedBy: " ")
+    
+        if text.count == 0 {
+            if filterCategories.count == 0 {
+                allWbkl = []
+            } else {
+                allWbkl = dataWbkl
+            }
+        } else {
+            allWbkl = []
+            for wbkl in dataWbkl {
+                if (wbkl.wbklData.name ?? "").lowercased().contains(text.lowercased()) || (categoriesChecker(wbkl: wbkl, word: text)) {
+                    print(text.lowercased())
+                    
+                    if (categoriesChecker(wbkl: wbkl, word: text)) {
+                        if let index = wbkl.categories.firstIndex(of: text.capitalized) {
+                            wbkl.categories = rearrangeArray(array: wbkl.categories, fromIndex: index, toIndex: 0)
+                        }
+                    }
+                    
+                    allWbkl.append(wbkl)
+                } else {
+                    for word in splited {
+                        if (wbkl.wbklData.name ?? "").lowercased().contains(word.lowercased()) || (categoriesChecker(wbkl: wbkl, word: word)) {
+                            print(word.lowercased())
+                            
+                            if (categoriesChecker(wbkl: wbkl, word: word)) {
+                                if let index = wbkl.categories.firstIndex(of: word.capitalized) {
+                                    wbkl.categories = rearrangeArray(array: wbkl.categories, fromIndex: index, toIndex: 0)
+                                }
+                            }
+                            allWbkl.append(wbkl)
+                        }
+                    }
+                }
+            }
+        }
+        allWbkl = (removeDuplicatesWbkl(wbklPros: allWbkl))
+        for wbkl in allWbkl {
+            var textName = text
+            
+            for word in splited {
+                if (categoriesChecker(wbkl: wbkl, word: word)) {
+                    textName = textName.lowercased().replacingOccurrences(of: " \(word.lowercased())", with: "")
+                    textName = textName.lowercased().replacingOccurrences(of: "\(word.lowercased()) ", with: "")
+                    if let index = wbkl.categories.firstIndex(of: word.capitalized) {
+                        wbkl.categories = rearrangeArray(array: wbkl.categories, fromIndex: index, toIndex: 0)
+                    }
+                }
+            }
+            print(textName.count)
+            if (wbkl.wbklData.name?.lowercased().contains(textName.lowercased()))!  {
+                let idx = allWbkl.firstIndex(where: { $0 === wbkl })
+                allWbkl = (rearrangeArray(array: allWbkl, fromIndex: idx!, toIndex: 0))
+            }
+        }
+        return allWbkl
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     func removeDuplicatesWbkl(wbklPros: [WbklPro]) -> [WbklPro] {
         var uniques = [WbklPro]()
