@@ -148,6 +148,7 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
             cell.categoryBtn.setImage(UIImage(systemName: "line.horizontal.3.decrease.circle"), for: .normal)
         }
         cell.categoryBtn.scalesLargeContentImage = false
+        cell.categoryBtn.setTitleColor(.textPrimary, for: .normal)
 
         cell.onDidSelectItem  = { () in
             self.onDidSelectItemSecond?(self.categories[indexPath.row])
