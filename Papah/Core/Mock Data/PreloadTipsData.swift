@@ -15,7 +15,7 @@ extension CoreDataManager {
         //Plastik
         TipsDataRepository.shared.insertTips(
             title: "Plastik",
-            desc: "Hal-hal yang harus kamu ketahui untuk memilah plastik",
+            desc: "Ini bahan dimana-mana, tapi mau dibawa kemana?",
             sampahId: 0,
             image: UIImage._11
         )
@@ -23,15 +23,15 @@ extension CoreDataManager {
         //Kaca
         TipsDataRepository.shared.insertTips(
             title: "Kaca",
-            desc: "Banyak botol kaca? Lakukan tips berikut untuk memilahnya",
+            desc: "Beling kaca memang berbahaya, tapi ada solusinya",
             sampahId: 1,
             image: UIImage._14
         )
         
         //Kaleng
         TipsDataRepository.shared.insertTips(
-            title: "Kaleng",
-            desc: "Suka minum minuman berkarbonat? Ayo pilah, daripada buang",
+            title: "Kaleng & Styrofoam",
+            desc: "Minuman kaleng berserakan? Yuk kita rapihkan",
             sampahId: 2,
             image: UIImage._13
         )
@@ -39,7 +39,7 @@ extension CoreDataManager {
         //Kertas
         TipsDataRepository.shared.insertTips(
             title: "Kertas dan Kardus",
-            desc: "Pelajari bagaimana cara menyalurkannya",
+            desc: "Kertas dan kardus, jangan cuma dilapas tapi diurus",
             sampahId: 3,
             image: UIImage._12
         )
