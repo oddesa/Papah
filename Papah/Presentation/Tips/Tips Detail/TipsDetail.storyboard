@@ -53,7 +53,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eD2-yB-TY8">
-                                <rect key="frame" x="16" y="104" width="382" height="537.5"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="537.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="a8F-Xt-wzN">
                                     <size key="itemSize" width="128" height="128"/>
@@ -79,13 +79,13 @@
                             <constraint firstAttribute="bottom" secondItem="eKe-Zg-uv7" secondAttribute="bottom" constant="24" id="1cc-8A-V8N"/>
                             <constraint firstItem="MAQ-ED-vP8" firstAttribute="top" secondItem="eD2-yB-TY8" secondAttribute="bottom" constant="16" id="2cD-0J-isi"/>
                             <constraint firstItem="eD2-yB-TY8" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.6" id="JcC-aw-kTe"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eD2-yB-TY8" secondAttribute="trailing" constant="16" id="MhU-Jk-CxI"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eD2-yB-TY8" secondAttribute="trailing" id="MhU-Jk-CxI"/>
                             <constraint firstItem="C7S-lq-blF" firstAttribute="top" secondItem="eD2-yB-TY8" secondAttribute="bottom" constant="16" id="SUW-3d-bpH"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="MAQ-ED-vP8" secondAttribute="trailing" constant="20" id="ipX-H8-HzU"/>
                             <constraint firstItem="eD2-yB-TY8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="lAa-fp-buL"/>
                             <constraint firstItem="eKe-Zg-uv7" firstAttribute="top" secondItem="MAQ-ED-vP8" secondAttribute="bottom" constant="10" id="ugk-QI-y6b"/>
                             <constraint firstItem="MAQ-ED-vP8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="v0c-1u-L7d"/>
-                            <constraint firstItem="eD2-yB-TY8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="vzH-kh-7gK"/>
+                            <constraint firstItem="eD2-yB-TY8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="vzH-kh-7gK"/>
                             <constraint firstItem="eKe-Zg-uv7" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="zmd-0n-PPv"/>
                         </constraints>
                     </view>
