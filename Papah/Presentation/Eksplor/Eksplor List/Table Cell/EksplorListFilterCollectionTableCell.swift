@@ -134,6 +134,8 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
         switch title {
         case "Kertas":
             cell.categoryBtn.setImage(UIImage(systemName: "newspaper"), for: .normal)
+        case "Besi":
+            cell.categoryBtn.setImage(UIImage(systemName: "shield.checkerboard"), for: .normal)
         case "Kardus":
             cell.categoryBtn.setImage(UIImage(systemName: "shippingbox"), for: .normal)
         case "Perabotan":
