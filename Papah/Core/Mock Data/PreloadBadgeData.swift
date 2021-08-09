@@ -34,7 +34,7 @@ extension CoreDataManager {
             desc: "Peroleh medali ini ketika kamu berhasil menyalurkan total 15 kg sampah inorganik.", // Sejauh ini kamu sudah mengumpulkan ",
             maxValue: 15,
             dateAchv: Date(),
-            image: UIImage._31, //hrusnya 36
+            image: UIImage._36, //hrusnya 36
             imgAchieved: UIImage._31
         )
         BadgeDataRepository.shared.insertBadge(
