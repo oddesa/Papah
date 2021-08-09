@@ -52,8 +52,8 @@ class EksplorDetailViewModel {
         var isOpen = CommonFunction.shared.bukaTutupChecker(operationalDay: self.wbklData?.operational_day ?? "Senin", operationalHour: self.wbklData?.operational_hour ?? "10.00")
 
         // Debug
-        hourCondition = true
-        isOpen = true
+//        hourCondition = true
+//        isOpen = true
 
         self.onRequirementCheck.send(RequirementCheck(hour: hourCondition, location: locationCondition, isOpen: isOpen, category: earningCondition))
         
