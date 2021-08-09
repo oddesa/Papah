@@ -57,7 +57,7 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
         
         // Spacing between cells:
         let spacingLayout = self.collectionView?.collectionViewLayout as! UPCarouselFlowLayout
-        spacingLayout.spacingMode = UPCarouselFlowLayoutSpacingMode.overlap(visibleOffset: 20)
+        spacingLayout.spacingMode = UPCarouselFlowLayoutSpacingMode.overlap(visibleOffset: 10)
         
         self.view.addSubview(self.collectionView!)
     }
