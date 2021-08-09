@@ -5,9 +5,9 @@
         "color-space" : "srgb",
         "components" : {
           "alpha" : "1.000",
-          "blue" : "0.714",
-          "green" : "0.843",
-          "red" : "0.267"
+          "blue" : "0.349",
+          "green" : "0.780",
+          "red" : "0.204"
         }
       },
       "idiom" : "universal"
@@ -23,9 +23,9 @@
         "color-space" : "srgb",
         "components" : {
           "alpha" : "1.000",
-          "blue" : "0.714",
+          "blue" : "0.294",
           "green" : "0.843",
-          "red" : "0.267"
+          "red" : "0.196"
         }
       },
       "idiom" : "universal"
@@ -34,5 +34,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "localizable" : true
   }
 }
