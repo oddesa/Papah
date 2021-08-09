@@ -15,7 +15,7 @@ class MedaliListController: MVVMViewController<MedaliListViewModel>   {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.tintColor = .purpleTwo
+        navigationController?.navigationBar.tintColor = .link
         setupTableView()
     }
 }

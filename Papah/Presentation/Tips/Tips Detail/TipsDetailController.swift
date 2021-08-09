@@ -29,7 +29,7 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
         self.view.layoutIfNeeded()
         tabBarController?.tabBar.isHidden = true
         
-        self.navigationController?.navigationBar.tintColor = .purpleTwo
+        self.navigationController?.navigationBar.tintColor = .link
         
         self.addCollectionView()
         self.setupView()

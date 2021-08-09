@@ -23,8 +23,8 @@ class TantanganDetailController: MVVMViewController<TantanganDetailViewModel> {
         super.viewDidLoad()
         nibSetup()
         tableViewSetup()
-        navigationController?.navigationBar.tintColor = .purpleTwo
-        navBar.tintColor = .purpleTwo
+        navigationController?.navigationBar.tintColor = .link
+        navBar.tintColor = .link
     }
 }
 
@@ -43,7 +43,7 @@ extension TantanganDetailController: UITableViewDataSource {
         cell.guideTitle.text = cdData?.title
         cell.guideDesc.text = cdData?.desc
         
-        cell.guideImage.tintColor = UIColor.purpleTwo
+        cell.guideImage.tintColor = .link
         
         return cell
     }
