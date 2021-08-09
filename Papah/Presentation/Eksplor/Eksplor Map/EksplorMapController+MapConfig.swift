@@ -26,7 +26,7 @@ extension EksplorMapController: CLLocationManagerDelegate {
             locationManager.requestWhenInUseAuthorization()
         case .restricted, .denied:
             //Mesti popup user buat enable di phone settings
-            self.showDefaultSelectionAlertWithCompletion(title: "Alert", msg: "Silahkan izinkan lokasi terlebih dahulu untuk menggunakan fitur rute ini", confirmMsg: "Izinkan", cancelMsg: "Tidak") { permission in
+            self.showDefaultSelectionAlertWithCompletion(title: "Alert", msg: "Silahkan izinkan lokasi terlebih dahulu untuk menggunakan fitur ini", confirmMsg: "Izinkan", cancelMsg: "Tidak") { permission in
                 if permission {
                     UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!)
                     self.navigationController?.popViewController(animated: true)
