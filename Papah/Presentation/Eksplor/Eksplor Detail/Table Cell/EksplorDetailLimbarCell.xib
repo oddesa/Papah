@@ -17,24 +17,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="390" height="67"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOm-7d-Fi9" customClass="DesignableView" customModule="Papah" customModuleProvider="target">
-                        <rect key="frame" x="16" y="13" width="41" height="41"/>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjT-bh-6UX" customClass="DesignableView" customModule="Papah" customModuleProvider="target">
+                        <rect key="frame" x="16" y="13.5" width="40" height="40"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newspaper" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Cxh-g8-2VZ">
-                                <rect key="frame" x="8" y="8" width="25" height="25"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="DPt-n5-xbL"/>
-                                    <constraint firstAttribute="width" constant="25" id="elg-S0-lmk"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="DiV-4Z-EVx">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" name="icon_sapphire"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Cxh-g8-2VZ" secondAttribute="bottom" constant="8" id="5p5-cw-p2B"/>
-                            <constraint firstItem="Cxh-g8-2VZ" firstAttribute="leading" secondItem="FOm-7d-Fi9" secondAttribute="leading" constant="8" id="HfY-BX-F6v"/>
-                            <constraint firstItem="Cxh-g8-2VZ" firstAttribute="top" secondItem="FOm-7d-Fi9" secondAttribute="top" constant="8" id="IFy-jM-UmA"/>
-                            <constraint firstAttribute="trailing" secondItem="Cxh-g8-2VZ" secondAttribute="trailing" constant="8" id="dqI-kf-HQH"/>
+                            <constraint firstItem="DiV-4Z-EVx" firstAttribute="leading" secondItem="gjT-bh-6UX" secondAttribute="leading" id="4rQ-P0-uuX"/>
+                            <constraint firstAttribute="trailing" secondItem="DiV-4Z-EVx" secondAttribute="trailing" id="Z55-qy-d1E"/>
+                            <constraint firstAttribute="width" constant="40" id="kNU-hO-Jui"/>
+                            <constraint firstAttribute="bottom" secondItem="DiV-4Z-EVx" secondAttribute="bottom" id="r2u-aa-Miu"/>
+                            <constraint firstItem="DiV-4Z-EVx" firstAttribute="top" secondItem="gjT-bh-6UX" secondAttribute="top" id="rF1-em-MlJ"/>
+                            <constraint firstAttribute="height" constant="40" id="vYb-j8-RYx"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -43,19 +40,19 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Kertas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6v-u9-zub">
-                        <rect key="frame" x="70" y="16" width="49.5" height="20.5"/>
+                        <rect key="frame" x="72" y="16" width="49.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" verticalCompressionResistancePriority="749" text="Pengepul Limbah 2 Km" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLg-Lj-z3v">
-                        <rect key="frame" x="70" y="36.5" width="130" height="14.5"/>
+                        <rect key="frame" x="72" y="36.5" width="130" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kg" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cz2-u7-yrA">
-                        <rect key="frame" x="220" y="16" width="154" height="35"/>
+                        <rect key="frame" x="222" y="16" width="152" height="35"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     </textField>
@@ -81,17 +78,17 @@
                 <constraints>
                     <constraint firstItem="I6p-qi-cfF" firstAttribute="centerY" secondItem="ACp-xL-ri4" secondAttribute="centerY" id="1Cs-sG-ZjW"/>
                     <constraint firstItem="MLg-Lj-z3v" firstAttribute="top" secondItem="t6v-u9-zub" secondAttribute="bottom" id="6Hq-Wc-DpD"/>
-                    <constraint firstItem="t6v-u9-zub" firstAttribute="leading" secondItem="FOm-7d-Fi9" secondAttribute="trailing" constant="13" id="6wh-X7-pj5"/>
                     <constraint firstAttribute="bottom" secondItem="MLg-Lj-z3v" secondAttribute="bottom" constant="16" id="8vD-mY-FKo"/>
                     <constraint firstAttribute="trailing" secondItem="cz2-u7-yrA" secondAttribute="trailing" constant="16" id="9HU-O4-Fjj"/>
                     <constraint firstItem="cz2-u7-yrA" firstAttribute="centerY" secondItem="ACp-xL-ri4" secondAttribute="centerY" id="CNw-DP-ipU"/>
                     <constraint firstItem="cz2-u7-yrA" firstAttribute="top" secondItem="t6v-u9-zub" secondAttribute="top" id="GUg-aL-mNe"/>
                     <constraint firstItem="t6v-u9-zub" firstAttribute="top" secondItem="ACp-xL-ri4" secondAttribute="top" constant="16" id="M84-uO-7Yf"/>
+                    <constraint firstItem="gjT-bh-6UX" firstAttribute="centerY" secondItem="ACp-xL-ri4" secondAttribute="centerY" id="RWj-ba-wwD"/>
                     <constraint firstItem="cz2-u7-yrA" firstAttribute="bottom" secondItem="MLg-Lj-z3v" secondAttribute="bottom" id="Rqd-1a-V1I"/>
-                    <constraint firstItem="FOm-7d-Fi9" firstAttribute="leading" secondItem="ACp-xL-ri4" secondAttribute="leading" constant="16" id="axX-8J-Zyl"/>
+                    <constraint firstItem="t6v-u9-zub" firstAttribute="leading" secondItem="gjT-bh-6UX" secondAttribute="trailing" constant="16" id="bae-qn-Rro"/>
                     <constraint firstItem="cz2-u7-yrA" firstAttribute="leading" secondItem="MLg-Lj-z3v" secondAttribute="trailing" constant="20" id="drR-y4-sqt"/>
-                    <constraint firstItem="FOm-7d-Fi9" firstAttribute="centerY" secondItem="ACp-xL-ri4" secondAttribute="centerY" id="eHl-WJ-CoT"/>
                     <constraint firstItem="I6p-qi-cfF" firstAttribute="trailing" secondItem="cz2-u7-yrA" secondAttribute="trailing" id="kD3-eL-nr7"/>
+                    <constraint firstItem="gjT-bh-6UX" firstAttribute="leading" secondItem="ACp-xL-ri4" secondAttribute="leading" constant="16" id="tju-h5-hQw"/>
                     <constraint firstItem="MLg-Lj-z3v" firstAttribute="leading" secondItem="t6v-u9-zub" secondAttribute="leading" id="ysB-Q7-7wc"/>
                 </constraints>
             </tableViewCellContentView>
@@ -99,10 +96,9 @@
             <connections>
                 <outlet property="btnTambah" destination="I6p-qi-cfF" id="L2j-5m-vlI"/>
                 <outlet property="edtQuantity" destination="cz2-u7-yrA" id="kCL-LP-Cyj"/>
-                <outlet property="icLimbah" destination="Cxh-g8-2VZ" id="EUf-Kv-3tC"/>
+                <outlet property="icLimbah" destination="DiV-4Z-EVx" id="aqG-42-sOx"/>
                 <outlet property="lblLimbah" destination="t6v-u9-zub" id="xjn-bB-4Qs"/>
                 <outlet property="lblLimbahDesc" destination="MLg-Lj-z3v" id="weU-BL-uRu"/>
-                <outlet property="viewIcLimbah" destination="FOm-7d-Fi9" id="TUo-e3-5gt"/>
             </connections>
             <point key="canvasLocation" x="124.6376811594203" y="119.53125"/>
         </tableViewCell>
@@ -113,10 +109,7 @@
         </designable>
     </designables>
     <resources>
-        <image name="newspaper" catalog="system" width="128" height="108"/>
-        <namedColor name="icon_sapphire">
-            <color red="0.0" green="0.5690000057220459" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="5" width="36" height="37"/>
         <namedColor name="purple_two">
             <color red="0.3449999988079071" green="0.33700001239776611" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

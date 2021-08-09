@@ -21,53 +21,30 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T1a-96-0gm" customClass="DesignableView" customModule="Papah" customModuleProvider="target">
-                    <rect key="frame" x="16" y="292.5" width="382" height="321.5"/>
+                    <rect key="frame" x="16" y="307" width="382" height="292.5"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selamat!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZsJ-F0-i73">
-                            <rect key="frame" x="16" y="148" width="350" height="29"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sukses Mengklaim Poin!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZsJ-F0-i73">
+                            <rect key="frame" x="16" y="148" width="350" height="26.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mhx-7f-Q8e" customClass="DesignableView" customModule="Papah">
                             <rect key="frame" x="141" y="32" width="100" height="100"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Xu-Pf-p0m" customClass="DesignableView" customModule="Papah">
-                                    <rect key="frame" x="25" y="25" width="50" height="50"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ygp-kF-ELb">
-                                            <rect key="frame" x="6" y="5.5" width="38" height="38"/>
-                                            <color key="tintColor" systemColor="systemYellowColor"/>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="Ygp-kF-ELb" firstAttribute="top" secondItem="4Xu-Pf-p0m" secondAttribute="top" constant="6" id="5j1-eG-xW7"/>
-                                        <constraint firstAttribute="trailing" secondItem="Ygp-kF-ELb" secondAttribute="trailing" constant="6" id="89u-J9-YJZ"/>
-                                        <constraint firstItem="Ygp-kF-ELb" firstAttribute="leading" secondItem="4Xu-Pf-p0m" secondAttribute="leading" constant="6" id="Ar9-hy-ia1"/>
-                                        <constraint firstAttribute="bottom" secondItem="Ygp-kF-ELb" secondAttribute="bottom" constant="6" id="p6s-Fj-af2"/>
-                                    </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                            <real key="value" value="1"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="25"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="19" translatesAutoresizingMaskIntoConstraints="NO" id="Ygp-kF-ELb">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <color key="tintColor" systemColor="systemYellowColor"/>
+                                </imageView>
                             </subviews>
-                            <color key="backgroundColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="4Xu-Pf-p0m" secondAttribute="bottom" constant="25" id="3Sp-j7-KhN"/>
-                                <constraint firstAttribute="trailing" secondItem="4Xu-Pf-p0m" secondAttribute="trailing" constant="25" id="H4A-Ge-zbX"/>
-                                <constraint firstItem="4Xu-Pf-p0m" firstAttribute="leading" secondItem="Mhx-7f-Q8e" secondAttribute="leading" constant="25" id="JSt-gF-fqr"/>
-                                <constraint firstItem="4Xu-Pf-p0m" firstAttribute="top" secondItem="Mhx-7f-Q8e" secondAttribute="top" constant="25" id="Ume-qD-1UX"/>
+                                <constraint firstItem="Ygp-kF-ELb" firstAttribute="top" secondItem="Mhx-7f-Q8e" secondAttribute="top" id="0Qg-u0-URm"/>
+                                <constraint firstAttribute="trailing" secondItem="Ygp-kF-ELb" secondAttribute="trailing" id="7JR-nc-FL5"/>
+                                <constraint firstAttribute="bottom" secondItem="Ygp-kF-ELb" secondAttribute="bottom" id="DXA-oj-m9y"/>
                                 <constraint firstAttribute="width" constant="100" id="Vho-Oa-1AG"/>
                                 <constraint firstAttribute="height" constant="100" id="cbh-nG-IWy"/>
+                                <constraint firstItem="Ygp-kF-ELb" firstAttribute="leading" secondItem="Mhx-7f-Q8e" secondAttribute="leading" id="zBb-GB-0xx"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -81,14 +58,14 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kamu berhasil mengklaim 100 poin dari penyaluran limbah" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3y8-RC-Qrw">
-                            <rect key="frame" x="16" y="187" width="350" height="33.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poinmu +100 dari penjualan sampah" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3y8-RC-Qrw">
+                            <rect key="frame" x="16" y="182.5" width="350" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WeM-sH-HUC" customClass="DesignableButton" customModule="Papah" customModuleProvider="target">
-                            <rect key="frame" x="20" y="252.5" width="342" height="49"/>
+                            <rect key="frame" x="20" y="223.5" width="342" height="49"/>
                             <color key="backgroundColor" systemColor="systemIndigoColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="49" id="haJ-RP-ENR"/>
@@ -113,9 +90,9 @@
                         <constraint firstItem="3y8-RC-Qrw" firstAttribute="leading" secondItem="T1a-96-0gm" secondAttribute="leading" constant="16" id="1Qz-4m-9BZ"/>
                         <constraint firstItem="ZsJ-F0-i73" firstAttribute="leading" secondItem="T1a-96-0gm" secondAttribute="leading" constant="16" id="Fhq-JC-tyV"/>
                         <constraint firstAttribute="trailing" secondItem="ZsJ-F0-i73" secondAttribute="trailing" constant="16" id="Foj-HT-Vcr"/>
-                        <constraint firstItem="WeM-sH-HUC" firstAttribute="top" secondItem="3y8-RC-Qrw" secondAttribute="bottom" constant="32" id="Mex-gO-F8U"/>
+                        <constraint firstItem="WeM-sH-HUC" firstAttribute="top" secondItem="3y8-RC-Qrw" secondAttribute="bottom" constant="24" id="Mex-gO-F8U"/>
                         <constraint firstItem="Mhx-7f-Q8e" firstAttribute="top" secondItem="T1a-96-0gm" secondAttribute="top" constant="32" id="O9V-L6-LZ2"/>
-                        <constraint firstItem="3y8-RC-Qrw" firstAttribute="top" secondItem="ZsJ-F0-i73" secondAttribute="bottom" constant="10" id="OoN-JJ-KHr"/>
+                        <constraint firstItem="3y8-RC-Qrw" firstAttribute="top" secondItem="ZsJ-F0-i73" secondAttribute="bottom" constant="8" id="OoN-JJ-KHr"/>
                         <constraint firstAttribute="trailing" secondItem="3y8-RC-Qrw" secondAttribute="trailing" constant="16" id="Sz6-NR-xOx"/>
                         <constraint firstAttribute="trailing" secondItem="WeM-sH-HUC" secondAttribute="trailing" constant="20" id="gPd-zP-Gen"/>
                         <constraint firstItem="Mhx-7f-Q8e" firstAttribute="centerX" secondItem="T1a-96-0gm" secondAttribute="centerX" id="gY0-PI-TBD"/>
@@ -147,7 +124,7 @@
         </designable>
     </designables>
     <resources>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="19" width="159" height="160"/>
         <namedColor name="white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

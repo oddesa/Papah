@@ -92,177 +92,177 @@ extension CoreDataManager {
             wasteCategoryId: 0,
             title: "Besi",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._1
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 0,
             wasteCategoryId: 8,
             title: "Perabotan",
             unit: "item",
-            image: UIImage()
+            image: UIImage._9
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 0,
             wasteCategoryId: 3,
             title: "Kardus",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._4
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 1,
             wasteCategoryId: 0,
             title: "Besi",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._1
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 1,
             wasteCategoryId: 2,
             title: "Kaca",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._3
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 1,
             wasteCategoryId: 9,
             title: "Plastik",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._10
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 1,
             wasteCategoryId: 3,
             title: "Kardus",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._4
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 1,
             wasteCategoryId: 6,
             title: "Kertas",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._7
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 1,
             wasteCategoryId: 4,
             title: "Karet",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._5
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 2,
             wasteCategoryId: 1,
             title: "Duplek",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._2
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 2,
             wasteCategoryId: 0,
             title: "Besi",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._1
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 2,
             wasteCategoryId: 2,
             title: "Kaca",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._3
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 2,
             wasteCategoryId: 7,
             title: "Minyak Jelantah",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._8
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 2,
             wasteCategoryId: 5,
             title: "Karung Goni",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._6
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 2,
             wasteCategoryId: 9,
             title: "Plastik",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._10
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 2,
             wasteCategoryId: 3,
             title: "Kardus",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._4
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 3,
             wasteCategoryId: 8,
             title: "Perabotan",
             unit: "Item",
-            image: UIImage()
+            image: UIImage._9
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 4,
             wasteCategoryId: 1,
             title: "Duplek",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._2
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 4,
             wasteCategoryId: 0,
             title: "Besi",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._1
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 4,
             wasteCategoryId: 9,
             title: "Plastik",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._10
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 4,
             wasteCategoryId: 3,
             title: "Kardus",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._4
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 4,
             wasteCategoryId: 6,
             title: "Kertas",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._7
         )
         WbklDataRepository.shared.insertWasteCategoryToWbkl(
             wbklId: 4,
             wasteCategoryId: 2,
             title: "Kaca",
             unit: "kg",
-            image: UIImage()
+            image: UIImage._3
         )
     }
     
     
     //MARK: Waste Category
     func preloadWasteCategory(){
-            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 0,title: "Besi",unit: "kg",image: UIImage())
-            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 1,title: "Duplek",unit: "kg",image: UIImage())
-            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 2,title: "Kaca",unit: "kg",image: UIImage())
-            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 3,title: "Kardus",unit: "kg",image: UIImage())
-            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 4,title: "Karet",unit: "kg",image: UIImage())
-            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 5,title: "Karung Goni",unit: "kg",image: UIImage())
-            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 6,title: "Kertas",unit: "kg",image: UIImage())
-            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 7,title: "Minyak Jelantah",unit: "kg",image: UIImage())
-            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 8,title: "Perabotan",unit: "kg",image: UIImage())
-            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 9, title: "Plastik", unit: "kg", image: UIImage())
+            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 0,title: "Besi",unit: "kg",image: UIImage._1)
+            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 1,title: "Duplek",unit: "kg",image: UIImage._2)
+            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 2,title: "Kaca",unit: "kg",image: UIImage._3)
+            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 3,title: "Kardus",unit: "kg",image: UIImage._4)
+            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 4,title: "Karet",unit: "kg",image: UIImage._5)
+            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 5,title: "Karung Goni",unit: "kg",image: UIImage._6)
+            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 6,title: "Kertas",unit: "kg",image: UIImage._7)
+            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 7,title: "Minyak Jelantah",unit: "kg",image: UIImage._8)
+            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 8,title: "Perabotan",unit: "kg",image: UIImage._9)
+            WbklDataRepository.shared.insertWasteCategory(wasteCategoryId: 9, title: "Plastik", unit: "kg", image: UIImage._10)
     }
     
     //MARK: Waste Category
