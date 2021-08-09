@@ -26,6 +26,7 @@ class TantanganMonthlyCell: UITableViewCell {
             //mcImage.image = mc.image
             mcTitle.text = mcp.monthlyChallenge?.title
             mcDesc.text = mcp.monthlyChallenge?.desc
+            mcImage.image = UIImage(data: mcp.monthlyChallenge?.image ?? Data())
             mcTextProgress.text = "\(currentValue) / \(maxValue)"
             mcProgressBar.progress = mcp.current_value / maxValueFloat
 

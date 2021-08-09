@@ -20,7 +20,7 @@ extension CoreDataManager {
             month: 7,
             rewardPoint: 300,
             maxValue: 1,
-            image: UIImage()
+            image: UIImage.pin
         )
         
         MonthlyChallengeDataRepository.shared.insertMonthlyChallenge(
@@ -32,7 +32,7 @@ extension CoreDataManager {
             month: 7,
             rewardPoint: 300,
             maxValue: 50000,
-            image: UIImage()
+            image: UIImage.neko
         )
         
         MonthlyChallengeDataRepository.shared.insertMonthlyChallenge(
@@ -44,7 +44,7 @@ extension CoreDataManager {
             month: 8,
             rewardPoint: 300,
             maxValue: 1,
-            image: UIImage()
+            image: UIImage.pin
         )
         
         MonthlyChallengeDataRepository.shared.insertMonthlyChallenge(
@@ -56,7 +56,7 @@ extension CoreDataManager {
             month: 8,
             rewardPoint: 300,
             maxValue: 50000,
-            image: UIImage()
+            image: UIImage.neko
         )
     }
     
