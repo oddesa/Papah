@@ -44,7 +44,7 @@ class MonthlyChallengeDataRepository {
             monthlyChallenge.month = Int32(month)
             monthlyChallenge.reward_point = Int32(rewardPoint)
             monthlyChallenge.max_value = Float(maxValue)
-            monthlyChallenge.image = image.jpegData(compressionQuality: 1.0)
+            monthlyChallenge.image = image.pngData()
             
           
             
