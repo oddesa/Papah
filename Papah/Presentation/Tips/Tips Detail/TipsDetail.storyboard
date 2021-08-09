@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,9 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="RqZ-XD-7RB">
-                                <rect key="frame" x="20" y="124" width="374" height="480"/>
-                            </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="eKe-Zg-uv7">
                                 <rect key="frame" x="146.5" y="844.5" width="121.5" height="27.5"/>
                                 <color key="pageIndicatorTintColor" name="separator"/>
@@ -28,7 +26,7 @@
                                 </connections>
                             </pageControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAQ-ED-vP8">
-                                <rect key="frame" x="20" y="658" width="374" height="176.5"/>
+                                <rect key="frame" x="20" y="657.5" width="374" height="177"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1o-HE-6hb">
                                         <rect key="frame" x="0.0" y="33" width="374" height="90"/>
@@ -54,28 +52,49 @@
                                     <constraint firstAttribute="trailing" secondItem="C7S-lq-blF" secondAttribute="trailing" id="hRr-uu-vVa"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eD2-yB-TY8">
+                                <rect key="frame" x="16" y="104" width="382" height="537.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="a8F-Xt-wzN">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Jgp-J7-H04">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gyn-MZ-Rde">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="background_primary"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="eKe-Zg-uv7" secondAttribute="bottom" constant="24" id="1cc-8A-V8N"/>
-                            <constraint firstItem="RqZ-XD-7RB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="36" id="Rbg-dz-8Ug"/>
-                            <constraint firstItem="MAQ-ED-vP8" firstAttribute="top" secondItem="RqZ-XD-7RB" secondAttribute="bottom" constant="54" id="W9Y-2M-yu1"/>
-                            <constraint firstItem="MAQ-ED-vP8" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="658" id="dOK-iW-FHl"/>
-                            <constraint firstItem="RqZ-XD-7RB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="dyN-hk-o1O"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="RqZ-XD-7RB" secondAttribute="trailing" constant="20" id="hzz-Pi-pg8"/>
+                            <constraint firstItem="MAQ-ED-vP8" firstAttribute="top" secondItem="eD2-yB-TY8" secondAttribute="bottom" constant="16" id="2cD-0J-isi"/>
+                            <constraint firstItem="eD2-yB-TY8" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.6" id="JcC-aw-kTe"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eD2-yB-TY8" secondAttribute="trailing" constant="16" id="MhU-Jk-CxI"/>
+                            <constraint firstItem="C7S-lq-blF" firstAttribute="top" secondItem="eD2-yB-TY8" secondAttribute="bottom" constant="16" id="SUW-3d-bpH"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="MAQ-ED-vP8" secondAttribute="trailing" constant="20" id="ipX-H8-HzU"/>
+                            <constraint firstItem="eD2-yB-TY8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="lAa-fp-buL"/>
                             <constraint firstItem="eKe-Zg-uv7" firstAttribute="top" secondItem="MAQ-ED-vP8" secondAttribute="bottom" constant="10" id="ugk-QI-y6b"/>
                             <constraint firstItem="MAQ-ED-vP8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="v0c-1u-L7d"/>
+                            <constraint firstItem="eD2-yB-TY8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="vzH-kh-7gK"/>
                             <constraint firstItem="eKe-Zg-uv7" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="zmd-0n-PPv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Plastik" largeTitleDisplayMode="never" id="wC2-29-eV1"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="collectionView" destination="eD2-yB-TY8" id="9Kg-Yy-Zj0"/>
                         <outlet property="pageControl" destination="eKe-Zg-uv7" id="Pcl-B8-LDB"/>
                         <outlet property="tipsDesc" destination="Z1o-HE-6hb" id="Ldz-Ym-cA2"/>
-                        <outlet property="tipsImageScrollView" destination="RqZ-XD-7RB" id="uxc-Jh-lBy"/>
                         <outlet property="tipsTitle" destination="C7S-lq-blF" id="3IE-OX-qGa"/>
                     </connections>
                 </viewController>
