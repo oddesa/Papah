@@ -9,13 +9,29 @@ import UIKit
 
 class TipsDetailCollectionCell: UICollectionViewCell {
 
-    @IBOutlet weak var tipsImage: UIImageView!
-    @IBOutlet weak var tipsTitle: UILabel!
-    @IBOutlet weak var tipsDesc: UITextView!
+    let customView: UIImageView = {
+        let view = UIImageView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 12
+        view.clipsToBounds = true
+        view.layer.masksToBounds = true
+        return view
+    }()
     
-    func setTipsDetailByCategory(with tipsDetail: SampahDetail){
-        tipsImage.image = UIImage(data: (tipsDetail.image ?? UIImage.whatsAppImage20210719At085013.jpegData(compressionQuality: 1.0)) ?? Data())
-        tipsTitle.text = tipsDetail.title
-        tipsDesc.text = tipsDetail.detail
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        self.addSubview(self.customView)
+        
+        self.customView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        self.customView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        self.customView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1).isActive = true
+        self.customView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1).isActive = true
+        
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 }

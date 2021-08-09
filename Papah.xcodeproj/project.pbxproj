@@ -119,6 +119,7 @@
 		BCEE6E5026B1BCA700D4D250 /* EksplorDetailLimbarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCEE6E4E26B1BCA700D4D250 /* EksplorDetailLimbarCell.xib */; };
 		BCEE6E5326B1BCB900D4D250 /* EksplorDetailEarningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEE6E5126B1BCB900D4D250 /* EksplorDetailEarningCell.swift */; };
 		BCEE6E5426B1BCB900D4D250 /* EksplorDetailEarningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCEE6E5226B1BCB900D4D250 /* EksplorDetailEarningCell.xib */; };
+		BCF2A72826C0C7DE008AC916 /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF2A72726C0C7DE008AC916 /* UPCarouselFlowLayout.swift */; };
 		BCF48A7E26B392B900E7F677 /* TipsDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF48A7D26B392A300E7F677 /* TipsDataRepository.swift */; };
 		BF1C043F26B4FB270099B6E1 /* UserDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C043E26B4FB270099B6E1 /* UserDataRepository.swift */; };
 		BF1C044126B4FB5B0099B6E1 /* MonthlyChallengeDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C044026B4FB5B0099B6E1 /* MonthlyChallengeDataRepository.swift */; };
@@ -223,7 +224,7 @@
 		BC2A95E426ADD00D002AD800 /* Homepage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
 		BC2A95E526ADD00E002AD800 /* HomepageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageController.swift; sourceTree = "<group>"; };
 		BC2A95E826ADD033002AD800 /* TipsDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TipsDetail.storyboard; sourceTree = "<group>"; };
-		BC2A95E926ADD034002AD800 /* TipsDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsDetailController.swift; sourceTree = "<group>"; };
+		BC2A95E926ADD034002AD800 /* TipsDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsDetailController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		BC2A95EA26ADD034002AD800 /* TipsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsDetailViewModel.swift; sourceTree = "<group>"; };
 		BC2A95EE26ADD098002AD800 /* TipsDetailCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsDetailCollectionCell.swift; sourceTree = "<group>"; };
 		BC2A95EF26ADD098002AD800 /* TipsDetailCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TipsDetailCollectionCell.xib; sourceTree = "<group>"; };
@@ -269,6 +270,7 @@
 		BCEE6E4E26B1BCA700D4D250 /* EksplorDetailLimbarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorDetailLimbarCell.xib; sourceTree = "<group>"; };
 		BCEE6E5126B1BCB900D4D250 /* EksplorDetailEarningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorDetailEarningCell.swift; sourceTree = "<group>"; };
 		BCEE6E5226B1BCB900D4D250 /* EksplorDetailEarningCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorDetailEarningCell.xib; sourceTree = "<group>"; };
+		BCF2A72726C0C7DE008AC916 /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		BCF48A7D26B392A300E7F677 /* TipsDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsDataRepository.swift; sourceTree = "<group>"; };
 		BF1C043E26B4FB270099B6E1 /* UserDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRepository.swift; sourceTree = "<group>"; };
 		BF1C044026B4FB5B0099B6E1 /* MonthlyChallengeDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyChallengeDataRepository.swift; sourceTree = "<group>"; };
@@ -704,6 +706,7 @@
 		9866550826ADCDAC0047D2A7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				BCF2A72926C0CDDC008AC916 /* Libraries */,
 				BC2BE85E26AE82D50067DB23 /* Extensions */,
 				BC2BE85C26AE82BA0067DB23 /* CommonFunction.swift */,
 				BC2A95F926ADD3E8002AD800 /* Constants.swift */,
@@ -772,6 +775,14 @@
 				BCD827B326AF0264000C2452 /* EksplorMapBottomSheet.xib */,
 			);
 			path = "Bottom Sheet";
+			sourceTree = "<group>";
+		};
+		BCF2A72926C0CDDC008AC916 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				BCF2A72726C0C7DE008AC916 /* UPCarouselFlowLayout.swift */,
+			);
+			path = Libraries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1030,6 +1041,7 @@
 				BC2BE86C26AE82DF0067DB23 /* String+Extension.swift in Sources */,
 				BC2A95CB26ADCF4A002AD800 /* ExplorListTableCell.swift in Sources */,
 				BC2A95B826ADCE90002AD800 /* EksplorMapViewModel.swift in Sources */,
+				BCF2A72826C0C7DE008AC916 /* UPCarouselFlowLayout.swift in Sources */,
 				BC6950A726B9B169004D37D1 /* PreloadChallengeData.swift in Sources */,
 				BC2A95DD26ADCFE6002AD800 /* TipsListController.swift in Sources */,
 				BC2BE86D26AE82DF0067DB23 /* UIColor+Extension.swift in Sources */,
