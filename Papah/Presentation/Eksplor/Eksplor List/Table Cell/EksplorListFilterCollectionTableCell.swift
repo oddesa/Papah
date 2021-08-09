@@ -134,16 +134,21 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
         switch title {
         case "Kertas":
             cell.categoryBtn.setImage(UIImage(systemName: "newspaper"), for: .normal)
+        case "Besi":
+            cell.categoryBtn.setImage(UIImage.steel, for: .normal)
+        case "Kaca":
+            cell.categoryBtn.setImage(UIImage.bottle, for: .normal)
         case "Kardus":
             cell.categoryBtn.setImage(UIImage(systemName: "shippingbox"), for: .normal)
         case "Perabotan":
             cell.categoryBtn.setImage(UIImage(systemName: "bed.double"), for: .normal)
         case "Plastik":
-            cell.categoryBtn.setImage(UIImage(systemName: "takeoutbag.and.cup.and.straw"), for: .normal)
+            cell.categoryBtn.setImage(UIImage.plastic, for: .normal)
         default:
             cell.categoryBtn.setImage(UIImage(systemName: "line.horizontal.3.decrease.circle"), for: .normal)
         }
         cell.categoryBtn.scalesLargeContentImage = false
+        cell.categoryBtn.setTitleColor(.textPrimary, for: .normal)
 
         cell.onDidSelectItem  = { () in
             self.onDidSelectItemSecond?(self.categories[indexPath.row])

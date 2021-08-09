@@ -17,11 +17,11 @@ class HomepageController: UITabBarController {
     
     @IBAction func onTapBarMultipe(_ sender: Any) {
         
-        showSelectionAlertWithCompletion(title: "HAPUS DATA?", msg: "OYEY", confirmMsg: "BAKAR", cancelMsg: "NO") { bakar in
-            if bakar {
-                CoreDataManager.sharedManager.resetData()
-            }
-        }
+//        showSelectionAlertWithCompletion(title: "HAPUS DATA?", msg: "OYEY", confirmMsg: "BAKAR", cancelMsg: "NO") { bakar in
+//            if bakar {
+//                CoreDataManager.sharedManager.resetData()
+//            }
+//        }
     }
     
     /*

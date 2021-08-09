@@ -45,7 +45,7 @@ class TipsListController: MVVMViewController<TipsListViewModel>, UITableViewDele
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //-Rizqi's addition-----------------------------------------------------------
         
-        if indexPath.row == 4 {
+        if indexPath.row == 0 {
             if let viewModel = viewModel, let tipsData = viewModel.getTipsData()?[indexPath.row] {
                 let controller = TipsDetailController.instantiateStoryboard(
                     viewModel: TipsDetailViewModel(tips: tipsData)
@@ -53,26 +53,26 @@ class TipsListController: MVVMViewController<TipsListViewModel>, UITableViewDele
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         } else {
-            self.showAlert(title: "Ora iso", msg: "Belom ada kontennya lur")
+            self.showAlert(title: "Akan hadir!", msg: "Masih dalam pengerjaan.")
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let headerFrame = tableView.frame
-        
-        let title = UILabel()
-        title.frame =  CGRect(x: 16, y: 0, width: headerFrame.size.width-20, height: 20) //width equals to parent view with 10 left and right margin
-        title.font = title.font.withSize(14)
-        title.text = "MENYALURKAN LIMBAH"
-        //        title.text = self.tableView(tableView, titleForHeaderInSection: section) //This will take title of section from 'titleForHeaderInSection' method or you can write directly
-        title.textColor = .gray
-        
-        let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: headerFrame.size.width, height: headerFrame.size.height))
-        headerView.addSubview(title)
-        return headerView
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//
+//        let headerFrame = tableView.frame
+//
+//        let title = UILabel()
+//        title.frame =  CGRect(x: 16, y: 0, width: headerFrame.size.width-20, height: 20) //width equals to parent view with 10 left and right margin
+//        title.font = title.font.withSize(14)
+//        title.text = "MENYALURKAN LIMBAH"
+//        //        title.text = self.tableView(tableView, titleForHeaderInSection: section) //This will take title of section from 'titleForHeaderInSection' method or you can write directly
+//        title.textColor = .gray
+//
+//        let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: headerFrame.size.width, height: headerFrame.size.height))
+//        headerView.addSubview(title)
+//        return headerView
+//    }
 
     
     

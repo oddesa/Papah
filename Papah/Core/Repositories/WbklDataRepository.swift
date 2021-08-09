@@ -37,7 +37,7 @@ class WbklDataRepository {
             wbklData.wbkl_type = wbklType
             wbklData.longitude = longitude
             wbklData.latitude = latitude
-            wbklData.image = image.jpegData(compressionQuality: 1.0)
+            wbklData.image = image.pngData()
             wbklData.operational_day = openDay
             wbklData.operational_hour = openHour
             wbklData.address = address
@@ -105,7 +105,7 @@ class WbklDataRepository {
             let context = CoreDataManager.sharedManager.persistentContainer.viewContext
             
             let wasteCategory = WasteCategory(context: context)
-            wasteCategory.image = image.jpegData(compressionQuality: 1.0)
+            wasteCategory.image = image.pngData()
             wasteCategory.unit = unit
             wasteCategory.waste_category_id = Int32(wasteCategoryId)
             wasteCategory.title = title
@@ -132,7 +132,7 @@ class WbklDataRepository {
                 wasteCategory.waste_category_id = Int32(wasteCategoryId)
                 wasteCategory.title = title
                 wasteCategory.unit = unit
-                wasteCategory.image = image.jpegData(compressionQuality: 1.0)
+                wasteCategory.image = image.pngData()
                 
                 wbkl.addToWasteCategory(wasteCategory)
                 

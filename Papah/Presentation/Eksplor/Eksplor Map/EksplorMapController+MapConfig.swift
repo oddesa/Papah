@@ -129,7 +129,7 @@ extension EksplorMapController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "marker")
-        annotationView.markerTintColor = .iconIolite
+        annotationView.markerTintColor = .link
         annotationView.glyphImage = UIImage(systemName: "star.fill")
         return annotationView
     }
@@ -165,7 +165,7 @@ extension EksplorMapController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer{
         let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-        polylineRenderer.strokeColor = .iconIolite
+        polylineRenderer.strokeColor = .link
         polylineRenderer.lineWidth = 4
         return polylineRenderer
     }

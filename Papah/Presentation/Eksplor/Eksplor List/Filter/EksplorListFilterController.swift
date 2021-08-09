@@ -66,10 +66,9 @@ extension EksplorListFilterController: UITableViewDataSource, UITableViewDelegat
    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "filterCell") as! EksplorListFilterTableCell
-        let imageDummy: UIImage = .whatsAppImage20210719At085013
         
         if let filter = viewModel?.filterData[indexPath.row] {
-            cell.wasteIcon.image = imageDummy
+            cell.wasteIcon.image = UIImage(data: filter.categoryData.image ?? Data())
             cell.wasteTitle.text = filter.categoryData.title
             if viewModel!.dataPassingan.contains(filter.categoryData) {
                 cell.wasteChecklist.isHidden = false

@@ -36,8 +36,8 @@ class BadgeDataRepository {
             badge.desc = desc
             badge.max_value = maxValue
             badge.date_achieved = dateAchv
-            badge.image = image.jpegData(compressionQuality: 1.0)
-            badge.image_achieved = imgAchieved.jpegData(compressionQuality: 1.0)
+            badge.image = image.pngData()
+            badge.image_achieved = imgAchieved.pngData()
             
             if let badgeCategory = getBadgeCategoryById(id: badgeCategoryId) {
                 badge.badgeCategory = badgeCategory

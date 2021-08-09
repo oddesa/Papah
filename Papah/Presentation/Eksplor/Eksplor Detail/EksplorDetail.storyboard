@@ -19,7 +19,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VqO-ne-L7W">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="810"/>
-                                <color key="backgroundColor" name="button_small"/>
+                                <color key="backgroundColor" name="background_secondary"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Mvc-R0-ItR" id="qQF-CX-Rbh"/>
                                     <outlet property="delegate" destination="Mvc-R0-ItR" id="Q6I-Nm-Tbd"/>
@@ -237,6 +237,9 @@
     <resources>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="star.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="background_secondary">
+            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="button_small">
             <color red="0.94499999284744263" green="0.94900000095367432" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -30,7 +30,7 @@ class MedaliDetailController: MVVMViewController<MedaliDetailViewModel>  {
         medaliDescription.text = badgeData?.desc
         medaliImage.image = badgeData?.image
         
-        navigationController?.navigationBar.tintColor = .purpleTwo
+        navigationController?.navigationBar.tintColor = .link
         
 //        UIImageView.image = UIImage(named: "whatsapp")
 //        UIImageView.backgroundColor = .red

@@ -4,8 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -47,27 +45,28 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f54-O0-4HY" customClass="DesignableView" customModule="Papah" customModuleProvider="target">
+                    <view opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f54-O0-4HY" customClass="DesignableView" customModule="Papah" customModuleProvider="target">
                         <rect key="frame" x="16" y="10" width="100" height="100"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aQ2-A3-Dex">
-                                <rect key="frame" x="20" y="20.5" width="60" height="59"/>
-                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aQ2-A3-Dex">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="das-35-qWZ"/>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="26G-aV-NJv"/>
-                            <constraint firstItem="das-35-qWZ" firstAttribute="trailing" secondItem="aQ2-A3-Dex" secondAttribute="trailing" constant="20" id="AjZ-85-wbl"/>
-                            <constraint firstItem="das-35-qWZ" firstAttribute="bottom" secondItem="aQ2-A3-Dex" secondAttribute="bottom" constant="20" id="H58-nb-viW"/>
+                            <constraint firstAttribute="trailing" secondItem="aQ2-A3-Dex" secondAttribute="trailing" id="AjZ-85-wbl"/>
+                            <constraint firstAttribute="bottom" secondItem="aQ2-A3-Dex" secondAttribute="bottom" id="H58-nb-viW"/>
                             <constraint firstAttribute="height" constant="100" id="MOr-S3-33o"/>
-                            <constraint firstItem="aQ2-A3-Dex" firstAttribute="leading" secondItem="das-35-qWZ" secondAttribute="leading" constant="20" id="VmX-Di-gH0"/>
-                            <constraint firstItem="aQ2-A3-Dex" firstAttribute="top" secondItem="das-35-qWZ" secondAttribute="top" constant="20" id="fZy-lA-Qa3"/>
+                            <constraint firstItem="aQ2-A3-Dex" firstAttribute="leading" secondItem="f54-O0-4HY" secondAttribute="leading" id="VmX-Di-gH0"/>
+                            <constraint firstItem="aQ2-A3-Dex" firstAttribute="top" secondItem="f54-O0-4HY" secondAttribute="top" id="fZy-lA-Qa3"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="15"/>
+                                <real key="value" value="8"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="NO"/>
                         </userDefinedRuntimeAttributes>
@@ -99,6 +98,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="categoryImage" destination="aQ2-A3-Dex" id="v6o-1V-P7H"/>
                 <outlet property="categoryLabel" destination="keY-gF-F3o" id="y3Q-vI-3ys"/>
                 <outlet property="descLabel" destination="NLW-J7-xzC" id="5on-Pz-iJP"/>
             </connections>
@@ -107,18 +107,11 @@
     </objects>
     <resources>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
-        <image name="trash.circle" catalog="system" width="128" height="121"/>
         <namedColor name="chevron">
             <color red="0.76899999380111694" green="0.76899999380111694" blue="0.77600002288818359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="separator">
             <color red="0.72500002384185791" green="0.72500002384185791" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

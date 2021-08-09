@@ -54,7 +54,7 @@ extension EksplorListController: UISearchResultsUpdating, UISearchControllerDele
         searchBarCont.obscuresBackgroundDuringPresentation = false
         searchBarCont.searchBar.setValue("Batalkan", forKey: "cancelButtonText")
         searchBarCont.searchBar.placeholder = "Agen Sampah"
-        searchBarCont.searchBar.tintColor = .purpleTwo
+        searchBarCont.searchBar.tintColor = .link
     }
     
     func didDismissSearchController(_ searchController: UISearchController) {
@@ -123,11 +123,11 @@ extension EksplorListController: UITableViewDataSource {
                 cell.filterBtn.tintColor = .textPrimary
                 cell.filterBtn.setTitleColor(.textPrimary, for: .normal)
             } else {
-                cell.filterBtn.backgroundColor = .purpleTwo.withAlphaComponent(0.15)
-                cell.filterBtn.borderColor = .purpleTwo.withAlphaComponent(0.6)
+                cell.filterBtn.backgroundColor = .link10
+                cell.filterBtn.borderColor = .link60
                 cell.filterBtn.borderWidth = 0.5
-                cell.filterBtn.tintColor = .purpleTwo
-                cell.filterBtn.setTitleColor(.purpleTwo, for: .normal)
+                cell.filterBtn.tintColor = .link
+                cell.filterBtn.setTitleColor(.link, for: .normal)
                 print("Bisa nih2")
             }
             cell.backgroundColor = .backgroundPrimary
@@ -148,13 +148,13 @@ extension EksplorListController: UITableViewDataSource {
                     let distanceInString = viewModel?.locationDistanceString(distanceInMeter: distance ?? 1000)
                     cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(distanceInString!)"
                     if distance! < Constants.claimPointDistance {
-                        cell.nearMarker.backgroundColor = .green
+                        cell.nearMarker.isHidden = false
                     } else {
-                        cell.nearMarker.backgroundColor = .clear
+                        cell.nearMarker.isHidden = true
                     }
                 } else {
                     cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu")
-                    cell.nearMarker.backgroundColor = .clear
+                    cell.nearMarker.isHidden = true
                 }
                 cell.wbklNameLabel.text = wbkl.name
                 cell.wbklPhoto.image = UIImage(data: wbkl.image ?? Data())
@@ -162,10 +162,11 @@ extension EksplorListController: UITableViewDataSource {
                 
                 if CommonFunction.shared.bukaTutupChecker(operationalDay: wbkl.operational_day ?? "Senin", operationalHour: wbkl.operational_hour ?? "10.00") == true {
                     cell.wbklOperationalLabel.text = "Buka" + " · " + (wbkl.operational_hour ?? " ")
-                    cell.wbklOperationalLabel.textColor = .green
+//                    cell.wbklOperationalLabel.textColor = .green
+                    cell.wbklOperationalLabel.attributedText = "Buka · \(wbkl.operational_hour ?? " ")".withBoldText(text: "Buka", font: UIFont.systemFont(ofSize: 14), textBoldcolor: .link)
                 } else {
                     cell.wbklOperationalLabel.text = "Tutup"
-                    cell.wbklOperationalLabel.textColor = .red
+                    cell.wbklOperationalLabel.textColor = .gray
                 }
                 
                 var categories = viewModel?.allWbkl[indexPath.row - 1].categories

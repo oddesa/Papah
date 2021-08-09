@@ -39,7 +39,7 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.tintColor = .purpleTwo
+        navigationController?.navigationBar.tintColor = .link
         navigationController?.navigationBar.prefersLargeTitles = true
         registerNib()
         attemptLocationAccess()
@@ -150,7 +150,7 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
         }
         
         if requirement.category && requirement.hour && requirement.isOpen && requirement.location  {
-            self.btnClaimPoint.backgroundColor = .purpleTwo
+            self.btnClaimPoint.backgroundColor = .link
             self.btnClaimPoint.isUserInteractionEnabled = true
         } else {
             self.btnClaimPoint.isUserInteractionEnabled = false

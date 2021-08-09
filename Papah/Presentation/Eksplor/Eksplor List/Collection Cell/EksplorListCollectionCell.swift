@@ -54,11 +54,11 @@ class EksplorListCollectionCell: UICollectionViewCell {
     
     func setupCellView () {
         if isActive == true {
-            categoryBtn.backgroundColor = .purpleTwo.withAlphaComponent(0.15)
-            categoryBtn.borderColor = .purpleTwo.withAlphaComponent(0.6)
+            categoryBtn.backgroundColor = .link10
+            categoryBtn.borderColor = .link60
             categoryBtn.borderWidth = 0.5
-            categoryBtn.tintColor = .purpleTwo
-            categoryBtn.setTitleColor(.purpleTwo, for: .normal)
+            categoryBtn.tintColor = .link
+            categoryBtn.setTitleColor(.link, for: .normal)
         } else {
             categoryBtn.borderWidth = 0.5
             categoryBtn.backgroundColor = .backgroundPrimary

@@ -30,52 +30,62 @@ extension CoreDataManager {
         BadgeDataRepository.shared.insertBadge(
             badgeId: 0,
             badgeCategoryId: 0,
-            title: "Delko Kurcaci",
-            desc: "Peroleh medali ini ketika kamu berhasil menyalurkan total 15 kg sampah inorganik. Sejauh ini kamu sudah mengumpulkan ",
+            title: "Kurcaci Penyalur",
+            desc: "Peroleh medali ini ketika kamu berhasil menyalurkan total 15 kg sampah inorganik.", // Sejauh ini kamu sudah mengumpulkan ",
             maxValue: 15,
             dateAchv: Date(),
-            image: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemGray) ?? UIImage(),
-            imgAchieved: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemYellow) ?? UIImage()
+            image: UIImage._36, //hrusnya 36
+            imgAchieved: UIImage._31
         )
         BadgeDataRepository.shared.insertBadge(
             badgeId: 1,
             badgeCategoryId: 1,
             title: "Veteran Kurcaci",
-            desc: "Peroleh medali ini ketika anda berhasil mencapai Level 5. Saat ini kamu sudah ada di Level ",
+            desc: "Peroleh medali ini ketika anda berhasil mencapai Level 5.", //Saat ini kamu sudah ada di Level ",
             maxValue: 5,
             dateAchv: Date(),
-            image: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemGray) ?? UIImage(),
-            imgAchieved: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemYellow) ?? UIImage()
+            image: UIImage._39,
+            imgAchieved: UIImage._33
         )
         BadgeDataRepository.shared.insertBadge(
             badgeId: 2,
             badgeCategoryId: 2,
-            title: "Crazy Rich Kurcaci",
-            desc: "Peroleh medali ini ketika kamu berhasil mengumpulkan total Rp50k dari hasil penyaluran sampah inorganik. Sejauh ini kamu telah mengumpulkan Rp.",
+            title: "Kurcaci Tajir",
+            desc: "Peroleh medali ini ketika kamu berhasil mengumpulkan total Rp50k dari hasil penyaluran sampah inorganik.", //Sejauh ini kamu telah mengumpulkan Rp.",
             maxValue: 50000,
             dateAchv: Date(),
-            image: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemGray) ?? UIImage(),
-            imgAchieved: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemYellow) ?? UIImage()
+            image: UIImage._34,
+            imgAchieved: UIImage._32
         )
         BadgeDataRepository.shared.insertBadge(
             badgeId: 3,
             badgeCategoryId: 3,
             title: "Kurcaci Pelopor",
-            desc: "Peroleh medali ini ketika kamu berhasil menyalurkan 5 kategori sampah inorganik yang berbeda. Sejauh ini kamu sudah menyalurkan sekian kategori sampah.",
+            desc: "Peroleh medali ini ketika kamu berhasil menyalurkan 5 kategori sampah inorganik yang berbeda.", // Sejauh ini kamu sudah menyalurkan sekian kategori sampah.",
             maxValue: 5,
             dateAchv: Date(),
-            image: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemGray) ?? UIImage(),
-            imgAchieved: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemYellow) ?? UIImage()
+            image: UIImage._35,
+            imgAchieved: UIImage._30
         )
         BadgeDataRepository.shared.insertBadge(
             badgeId: 6,
             badgeCategoryId: 4,
             title: "Tantangan Juli",
-            desc: "Peroleh medali ini ketika kamu berhasil menyelesaikan 2 tantangan bulan Juli. Sejauh ini kamu telah menyelesaikan ",
+            desc: "Peroleh medali ini ketika kamu berhasil menyelesaikan 2 tantangan bulan Juli.",// Sejauh ini kamu telah menyelesaikan ",
             maxValue: 2,
             dateAchv: Date(),
-            image: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemGray) ?? UIImage(),
-            imgAchieved: UIImage(systemName: "star.circle.fill")?.withTintColor(UIColor.systemYellow) ?? UIImage()
+            image: UIImage._37,
+            imgAchieved: UIImage._29
+        )
+        BadgeDataRepository.shared.insertBadge(
+            badgeId: 7,
+            badgeCategoryId: 4,
+            title: "Tantangan Agustus",
+            desc: "Peroleh medali ini ketika kamu berhasil menyelesaikan 2 tantangan bulan Agustus.",// Sejauh ini kamu telah menyelesaikan ",
+            maxValue: 2,
+            dateAchv: Date(),
+            image: UIImage._38,
+            imgAchieved: UIImage._28
         )
        
     }

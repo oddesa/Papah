@@ -14,7 +14,7 @@ internal enum L10n {
   internal static func claimPointRequirementCategory(_ p1: Any) -> String {
     return L10n.tr("Localizations", "claim_point_requirement_category", String(describing: p1))
   }
-  /// Kamu dapat mengklaim poin lagi pada jam %@
+  /// Kamu dapat mengklaim poin setiap %@ jam
   internal static func claimPointRequirementHour(_ p1: Any) -> String {
     return L10n.tr("Localizations", "claim_point_requirement_hour", String(describing: p1))
   }

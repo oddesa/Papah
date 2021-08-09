@@ -27,7 +27,7 @@ class TipsDataRepository {
             let evaluationDetails = Sampah(context: context)
             evaluationDetails.title = title
             evaluationDetails.desc = desc
-            evaluationDetails.image = image.jpegData(compressionQuality: 1.0)
+            evaluationDetails.image = image.pngData()
             evaluationDetails.sampah_id = Int32(sampahId)
             
             try context.save()
@@ -54,7 +54,7 @@ class TipsDataRepository {
                 let tipsDetail = SampahDetail(context: context)
                 tipsDetail.title = title
                 tipsDetail.detail = detail
-                tipsDetail.image = image.jpegData(compressionQuality: 1.0)
+                tipsDetail.image = image.pngData()
                 tipsDetail.sampah_id = Int32(sampahId)
                 print("SAMPAH ID TIPS DETAIL \(Int32(sampahId))")
                 tips.addToSampahDetail(tipsDetail)
