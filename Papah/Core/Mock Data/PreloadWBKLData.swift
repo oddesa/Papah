@@ -47,8 +47,8 @@ extension CoreDataManager {
             longitude: 106.810273,
             latitude: -6.567949,
             image: UIImage.wbklBankSampahWarungJambuBersih,
-            openDay: "Minggu",
-            openHour: "10.00 - 14.00",
+            openDay: "Senin - Minggu",
+            openHour: "00.00 - 24.00",
             address: "Warung Jambu Rt.02/06 (Belakang Kantor Pos, RT.03/RW.01, Bantarjati, Kec. Bogor Utara, Kota Bogor, Jawa Barat 16151",
             phone: "+6281385143538",
             claimedDate: Date()
