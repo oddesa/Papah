@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -17,11 +15,23 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>tel</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Anda akan dapat mengakses daftar agen sampah disekitar, petunjuk arah, dan kemampuan untuk klaim poin.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Anda akan dapat mengakses daftar agen sampah disekitar, petunjuk arah, dan kemampuan untuk klaim poin.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Anda akan dapat mengakses daftar agen sampah disekitar, petunjuk arah, dan kemampuan untuk klaim poin.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -64,15 +74,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>tel</string>
-	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Anda akan dapat mengakses daftar agen sampah disekitar, petunjuk arah, dan kemampuan untuk klaim poin.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Anda akan dapat mengakses daftar agen sampah disekitar, petunjuk arah, dan kemampuan untuk klaim poin.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Anda akan dapat mengakses daftar agen sampah disekitar, petunjuk arah, dan kemampuan untuk klaim poin.</string>
 </dict>
 </plist>
