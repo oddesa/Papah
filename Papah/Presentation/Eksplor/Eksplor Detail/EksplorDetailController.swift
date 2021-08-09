@@ -23,6 +23,8 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
     @IBOutlet weak var checkRequirementHour: UIImageView!
     @IBOutlet weak var checkRequirementCategory: UIImageView!
 
+    @IBOutlet weak var viewRequirementLocation: UIView!
+    
     private var trashBag = Set<AnyCancellable>()
 
     let sectionDetail = 0
@@ -68,11 +70,16 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
         }
     }
 
+    @IBAction func locationRequestCheck(_ sender: Any) {
+        UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!)
+    }
+    
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
     }
+    
     @IBAction func onClaimPoint(_ sender: Any) {
         
         self.viewModel?.onPointClaimed()
@@ -128,7 +135,11 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
             locationManager.authorizationStatus == .restricted {
             self.checkRequirementLocation.tintColor = .systemRed
             self.lblRequirementLocation.textColor = .systemRed
+            self.lblRequirementLocation.attributedText = "\(L10n.claimPointRequirementLocation(Constants.claimPointDistance)) (Izinkan Lokasi)".withBoldText(text: "(Izinkan Lokasi)", font: UIFont.systemFont(ofSize: 11), textBoldcolor: UIColor.systemBlue)
+            self.viewRequirementLocation.isUserInteractionEnabled = true
         } else {
+            self.viewRequirementLocation.isUserInteractionEnabled = false
+            self.lblRequirementLocation.text = "\(L10n.claimPointRequirementLocation(Constants.claimPointDistance))"
             if requirement.location {
                 self.checkRequirementLocation.tintColor = .systemGreen
                 self.lblRequirementLocation.textColor = .systemGreen

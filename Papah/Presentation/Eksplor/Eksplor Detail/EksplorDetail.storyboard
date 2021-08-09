@@ -48,7 +48,7 @@
                                             <action selector="onClaimPoint:" destination="Mvc-R0-ItR" eventType="touchUpInside" id="FZQ-cO-uN1"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qE-UE-s0R">
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qE-UE-s0R">
                                         <rect key="frame" x="16" y="82" width="358" height="26.333333333333329"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ls0-TP-38Y">
@@ -67,6 +67,7 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" name="button_small"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="lSp-Ox-ec4" secondAttribute="bottom" id="8ym-5e-R39"/>
                                             <constraint firstItem="lSp-Ox-ec4" firstAttribute="leading" secondItem="Ls0-TP-38Y" secondAttribute="trailing" constant="8" id="NJE-GY-2rL"/>
@@ -76,6 +77,9 @@
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Ls0-TP-38Y" secondAttribute="bottom" id="khI-Te-4jT"/>
                                             <constraint firstItem="lSp-Ox-ec4" firstAttribute="top" secondItem="Ls0-TP-38Y" secondAttribute="top" id="mr3-Iy-QOx"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Vsu-lf-DkA" appends="YES" id="Yfq-wz-0OW"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FoA-X2-nF2">
                                         <rect key="frame" x="16" y="108.33333333333337" width="358" height="20"/>
@@ -212,9 +216,15 @@
                         <outlet property="lblRequirementLocation" destination="lSp-Ox-ec4" id="ukD-fv-BDX"/>
                         <outlet property="lblRequirementOpen" destination="KWf-Po-L4T" id="rrC-bC-84V"/>
                         <outlet property="tableView" destination="VqO-ne-L7W" id="oqg-Dp-1XA"/>
+                        <outlet property="viewRequirementLocation" destination="7qE-UE-s0R" id="Pfn-tv-MeQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfj-f2-RrH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Vsu-lf-DkA">
+                    <connections>
+                        <action selector="locationRequestCheck:" destination="Mvc-R0-ItR" id="Cj6-ck-1S8"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-446.37681159420293" y="130.58035714285714"/>
         </scene>
