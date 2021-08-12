@@ -36,8 +36,8 @@ class TipsListController: MVVMViewController<TipsListViewModel>, UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self.viewModel?.getTipsData()?[indexPath.row]
-        let cell = tipsListTableView.dequeueReusableCell(withIdentifier: TipsListTableCell.cellIdentifier(), for: indexPath) as! TipsListTableCell
-//        cell.item = surah
+        guard let cell = tipsListTableView.dequeueReusableCell(withIdentifier: TipsListTableCell.cellIdentifier(), for: indexPath) as? TipsListTableCell else {return UITableViewCell()}
+        
         cell.setTips(with: item)
         return cell
     }

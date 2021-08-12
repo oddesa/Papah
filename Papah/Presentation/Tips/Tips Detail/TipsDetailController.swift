@@ -16,7 +16,9 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
     // Variables asociated to collection view:
     fileprivate var currentPage: Int = 0
     fileprivate var pageSize: CGSize {
-        let layout = self.collectionView?.collectionViewLayout as! UPCarouselFlowLayout
+        guard let layout = self.collectionView?.collectionViewLayout as? UPCarouselFlowLayout else {
+            return UPCarouselFlowLayout().itemSize
+        }
         var pageSize = layout.itemSize
         pageSize.width += layout.minimumLineSpacing
         return pageSize
@@ -56,10 +58,9 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
         self.collectionView?.register(TipsDetailCollectionCell.self, forCellWithReuseIdentifier: "cellId")
         
         // Spacing between cells:
-        let spacingLayout = self.collectionView?.collectionViewLayout as! UPCarouselFlowLayout
+        guard let spacingLayout = self.collectionView?.collectionViewLayout as? UPCarouselFlowLayout else {return}
         spacingLayout.spacingMode = UPCarouselFlowLayoutSpacingMode.overlap(visibleOffset: 10)
-        
-        self.view.addSubview(self.collectionView!)
+        self.view.addSubview(self.collectionView ?? self.view)
     }
     
     // MARK: - Card Collection Delegate & DataSource
@@ -73,14 +74,14 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! TipsDetailCollectionCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as? TipsDetailCollectionCell else {return UICollectionViewCell()}
         cell.customView.image = UIImage(data: (self.viewModel?.getTipsDetail()?[indexPath.row].image ?? UIImage.whatsAppImage20210719At085013.jpegData(compressionQuality: 100)) ?? Data())
         cell.customView.contentMode = .scaleAspectFit
         return cell
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let layout = self.collectionView?.collectionViewLayout as! UPCarouselFlowLayout
+        guard let layout = self.collectionView?.collectionViewLayout as? UPCarouselFlowLayout else {return}
         let pageSide = (layout.scrollDirection == .horizontal) ? self.pageSize.width : self.pageSize.height
         let offset = (layout.scrollDirection == .horizontal) ? scrollView.contentOffset.x : scrollView.contentOffset.y
         currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)

@@ -120,10 +120,8 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
         
         if filterPassingan.contains(categories[indexPath.row].categoryData) {
             cell.isActive = true
-            print("-------------------aaaa kepassing tapi active -----------------")
         } else {
             cell.isActive = false
-            print("-------------------aaaa kepassing false-----------------")
         }
         
         let title = (categories[indexPath.row].categoryData.title ?? "mantan")
@@ -156,16 +154,4 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
         
         return cell
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//
-//        guard let cell = collectionView.cellForItem(at: indexPath) as? EksplorListCollectionCell else {fatalError("cugs")}
-////        cell.onDidSelectItem  = { () in
-////            print("ieu ajibbb")
-////        }
-//
-//
-//
-//
-//    }
 }

@@ -17,13 +17,13 @@ class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel
     @IBOutlet weak var resetButton: UIButton!
     
     @IBAction func donePressed(_ sender: UIButton) {
-        delegate?.pass(categories: viewModel!.dataPassingan)
+        delegate?.pass(categories: viewModel?.dataPassingan ?? [])
         self .dismiss(animated: true, completion: nil)
     }
     
     @IBAction func resetPressed(_ sender: UIButton) {
         // swiftlint:disable identifier_name
-        viewModel!.dataPassingan.removeAll()
+        viewModel?.dataPassingan.removeAll()
         viewModel?.resetFilterData()
         wasteFilterTable.reloadData()
     }
@@ -65,12 +65,12 @@ extension EksplorListFilterController {
 extension EksplorListFilterController: UITableViewDataSource, UITableViewDelegate {
    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "filterCell") as! EksplorListFilterTableCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "filterCell") as? EksplorListFilterTableCell else {return UITableViewCell()}
         
         if let filter = viewModel?.filterData[indexPath.row] {
             cell.wasteIcon.image = UIImage(data: filter.categoryData.image ?? Data())
             cell.wasteTitle.text = filter.categoryData.title
-            if viewModel!.dataPassingan.contains(filter.categoryData) {
+            if (viewModel?.dataPassingan.contains(filter.categoryData)) ?? false {
                 cell.wasteChecklist.isHidden = false
             } else {
                 cell.wasteChecklist.isHidden = true
@@ -89,14 +89,14 @@ extension EksplorListFilterController: UITableViewDataSource, UITableViewDelegat
                return
            }
         if let category = viewModel?.filterData[indexPath.row]{
-            if !(viewModel!.dataPassingan.contains(category.categoryData)) {
+            if !(viewModel?.dataPassingan.contains(category.categoryData) ?? false) {
                 category.isSelected = true
                 cell.wasteChecklist.isHidden = false
-                viewModel!.dataPassingan.append(category.categoryData)
+                viewModel?.dataPassingan.append(category.categoryData)
             } else {
                 category.isSelected = false
                 cell.wasteChecklist.isHidden = true
-                viewModel!.dataPassingan = viewModel!.dataPassingan.filter {$0 != category.categoryData}
+                viewModel?.dataPassingan = viewModel?.dataPassingan.filter {$0 != category.categoryData} ?? []
             }
         }
         
@@ -108,6 +108,6 @@ extension EksplorListFilterController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (viewModel?.filterData.count)!
+        return (viewModel?.filterData.count) ?? 0
     }
 }

@@ -67,7 +67,7 @@ extension EksplorListController: UISearchResultsUpdating, UISearchControllerDele
             return
         }
         guard var dataWbkl = viewModel?.turnWbklsPro() else {return}
-        dataWbkl = (viewModel?.filterBasedOnCat(allWbkl: dataWbkl, filterCategories: filterCategories))!
+        dataWbkl = (viewModel?.filterBasedOnCat(allWbkl: dataWbkl, filterCategories: filterCategories)) ?? []
         viewModel?.getWbklBasedOnSearch(text: text, dataWbkl: dataWbkl, filterCategories: filterCategories)
         tableViewOutlet.reloadData()
     }
@@ -96,11 +96,14 @@ extension EksplorListController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "EksplorListFilterCollectionTableCell", for: indexPath) as? EksplorListFilterCollectionTableCell else {fatalError("identifiernya salah anying")}
             
             cell.onDidSelectItem = { () in
-                let controller = EksplorListFilterController.instantiateStoryboard(viewModel: EksplorListFilterViewModel()) as? EksplorListFilterController
-                controller?.delegate = self
-                controller?.viewModel = EksplorListFilterViewModel()
-                controller?.viewModel?.dataPassingan = self.filterCategories
-                self.navigationController?.present(controller!, animated: true, completion: nil)
+                if let controller = EksplorListFilterController.instantiateStoryboard(viewModel: EksplorListFilterViewModel()) as? EksplorListFilterController {
+                    
+                    controller.delegate = self
+                    controller.viewModel = EksplorListFilterViewModel()
+                    controller.viewModel?.dataPassingan = self.filterCategories
+                    self.navigationController?.present(controller, animated: true, completion: nil)
+                }
+                
             }
             
             cell.onDidSelectItemSecond = { (category) in
@@ -110,7 +113,7 @@ extension EksplorListController: UITableViewDataSource {
                     self.filterCategories = self.filterCategories.filter {$0 != category.categoryData}
                 }
                 for cat in self.filterCategories {
-                    print(cat.title!)
+                    print(cat.title ?? "Categori tak bernama")
                 }
             }
             
@@ -128,7 +131,6 @@ extension EksplorListController: UITableViewDataSource {
                 cell.filterBtn.borderWidth = 0.5
                 cell.filterBtn.tintColor = .link
                 cell.filterBtn.setTitleColor(.link, for: .normal)
-                print("Bisa nih2")
             }
             cell.backgroundColor = .backgroundPrimary
             cell.selectionStyle = .none
@@ -146,8 +148,8 @@ extension EksplorListController: UITableViewDataSource {
                 if let currentLocation = (viewModel?.userLocation?.last) {
                     let distance = viewModel?.getLocationDistance(userLocation: currentLocation, wbklData: wbkl)
                     let distanceInString = viewModel?.locationDistanceString(distanceInMeter: distance ?? 1000)
-                    cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(distanceInString!)"
-                    if distance! < Constants.claimPointDistance {
+                    cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(distanceInString ?? "")"
+                    if (distance ?? 1000) < Constants.claimPointDistance {
                         cell.nearMarker.isHidden = false
                     } else {
                         cell.nearMarker.isHidden = true
@@ -169,14 +171,15 @@ extension EksplorListController: UITableViewDataSource {
                     cell.wbklOperationalLabel.textColor = .gray
                 }
                 
-                var categories = viewModel?.allWbkl[indexPath.row - 1].categories
+                guard var categories = viewModel?.allWbkl[indexPath.row - 1].categories else {return UITableViewCell()}
                 
-                if (viewModel?.categoriesChecker(wbkl: (viewModel?.allWbkl[indexPath.row - 1])!, word: "karung goni"))! {
+                guard let dataWbkl = (viewModel?.allWbkl[indexPath.row - 1]) else {return UITableViewCell()}
+                
+                if (viewModel?.categoriesChecker(wbkl: dataWbkl, word: "karung goni")) ?? false {
                     let text = "karung goni"
-                    if let index = categories!.firstIndex(of: text.capitalized) {
-                        categories = viewModel?.rearrangeArray(array: categories!, fromIndex: index, toIndex: categories!.count-1 ) ?? ["mantan"]
+                    if let index = categories.firstIndex(of: text.capitalized) {
+                        categories = viewModel?.rearrangeArray(array: categories, fromIndex: index, toIndex: (categories.count)-1 ) ?? ["mantan"]
                     }
-                  
                 }
                 
                 var putihputih = [cell.wbklSampahKategori1, cell.wbklSampahKategori2, cell.wbklSampahKategori3, cell.wbklSampahKategori4]
@@ -187,17 +190,16 @@ extension EksplorListController: UITableViewDataSource {
                     putih?.backgroundColor = .buttonSmall
                 }
                 
-                
-                for int in 0..<categories!.count {
+                for int in 0..<categories.count {
                     if int < 3 {
-                        textPutihPutih[int]?.text = categories![int]
+                        textPutihPutih[int]?.text = categories[int]
                         textPutihPutih[int]?.textColor = .textPrimary
                     } else {
-                        textPutihPutih[3]?.text = "+\(categories!.count-3)"
+                        textPutihPutih[3]?.text = "+\(categories.count-3)"
                     }
                 }
                 
-                for int in 0..<categories!.count where int < 4 {
+                for int in 0..<categories.count where int < 4 {
                     putihputih.remove(at: 0)
                 }
                 
@@ -219,9 +221,9 @@ extension EksplorListController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row != 0 {
+            guard let wbkl = (viewModel?.allWbkl[indexPath.row - 1].wbklData) else {return}
             let controller = EksplorDetailController.instantiateStoryboard(
-                viewModel: EksplorDetailViewModel(wbklData: (viewModel?.allWbkl[indexPath.row - 1].wbklData)!)
-            )
+                viewModel: EksplorDetailViewModel(wbklData: wbkl))
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }

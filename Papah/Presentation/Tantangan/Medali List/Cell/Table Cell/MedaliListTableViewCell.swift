@@ -65,11 +65,11 @@ extension MedaliListTableViewCell: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
-        let cell =
+       guard let cell =
             collectionView
             .dequeueReusableCell(withReuseIdentifier:
-            "MedaliListCollectionViewCell", for: indexPath) as!
-            MedaliListCollectionViewCell
+            "MedaliListCollectionViewCell", for: indexPath) as?
+                MedaliListCollectionViewCell else {return UICollectionViewCell()}
         
         
         let currentValue = String(format: "%.0f", badgeProgressData[indexPath.row].current_value)
