@@ -75,6 +75,7 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! TipsDetailCollectionCell
         cell.customView.image = UIImage(data: (self.viewModel?.getTipsDetail()?[indexPath.row].image ?? UIImage.whatsAppImage20210719At085013.jpegData(compressionQuality: 100)) ?? Data())
+        cell.customView.contentMode = .scaleAspectFit
         return cell
     }
     
