@@ -119,8 +119,6 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
             headerView.backgroundView = backgroundView
             
             //navigasi
-//            headerView.tmpilkanOutlet as! UIButton
-            
             headerView.onDidSelectItem = { () in
                 self.navigationController?.pushViewController(MedaliListController.instantiateStoryboard(viewModel: MedaliListViewModel(badges: self.viewModel?.badgeProgress ?? [])), animated: true)
             }
@@ -131,11 +129,6 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
         return UIView()
      
     }
-    
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return CGFloat(TantanganListController.footerHeight)
-//    }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableviewIdentifier(section: section).count
@@ -224,8 +217,6 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
         case TantanganMonthlyCell.cellIdentifier():
             let ttdcData = ChallengeDetail.getChallengeDetaileData()
             self.navigationController?.present(TantanganDetailController.instantiateStoryboard(viewModel: TantanganDetailViewModel(challengeDetailData: ttdcData)), animated: true, completion: nil)
-        case TantanganRewardTablecell.cellIdentifier():
-            print("berak")
         default:
             print("ieu kunaon")
         }

@@ -35,7 +35,7 @@ class EksplorListViewModel: NSObject {
     }
     
     func getWbklCategoriesName (wbkl: Wbkl) -> [String] {
-        let categoriesData = wbkl.wasteAccepted?.allObjects as! [WasteAccepted]
+        guard let categoriesData = wbkl.wasteAccepted?.allObjects as? [WasteAccepted] else {return [" "]}
         var categoriesString: [String] = []
         for category in categoriesData {
             categoriesString.append(category.wasteCategory?.title ?? "Mantan")
@@ -109,10 +109,9 @@ class EksplorListViewModel: NSObject {
                     }
                 }
             }
-            print(textName.count)
-            if (wbkl.wbklData.name?.lowercased().contains(textName.lowercased()))!  {
+            if (wbkl.wbklData.name?.lowercased().contains(textName.lowercased())) ?? false  {
                 let idx = allWbkl.firstIndex(where: { $0 === wbkl })
-                allWbkl = (rearrangeArray(array: allWbkl, fromIndex: idx!, toIndex: 0))
+                allWbkl = (rearrangeArray(array: allWbkl, fromIndex: idx ?? 0, toIndex: 0))
             }
         }
     }
@@ -158,7 +157,7 @@ class EksplorListViewModel: NSObject {
         var dataWbkl = allWbkl
         for wbkl in dataWbkl {
             for category in filterCategories {
-                if !(wbkl.categories.contains(category.title!)) {
+                if !(wbkl.categories.contains(category.title ?? " ")) {
                     if let idx = dataWbkl.firstIndex(where: { $0 === wbkl }) {
                         dataWbkl.remove(at: idx)
                     }

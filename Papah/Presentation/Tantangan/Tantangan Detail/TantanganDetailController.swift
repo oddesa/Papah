@@ -36,7 +36,7 @@ extension TantanganDetailController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tantanganDetail") as! TantanganDetailTableCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "tantanganDetail") as? TantanganDetailTableCell else {return UITableViewCell()}
         
         let cdData = viewModel?.challengeDetailData[indexPath.row]
         cell.guideImage.image = cdData?.img

@@ -66,7 +66,7 @@ extension TantanganRewardTablecell: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TantanganRewardCell", for: indexPath) as! TantanganRewardCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TantanganRewardCell", for: indexPath) as? TantanganRewardCell else {return UICollectionViewCell()}
         
         let currentValue = String(format: "%.0f", badgeProgressData[indexPath.row].current_value)
         let maxValue =  String(format: "%.0f",badgeProgressData[indexPath.row].badge?.max_value ?? 0)
