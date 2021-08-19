@@ -52,7 +52,7 @@ extension CoreDataManager {
             badgeCategoryId: 2,
             mcId: 3,
             title: "Sultan Limbah",
-            desc: "Kumpulkan Rp50k dari penyaluran limbah",
+            desc: "Kumpulkan Rp50.000 dari penyaluran limbah",
             month: 8,
             rewardPoint: 300,
             maxValue: 50000,
