@@ -215,8 +215,8 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
         case TantanganEarningCell.cellIdentifier():
             print(TantanganEarningCell.cellIdentifier())
         case TantanganMonthlyCell.cellIdentifier():
-            let ttdcData = ChallengeDetail.getChallengeDetaileData()
-            self.navigationController?.present(TantanganDetailController.instantiateStoryboard(viewModel: TantanganDetailViewModel(challengeDetailData: ttdcData)), animated: true, completion: nil)
+            let ttdcData = ChallengeDetail.getChallengeDetaileData(selectedRow: indexPath.row)
+            self.navigationController?.present(TantanganDetailController.instantiateStoryboard(viewModel: TantanganDetailViewModel(challengeDetailData: ttdcData, selectedRow: indexPath.row)), animated: true, completion: nil)
         default:
             print("ieu kunaon")
         }
