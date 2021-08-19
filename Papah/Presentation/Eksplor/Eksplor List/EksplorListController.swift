@@ -44,26 +44,40 @@ class EksplorListController: MVVMViewController<EksplorListViewModel>, isAbleToR
     }
 }
 
-    // MARK: - UISearchController
-extension EksplorListController: UISearchResultsUpdating, UISearchControllerDelegate {
+// MARK: - UISearchController
+extension EksplorListController: UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
     
     func setupSearchController() {
         navigationItem.searchController = searchBarCont
         searchBarCont.searchResultsUpdater = self
         searchBarCont.delegate = self
+        searchBarCont.searchBar.delegate = self
         searchBarCont.obscuresBackgroundDuringPresentation = false
         searchBarCont.searchBar.setValue("Batalkan", forKey: "cancelButtonText")
         searchBarCont.searchBar.placeholder = "Agen Sampah"
         searchBarCont.searchBar.tintColor = .link
     }
     
-    func didDismissSearchController(_ searchController: UISearchController) {
-        viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories)
+    func updateSearchResults(for searchController: UISearchController) {
+        //
+    }
+    func willPresentSearchController(_ searchController: UISearchController) {
+        viewModel?.allWbkl = []
         tableViewOutlet.reloadData()
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else {
+    
+    func willDismissSearchController(_ searchController: UISearchController) {
+        filterCategories = []
+        viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories)
+        tableViewOutlet.reloadData()
+    }
+    func didDismissSearchController(_ searchController: UISearchController) {
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else {
             return
         }
         guard var dataWbkl = viewModel?.turnWbklsPro() else {return}
@@ -73,10 +87,9 @@ extension EksplorListController: UISearchResultsUpdating, UISearchControllerDele
     }
     
     
-    
 }
 
-    // MARK: - TableView DataSource
+// MARK: - TableView DataSource
 extension EksplorListController: UITableViewDataSource {
     func setupNib() {
         let nibTable = UINib(nibName: "ExplorListTableCell", bundle: nil)
@@ -92,7 +105,7 @@ extension EksplorListController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //EksplorListFilterCollectionTableCell
-        if indexPath.row == 0 {
+        if indexPath.row == 0 && !(viewModel?.allWbkl.count == 0) {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "EksplorListFilterCollectionTableCell", for: indexPath) as? EksplorListFilterCollectionTableCell else {fatalError("identifiernya salah anying")}
             
             cell.onDidSelectItem = { () in
@@ -136,13 +149,13 @@ extension EksplorListController: UITableViewDataSource {
             cell.selectionStyle = .none
             return cell
             
-        } else {
+        } else if !(viewModel?.allWbkl.count == 0) {
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath) as? ExplorListTableCell else {fatalError("identifiernya salah anying")}
             
-            if viewModel?.allWbkl.count == 0 {
-                fatalError("kosong tapi tampil")
-            }
+            //            if viewModel?.allWbkl.count == 0 {
+            //                fatalError("kosong tapi tampil")
+            //            }
             
             if let wbkl = viewModel?.allWbkl[indexPath.row - 1].wbklData {
                 if let currentLocation = (viewModel?.userLocation?.last) {
@@ -164,7 +177,7 @@ extension EksplorListController: UITableViewDataSource {
                 
                 if CommonFunction.shared.bukaTutupChecker(operationalDay: wbkl.operational_day ?? "Senin", operationalHour: wbkl.operational_hour ?? "10.00") == true {
                     cell.wbklOperationalLabel.text = "Buka" + " · " + (wbkl.operational_hour ?? " ")
-//                    cell.wbklOperationalLabel.textColor = .green
+                    //                    cell.wbklOperationalLabel.textColor = .green
                     cell.wbklOperationalLabel.attributedText = "Buka · \(wbkl.operational_hour ?? " ")".withBoldText(text: "Buka", font: UIFont.systemFont(ofSize: 14), textBoldcolor: .link)
                 } else {
                     cell.wbklOperationalLabel.text = "Tutup"
@@ -212,12 +225,17 @@ extension EksplorListController: UITableViewDataSource {
             cell.backgroundColor = .backgroundPrimary
             cell.selectionStyle = .none
             return cell
+        } else {
+            let cell = UITableViewCell()
+            cell.backgroundColor = .backgroundPrimary
+            cell.selectionStyle = .none
+            return cell
         }
     }
 }
 // MARK: - TableView Delegate
 extension EksplorListController: UITableViewDelegate {
-  
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row != 0 {
