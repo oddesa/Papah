@@ -28,9 +28,6 @@ class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel
         wasteFilterTable.reloadData()
     }
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         nibSetup()
@@ -40,9 +37,13 @@ class EksplorListFilterController: MVVMViewController<EksplorListFilterViewModel
         
         wasteFilterTable.dataSource = self
         wasteFilterTable.delegate = self
-        
-       
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        delegate?.pass(categories: viewModel?.dataPassingan ?? [])
+    }
+    
 }
 
 //MARK: Setup
