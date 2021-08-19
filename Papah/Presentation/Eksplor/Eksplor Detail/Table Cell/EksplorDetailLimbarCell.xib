@@ -54,6 +54,10 @@
                         <rect key="frame" x="222" y="16" width="152" height="35"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        <connections>
+                            <action selector="onBeginEditing:" destination="N3C-8p-005" eventType="editingDidBegin" id="gwu-mj-kZN"/>
+                            <action selector="onEditingEnd:" destination="N3C-8p-005" eventType="editingDidEnd" id="q5I-aZ-yL3"/>
+                        </connections>
                     </textField>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6p-qi-cfF" customClass="DesignableButton" customModule="Papah" customModuleProvider="target">
                         <rect key="frame" x="283" y="21" width="91" height="25"/>

@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 import Combine
+import CoreLocation
 
 class EksplorDetailViewModel {
     
@@ -16,14 +17,14 @@ class EksplorDetailViewModel {
     
     var wbklData: Wbkl?
     var singleEarningData: [Earnings] = [Earnings]()
-    var distanceMeter = 0.0
+    var distanceMeter = Constants.claimPointDistance
     var totalEarnings:Float = 0
     
     var wbklRepo = WbklDataRepository.shared
     var challengeRepo = MonthlyChallengeDataRepository.shared
     var badgeRepo = BadgeDataRepository.shared
     var userRepo = UserDataRepository.shared
-    
+        
     // Combine
     var onRequirementCheck = CurrentValueSubject<RequirementCheck,Never>(RequirementCheck(hour: false, location: false, isOpen: false, category: false))
     
@@ -52,8 +53,8 @@ class EksplorDetailViewModel {
         var isOpen = CommonFunction.shared.bukaTutupChecker(operationalDay: self.wbklData?.operational_day ?? "Senin", operationalHour: self.wbklData?.operational_hour ?? "10.00")
 
         // Debug
-        hourCondition = true
-        isOpen = true
+//        hourCondition = true
+//        isOpen = true
 
         self.onRequirementCheck.send(RequirementCheck(hour: hourCondition, location: locationCondition, isOpen: isOpen, category: earningCondition))
         

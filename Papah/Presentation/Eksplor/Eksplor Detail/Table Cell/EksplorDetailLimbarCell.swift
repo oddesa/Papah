@@ -22,6 +22,7 @@ class EksplorDetailLimbarCell: UITableViewCell, UITextFieldDelegate {
     @IBAction func onTapAdd(_ sender: Any) {
         btnTambah.isHidden = true
         edtQuantity.isHidden = false
+        edtQuantity.becomeFirstResponder()
     }
     
     func updateViewData(data: WasteAccepted?, edtQuantity: Float) {
@@ -30,13 +31,7 @@ class EksplorDetailLimbarCell: UITableViewCell, UITextFieldDelegate {
         self.edtQuantity.text = edtQuantity == 0 ? "" : String(edtQuantity)
         self.icLimbah.image = UIImage(data: data?.wasteCategory?.image ?? Data())
         
-        if(edtQuantity > 0) {
-            btnTambah.isHidden = true
-            self.edtQuantity.isHidden = false
-        } else {
-            btnTambah.isHidden = false
-            self.edtQuantity.isHidden = true
-        }
+        changeBtnState()
 
     }
     
@@ -49,14 +44,37 @@ class EksplorDetailLimbarCell: UITableViewCell, UITextFieldDelegate {
 
     }
 
+    @IBAction func onBeginEditing(_ sender: Any) {
+        let newPosition = edtQuantity.endOfDocument
+        edtQuantity.selectedTextRange = edtQuantity.textRange(from: newPosition, to: newPosition)
+        
+    }
+    
     func textChanged(action: @escaping (String) -> Void) {
         self.textChanged = action
     }
     
     @objc func textFieldDidChange() {
         textChanged?(self.edtQuantity.text ?? "0")
+        changeBtnState()
     }
 
+    @IBAction func onEditingEnd(_ sender: UITextField) {
+        changeBtnState()
+    }
+    
+    func changeBtnState(){
+        if(edtQuantity.text?.count ?? 0 > 0) {
+            btnTambah.isHidden = true
+            self.edtQuantity.isHidden = false
+            self.edtQuantity.becomeFirstResponder()
+        } else {
+            btnTambah.isHidden = false
+            self.edtQuantity.isHidden = true
+            self.edtQuantity.resignFirstResponder()
+        }
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
