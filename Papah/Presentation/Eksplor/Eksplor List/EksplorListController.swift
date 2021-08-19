@@ -45,12 +45,13 @@ class EksplorListController: MVVMViewController<EksplorListViewModel>, isAbleToR
 }
 
     // MARK: - UISearchController
-extension EksplorListController: UISearchResultsUpdating, UISearchControllerDelegate {
+extension EksplorListController: UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
     
     func setupSearchController() {
         navigationItem.searchController = searchBarCont
         searchBarCont.searchResultsUpdater = self
         searchBarCont.delegate = self
+        searchBarCont.searchBar.delegate = self
         searchBarCont.obscuresBackgroundDuringPresentation = false
         searchBarCont.searchBar.setValue("Batalkan", forKey: "cancelButtonText")
         searchBarCont.searchBar.placeholder = "Agen Sampah"
@@ -62,8 +63,8 @@ extension EksplorListController: UISearchResultsUpdating, UISearchControllerDele
         tableViewOutlet.reloadData()
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else {
             return
         }
         guard var dataWbkl = viewModel?.turnWbklsPro() else {return}
@@ -71,7 +72,6 @@ extension EksplorListController: UISearchResultsUpdating, UISearchControllerDele
         viewModel?.getWbklBasedOnSearch(text: text, dataWbkl: dataWbkl, filterCategories: filterCategories)
         tableViewOutlet.reloadData()
     }
-    
     
     
 }
