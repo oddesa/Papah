@@ -21,7 +21,7 @@
                         <rect key="frame" x="16" y="4" width="382" height="130.5"/>
                         <subviews>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CNy-d2-tNi">
-                                <rect key="frame" x="116" y="70" width="211" height="4"/>
+                                <rect key="frame" x="116" y="70.5" width="212" height="4"/>
                                 <color key="tintColor" name="link"/>
                             </progressView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gsV-GA-TzN" customClass="DesignableView" customModule="Papah" customModuleProvider="target">
@@ -61,10 +61,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BSl-zL-Q0Y">
-                                <rect key="frame" x="111" y="84.5" width="271" height="36"/>
+                                <rect key="frame" x="111" y="79.5" width="271" height="41"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="41" translatesAutoresizingMaskIntoConstraints="NO" id="1F9-fR-qB9">
-                                        <rect key="frame" x="0.0" y="8" width="20" height="20"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="19" translatesAutoresizingMaskIntoConstraints="NO" id="1F9-fR-qB9">
+                                        <rect key="frame" x="0.0" y="10.5" width="20" height="20"/>
                                         <color key="tintColor" systemColor="systemGrayColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="gqs-lE-HVo"/>
@@ -72,8 +72,8 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kamu berhasil dapat bonus 300 poin" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Bo-ag-kpO">
-                                        <rect key="frame" x="25" y="0.0" width="246" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <rect key="frame" x="25" y="0.0" width="246" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                         <color key="textColor" systemColor="systemGreenColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -106,7 +106,7 @@
                             <constraint firstItem="18T-N9-TKA" firstAttribute="top" secondItem="pG8-tF-rGU" secondAttribute="top" constant="16" id="6Fy-Qb-4dz"/>
                             <constraint firstItem="BSl-zL-Q0Y" firstAttribute="leading" secondItem="gsV-GA-TzN" secondAttribute="trailing" constant="15" id="6dS-JV-vhQ"/>
                             <constraint firstAttribute="trailing" secondItem="BSl-zL-Q0Y" secondAttribute="trailing" id="89G-u9-Zkb"/>
-                            <constraint firstItem="CNy-d2-tNi" firstAttribute="top" secondItem="zsA-0W-Tjg" secondAttribute="bottom" constant="13" id="BY2-7f-spe"/>
+                            <constraint firstItem="CNy-d2-tNi" firstAttribute="top" secondItem="zsA-0W-Tjg" secondAttribute="bottom" constant="16" id="BY2-7f-spe"/>
                             <constraint firstAttribute="bottom" secondItem="BSl-zL-Q0Y" secondAttribute="bottom" constant="10" id="BwY-pa-ZEK"/>
                             <constraint firstItem="SPm-Gi-qbg" firstAttribute="top" secondItem="pG8-tF-rGU" secondAttribute="top" constant="16" id="HKM-2f-tJM"/>
                             <constraint firstItem="n9b-46-5b9" firstAttribute="leading" secondItem="CNy-d2-tNi" secondAttribute="trailing" constant="8" symbolic="YES" id="Has-1Y-n9s"/>
@@ -115,7 +115,7 @@
                             <constraint firstItem="n9b-46-5b9" firstAttribute="centerY" secondItem="CNy-d2-tNi" secondAttribute="centerY" id="S2R-Fy-uLo"/>
                             <constraint firstItem="gsV-GA-TzN" firstAttribute="centerY" secondItem="pG8-tF-rGU" secondAttribute="centerY" id="Ttz-sb-Dm9"/>
                             <constraint firstItem="zsA-0W-Tjg" firstAttribute="top" secondItem="18T-N9-TKA" secondAttribute="bottom" constant="6" id="Yli-S5-JDf"/>
-                            <constraint firstItem="BSl-zL-Q0Y" firstAttribute="top" secondItem="n9b-46-5b9" secondAttribute="bottom" constant="5" id="elu-FN-OjV"/>
+                            <constraint firstItem="BSl-zL-Q0Y" firstAttribute="top" secondItem="n9b-46-5b9" secondAttribute="bottom" id="elu-FN-OjV"/>
                             <constraint firstAttribute="trailing" secondItem="SPm-Gi-qbg" secondAttribute="trailing" constant="16" id="gAq-XJ-xZ1"/>
                             <constraint firstAttribute="trailing" secondItem="n9b-46-5b9" secondAttribute="trailing" constant="30" id="gFY-p9-b6j"/>
                             <constraint firstItem="gsV-GA-TzN" firstAttribute="leading" secondItem="pG8-tF-rGU" secondAttribute="leading" constant="16" id="kiC-Lx-7jK"/>
@@ -150,7 +150,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="41" width="40" height="69"/>
+        <image name="19" width="159" height="160"/>
         <image name="bolt.heart.fill" catalog="system" width="128" height="109"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <namedColor name="background_primary">
