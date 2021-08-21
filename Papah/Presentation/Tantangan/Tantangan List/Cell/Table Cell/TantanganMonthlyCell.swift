@@ -32,12 +32,12 @@ class TantanganMonthlyCell: UITableViewCell {
 
             if mcp.status == true {
                 mcClaimPointDesc.text = "Kamu telah klaim 300 poin"
-                mcClaimPointIcon.tintColor = .systemGreen
                 mcClaimPointDesc.textColor = .systemGreen
+                mcClaimPointIcon.image = UIImage._41
             } else {
-                mcClaimPointDesc.text = "Selesaikan misi untuk mendapatkan 300 poin"
+                mcClaimPointDesc.text = "+300 poin"
                 mcClaimPointDesc.textColor = .gray
-                mcClaimPointIcon.tintColor = .gray
+                mcClaimPointIcon.image = UIImage._40
             }
         }
     }
