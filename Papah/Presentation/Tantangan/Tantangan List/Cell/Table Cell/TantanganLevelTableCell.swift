@@ -15,13 +15,16 @@ class TantanganLevelTableCell: UITableViewCell {
     @IBOutlet weak var levelValue: UILabel!
     @IBOutlet weak var pointLeftDesc: UILabel!
     
+    var totalPoin = 500
+    
     func updateDataView(userData: User?){
         if let user = userData {
             let userPoint = String(user.point)
+            let pointLeft = totalPoin - Int(user.point)
             userLevel.text = "Level \(user.level): Murid Kurcaci"
             userPoin.text = userPoint
-            levelValue.text = "\(userPoint) / 500"
-            pointLeftDesc.text = "Kumpulkan 500 poin lagi untuk naik level"
+            levelValue.text = "\(totalPoin)"
+            pointLeftDesc.text = "\(pointLeft) poin lagi untuk naik level"
             
             levelProgressBar.progress = Float(user.point)/500
         }

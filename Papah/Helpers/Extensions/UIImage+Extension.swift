@@ -44,6 +44,8 @@ extension UIImage {
     static let _38 = UIImage.image(named: "38")
     static let _39 = UIImage.image(named: "39")
     static let _4 = UIImage.image(named: "4")
+    static let _40 = UIImage.image(named: "40")
+    static let _41 = UIImage.image(named: "41")
     static let _5 = UIImage.image(named: "5")
     static let _6 = UIImage.image(named: "6")
     static let _7 = UIImage.image(named: "7")
