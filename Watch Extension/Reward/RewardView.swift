@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RewardView: View {
     var body: some View {
-        Text("Hello, World!")
+        Text("Hello, World Reward!")
             .padding()
     }
 }
