@@ -8,35 +8,32 @@
 import SwiftUI
 
 struct TantanganBulanIniView: View {
+    
+    
     var body: some View {
-        
-        NavigationView {
-            ScrollView {
-                Divider()
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("TANTANGAN AGUSTUS")
-                            .font(.system(size: 11))
-                            .fontWeight(.regular)
-                            .foregroundColor(.gray)
-                        Spacer()
-                    }
-                   
-                    Text("1 DARI 2 SELESAI")
+    
+        VStack {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("TANTANGAN AGUSTUS")
                         .font(.system(size: 11))
                         .fontWeight(.regular)
-                        
+                        .foregroundColor(.gray)
+                    Spacer()
                 }
-                .padding(.leading)
-                
-                Image("33Watch").resizable().aspectRatio(contentMode: .fit)
-                    .frame(width: 110, height: 110, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .padding(.bottom)
-                
-                Divider()
+               
+                Text("1 DARI 2 SELESAI")
+                    .font(.system(size: 11))
+                    .fontWeight(.regular)
+                    
             }
+            .padding(.leading).padding(.bottom)
+            
+            Image("33Watch").resizable().aspectRatio(contentMode: .fit)
+                .frame(width: 110, height: 110, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }
-        
+        .padding(.bottom)
+                
     }
 }
 

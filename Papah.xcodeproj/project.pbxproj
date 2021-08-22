@@ -15,6 +15,9 @@
 		744BDF5C26B1B0CF00F6833C /* MedaliListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744BDF5A26B1B0CF00F6833C /* MedaliListCollectionViewCell.xib */; };
 		744BDF5E26BAD4A800F6833C /* TipsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 744BDF5D26BAD4A800F6833C /* TipsList.storyboard */; };
 		981DDBD126ADD8CB00BB60F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866549326ADBC7D0047D2A7 /* AppDelegate.swift */; };
+		985F96B426D27C5A00BF5CFA /* TantanganBulananView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985F96B326D27C5A00BF5CFA /* TantanganBulananView.swift */; };
+		985F96B626D28A0C00BF5CFA /* TestCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985F96B526D28A0C00BF5CFA /* TestCollectionView.swift */; };
+		985F96B826D29A7D00BF5CFA /* RewardsLainnyaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985F96B726D29A7D00BF5CFA /* RewardsLainnyaView.swift */; };
 		9864F34126D23337004CC7C6 /* RewardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864F34026D23337004CC7C6 /* RewardDetailView.swift */; };
 		9864F34526D2385F004CC7C6 /* TantanganBulanIniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864F34426D2385F004CC7C6 /* TantanganBulanIniView.swift */; };
 		9866549626ADBC7D0047D2A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866549526ADBC7D0047D2A7 /* SceneDelegate.swift */; };
@@ -208,6 +211,9 @@
 		744BDF5926B1B0CF00F6833C /* MedaliListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedaliListCollectionViewCell.swift; sourceTree = "<group>"; };
 		744BDF5A26B1B0CF00F6833C /* MedaliListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedaliListCollectionViewCell.xib; sourceTree = "<group>"; };
 		744BDF5D26BAD4A800F6833C /* TipsList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TipsList.storyboard; sourceTree = "<group>"; };
+		985F96B326D27C5A00BF5CFA /* TantanganBulananView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganBulananView.swift; sourceTree = "<group>"; };
+		985F96B526D28A0C00BF5CFA /* TestCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionView.swift; sourceTree = "<group>"; };
+		985F96B726D29A7D00BF5CFA /* RewardsLainnyaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsLainnyaView.swift; sourceTree = "<group>"; };
 		9864F34026D23337004CC7C6 /* RewardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardDetailView.swift; sourceTree = "<group>"; };
 		9864F34426D2385F004CC7C6 /* TantanganBulanIniView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganBulanIniView.swift; sourceTree = "<group>"; };
 		9866549026ADBC7D0047D2A7 /* Papah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Papah.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -898,7 +904,10 @@
 			isa = PBXGroup;
 			children = (
 				BC5F25BF26D005A800BBB23E /* RewardView.swift */,
+				985F96B526D28A0C00BF5CFA /* TestCollectionView.swift */,
+				985F96B726D29A7D00BF5CFA /* RewardsLainnyaView.swift */,
 				9864F34426D2385F004CC7C6 /* TantanganBulanIniView.swift */,
+				985F96B326D27C5A00BF5CFA /* TantanganBulananView.swift */,
 				9864F34026D23337004CC7C6 /* RewardDetailView.swift */,
 			);
 			path = Reward;
@@ -1301,14 +1310,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC5F25A126D004E100BBB23E /* NotificationController.swift in Sources */,
+				985F96B826D29A7D00BF5CFA /* RewardsLainnyaView.swift in Sources */,
 				BC5F25BE26D005A300BBB23E /* TantanganView.swift in Sources */,
 				BC5F25C126D005C600BBB23E /* MapView.swift in Sources */,
 				BC5F25C226D005C600BBB23E /* RewardView.swift in Sources */,
+				985F96B426D27C5A00BF5CFA /* TantanganBulananView.swift in Sources */,
 				9864F34126D23337004CC7C6 /* RewardDetailView.swift in Sources */,
 				BC5F259F26D004E100BBB23E /* ContentView.swift in Sources */,
 				BC5F25A526D004E100BBB23E /* ComplicationController.swift in Sources */,
 				BC5F259D26D004E100BBB23E /* PapahApp.swift in Sources */,
 				BC5F25A326D004E100BBB23E /* NotificationView.swift in Sources */,
+				985F96B626D28A0C00BF5CFA /* TestCollectionView.swift in Sources */,
 				9864F34526D2385F004CC7C6 /* TantanganBulanIniView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

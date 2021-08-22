@@ -9,8 +9,20 @@ import SwiftUI
 
 struct RewardView: View {
     var body: some View {
-        Text("Hello, World Reward!")
-            .padding()
+        NavigationView{
+            ScrollView {
+                Divider()
+                    .padding(.bottom)
+                TantanganBulanIniView()
+                Divider()
+                TantanganBulananView()
+                    .padding(.vertical)
+                Divider()
+                RewardsLainnyaView()
+                    .padding(.top)
+            }
+            
+        }.navigationTitle("Rewards")
     }
 }
 
