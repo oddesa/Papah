@@ -43,7 +43,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "986654B326ADBC800047D2A7"
-               BuildableName = "PapahUITests.xctest"
+               BuildableName = "PapahUITests"
                BlueprintName = "PapahUITests"
                ReferencedContainer = "container:Papah.xcodeproj">
             </BuildableReference>
