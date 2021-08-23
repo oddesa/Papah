@@ -146,7 +146,14 @@ class EksplorDetailViewModel {
                 if response.routes.count < 1 {
                     completion(0)
                 } else {
-                    completion(response.routes[0].distance)
+                    
+                    let distanceKM = response.routes[0].distance / 1000
+                    let roundedTwoDigit = distanceKM
+                    
+                    print("ROUTE DISTANCE \(roundedTwoDigit)")
+                    self.distanceMeter = roundedTwoDigit
+                    self.checkClaimPoint()
+                    completion(roundedTwoDigit)
                 }
             }
         }
