@@ -25,7 +25,7 @@ struct TantanganBulananView: View {
                 }
                 .padding([.leading, .bottom])
                
-                LazyVGrid(columns: columns, alignment: .center, spacing: nil, pinnedViews: /*@START_MENU_TOKEN@*/[]/*@END_MENU_TOKEN@*/, content: {
+                LazyVGrid(columns: columns, alignment: .center, spacing: 16, pinnedViews: /*@START_MENU_TOKEN@*/[]/*@END_MENU_TOKEN@*/, content: {
                     ForEach(gambars, id: \.self) {gambar in
                         Button(action: {
                             showingSheet.toggle()

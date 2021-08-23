@@ -12,8 +12,17 @@ struct RewardsLainnyaView: View {
     let gambars = ["28Watch","29Watch", "30Watch", "31Watch","32Watch", "33Watch"]
     let columns: [GridItem] =
         Array(repeating: .init(.flexible()), count: 3)
-    
+    var badgeProgress: [BadgeProgress]? {
+        print("berhasil cugggggggg")
+        return BadgeDataRepository.shared.getBadgeProgressByUserId(userId: 0)
+    }
     @State private var showingSheet = false
+    
+    //    mutating func getAllBadgesProgress(userId: Int) -> [BadgeProgress]?{
+    //        badgeProgress = BadgeDataRepository.shared.getBadgeProgressByUserId(userId: userId)
+    //        return badgeProgress
+    //    }
+    
     
     var body: some View {
         
@@ -27,7 +36,7 @@ struct RewardsLainnyaView: View {
             }
             .padding([.leading, .bottom])
             
-            LazyVGrid(columns: columns, alignment: .center, spacing: nil, pinnedViews: /*@START_MENU_TOKEN@*/[]/*@END_MENU_TOKEN@*/, content: {
+            LazyVGrid(columns: columns, alignment: .center, spacing: 16, pinnedViews: /*@START_MENU_TOKEN@*/[]/*@END_MENU_TOKEN@*/, content: {
                 ForEach(gambars, id: \.self) {gambar in
                     Button(action: {
                         showingSheet.toggle()
@@ -43,7 +52,6 @@ struct RewardsLainnyaView: View {
                                     
                                 }
                             })
-                        
                     }
                 }
             })
