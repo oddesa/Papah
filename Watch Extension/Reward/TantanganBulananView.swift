@@ -13,25 +13,29 @@ struct TantanganBulananView: View {
             Array(repeating: .init(.flexible()), count: 3)
     
     var body: some View {
-        VStack {
-            HStack {
-                Text("TANTANGAN BULANAN")
-                    .font(.system(size: 11))
-                    .foregroundColor(.gray)
-                    .multilineTextAlignment(.leading)
-                Spacer()
-            }
-            .padding([.leading, .bottom])
-           
-            LazyVGrid(columns: columns, alignment: .center, spacing: nil, pinnedViews: /*@START_MENU_TOKEN@*/[]/*@END_MENU_TOKEN@*/, content: {
-                ForEach(gambars, id: \.self) {gambar in
-                    NavigationLink(destination: RewardDetailView() ) {
-                        Image(gambar).resizable().frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
+    
+
+            VStack {
+                HStack {
+                    Text("TANTANGAN BULANAN")
+                        .font(.system(size: 11))
+                        .foregroundColor(.gray)
+                        .multilineTextAlignment(.leading)
+                    Spacer()
                 }
-            })
-            .buttonStyle(PlainButtonStyle())
-        }
+                .padding([.leading, .bottom])
+               
+                LazyVGrid(columns: columns, alignment: .center, spacing: 16, pinnedViews: /*@START_MENU_TOKEN@*/[]/*@END_MENU_TOKEN@*/, content: {
+                    ForEach(gambars, id: \.self) {gambar in
+                        NavigationLink(destination: RewardDetailView() ) {
+                            Image(gambar).resizable().frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        }
+                    }
+                })
+                .buttonStyle(PlainButtonStyle())
+            }
+        
+        
     }
 }
 

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RewardView: View {
     var body: some View {
-        NavigationView{
+        
             ScrollView {
                 Divider()
                     .padding(.bottom)
@@ -20,10 +20,9 @@ struct RewardView: View {
                 Divider()
                 RewardsLainnyaView()
                     .padding(.top)
-            }
-            
-        }.navigationTitle("Rewards")
-    }
+            }.navigationTitle("Rewards")
+
+        }
 }
 
 struct RewardView_Previews: PreviewProvider {
