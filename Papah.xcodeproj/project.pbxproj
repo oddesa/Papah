@@ -15,6 +15,21 @@
 		744BDF5C26B1B0CF00F6833C /* MedaliListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744BDF5A26B1B0CF00F6833C /* MedaliListCollectionViewCell.xib */; };
 		744BDF5E26BAD4A800F6833C /* TipsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 744BDF5D26BAD4A800F6833C /* TipsList.storyboard */; };
 		981DDBD126ADD8CB00BB60F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866549326ADBC7D0047D2A7 /* AppDelegate.swift */; };
+		9826FB1F26D3EEC200132016 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95F726ADD3B6002AD800 /* CoreDataManager.swift */; };
+		9826FB2026D3EF0900132016 /* PreloadChallengeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95F626ADD3A7002AD800 /* PreloadChallengeData.swift */; };
+		9826FB2126D3EF0D00132016 /* PreloadBadgeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC226ED126BAE6ED002F3917 /* PreloadBadgeData.swift */; };
+		9826FB2226D3EF1000132016 /* PreloadUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC226ECD26BAE0D0002F3917 /* PreloadUserData.swift */; };
+		9826FB2326D3EF1400132016 /* PreloadTipsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6950A326B9B0CA004D37D1 /* PreloadTipsData.swift */; };
+		9826FB2426D3EF1700132016 /* PreloadWBKLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6950A526B9B11A004D37D1 /* PreloadWBKLData.swift */; };
+		9826FB2726D3F00E00132016 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE86626AE82DF0067DB23 /* UIImage+Extension.swift */; };
+		9826FB2826D3F01500132016 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BE86526AE82DF0067DB23 /* UIColor+Extension.swift */; };
+		9826FB2A26D3F04100132016 /* Papah.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9866549C26ADBC7E0047D2A7 /* Papah.xcdatamodeld */; };
+		9826FB2D26D3F06300132016 /* UserDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C043E26B4FB270099B6E1 /* UserDataRepository.swift */; };
+		9826FB2E26D3F06300132016 /* WbklDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9AD07926B3C6D80010242D /* WbklDataRepository.swift */; };
+		9826FB2F26D3F06300132016 /* BadgeDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C044226B4FB700099B6E1 /* BadgeDataRepository.swift */; };
+		9826FB3026D3F06300132016 /* TipsDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF48A7D26B392A300E7F677 /* TipsDataRepository.swift */; };
+		9826FB3126D3F06300132016 /* MonthlyChallengeDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C044026B4FB5B0099B6E1 /* MonthlyChallengeDataRepository.swift */; };
+		9826FB3226D3F07100132016 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2A95F926ADD3E8002AD800 /* Constants.swift */; };
 		985F96B426D27C5A00BF5CFA /* TantanganBulananView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985F96B326D27C5A00BF5CFA /* TantanganBulananView.swift */; };
 		985F96B626D28A0C00BF5CFA /* TestCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985F96B526D28A0C00BF5CFA /* TestCollectionView.swift */; };
 		985F96B826D29A7D00BF5CFA /* RewardsLainnyaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985F96B726D29A7D00BF5CFA /* RewardsLainnyaView.swift */; };
@@ -1256,16 +1271,31 @@
 			files = (
 				BC5F25A126D004E100BBB23E /* NotificationController.swift in Sources */,
 				985F96B826D29A7D00BF5CFA /* RewardsLainnyaView.swift in Sources */,
+				9826FB2426D3EF1700132016 /* PreloadWBKLData.swift in Sources */,
 				BC5F25BE26D005A300BBB23E /* TantanganView.swift in Sources */,
 				BC5F25C126D005C600BBB23E /* MapView.swift in Sources */,
+				9826FB2E26D3F06300132016 /* WbklDataRepository.swift in Sources */,
 				BC5F25C226D005C600BBB23E /* RewardView.swift in Sources */,
+				9826FB2F26D3F06300132016 /* BadgeDataRepository.swift in Sources */,
+				9826FB2126D3EF0D00132016 /* PreloadBadgeData.swift in Sources */,
+				9826FB3026D3F06300132016 /* TipsDataRepository.swift in Sources */,
+				9826FB2026D3EF0900132016 /* PreloadChallengeData.swift in Sources */,
+				9826FB3226D3F07100132016 /* Constants.swift in Sources */,
 				985F96B426D27C5A00BF5CFA /* TantanganBulananView.swift in Sources */,
+				9826FB2726D3F00E00132016 /* UIImage+Extension.swift in Sources */,
 				9864F34126D23337004CC7C6 /* RewardDetailView.swift in Sources */,
 				BC5F259F26D004E100BBB23E /* ContentView.swift in Sources */,
 				BC5F25A526D004E100BBB23E /* ComplicationController.swift in Sources */,
+				9826FB2226D3EF1000132016 /* PreloadUserData.swift in Sources */,
+				9826FB2D26D3F06300132016 /* UserDataRepository.swift in Sources */,
 				BC5F259D26D004E100BBB23E /* PapahApp.swift in Sources */,
+				9826FB2326D3EF1400132016 /* PreloadTipsData.swift in Sources */,
 				BC5F25A326D004E100BBB23E /* NotificationView.swift in Sources */,
+				9826FB2826D3F01500132016 /* UIColor+Extension.swift in Sources */,
 				985F96B626D28A0C00BF5CFA /* TestCollectionView.swift in Sources */,
+				9826FB2A26D3F04100132016 /* Papah.xcdatamodeld in Sources */,
+				9826FB3126D3F06300132016 /* MonthlyChallengeDataRepository.swift in Sources */,
+				9826FB1F26D3EEC200132016 /* CoreDataManager.swift in Sources */,
 				9864F34526D2385F004CC7C6 /* TantanganBulanIniView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

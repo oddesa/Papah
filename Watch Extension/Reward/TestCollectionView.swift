@@ -9,22 +9,17 @@ import SwiftUI
 
 struct TestCollectionView: View {
     var body: some View {
-        let columns: [GridItem] =
-                Array(repeating: .init(.flexible()), count: 3)
         
-        let columns1 = [
-                GridItem(.flexible()),
-                GridItem(.flexible()),
-                GridItem(.flexible()),
-                GridItem(.flexible())
-            ]
+        let columns: [GridItem] =
+            Array(repeating: .init(.flexible()), count: 3)
+        
         ScrollView {
-                    LazyVGrid(columns: columns) {
-                        ForEach(0...100, id: \.self) { _ in
-                            Image("33Watch").resizable().frame(width: 20, height: 20)
-                        }
-                    }
-                
+            LazyVGrid(columns: columns) {
+                ForEach(0...100, id: \.self) { _ in
+                    Image("33Watch").resizable().frame(width: 20, height: 20)
+                }
+            }
+            
         }
     }
 }
