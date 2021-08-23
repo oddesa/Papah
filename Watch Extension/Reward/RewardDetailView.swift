@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RewardDetailView: View {
     var body: some View {
-        
+        NavigationView {
             ScrollView {
                 VStack(alignment: .center) {
                     
@@ -25,6 +25,8 @@ struct RewardDetailView: View {
                         
                 }
             }
+        }
+            
     }
 }
 
