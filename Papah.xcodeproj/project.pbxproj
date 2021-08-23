@@ -20,7 +20,6 @@
 		986654A026ADBC800047D2A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9866549F26ADBC800047D2A7 /* Assets.xcassets */; };
 		986654A326ADBC800047D2A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986654A126ADBC800047D2A7 /* LaunchScreen.storyboard */; };
 		986654AE26ADBC800047D2A7 /* TipsRepositoryUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986654AD26ADBC800047D2A7 /* TipsRepositoryUnitTest.swift */; };
-		986654B926ADBC800047D2A7 /* PapahUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986654B826ADBC800047D2A7 /* PapahUITests.swift */; };
 		986654E926ADC96D0047D2A7 /* CompletionAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986654E726ADC96D0047D2A7 /* CompletionAlert.swift */; };
 		986654EA26ADC96D0047D2A7 /* CompletionAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 986654E826ADC96D0047D2A7 /* CompletionAlert.xib */; };
 		986654ED26ADCA240047D2A7 /* TantanganDetailTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986654EB26ADCA240047D2A7 /* TantanganDetailTableCell.swift */; };
@@ -137,13 +136,6 @@
 			remoteGlobalIDString = 9866548F26ADBC7D0047D2A7;
 			remoteInfo = Papah;
 		};
-		986654B526ADBC800047D2A7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9866548826ADBC7D0047D2A7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9866548F26ADBC7D0047D2A7;
-			remoteInfo = Papah;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -163,7 +155,6 @@
 		986654A926ADBC800047D2A7 /* PapahTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PapahTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		986654AD26ADBC800047D2A7 /* TipsRepositoryUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsRepositoryUnitTest.swift; sourceTree = "<group>"; };
 		986654AF26ADBC800047D2A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		986654B426ADBC800047D2A7 /* PapahUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PapahUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		986654B826ADBC800047D2A7 /* PapahUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PapahUITests.swift; sourceTree = "<group>"; };
 		986654BA26ADBC800047D2A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		986654E726ADC96D0047D2A7 /* CompletionAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionAlert.swift; sourceTree = "<group>"; };
@@ -295,13 +286,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		986654B126ADBC800047D2A7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -321,7 +305,6 @@
 			children = (
 				9866549026ADBC7D0047D2A7 /* Papah.app */,
 				986654A926ADBC800047D2A7 /* PapahTests.xctest */,
-				986654B426ADBC800047D2A7 /* PapahUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -824,24 +807,6 @@
 			productReference = 986654A926ADBC800047D2A7 /* PapahTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		986654B326ADBC800047D2A7 /* PapahUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 986654C326ADBC800047D2A7 /* Build configuration list for PBXNativeTarget "PapahUITests" */;
-			buildPhases = (
-				986654B026ADBC800047D2A7 /* Sources */,
-				986654B126ADBC800047D2A7 /* Frameworks */,
-				986654B226ADBC800047D2A7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				986654B626ADBC800047D2A7 /* PBXTargetDependency */,
-			);
-			name = PapahUITests;
-			productName = PapahUITests;
-			productReference = 986654B426ADBC800047D2A7 /* PapahUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -855,10 +820,6 @@
 						CreatedOnToolsVersion = 12.5.1;
 					};
 					986654A826ADBC800047D2A7 = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = 9866548F26ADBC7D0047D2A7;
-					};
-					986654B326ADBC800047D2A7 = {
 						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = 9866548F26ADBC7D0047D2A7;
 					};
@@ -880,7 +841,6 @@
 			targets = (
 				9866548F26ADBC7D0047D2A7 /* Papah */,
 				986654A826ADBC800047D2A7 /* PapahTests */,
-				986654B326ADBC800047D2A7 /* PapahUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -932,13 +892,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		986654A726ADBC800047D2A7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		986654B226ADBC800047D2A7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1066,14 +1019,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		986654B026ADBC800047D2A7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				986654B926ADBC800047D2A7 /* PapahUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1081,11 +1026,6 @@
 			isa = PBXTargetDependency;
 			target = 9866548F26ADBC7D0047D2A7 /* Papah */;
 			targetProxy = 986654AA26ADBC800047D2A7 /* PBXContainerItemProxy */;
-		};
-		986654B626ADBC800047D2A7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9866548F26ADBC7D0047D2A7 /* Papah */;
-			targetProxy = 986654B526ADBC800047D2A7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1316,46 +1256,6 @@
 			};
 			name = Release;
 		};
-		986654C426ADBC800047D2A7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HMMWHN78KV;
-				INFOPLIST_FILE = PapahUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = Kane.PapahUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Papah;
-			};
-			name = Debug;
-		};
-		986654C526ADBC800047D2A7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HMMWHN78KV;
-				INFOPLIST_FILE = PapahUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = Kane.PapahUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Papah;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1382,15 +1282,6 @@
 			buildConfigurations = (
 				986654C126ADBC800047D2A7 /* Debug */,
 				986654C226ADBC800047D2A7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		986654C326ADBC800047D2A7 /* Build configuration list for PBXNativeTarget "PapahUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				986654C426ADBC800047D2A7 /* Debug */,
-				986654C526ADBC800047D2A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
