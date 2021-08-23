@@ -33,7 +33,20 @@ class EksplorListController: MVVMViewController<EksplorListViewModel>, isAbleToR
         viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories)
         tableViewOutlet.separatorColor = .separator
         tableViewOutlet.reloadData()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+
+            //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+            tap.cancelsTouchesInView = false
+
+            view.addGestureRecognizer(tap)
     }
+    
+    @objc override func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+        searchBarCont.searchBar.endEditing(true)
+    }
+    
     
     func pass(categories: [WasteCategory]) {
         filterCategories = []
