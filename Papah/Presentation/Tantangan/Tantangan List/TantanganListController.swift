@@ -74,6 +74,9 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == sectionRewards {
             return 190
         }
+        if indexPath.section == sectionLevel {
+            return 165
+        }
         
         return UITableView.automaticDimension
     }
