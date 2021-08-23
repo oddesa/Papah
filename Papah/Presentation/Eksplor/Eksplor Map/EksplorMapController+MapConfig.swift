@@ -149,7 +149,6 @@ extension EksplorMapController: MKMapViewDelegate {
         
         let direction = MKDirections(request: directionRequest)
         
-        
         direction.calculate { (response, error) in
             guard let response = response else {
                 if let error = error {

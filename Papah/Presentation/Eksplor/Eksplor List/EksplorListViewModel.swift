@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 class WbklPro: WbklDataRepository {
     var jarak: Double
@@ -166,25 +167,53 @@ class EksplorListViewModel: NSObject {
         }
         return dataWbkl
     }
+    
+
+    //MARK: KEN ASINKRONUS
     // MARK: - Update Wbkl to WbklPro
-    func turnWbklsPro() -> [WbklPro] {
+    func turnWbklsPro(completion: @escaping ([WbklPro]) -> Void){
         guard let wbkls = getWBklData() else{fatalError("datanya ga keload")}
         var wbklsPro: [WbklPro] = []
+        var locationCount = 0
+//        let wbklDispatchGroup = DispatchGroup()
+
         for wbkl in wbkls {
-            let wbklPro = WbklPro(jarak: getLocationDistance(userLocation: (userLocation?.last ?? locationDummy), wbklData: wbkl), wbkl: wbkl, categories: getWbklCategoriesName(wbkl: wbkl))
-            wbklsPro.append(wbklPro)
-            if wbklPro.categories.count == 0 {
-                fatalError("cuagas")
+//            wbklDispatchGroup.enter()
+            getLocationDistance(wbklData: wbkl, userLocation:  (userLocation?.last ?? locationDummy)) { jarakStr,jaraDbl in
+                let wbklPro = WbklPro(jarak: jaraDbl, wbkl: wbkl, categories: self.getWbklCategoriesName(wbkl: wbkl))
+                wbklsPro.append(wbklPro)
+                if wbklPro.categories.count == 0 {
+                    fatalError("cuagas")
+                }
+                locationCount += 1
+                print("current countt \(locationCount) && \(wbkls.count)")
+                print("DISTANCE \(jaraDbl) srt \(jarakStr)")
+
+                if locationCount == wbkls.count {
+                    print("TEST LEAVE")
+                    print("TEST WBKPRO \(wbklsPro)")
+//                    self.wbklDispatchGroup.leave()
+                    let sortedWbklsJarak = self.sortBasedOnDistance(wbklPros: wbklsPro)
+                    completion(sortedWbklsJarak)
+                }
             }
+           
         }
-        let sortedWbklsJarak = sortBasedOnDistance(wbklPros: wbklsPro)
-        return sortedWbklsJarak
+        
+//        wbklDispatchGroup.notify(queue: DispatchQueue.main) {
+//            print("Finished all requests.")
+//            print("TEST WBKPRO \(wbklsPro)")
+//        }
+
     }
-    
-    
-    func returnWbklsBasedOnCat(filterCategories: [WasteCategory]) {
-        allWbkl = turnWbklsPro()
-        allWbkl = filterBasedOnCat(allWbkl: allWbkl, filterCategories: filterCategories)
+
+    //MARK: KEN ASINKRONUS
+    func returnWbklsBasedOnCat(filterCategories: [WasteCategory], completion: ( () -> Void)? = nil ) {
+        turnWbklsPro(completion: { data in
+            self.allWbkl = data
+            self.allWbkl = self.filterBasedOnCat(allWbkl: self.allWbkl, filterCategories: filterCategories)
+            completion?()
+        })
     }
     
     // MARK: - Distance Logic
@@ -192,26 +221,79 @@ class EksplorListViewModel: NSObject {
     let locationDummy = CLLocation(latitude: -6.636076, longitude: 106.804472)
     var userLocation: [CLLocation]?
     
-    func getLocationDistance(userLocation: CLLocation, wbklData: Wbkl) -> Double {
-            
-        let targetLocation = CLLocation(latitude: Double(wbklData.latitude), longitude: Double(wbklData.longitude))
-        let userLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-        
-        return targetLocation.distance(from: userLocation)
-    }
+//    func getLocationDistance(userLocation: CLLocation, wbklData: Wbkl) -> Double {
+//
+//        let targetLocation = CLLocation(latitude: Double(wbklData.latitude), longitude: Double(wbklData.longitude))
+//        let userLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+//
+//        return targetLocation.distance(from: userLocation)
+//    }
+//
+//    func locationDistanceString(distanceInMeter: Double) -> String {
+//        var distanceInMeter = distanceInMeter
+//        var distanceInString: String
+//        if distanceInMeter >= 1000 {
+//            let distanceInKM = distanceInMeter / 1000
+//            let distanceInKMRounded = distanceInKM.rounded()
+//            distanceInString = "\(distanceInKMRounded) km"
+//        }
+//        else {
+//            distanceInMeter = distanceInMeter.rounded()
+//            distanceInString = "\(distanceInMeter) m"
+//        }
+//        return distanceInString
+//    }
     
-    func locationDistanceString(distanceInMeter: Double) -> String {
-        var distanceInMeter = distanceInMeter
-        var distanceInString: String
-        if distanceInMeter >= 1000 {
-            let distanceInKM = distanceInMeter / 1000
-            let distanceInKMRounded = distanceInKM.rounded()
-            distanceInString = "\(distanceInKMRounded) km"
+    //MARK: KEN ASINKRONUS
+    func getLocationDistance(wbklData: Wbkl?, userLocation: CLLocation, completion: @escaping (String, Double) -> Void ) {
+        print("LAST LOC \(userLocation)")
+        if let wbklData = wbklData {
+            
+            let targetLocation = CLLocationCoordinate2D(latitude:Double(wbklData.latitude), longitude: Double(wbklData.longitude))
+            let userLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+            
+            let sourcePlaceMark = MKPlacemark(coordinate: userLocation, addressDictionary: nil)
+            let destinationPlaceMark = MKPlacemark(coordinate: targetLocation, addressDictionary: nil)
+            
+            let sourceMapItem = MKMapItem(placemark: sourcePlaceMark)
+            let destinationItem = MKMapItem(placemark: destinationPlaceMark)
+            
+            let directionRequest = MKDirections.Request()
+            directionRequest.source = sourceMapItem
+            directionRequest.destination = destinationItem
+            directionRequest.transportType = .automobile
+            
+            let direction = MKDirections(request: directionRequest)
+            
+            direction.calculate { (response, error) in
+                guard let response = response else {
+                    if let error = error {
+                        completion("", 0.0)
+                        print("No Route Found : \(error.localizedDescription)")
+                    }
+                    return
+                }
+                
+                if response.routes.count < 1 {
+                    print("RESPONSE RTOUREE eee")
+                    completion("", 0.0)
+                } else {
+                    
+                    var distanceInMeter = response.routes[0].distance
+                    var distanceInString: String
+                    if distanceInMeter >= 1000 {
+                        let distanceInKM = distanceInMeter / 1000
+                        let distanceInKMRounded = distanceInKM.rounded()
+                        distanceInString = "\(String.init(format: "%.0f", distanceInKMRounded))km"
+                    }
+                    else {
+                        distanceInMeter = distanceInMeter.rounded()
+                        distanceInString = "\(String.init(format: "%.3f", distanceInMeter))m".replacingOccurrences(of: "0.", with: "")
+                    }
+                    completion(distanceInString, distanceInMeter)
+                }
+            }
         }
-        else {
-            distanceInMeter = distanceInMeter.rounded()
-            distanceInString = "\(distanceInMeter) m"
-        }
-        return distanceInString
+        
     }
 }
