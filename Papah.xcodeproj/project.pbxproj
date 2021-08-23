@@ -115,6 +115,8 @@
 		BCD827B426AF0264000C2452 /* EksplorMapBottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD827B326AF0264000C2452 /* EksplorMapBottomSheet.xib */; };
 		BCE41E3E26BED46300578277 /* Localizations.strings in Resources */ = {isa = PBXBuildFile; fileRef = BCE41E4026BED46300578277 /* Localizations.strings */; };
 		BCE41E4426BED4FA00578277 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE41E4326BED4FA00578277 /* L10n.swift */; };
+		BCEC880226D407C9003AB337 /* EksplorDetailClaimTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC880026D407C9003AB337 /* EksplorDetailClaimTableCell.swift */; };
+		BCEC880326D407C9003AB337 /* EksplorDetailClaimTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCEC880126D407C9003AB337 /* EksplorDetailClaimTableCell.xib */; };
 		BCEE6E4F26B1BCA700D4D250 /* EksplorDetailLimbarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEE6E4D26B1BCA700D4D250 /* EksplorDetailLimbarCell.swift */; };
 		BCEE6E5026B1BCA700D4D250 /* EksplorDetailLimbarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCEE6E4E26B1BCA700D4D250 /* EksplorDetailLimbarCell.xib */; };
 		BCEE6E5326B1BCB900D4D250 /* EksplorDetailEarningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEE6E5126B1BCB900D4D250 /* EksplorDetailEarningCell.swift */; };
@@ -266,6 +268,8 @@
 		BCE41E3F26BED46300578277 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizations.strings; sourceTree = "<group>"; };
 		BCE41E4126BED47100578277 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizations.strings; sourceTree = "<group>"; };
 		BCE41E4326BED4FA00578277 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		BCEC880026D407C9003AB337 /* EksplorDetailClaimTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorDetailClaimTableCell.swift; sourceTree = "<group>"; };
+		BCEC880126D407C9003AB337 /* EksplorDetailClaimTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorDetailClaimTableCell.xib; sourceTree = "<group>"; };
 		BCEE6E4D26B1BCA700D4D250 /* EksplorDetailLimbarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorDetailLimbarCell.swift; sourceTree = "<group>"; };
 		BCEE6E4E26B1BCA700D4D250 /* EksplorDetailLimbarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorDetailLimbarCell.xib; sourceTree = "<group>"; };
 		BCEE6E5126B1BCB900D4D250 /* EksplorDetailEarningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorDetailEarningCell.swift; sourceTree = "<group>"; };
@@ -550,6 +554,8 @@
 				BCEE6E4E26B1BCA700D4D250 /* EksplorDetailLimbarCell.xib */,
 				BCEE6E5126B1BCB900D4D250 /* EksplorDetailEarningCell.swift */,
 				BCEE6E5226B1BCB900D4D250 /* EksplorDetailEarningCell.xib */,
+				BCEC880026D407C9003AB337 /* EksplorDetailClaimTableCell.swift */,
+				BCEC880126D407C9003AB337 /* EksplorDetailClaimTableCell.xib */,
 			);
 			path = "Table Cell";
 			sourceTree = "<group>";
@@ -899,6 +905,7 @@
 				BC2A95BD26ADCECE002AD800 /* EksplorDetail.storyboard in Resources */,
 				BC2A95D926ADCFB1002AD800 /* EksplorListFilterTableCell.xib in Resources */,
 				BC8C9B6B26AE8AD80096F0E8 /* MedaliList.storyboard in Resources */,
+				BCEC880326D407C9003AB337 /* EksplorDetailClaimTableCell.xib in Resources */,
 				BC8C9B6C26AE8AD80096F0E8 /* EksplorMap.storyboard in Resources */,
 				BC2A95F126ADD098002AD800 /* TipsDetailCollectionCell.xib in Resources */,
 				BCEE6E5026B1BCA700D4D250 /* EksplorDetailLimbarCell.xib in Resources */,
@@ -1040,6 +1047,7 @@
 				BC2BE87326AE835A0067DB23 /* Extension+UIButton.swift in Sources */,
 				BC2BE86C26AE82DF0067DB23 /* String+Extension.swift in Sources */,
 				BC2A95CB26ADCF4A002AD800 /* ExplorListTableCell.swift in Sources */,
+				BCEC880226D407C9003AB337 /* EksplorDetailClaimTableCell.swift in Sources */,
 				BC2A95B826ADCE90002AD800 /* EksplorMapViewModel.swift in Sources */,
 				BCF2A72826C0C7DE008AC916 /* UPCarouselFlowLayout.swift in Sources */,
 				BC6950A726B9B169004D37D1 /* PreloadChallengeData.swift in Sources */,
