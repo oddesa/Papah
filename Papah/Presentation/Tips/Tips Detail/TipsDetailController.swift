@@ -39,23 +39,22 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
     }
     
     func setupView(){
-        onChangeTipsTitle()
         pageControl.numberOfPages = self.viewModel?.getTipsDetail()?.count ?? 0
     }
     
     func addCollectionView(){
         
-        let pointEstimator = RelativeLayoutUtilityClass(referenceFrameSize: self.view.frame.size)
+        let pointEstimator = RelativeLayoutUtilityClass(referenceFrameSize: self.collectionView.bounds.size)
         
         let layout = UPCarouselFlowLayout()
-        layout.itemSize = CGSize(width: pointEstimator.relativeWidth(multiplier: 0.85), height: self.collectionView.frame.height)
+        layout.itemSize = CGSize(width: pointEstimator.relativeWidth(multiplier: 0.8), height: pointEstimator.relativeHeight(multiplier: 0.9))
         layout.scrollDirection = .horizontal
         
         self.collectionView.collectionViewLayout = layout
         self.collectionView?.translatesAutoresizingMaskIntoConstraints = false
         self.collectionView?.delegate = self
         self.collectionView?.dataSource = self
-        self.collectionView?.register(TipsDetailCollectionCell.self, forCellWithReuseIdentifier: "cellId")
+        self.collectionView?.register(TipsDetailCollectionCell.nib, forCellWithReuseIdentifier: "cellId")
         
         // Spacing between cells:
         guard let spacingLayout = self.collectionView?.collectionViewLayout as? UPCarouselFlowLayout else {return}
@@ -75,8 +74,10 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as? TipsDetailCollectionCell else {return UICollectionViewCell()}
-        cell.customView.image = UIImage(data: (self.viewModel?.getTipsDetail()?[indexPath.row].image ?? UIImage.whatsAppImage20210719At085013.jpegData(compressionQuality: 100)) ?? Data())
-        cell.customView.contentMode = .scaleAspectFit
+        cell.imgView.image = UIImage(data: (self.viewModel?.getTipsDetail()?[indexPath.row].image ?? UIImage.whatsAppImage20210719At085013.jpegData(compressionQuality: 100)) ?? Data())
+        cell.imgView.contentMode = .scaleAspectFit
+        cell.lblTitle.text = self.viewModel?.getTipsDetail()?[indexPath.row].title ?? ""
+        cell.lblDetail.text = self.viewModel?.getTipsDetail()?[indexPath.row].detail ?? ""
         return cell
     }
     
@@ -86,13 +87,6 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
         let offset = (layout.scrollDirection == .horizontal) ? scrollView.contentOffset.x : scrollView.contentOffset.y
         currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)
         self.pageControl.currentPage = currentPage
-        onChangeTipsTitle()
     }
     
-    func onChangeTipsTitle(){
-        if let tipsTitle = self.viewModel?.getTipsDetail()?[currentPage].title, let tipsDetail = self.viewModel?.getTipsDetail()?[currentPage].detail {
-            self.tipsTitle.text = tipsTitle
-            self.tipsDesc.text = tipsDetail
-        }
-    }
 }
