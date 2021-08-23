@@ -11,6 +11,8 @@ class TantanganDetailController: MVVMViewController<TantanganDetailViewModel> {
     
     
     @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var titleImg: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailsIcon: UIImageView!
     @IBOutlet weak var detailsTitle: UILabel!
     @IBOutlet weak var detailsTable: UITableView!
@@ -21,6 +23,7 @@ class TantanganDetailController: MVVMViewController<TantanganDetailViewModel> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTitle(selected: viewModel?.selectedRow ?? 0)
         nibSetup()
         tableViewSetup()
         navigationController?.navigationBar.tintColor = .link
@@ -39,11 +42,15 @@ extension TantanganDetailController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "tantanganDetail") as? TantanganDetailTableCell else {return UITableViewCell()}
         
         let cdData = viewModel?.challengeDetailData[indexPath.row]
-        cell.guideImage.image = cdData?.img
-        cell.guideTitle.text = cdData?.title
-        cell.guideDesc.text = cdData?.desc
+        let selectedRow = viewModel?.selectedRow
         
-        cell.guideImage.tintColor = .link
+        if selectedRow == cdData?.id{
+            cell.guideImage.image = cdData?.img
+            cell.guideTitle.text = cdData?.title
+            cell.guideDesc.text = cdData?.desc
+            
+            cell.guideImage.tintColor = .link
+        }
         
         return cell
     }
@@ -64,10 +71,15 @@ extension TantanganDetailController {
         detailsTable.separatorColor = .clear
     }
     
-    func navBarSetup() {
-       /* let navigationBarAppearence = UINavigationBarAppearance()
-        navigationBarAppearence.shadowColor = .white
-        navigationBarAppearence.shadowImage = UIImage()
-        navBar.scrollEdgeAppearance = navigationBarAppearence*/
+    func setupTitle(selected: Int) {
+        if selected == 0 {
+            titleImg.image = UIImage._22
+            titleLabel.text = "Cara klaim poin penjualan sampah "
+        } else {
+            titleImg.image = UIImage._23
+            titleLabel.text = "Cara tabung uang penjualan sampah"
+        }
     }
+    
+    func navBarSetup() {}
 }

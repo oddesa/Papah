@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Alq-bV-V0t">
-                                <rect key="frame" x="0.0" y="88" width="414" height="179"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="251"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEp-1U-8dr">
-                                        <rect key="frame" x="20.5" y="18" width="373" height="143.5"/>
+                                        <rect key="frame" x="20.5" y="25" width="373" height="201"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRk-Eg-cw5">
-                                                <rect key="frame" x="0.0" y="45" width="373" height="86"/>
+                                                <rect key="frame" x="19" y="82" width="335" height="120.5"/>
                                                 <string key="text">Cara klaim poin
 dari penyaluran limbah </string>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
@@ -32,11 +32,11 @@ dari penyaluran limbah </string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Sqz-sC-AMe">
-                                                <rect key="frame" x="164" y="0.5" width="45" height="44"/>
+                                                <rect key="frame" x="130" y="0.5" width="113" height="81"/>
                                                 <color key="tintColor" name="purple_two"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="45" id="4fe-uN-cdW"/>
-                                                    <constraint firstAttribute="height" constant="45" id="xSR-gj-uct"/>
+                                                    <constraint firstAttribute="width" constant="113" id="4fe-uN-cdW"/>
+                                                    <constraint firstAttribute="height" constant="82" id="xSR-gj-uct"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
@@ -44,7 +44,7 @@ dari penyaluran limbah </string>
                                         <constraints>
                                             <constraint firstItem="Sqz-sC-AMe" firstAttribute="centerX" secondItem="QEp-1U-8dr" secondAttribute="centerX" id="0pn-sA-1Ss"/>
                                             <constraint firstItem="mRk-Eg-cw5" firstAttribute="height" secondItem="QEp-1U-8dr" secondAttribute="height" multiplier="0.6" id="8FF-IK-oTo"/>
-                                            <constraint firstItem="mRk-Eg-cw5" firstAttribute="width" secondItem="QEp-1U-8dr" secondAttribute="width" id="IoI-Rj-aQM"/>
+                                            <constraint firstItem="mRk-Eg-cw5" firstAttribute="width" secondItem="QEp-1U-8dr" secondAttribute="width" multiplier="0.9" id="IoI-Rj-aQM"/>
                                             <constraint firstItem="mRk-Eg-cw5" firstAttribute="centerX" secondItem="QEp-1U-8dr" secondAttribute="centerX" id="ZQ8-EC-9ms"/>
                                             <constraint firstItem="mRk-Eg-cw5" firstAttribute="top" secondItem="Sqz-sC-AMe" secondAttribute="bottom" id="apx-tB-lFd"/>
                                             <constraint firstItem="Sqz-sC-AMe" firstAttribute="top" secondItem="QEp-1U-8dr" secondAttribute="top" id="cSH-pk-5hm"/>
@@ -83,7 +83,7 @@ dari penyaluran limbah </string>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LPy-BT-cRv">
-                                <rect key="frame" x="0.0" y="267" width="414" height="595"/>
+                                <rect key="frame" x="0.0" y="339" width="414" height="523"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tantanganDetail" rowHeight="120" id="f5D-ez-1Fh" customClass="TantanganDetailTableCell" customModule="Papah" customModuleProvider="target">
@@ -104,7 +104,7 @@ dari penyaluran limbah </string>
                             <constraint firstItem="Alq-bV-V0t" firstAttribute="top" secondItem="Qvl-Qd-uCn" secondAttribute="bottom" id="9vH-67-AaR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="LPy-BT-cRv" secondAttribute="bottom" id="AmZ-s7-clZ"/>
                             <constraint firstItem="Qvl-Qd-uCn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="FcA-bB-f07"/>
-                            <constraint firstItem="Alq-bV-V0t" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.2" id="Suf-bG-oV5"/>
+                            <constraint firstItem="Alq-bV-V0t" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.28" id="Suf-bG-oV5"/>
                             <constraint firstItem="Alq-bV-V0t" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Tcg-uB-tAe"/>
                             <constraint firstItem="LPy-BT-cRv" firstAttribute="top" secondItem="Alq-bV-V0t" secondAttribute="bottom" id="aN9-Oi-KzC"/>
                             <constraint firstItem="LPy-BT-cRv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="jZZ-wX-9In"/>
@@ -118,6 +118,8 @@ dari penyaluran limbah </string>
                         <outlet property="detailsTable" destination="LPy-BT-cRv" id="jTU-cn-0ei"/>
                         <outlet property="detailsTitle" destination="mRk-Eg-cw5" id="8IP-6v-VvF"/>
                         <outlet property="navBar" destination="Qvl-Qd-uCn" id="DS8-yR-dGE"/>
+                        <outlet property="titleImg" destination="Sqz-sC-AMe" id="aP1-QK-FSA"/>
+                        <outlet property="titleLabel" destination="mRk-Eg-cw5" id="nHw-ZG-nr0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
