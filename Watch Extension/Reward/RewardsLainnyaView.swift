@@ -35,16 +35,15 @@ struct RewardsLainnyaView: View {
                         Image(gambar).resizable().frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     }.sheet(isPresented: $showingSheet) {
                         RewardDetailView()
-                        .toolbar(content: {
-                            ToolbarItem(placement: .cancellationAction) {
-                                Button(action: {
-                                    self.showingSheet = false
-                                }) {
-                                    Text("Closed")
+                            .toolbar(content: {
+                                ToolbarItem(placement: .cancellationAction) {
+                                    Text("Closed").onTapGesture {
+                                        self.showingSheet = false
+                                    }.foregroundColor(.accentColor)
+                                    
                                 }
-                            }
-                        })
-
+                            })
+                        
                     }
                 }
             })
@@ -63,22 +62,3 @@ struct RewardsLainnyaView_Previews: PreviewProvider {
 }
 
 
-struct piw: View {
-    @State private var showingModalView = false
-
-    var body: some View {
-        Button(action: {
-            self.showingModalView.toggle()
-        }) {
-            Text("Show Modal View")
-        }.sheet(isPresented: $showingModalView) {
-            RewardView()
-            .toolbar(content: {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Close") { self.showingModalView = false }
-                }
-            })
-
-        }
-    }
-}

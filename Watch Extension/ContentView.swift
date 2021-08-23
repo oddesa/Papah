@@ -10,22 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @State private var showingSheet = false
     var body: some View {
-//        Button("Show Sheet") {
-//                    showingSheet.toggle()
-//                }
-//                .sheet(isPresented: $showingSheet) {
-//                    SheetView()
-//                }
-        
-        Button(action: {
-            print("button pressed")
-            showingSheet.toggle()
-        }) {
-            Image("33Watch")
-        }.sheet(isPresented: $showingSheet, content: {
-            SheetView()
-        })
-        //RewardView()
+
+        RewardView()
     }
 }
 
