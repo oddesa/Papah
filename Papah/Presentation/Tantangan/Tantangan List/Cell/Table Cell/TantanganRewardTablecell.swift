@@ -33,7 +33,7 @@ class TantanganRewardTablecell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: TantanganRewardCell.id, bundle: nil), forCellWithReuseIdentifier: TantanganRewardCell.id)
-
+        collectionView.isScrollEnabled = false
     }
     
   
