@@ -9,6 +9,7 @@ import UIKit
 import CoreLocation
 import Combine
 import CoreLocation
+import MapKit
 
 class EksplorDetailViewModel {
     
@@ -83,6 +84,7 @@ class EksplorDetailViewModel {
         
     }
     
+    
     func getEarningTotal() -> Float {
         totalEarnings = 0
         for (index, data) in self.singleEarningData.enumerated() {
@@ -113,27 +115,41 @@ class EksplorDetailViewModel {
         return categoryUsedTotal
     }
     
-    func getLocationDistance(userLocation: CLLocation) -> Double {
+    func getLocationDistance(userLocation: CLLocation, completion: @escaping (Double) -> Void ) {
         
         if let wbklData = wbklData {
             
-            print("WBKL LOC \(wbklData.latitude) : \(wbklData.longitude)")
-            print("USER LOC \(userLocation.coordinate.latitude) : \(userLocation.coordinate.longitude)")
+            let targetLocation = CLLocationCoordinate2D(latitude:Double(wbklData.latitude), longitude: Double(wbklData.longitude))
+            let userLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
             
-            let targetLocation = CLLocation(latitude:Double(wbklData.latitude), longitude: Double(wbklData.longitude))
-            let userLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+            let sourcePlaceMark = MKPlacemark(coordinate: userLocation, addressDictionary: nil)
+            let destinationPlaceMark = MKPlacemark(coordinate: targetLocation, addressDictionary: nil)
             
-            print("""
-                user loc = \(userLocation)
-                target loc = \(targetLocation)
-                distance = \(distanceBetweenTwoLocations(source: targetLocation, destination: userLocation)) KM
-                """)
+            let sourceMapItem = MKMapItem(placemark: sourcePlaceMark)
+            let destinationItem = MKMapItem(placemark: destinationPlaceMark)
             
-            return distanceBetweenTwoLocations(source: targetLocation, destination: userLocation)
+            let directionRequest = MKDirections.Request()
+            directionRequest.source = sourceMapItem
+            directionRequest.destination = destinationItem
+            directionRequest.transportType = .automobile
             
+            let direction = MKDirections(request: directionRequest)
+            
+            direction.calculate { (response, error) in
+                guard let response = response else {
+                    if let error = error {
+                        print("ERROR FOUND : \(error.localizedDescription)")
+                    }
+                    return
+                }
+                
+                if response.routes.count < 1 {
+                    completion(0)
+                } else {
+                    completion(response.routes[0].distance)
+                }
+            }
         }
-        
-        return 0
         
     }
     

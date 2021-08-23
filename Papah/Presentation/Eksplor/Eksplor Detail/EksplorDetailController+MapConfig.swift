@@ -103,7 +103,12 @@ extension EksplorDetailController: CLLocationManagerDelegate {
         print("\nStart of locationManager(didUpdateLocations)")
 
         if let lastLocation = locations.last {
-            self.distanceLocation = self.viewModel?.getLocationDistance(userLocation: lastLocation) ?? 0
+            
+            self.viewModel?.getLocationDistance(userLocation: lastLocation, completion: { distance in
+                self.distanceLocation = distance
+            })
+            
+//            self.distanceLocation = self.viewModel?.getLocationDistance(userLocation: lastLocation) ?? 0
             self.tableView.reloadSections(IndexSet(integer: sectionDetail), with: .automatic)
         }
 

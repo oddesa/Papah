@@ -49,7 +49,9 @@ class EksplorDetailTableCell: UITableViewCell {
     }
     
     func updateDistance(distance: Double) {
-        if distance < 1 {
+        if distance == 0 {
+            lblDistance.text = ""
+        } else if distance < 1  {
             lblDistance.text = "· \(String.init(format: "%.3f", distance))m".replacingOccurrences(of: "0.", with: "")
         } else {
             lblDistance.text = "· \(String.init(format: "%.0f", distance))km"
