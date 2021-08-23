@@ -116,7 +116,8 @@ class EksplorDetailViewModel {
     }
     
     func getLocationDistance(userLocation: CLLocation, completion: @escaping (Double) -> Void ) {
-        
+        print("userLocation \(userLocation)")
+
         if let wbklData = wbklData {
             
             let targetLocation = CLLocationCoordinate2D(latitude:Double(wbklData.latitude), longitude: Double(wbklData.longitude))

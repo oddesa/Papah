@@ -106,10 +106,10 @@ extension EksplorDetailController: CLLocationManagerDelegate {
             
             self.viewModel?.getLocationDistance(userLocation: lastLocation, completion: { distance in
                 self.distanceLocation = distance
+                self.tableView.reloadSections(IndexSet(integer: self.sectionDetail), with: .none)
             })
             
 //            self.distanceLocation = self.viewModel?.getLocationDistance(userLocation: lastLocation) ?? 0
-            self.tableView.reloadSections(IndexSet(integer: sectionDetail), with: .automatic)
         }
 
     }

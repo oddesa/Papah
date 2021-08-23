@@ -19,8 +19,9 @@ class EksplorListController: MVVMViewController<EksplorListViewModel>, isAbleToR
     
     var filterCategories: [WasteCategory] = [] {
         didSet {
-            viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories)
-            tableViewOutlet.reloadData()
+            viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories, completion: {
+                self.tableViewOutlet.reloadData()
+            })
         }
     }
     
@@ -30,9 +31,10 @@ class EksplorListController: MVVMViewController<EksplorListViewModel>, isAbleToR
         setupLocationManager()
         setupSearchController()
         setupNib()
-        viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories)
+        viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories, completion: {
+            self.tableViewOutlet.reloadData()
+        })
         tableViewOutlet.separatorColor = .separator
-        tableViewOutlet.reloadData()
     }
     
     func pass(categories: [WasteCategory]) {
@@ -69,8 +71,9 @@ extension EksplorListController: UISearchResultsUpdating, UISearchControllerDele
     
     func willDismissSearchController(_ searchController: UISearchController) {
         filterCategories = []
-        viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories)
-        tableViewOutlet.reloadData()
+        viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories, completion: {
+            self.tableViewOutlet.reloadData()
+        })
     }
     func didDismissSearchController(_ searchController: UISearchController) {
         
@@ -80,10 +83,12 @@ extension EksplorListController: UISearchResultsUpdating, UISearchControllerDele
         guard let text = searchBar.text else {
             return
         }
-        guard var dataWbkl = viewModel?.turnWbklsPro() else {return}
-        dataWbkl = (viewModel?.filterBasedOnCat(allWbkl: dataWbkl, filterCategories: filterCategories)) ?? []
-        viewModel?.getWbklBasedOnSearch(text: text, dataWbkl: dataWbkl, filterCategories: filterCategories)
-        tableViewOutlet.reloadData()
+        viewModel?.turnWbklsPro(completion: { data in
+            let dataWbkl = (self.viewModel?.filterBasedOnCat(allWbkl: data, filterCategories: self.filterCategories)) ?? []
+            self.viewModel?.getWbklBasedOnSearch(text: text, dataWbkl: dataWbkl, filterCategories: self.filterCategories)
+            self.tableViewOutlet.reloadData()
+        })
+     
     }
     
     
@@ -159,14 +164,16 @@ extension EksplorListController: UITableViewDataSource {
             
             if let wbkl = viewModel?.allWbkl[indexPath.row - 1].wbklData {
                 if let currentLocation = (viewModel?.userLocation?.last) {
-                    let distance = viewModel?.getLocationDistance(userLocation: currentLocation, wbklData: wbkl)
-                    let distanceInString = viewModel?.locationDistanceString(distanceInMeter: distance ?? 1000)
-                    cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(distanceInString ?? "")"
-                    if (distance ?? 1000) < Constants.claimPointDistance {
-                        cell.nearMarker.isHidden = false
-                    } else {
-                        cell.nearMarker.isHidden = true
+                    viewModel?.getLocationDistance(wbklData: wbkl, userLocation: currentLocation) { jarakStr, jarakDbl in
+//                        let distanceInString = viewModel?.locationDistanceString(distanceInMeter: distance ?? 1000)
+                        cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(jarakStr ?? "")"
+                        if (jarakDbl ?? 1000) < Constants.claimPointDistance && jarakDbl != 0 {
+                            cell.nearMarker.isHidden = false
+                        } else {
+                            cell.nearMarker.isHidden = true
+                        }
                     }
+                   
                 } else {
                     cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu")
                     cell.nearMarker.isHidden = true
@@ -265,8 +272,10 @@ extension EksplorListController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("TEST sadasddsa")
         viewModel?.userLocation = locations
-        viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories)
-        tableViewOutlet.reloadData()
+        viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories, completion: {
+            self.tableViewOutlet.reloadData()
+        })
     }
 }
