@@ -35,6 +35,7 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
         
         self.addCollectionView()
         self.setupView()
+        self.pageControlSelectionAction(pageControl)
         
     }
     
@@ -88,5 +89,11 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
         currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)
         self.pageControl.currentPage = currentPage
     }
-    
+    @IBAction func pageControlSelectionAction(_ sender: UIPageControl) {
+        let page: Int? = sender.currentPage
+        var frame: CGRect = self.collectionView.frame
+        frame.origin.x = frame.size.width * CGFloat(page ?? 0)
+        frame.origin.y = 0
+        self.collectionView.scrollRectToVisible(frame, animated: true)
+    }
 }
