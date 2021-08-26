@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleAspectFit" selectionStyle="blue" indentationWidth="10" reuseIdentifier="EmptyStateTableCell" rowHeight="605" id="KGk-i7-Jjw" customClass="EmptyStateTableCell" customModule="Papah" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="605" height="605"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="605" height="605"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUx-c8-KHu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyState" translatesAutoresizingMaskIntoConstraints="NO" id="z0F-Di-Sex">
+                                <rect key="frame" x="172" y="173.5" width="256" height="133"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ups, pencarian tidak ditemukan." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMr-7C-95r">
+                                <rect key="frame" x="190" y="340.5" width="220.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" name="disabled"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gunakan kata kunci lain." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQZ-bx-T12">
+                                <rect key="frame" x="217" y="366.5" width="166" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" name="disabled"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tMr-7C-95r" firstAttribute="centerX" secondItem="z0F-Di-Sex" secondAttribute="centerX" id="8aw-Df-rru"/>
+                            <constraint firstItem="yQZ-bx-T12" firstAttribute="centerX" secondItem="HUx-c8-KHu" secondAttribute="centerX" id="MvJ-Ni-tWp"/>
+                            <constraint firstAttribute="height" constant="600" id="Sim-2b-tpu"/>
+                            <constraint firstItem="yQZ-bx-T12" firstAttribute="top" secondItem="tMr-7C-95r" secondAttribute="bottom" constant="8" symbolic="YES" id="fBm-ng-vv2"/>
+                            <constraint firstItem="tMr-7C-95r" firstAttribute="top" secondItem="z0F-Di-Sex" secondAttribute="bottom" constant="34" id="jq9-Bd-jP1"/>
+                            <constraint firstItem="z0F-Di-Sex" firstAttribute="centerY" secondItem="HUx-c8-KHu" secondAttribute="centerY" multiplier="0.8" id="kxA-Ak-DOQ"/>
+                            <constraint firstItem="z0F-Di-Sex" firstAttribute="centerX" secondItem="HUx-c8-KHu" secondAttribute="centerX" id="z4i-4K-Vha"/>
+                            <constraint firstAttribute="width" constant="600" id="zTD-LO-R7I"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="HUx-c8-KHu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="47D-Gn-rzI"/>
+                    <constraint firstItem="HUx-c8-KHu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6lY-YU-M8S"/>
+                    <constraint firstAttribute="trailing" secondItem="HUx-c8-KHu" secondAttribute="trailing" id="9jV-ge-Sfx"/>
+                    <constraint firstItem="HUx-c8-KHu" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="E4D-xZ-p6W"/>
+                    <constraint firstItem="HUx-c8-KHu" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ccY-OG-NNb"/>
+                    <constraint firstAttribute="bottom" secondItem="HUx-c8-KHu" secondAttribute="bottom" id="wUJ-RF-jez"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="344.20289855072468" y="285.60267857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="emptyState" width="256" height="133"/>
+        <namedColor name="disabled">
+            <color red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
