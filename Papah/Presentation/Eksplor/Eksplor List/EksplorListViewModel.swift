@@ -25,6 +25,7 @@ class WbklPro: WbklDataRepository {
 class EksplorListViewModel: NSObject {
 
     let wbklRepository = WbklDataRepository.shared
+    var isItEmptyState = false
     var allWbkl = [WbklPro]()
     
     func getWBklData() -> [Wbkl]? {
@@ -97,7 +98,9 @@ class EksplorListViewModel: NSObject {
                 }
             }
         }
+        
         allWbkl = (removeDuplicatesWbkl(wbklPros: allWbkl))
+        
         for wbkl in allWbkl {
             var textName = text
             
@@ -115,6 +118,8 @@ class EksplorListViewModel: NSObject {
                 allWbkl = (rearrangeArray(array: allWbkl, fromIndex: idx ?? 0, toIndex: 0))
             }
         }
+        allWbkl = filterBasedOnCat(allWbkl: allWbkl, filterCategories: filterCategories)
+
     }
     
     // MARK: - Duplicate Remover Logic (non hashable)
@@ -162,9 +167,28 @@ class EksplorListViewModel: NSObject {
                     if let idx = dataWbkl.firstIndex(where: { $0 === wbkl }) {
                         dataWbkl.remove(at: idx)
                     }
+                    
                 }
+                
+                let word = category.title ?? ""
+                if (categoriesChecker(wbkl: wbkl, word: word)) {
+                    if let index = wbkl.categories.firstIndex(of: word.capitalized) {
+                        wbkl.categories = rearrangeArray(array: wbkl.categories, fromIndex: index, toIndex: 0)
+                    }
+                }
+                
             }
+            
         }
+//        for category in filterCategories {
+//            let word = category.title ?? ""
+//            if (categoriesChecker(wbkl: wbkl, word: word)) {
+//                if let index = wbkl.categories.firstIndex(of: word.capitalized) {
+//                    wbkl.categories = rearrangeArray(array: wbkl.categories, fromIndex: index, toIndex: 0)
+//                }
+//            }
+//        }
+        
         return dataWbkl
     }
     
@@ -214,6 +238,7 @@ class EksplorListViewModel: NSObject {
             self.allWbkl = self.filterBasedOnCat(allWbkl: self.allWbkl, filterCategories: filterCategories)
             completion?()
         })
+        
     }
     
     // MARK: - Distance Logic

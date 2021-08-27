@@ -19,9 +19,46 @@ class EksplorListController: MVVMViewController<EksplorListViewModel>, isAbleToR
     
     var filterCategories: [WasteCategory] = [] {
         didSet {
-            viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories, completion: {
-                self.tableViewOutlet.reloadData()
-            })
+            if (searchBarCont.isActive) == false || viewModel?.isItEmptyState == true {
+                if viewModel?.isItEmptyState == false {
+                    viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories, completion: {
+                        self.tableViewOutlet.reloadData()
+                    })
+                    
+                } else {
+                    
+                    guard let text = searchBarCont.searchBar.text else {
+                        return
+                    }
+                    viewModel?.turnWbklsPro(completion: { data in
+                        let dataWbkl = (self.viewModel?.filterBasedOnCat(allWbkl: data, filterCategories: self.filterCategories)) ?? []
+                        
+                        self.viewModel?.getWbklBasedOnSearch(text: text, dataWbkl: dataWbkl, filterCategories: self.filterCategories)
+                        
+                        if self.viewModel?.allWbkl.count == 0 {
+                            self.viewModel?.isItEmptyState = true
+                        } else {
+                            self.viewModel?.isItEmptyState = false
+                        }
+                        
+                        self.tableViewOutlet.reloadData()
+                    })
+                }
+                
+                
+            } else {
+                
+                viewModel?.allWbkl = viewModel?.filterBasedOnCat(allWbkl: viewModel?.allWbkl ?? [], filterCategories: filterCategories) ?? []
+                
+                if self.viewModel?.allWbkl.count == 0 {
+                    self.viewModel?.isItEmptyState = true
+                } else {
+                    self.viewModel?.isItEmptyState = false
+                }
+                
+                tableViewOutlet.reloadData()
+            }
+            
         }
     }
     
@@ -74,31 +111,44 @@ extension EksplorListController: UISearchResultsUpdating, UISearchControllerDele
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        //
+        self.viewModel?.isItEmptyState = false
     }
+    
     func willPresentSearchController(_ searchController: UISearchController) {
+        self.viewModel?.isItEmptyState = false
         viewModel?.allWbkl = []
         tableViewOutlet.reloadData()
     }
     
-    
     func willDismissSearchController(_ searchController: UISearchController) {
+        self.viewModel?.isItEmptyState = false
         filterCategories = []
         viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories, completion: {
             self.tableViewOutlet.reloadData()
         })
     }
-    func didDismissSearchController(_ searchController: UISearchController) {
-        
-    }
     
+    func didDismissSearchController(_ searchController: UISearchController) {
+        self.viewModel?.isItEmptyState = false
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.viewModel?.isItEmptyState = false
+    }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else {
             return
         }
         viewModel?.turnWbklsPro(completion: { data in
             let dataWbkl = (self.viewModel?.filterBasedOnCat(allWbkl: data, filterCategories: self.filterCategories)) ?? []
+            
             self.viewModel?.getWbklBasedOnSearch(text: text, dataWbkl: dataWbkl, filterCategories: self.filterCategories)
+            
+            if self.viewModel?.allWbkl.count == 0 {
+                self.viewModel?.isItEmptyState = true
+            } else {
+                self.viewModel?.isItEmptyState = false
+            }
+            
             self.tableViewOutlet.reloadData()
         })
      
@@ -114,21 +164,28 @@ extension EksplorListController: UITableViewDataSource {
         tableViewOutlet.register(nibTable, forCellReuseIdentifier: "ExplorListTableCell")
         let nibTable1 = UINib(nibName: "EksplorListFilterCollectionTableCell", bundle: nil)
         tableViewOutlet.register(nibTable1, forCellReuseIdentifier: "EksplorListFilterCollectionTableCell")
+        let nibEmptyState = UINib(nibName: "EmptyStateTableCell", bundle: nil)
+        tableViewOutlet.register(nibEmptyState, forCellReuseIdentifier: "EmptyStateTableCell")
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (viewModel?.allWbkl.count ?? 0) + 1
+        if viewModel?.allWbkl.count == 0 {
+            return 2
+        } else {
+            return (viewModel?.allWbkl.count ?? 0) + 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //EksplorListFilterCollectionTableCell
         if indexPath.row == 0 && !(viewModel?.allWbkl.count == 0) {
+            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "EksplorListFilterCollectionTableCell", for: indexPath) as? EksplorListFilterCollectionTableCell else {fatalError("identifiernya salah anying")}
             
             cell.onDidSelectItem = { () in
                 if let controller = EksplorListFilterController.instantiateStoryboard(viewModel: EksplorListFilterViewModel()) as? EksplorListFilterController {
-                    
                     controller.delegate = self
                     controller.viewModel = EksplorListFilterViewModel()
                     controller.viewModel?.dataPassingan = self.filterCategories
@@ -165,22 +222,78 @@ extension EksplorListController: UITableViewDataSource {
             }
             cell.backgroundColor = .backgroundPrimary
             cell.selectionStyle = .none
+            tableView.separatorStyle = .singleLine
             return cell
+            
+        } else if viewModel?.isItEmptyState == true {
+
+            if indexPath.row == 0 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "EksplorListFilterCollectionTableCell", for: indexPath) as? EksplorListFilterCollectionTableCell else {fatalError("identifiernya salah anying")}
+                
+                cell.onDidSelectItem = { () in
+                    if let controller = EksplorListFilterController.instantiateStoryboard(viewModel: EksplorListFilterViewModel()) as? EksplorListFilterController {
+                        controller.delegate = self
+                        controller.viewModel = EksplorListFilterViewModel()
+                        controller.viewModel?.dataPassingan = self.filterCategories
+                        self.navigationController?.present(controller, animated: true, completion: nil)
+                    }
+                    
+                }
+                
+                cell.onDidSelectItemSecond = { (category) in
+                    if !(self.filterCategories.contains(category.categoryData)) {
+                        self.filterCategories.append(category.categoryData)
+                    } else {
+                        self.filterCategories = self.filterCategories.filter {$0 != category.categoryData}
+                    }
+                    for cat in self.filterCategories {
+                        print(cat.title ?? "Categori tak bernama")
+                    }
+                }
+                
+                cell.filterPassingan = self.filterCategories
+                
+                if filterCategories.count == 0 {
+                    cell.filterBtn.borderWidth = 0.5
+                    cell.filterBtn.backgroundColor = .backgroundPrimary
+                    cell.filterBtn.borderColor = .chevron
+                    cell.filterBtn.tintColor = .textPrimary
+                    cell.filterBtn.setTitleColor(.textPrimary, for: .normal)
+                } else {
+                    cell.filterBtn.backgroundColor = .link10
+                    cell.filterBtn.borderColor = .link60
+                    cell.filterBtn.borderWidth = 0.5
+                    cell.filterBtn.tintColor = .link
+                    cell.filterBtn.setTitleColor(.link, for: .normal)
+                }
+                cell.backgroundColor = .backgroundPrimary
+                cell.selectionStyle = .none
+                tableView.separatorStyle = .singleLine
+                return cell
+            } else if indexPath.row == 1 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyStateTableCell", for: indexPath) as? EmptyStateTableCell else {fatalError("identifiernya salah anying")}
+                tableView.separatorStyle = .none
+                return cell
+            } else {
+                let cell = UITableViewCell()
+                cell.backgroundColor = .backgroundPrimary
+                cell.selectionStyle = .none
+                tableView.separatorStyle = .none
+                return cell
+            }
+            
+            
             
         } else if !(viewModel?.allWbkl.count == 0) {
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExplorListTableCell", for: indexPath) as? ExplorListTableCell else {fatalError("identifiernya salah anying")}
             
-            //            if viewModel?.allWbkl.count == 0 {
-            //                fatalError("kosong tapi tampil")
-            //            }
-            
             if let wbkl = viewModel?.allWbkl[indexPath.row - 1].wbklData {
                 if let currentLocation = (viewModel?.userLocation?.last) {
                     viewModel?.getLocationDistance(wbklData: wbkl, userLocation: currentLocation) { jarakStr, jarakDbl in
 //                        let distanceInString = viewModel?.locationDistanceString(distanceInMeter: distance ?? 1000)
-                        cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(jarakStr ?? "")"
-                        if (jarakDbl ?? 1000) < Constants.claimPointDistance && jarakDbl != 0 {
+                        cell.wbklCategoryLabel.text = (wbkl.wbkl_type ?? "error ieu") + " · \(jarakStr )"
+                        if (jarakDbl ) < Constants.claimPointDistance && jarakDbl != 0 {
                             cell.nearMarker.isHidden = false
                         } else {
                             cell.nearMarker.isHidden = true
@@ -204,9 +317,11 @@ extension EksplorListController: UITableViewDataSource {
                     cell.wbklOperationalLabel.textColor = .gray
                 }
                 
-                guard var categories = viewModel?.allWbkl[indexPath.row - 1].categories else {return UITableViewCell()}
-                
-                guard let dataWbkl = (viewModel?.allWbkl[indexPath.row - 1]) else {return UITableViewCell()}
+                guard var categories = viewModel?.allWbkl[indexPath.row - 1].categories,
+                      let dataWbkl = (viewModel?.allWbkl[indexPath.row - 1]) else {
+                    return UITableViewCell()}
+//
+//                guard let dataWbkl = (viewModel?.allWbkl[indexPath.row - 1]) else {return UITableViewCell()}
                 
                 if (viewModel?.categoriesChecker(wbkl: dataWbkl, word: "karung goni")) ?? false {
                     let text = "karung goni"
@@ -244,11 +359,14 @@ extension EksplorListController: UITableViewDataSource {
             
             cell.backgroundColor = .backgroundPrimary
             cell.selectionStyle = .none
+            tableView.separatorStyle = .singleLine
             return cell
+            
         } else {
             let cell = UITableViewCell()
             cell.backgroundColor = .backgroundPrimary
             cell.selectionStyle = .none
+            tableView.separatorStyle = .none
             return cell
         }
     }
@@ -287,8 +405,11 @@ extension EksplorListController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("TEST sadasddsa")
         viewModel?.userLocation = locations
-        viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories, completion: {
-            self.tableViewOutlet.reloadData()
-        })
+        if searchBarCont.isActive == false {
+            viewModel?.returnWbklsBasedOnCat(filterCategories: filterCategories, completion: {
+                self.tableViewOutlet.reloadData()
+            })
+        }
+        
     }
 }
