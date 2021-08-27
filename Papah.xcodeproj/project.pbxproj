@@ -56,6 +56,8 @@
 		9866552526ADCFC30047D2A7 /* TantanganListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552426ADCFC30047D2A7 /* TantanganListViewModel.swift */; };
 		9866552826ADCFE60047D2A7 /* TantanganRewardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552626ADCFE60047D2A7 /* TantanganRewardCell.swift */; };
 		9866552C26ADD0020047D2A7 /* TantanganLevelTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866552A26ADD0020047D2A7 /* TantanganLevelTableCell.swift */; };
+		987A7BD326D7D96A00E3AE1C /* EmptyStateTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A7BD126D7D96900E3AE1C /* EmptyStateTableCell.swift */; };
+		987A7BD426D7D96A00E3AE1C /* EmptyStateTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 987A7BD226D7D96900E3AE1C /* EmptyStateTableCell.xib */; };
 		98BECA2726B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BECA2526B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.swift */; };
 		98BECA2826B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98BECA2626B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.xib */; };
 		BC14948A26B075EE00C28E62 /* TantanganLevelTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9866552B26ADD0020047D2A7 /* TantanganLevelTableCell.xib */; };
@@ -258,6 +260,8 @@
 		9866552726ADCFE60047D2A7 /* TantanganRewardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganRewardCell.xib; sourceTree = "<group>"; };
 		9866552A26ADD0020047D2A7 /* TantanganLevelTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganLevelTableCell.swift; sourceTree = "<group>"; };
 		9866552B26ADD0020047D2A7 /* TantanganLevelTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganLevelTableCell.xib; sourceTree = "<group>"; };
+		987A7BD126D7D96900E3AE1C /* EmptyStateTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateTableCell.swift; sourceTree = "<group>"; };
+		987A7BD226D7D96900E3AE1C /* EmptyStateTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStateTableCell.xib; sourceTree = "<group>"; };
 		98BECA2526B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EksplorListFilterCollectionTableCell.swift; sourceTree = "<group>"; };
 		98BECA2626B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorListFilterCollectionTableCell.xib; sourceTree = "<group>"; };
 		BC18594B26B6B9E900FDD552 /* MVVMController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMController.swift; sourceTree = "<group>"; };
@@ -550,6 +554,8 @@
 				98BECA2526B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.swift */,
 				98BECA2626B574AA00D2E8A3 /* EksplorListFilterCollectionTableCell.xib */,
 				BC2A95CA26ADCF4A002AD800 /* ExplorListTableCell.xib */,
+				987A7BD126D7D96900E3AE1C /* EmptyStateTableCell.swift */,
+				987A7BD226D7D96900E3AE1C /* EmptyStateTableCell.xib */,
 			);
 			path = "Table Cell";
 			sourceTree = "<group>";
@@ -1117,6 +1123,7 @@
 				BC8C9B7526AE8AFC0096F0E8 /* EksplorListCollectionCell.xib in Resources */,
 				BCCA0A0826B1167700C2DD6F /* TantanganRewardCell.xib in Resources */,
 				BCB6956A26B1105C001E90F0 /* TantanganMonthlyHeadCell.xib in Resources */,
+				987A7BD426D7D96A00E3AE1C /* EmptyStateTableCell.xib in Resources */,
 				BC8C9B7026AE8AD80096F0E8 /* TipsDetail.storyboard in Resources */,
 				9866550B26ADCE570047D2A7 /* MedaliDetail.storyboard in Resources */,
 				986654EE26ADCA240047D2A7 /* TantanganDetailTableCell.xib in Resources */,
@@ -1212,6 +1219,7 @@
 				BC2BE86A26AE82DF0067DB23 /* TableViewCell+Extension.swift in Sources */,
 				BC2BE86926AE82DF0067DB23 /* UILabel+Extension.swift in Sources */,
 				BC2BE86726AE82DF0067DB23 /* UIViewController+Extension.swift in Sources */,
+				987A7BD326D7D96A00E3AE1C /* EmptyStateTableCell.swift in Sources */,
 				BC2A95B726ADCE90002AD800 /* EksplorMapController.swift in Sources */,
 				BC2A95DE26ADCFE6002AD800 /* TipsListViewModel.swift in Sources */,
 				BC2A95E226ADD002002AD800 /* TipsListTableCell.swift in Sources */,
