@@ -26,18 +26,18 @@ class TantanganMonthlyCell: UITableViewCell {
             //mcImage.image = mc.image
             mcTitle.text = mcp.monthlyChallenge?.title
             mcDesc.text = mcp.monthlyChallenge?.desc
-            mcImage.image = UIImage(data: mcp.monthlyChallenge?.image ?? Data())
+            mcImage.image = UIImage(named: mcp.monthlyChallenge?.image ?? String())
             mcTextProgress.text = "\(currentValue) / \(maxValue)"
             mcProgressBar.progress = mcp.current_value / maxValueFloat
 
             if mcp.status == true {
                 mcClaimPointDesc.text = "Kamu telah klaim 300 poin"
                 mcClaimPointDesc.textColor = .systemGreen
-                mcClaimPointIcon.image = UIImage._41
+                mcClaimPointIcon.image = UIImage._41_img
             } else {
                 mcClaimPointDesc.text = "+300 poin"
                 mcClaimPointDesc.textColor = .gray
-                mcClaimPointIcon.image = UIImage._40
+                mcClaimPointIcon.image = UIImage._40_img
             }
         }
     }

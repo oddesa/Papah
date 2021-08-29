@@ -182,13 +182,13 @@ extension TantanganListController: UITableViewDelegate, UITableViewDataSource {
             cell.onDidSelectItem = {(indexPath) in
                 if let badgeProgress = self.viewModel?.badgeProgress {
                     let badge = badgeProgress[indexPath.row].badge
-                    let imgAchieved = badge?.image_achieved ?? Data()
-                    let imgNotAchieved = badge?.image ?? Data()
+                    let imgAchieved = UIImage(named: badge?.image_achieved ?? String())
+                    let imgNotAchieved = UIImage(named: badge?.image ?? String()) 
                     let img = badgeProgress[indexPath.row].status ?  imgAchieved : imgNotAchieved
                     
                     let title =  badge?.title ?? ""
                     let desc =  badge?.desc ?? ""
-                    let mdData = MedaliDetailData(image: UIImage(data: img) ?? UIImage(), title: title , desc:desc)
+                    let mdData = MedaliDetailData(image: img ?? UIImage(), title: title , desc:desc)
                     
                     let mdDatas = [mdData]
                     self.navigationController?.pushViewController(MedaliDetailController.instantiateStoryboard(viewModel: MedaliDetailViewModel(datasVM: mdDatas)), animated: true)

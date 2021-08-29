@@ -18,7 +18,7 @@ class TipsDataRepository {
     func insertTips(title: String,
                     desc: String,
                     sampahId: Int,
-                    image: UIImage) {
+                    image: String) {
         
         do {
             let context = CoreDataManager.sharedManager.persistentContainer.viewContext
@@ -27,7 +27,7 @@ class TipsDataRepository {
             let evaluationDetails = Sampah(context: context)
             evaluationDetails.title = title
             evaluationDetails.desc = desc
-            evaluationDetails.image = image.pngData()
+            evaluationDetails.image = image
             evaluationDetails.sampah_id = Int32(sampahId)
             
             try context.save()
@@ -43,7 +43,7 @@ class TipsDataRepository {
                           detail: String,
                           sampahId: Int,
                           sampahDetailId: Int,
-                          image: UIImage) {
+                          image: String) {
         
         do {
             
@@ -54,7 +54,7 @@ class TipsDataRepository {
                 let tipsDetail = SampahDetail(context: context)
                 tipsDetail.title = title
                 tipsDetail.detail = detail
-                tipsDetail.image = image.pngData()
+                tipsDetail.image = image
                 tipsDetail.sampah_id = Int32(sampahId)
                 print("SAMPAH ID TIPS DETAIL \(Int32(sampahId))")
                 tips.addToSampahDetail(tipsDetail)

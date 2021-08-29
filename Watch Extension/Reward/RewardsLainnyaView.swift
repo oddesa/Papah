@@ -12,22 +12,21 @@ struct RewardsLainnyaView: View {
     let gambars = ["28Watch","29Watch", "30Watch", "31Watch","32Watch", "33Watch"]
     let columns: [GridItem] =
         Array(repeating: .init(.flexible()), count: 3)
-    var badgeProgress: [BadgeProgress]? {
-        print("berhasil cugggggggg")
-        return BadgeDataRepository.shared.getBadgeProgressByUserId(userId: 0)
-    }
     @State private var showingSheet = false
     
-    //    mutating func getAllBadgesProgress(userId: Int) -> [BadgeProgress]?{
-    //        badgeProgress = BadgeDataRepository.shared.getBadgeProgressByUserId(userId: userId)
-    //        return badgeProgress
-    //    }
+    @FetchRequest(entity: Badge.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Badge.title , ascending: false)])
+    
+    var result: FetchedResults<Badge>
+    
     
     
     var body: some View {
         
         VStack {
             HStack {
+                if result.isEmpty {
+                    Text("ada")
+                }
                 Text("TANTANGAN LAINNYA")
                     .font(.system(size: 11))
                     .foregroundColor(.gray)

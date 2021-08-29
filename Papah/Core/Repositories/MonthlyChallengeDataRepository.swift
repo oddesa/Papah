@@ -23,7 +23,7 @@ class MonthlyChallengeDataRepository {
                                 month: Int,
                                 rewardPoint: Int,
                                 maxValue: Int,
-                                image: UIImage) {
+                                image: String) {
         
         do {
             let context = CoreDataManager.sharedManager.persistentContainer.viewContext
@@ -44,7 +44,7 @@ class MonthlyChallengeDataRepository {
             monthlyChallenge.month = Int32(month)
             monthlyChallenge.reward_point = Int32(rewardPoint)
             monthlyChallenge.max_value = Float(maxValue)
-            monthlyChallenge.image = image.pngData()
+            monthlyChallenge.image = image
             
           
             

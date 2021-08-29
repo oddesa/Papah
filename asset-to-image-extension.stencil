@@ -9,10 +9,15 @@
 import UIKit
 
 {# Macro to create a static property for a given asset and class type #}
-{% macro staticAsset type asset %}
-static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = {{type}}.image(named: "{{asset.value}}")
 
+{% macro staticAsset type asset %}
+static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} =  "{{asset.value}}"
 {% endmacro %}
+
+{% macro staticAssetString type asset %}
+static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}_img = {{type}}.image(named: "{{asset.value}}")
+{% endmacro %}
+
 {# Create an UIImage extension for all image assets in asset catalogs #}
 // MARK: - Images Asset
 
@@ -26,6 +31,14 @@ extension UIImage {
         {% endfor %}
     {% endfor %}
     
+    {% for catalog in catalogs %}
+        {% for asset in catalog.assets %}
+            {% if asset.type == "image" %}
+                {% filter indent:4 %}{% call staticAssetString "UIImage" asset %}{% endfilter %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+
     {# define private function #}
 
     private static func image(named: String) -> UIImage {

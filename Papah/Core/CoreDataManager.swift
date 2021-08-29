@@ -12,19 +12,19 @@ import UIKit
 class CoreDataManager {
     static let sharedManager = CoreDataManager(container: CoreDataManager.appScopeContainer())
     
-    var persistentContainer: NSPersistentContainer!
+    var persistentContainer: NSPersistentCloudKitContainer!
     
     //MARK: Init with dependency
-    init(container: NSPersistentContainer) {
+    init(container: NSPersistentCloudKitContainer) {
         self.persistentContainer = container
     }
     
-    func setContainer(container: NSPersistentContainer) {
+    func setContainer(container: NSPersistentCloudKitContainer) {
         self.persistentContainer = container
     }
     
-    static func appScopeContainer() -> NSPersistentContainer {
-        let container = NSPersistentContainer(name: Constants.dataModel)
+    static func appScopeContainer() -> NSPersistentCloudKitContainer {
+        let container = NSPersistentCloudKitContainer(name: Constants.dataModel)
         container.loadPersistentStores(completionHandler: { (_, error) in
             
             if let error = error as NSError? {

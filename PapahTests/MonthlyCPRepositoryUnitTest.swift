@@ -37,7 +37,7 @@ class MonthlyCPRepositoryUnitTest: XCTestCase {
             month: Date().month,
             rewardPoint: 300,
             maxValue: 1,
-            image: UIImage()
+            image: ""
         )
         
         MonthlyChallengeDataRepository.shared.insertMonthlyChallengeProgress(

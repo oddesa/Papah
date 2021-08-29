@@ -68,13 +68,13 @@ extension MedaliListController: UITableViewDelegate, UITableViewDataSource {
                 cell.setData(bpData: mbData, tableIndex: indexPath.row)
                 cell.onDidSelectItem = {(i) in
                     let badge = mbData[i.row].badge
-                    let imgAchieved = badge?.image_achieved ?? Data()
-                    let imgNotAchieved = badge?.image ?? Data()
+                    let imgAchieved = UIImage(named: (badge?.image_achieved ?? String()))
+                    let imgNotAchieved = UIImage(named: badge?.image ?? String())
                     let img = mbData[i.row].status ?  imgAchieved : imgNotAchieved
                     
                     let title =   badge?.title ?? ""
                     let desc =  badge?.desc ?? ""
-                    let mdData = MedaliDetailData(image: UIImage(data: img) ?? UIImage(), title: title , desc:desc)
+                    let mdData = MedaliDetailData(image: img ?? UIImage(), title: title , desc:desc)
                     
                     let mdDatas = [mdData]
                     self.navigationController?.pushViewController(MedaliDetailController.instantiateStoryboard(viewModel: MedaliDetailViewModel(datasVM: mdDatas)), animated: true)
@@ -83,13 +83,13 @@ extension MedaliListController: UITableViewDelegate, UITableViewDataSource {
                 cell.setData(bpData: medalData, tableIndex: indexPath.row)
                 cell.onDidSelectItem = {(i) in
                     let badge = medalData[i.row].badge
-                    let imgAchieved = badge?.image_achieved ?? Data()
-                    let imgNotAchieved = badge?.image ?? Data()
+                    let imgAchieved = UIImage(named: badge?.image_achieved ?? String())
+                    let imgNotAchieved = UIImage(named: badge?.image ?? String())
                     let img = medalData[i.row].status ?  imgAchieved : imgNotAchieved
       
                     let title =   badge?.title ?? ""
                     let desc =  badge?.desc ?? ""
-                    let mdData = MedaliDetailData(image: UIImage(data: img) ?? UIImage(), title: title , desc:desc)
+                    let mdData = MedaliDetailData(image: img ?? UIImage(), title: title , desc:desc)
                     
                     let mdDatas = [mdData]
                     self.navigationController?.pushViewController(MedaliDetailController.instantiateStoryboard(viewModel: MedaliDetailViewModel(datasVM: mdDatas)), animated: true)

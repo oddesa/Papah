@@ -78,7 +78,7 @@ extension MedaliListTableViewCell: UICollectionViewDataSource, UICollectionViewD
         
         cell.medalTitle.text = badgeProgressData[indexPath.row].badge?.title
         cell.medalDesc.text = desc
-        cell.medalImg.image = badgeProgressData[indexPath.row].status ? UIImage(data: badgeProgressData[indexPath.row].badge?.image_achieved ?? Data()) :  UIImage(data:badgeProgressData[indexPath.row].badge?.image ?? Data())
+        cell.medalImg.image = badgeProgressData[indexPath.row].status ? UIImage(named: badgeProgressData[indexPath.row].badge?.image_achieved ?? String()) :  UIImage(named:badgeProgressData[indexPath.row].badge?.image ?? String())
         
             return cell
     }
