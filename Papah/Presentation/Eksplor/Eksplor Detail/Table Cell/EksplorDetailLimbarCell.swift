@@ -67,11 +67,9 @@ class EksplorDetailLimbarCell: UITableViewCell, UITextFieldDelegate {
         if(edtQuantity.text?.count ?? 0 > 0) {
             btnTambah.isHidden = true
             self.edtQuantity.isHidden = false
-            self.edtQuantity.becomeFirstResponder()
         } else {
             btnTambah.isHidden = false
             self.edtQuantity.isHidden = true
-            self.edtQuantity.resignFirstResponder()
         }
     }
     

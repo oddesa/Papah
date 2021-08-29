@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol EksplorDetailTableCellDelegate: AnyObject {
-    func openMaps()
-    func openPhoneCall()
-}
-
 class EksplorDetailTableCell: UITableViewCell {
 
     @IBOutlet weak var viewPhone: DesignableView!
