@@ -16,13 +16,22 @@ class EksplorDetailClaimTableCell: UITableViewCell {
     @IBOutlet weak var lblRequirementOpen: UILabel!
     @IBOutlet weak var lblRequirementHour: UILabel!
     @IBOutlet weak var lblRequirementCategory: UILabel!
+    
     @IBOutlet weak var checkRequirementLocation: UIImageView!
     @IBOutlet weak var checkRequirementOpen: UIImageView!
     @IBOutlet weak var checkRequirementHour: UIImageView!
     @IBOutlet weak var checkRequirementCategory: UIImageView!
 
     @IBOutlet weak var viewRequirementLocation: UIView!
+    
+    weak var delegate: EksplorDetailTableCellDelegate?
+
     @IBAction func onClaimBtn(_ sender: Any) {
+        self.delegate?.openClaimButton()
+    }
+    
+    @IBAction func onLocationRequirement(_ sender: Any) {
+        self.delegate?.openGps()
     }
     
     override func awakeFromNib() {
@@ -32,6 +41,9 @@ class EksplorDetailClaimTableCell: UITableViewCell {
         self.lblRequirementLocation.text = "\(L10n.claimPointRequirementLocation(Constants.claimPointDistance))"
         self.lblRequirementHour.text = L10n.claimPointRequirementHour(Constants.claimPointHours)
         self.lblRequirementCategory.text = L10n.claimPointRequirementCategory(Constants.claimPoinCategory)
+
+        let locationReqTap = UITapGestureRecognizer(target: self, action: #selector(onLocationRequirement(_:)))
+        self.viewRequirementLocation.addGestureRecognizer(locationReqTap)
 
     }
 
@@ -62,7 +74,6 @@ class EksplorDetailClaimTableCell: UITableViewCell {
             self.checkRequirementHour.tintColor = .disabled
             self.lblRequirementHour.textColor = .disabled
             self.checkRequirementHour.image = UIImage(systemName: "x.circle")
-//            self.lblRequirementHour.text = "\(L10n.claimPointRequirementHour(Constants.claimPointHours)) (\(self.viewModel?.getHourLeftToClaimPoint() ?? ""))"
             self.lblRequirementHour.text = "\(L10n.claimPointRequirementHour(Constants.claimPointHours))"
         }
 
@@ -81,7 +92,7 @@ class EksplorDetailClaimTableCell: UITableViewCell {
             locationManager.authorizationStatus == .restricted {
             self.checkRequirementLocation.tintColor = .disabled
             self.lblRequirementLocation.textColor = .disabled
-            self.lblRequirementLocation.attributedText = "\(L10n.claimPointRequirementLocation(Constants.claimPointDistance)) (Nyalakan GPS)".withBoldText(text: "(Nyalakan GPS)", font: UIFont.systemFont(ofSize: 11), textBoldcolor: UIColor.systemBlue)
+            self.lblRequirementLocation.attributedText = "\(L10n.claimPointRequirementLocation(Constants.claimPointDistance)) (Nyalakan GPS)".withBoldText(text: "(Nyalakan GPS)", font: UIFont.systemFont(ofSize: 15), textBoldcolor: UIColor.systemBlue)
             self.viewRequirementLocation.isUserInteractionEnabled = true
             self.checkRequirementLocation.image = UIImage(systemName: "x.circle")
         } else {
@@ -90,7 +101,7 @@ class EksplorDetailClaimTableCell: UITableViewCell {
             if requirement.location {
                 self.checkRequirementLocation.tintColor = .systemGreen
                 self.lblRequirementLocation.textColor = .textPrimary
-                self.checkRequirementCategory.image = UIImage(systemName: "checkmark.circle.fill")
+                self.checkRequirementLocation.image = UIImage(systemName: "checkmark.circle.fill")
             } else {
                 self.checkRequirementLocation.tintColor = .disabled
                 self.lblRequirementLocation.textColor = .disabled

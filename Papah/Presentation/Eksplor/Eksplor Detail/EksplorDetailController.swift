@@ -10,6 +10,13 @@ import CoreLocation
 import MapKit
 import Combine
 
+protocol EksplorDetailTableCellDelegate: AnyObject {
+    func openMaps()
+    func openPhoneCall()
+    func openClaimButton()
+    func openGps()
+}
+
 class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
     
     @IBOutlet weak var tableView: UITableView!
@@ -42,13 +49,19 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
- 
+
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
 
     }
     
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        view.endEditing(true)
+//    }
+    
     @objc func keyboardWillShow(notification: NSNotification) {
+        print("SHOW")
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
                 self.view.frame.origin.y -= keyboardSize.height/2
@@ -56,27 +69,11 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
         }
     }
 
-    @IBAction func locationRequestCheck(_ sender: Any) {
-        UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!)
-    }
-    
     @objc func keyboardWillHide(notification: NSNotification) {
+        print("HIDE")
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
-    }
-    
-    @IBAction func onClaimPoint(_ sender: Any) {
-        
-        self.viewModel?.onPointClaimed()
-        
-        let myAlert = CompletionAlert(nibName: CompletionAlert.id, bundle: nil)
-        myAlert.delegate = self
-        myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-
-        self.tabBarController?.present(myAlert, animated: true, completion: nil)
-        
     }
     
     func setupViewModel(){
@@ -133,7 +130,6 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
 
         return identifiers
     }
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
@@ -233,9 +229,12 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
                 
                 self.viewModel?.singleEarningData[indexPath.row].berat = Float(data) ?? 0
 
-                DispatchQueue.main.async {
-                    tableView.reloadSections(IndexSet(integer: self.sectionEarning), with: .none)
+                self.tableView.performBatchUpdates {
+                    self.tableView.reloadRows(at: [IndexPath(row: (self.viewModel?.getWasteAcceptedData()?.count ?? 0), section: self.sectionWaste)], with: .none)
+                    self.tableView.reloadRows(at: [IndexPath(row: 0, section: self.sectionClaim)], with: .none)
+    //                self.tableView.reloadSections(IndexSet.init(integer: self.sectionClaim), with: .none)
                 }
+
             }
             
             return cell
@@ -254,6 +253,7 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.selectionStyle = .none
+            cell.delegate = self
             cell.updateClaimPointState(locationManager: self.locationManager, requirement: self.viewModel?.onRequirementCheck.value ?? EksplorDetailViewModel.RequirementCheck(hour: false, location: false, isOpen: false, category: false))
             
             return cell
@@ -266,6 +266,21 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension EksplorDetailController: EksplorDetailTableCellDelegate {
+    func openClaimButton() {
+        self.viewModel?.onPointClaimed()
+        
+        let myAlert = CompletionAlert(nibName: CompletionAlert.id, bundle: nil)
+        myAlert.delegate = self
+        myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+
+        self.tabBarController?.present(myAlert, animated: true, completion: nil)
+        
+    }
+    
+    func openGps() {
+        UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!)
+    }
     
     func openMaps() {
         if let wbklData = self.viewModel?.wbklData {
