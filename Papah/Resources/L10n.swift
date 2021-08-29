@@ -10,19 +10,19 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
-  /// Memasukan minimal %@ kategori limbah
+  /// Memasukan minimal %@ jenis rincian limbah
   internal static func claimPointRequirementCategory(_ p1: Any) -> String {
     return L10n.tr("Localizations", "claim_point_requirement_category", String(describing: p1))
   }
-  /// Kamu dapat mengklaim poin setiap %@ jam
+  /// Klaim poin dilakukan %@ jam sekali
   internal static func claimPointRequirementHour(_ p1: Any) -> String {
     return L10n.tr("Localizations", "claim_point_requirement_hour", String(describing: p1))
   }
-  /// Mengizinkan lokasi dan berada kurang dari sampai dengan %@ meter dari Agen sampah
+  /// Berjarak 0-%@ m dari lokasi agen sampah 
   internal static func claimPointRequirementLocation(_ p1: Any) -> String {
     return L10n.tr("Localizations", "claim_point_requirement_location", String(describing: p1))
   }
-  /// Agen sampah yang dikunjungi berstatus “Buka”
+  /// Agen sampah berstatus “Buka”
   internal static let claimPointRequirementOpen = L10n.tr("Localizations", "claim_point_requirement_open")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
