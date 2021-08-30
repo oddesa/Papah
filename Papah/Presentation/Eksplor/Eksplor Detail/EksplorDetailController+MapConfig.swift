@@ -44,12 +44,12 @@ extension EksplorDetailController: CLLocationManagerDelegate {
         
     }
     
-
+    
     func updateRouteView(startCoordinate: CLLocationCoordinate2D, endCoordinate: CLLocationCoordinate2D) {
         
         let sourcePlaceMark = MKPlacemark(coordinate: startCoordinate, addressDictionary: nil)
         let destinationPlaceMark = MKPlacemark(coordinate: endCoordinate, addressDictionary: nil)
-
+        
         let sourceMapItem = MKMapItem(placemark: sourcePlaceMark)
         let destinationItem = MKMapItem(placemark: destinationPlaceMark)
         
@@ -57,7 +57,7 @@ extension EksplorDetailController: CLLocationManagerDelegate {
         directionRequest.source = sourceMapItem
         directionRequest.destination = destinationItem
         directionRequest.transportType = .automobile
-
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -68,19 +68,21 @@ extension EksplorDetailController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("\nStart of locationManager(didUpdateLocations)")
-
+        
         if let lastLocation = locations.last {
             
             
-//            self.viewModel?.distanceBetweenTwoLocations(source: lastLocation)
-//            self.tableView.reloadSections(IndexSet(integer: self.sectionDetail), with: .none)
-            self.viewModel?.getLocationDistance(userLocation: lastLocation, completion: { distance in
-//                self.tableView.reloadSections(IndexSet(integer: self.sectionDetail), with: .none)
-                self.tableView.reloadRows(at: [IndexPath(row: 0, section: self.sectionDetail)], with: .none)
-            })
+            DispatchQueue.main.async {
+                //            self.viewModel?.distanceBetweenTwoLocations(source: lastLocation)
+                //            self.tableView.reloadSections(IndexSet(integer: self.sectionDetail), with: .none)
+                self.viewModel?.getLocationDistance(userLocation: lastLocation, completion: { distance in
+                    //                self.tableView.reloadSections(IndexSet(integer: self.sectionDetail), with: .none)
+                    self.tableView.reloadRows(at: [IndexPath(row: 0, section: self.sectionDetail)], with: .none)
+                })
+            }
             
         }
-
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

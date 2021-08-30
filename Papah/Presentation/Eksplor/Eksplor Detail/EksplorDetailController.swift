@@ -71,8 +71,10 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
     }
     
     func setupViewModel(){
-        self.viewModel?.onRequirementCheck.sink(receiveValue: { requirementCheck in           
-            self.tableView.reloadSections(IndexSet(integer: self.sectionClaim), with: .none)
+        self.viewModel?.onRequirementCheck.sink(receiveValue: { requirementCheck in
+            DispatchQueue.main.async {
+                self.tableView.reloadSections(IndexSet(integer: self.sectionClaim), with: .none)
+            }
         }).store(in: &trashBag)
         
     }
