@@ -18,7 +18,8 @@ class EksplorDetailViewModel {
     
     var wbkl: WbklPro?
     var singleEarningData: [Earnings] = [Earnings]()
-    var distanceMeter = Constants.claimPointDistance
+    var distanceRouteMeter = Constants.claimPointDistance
+//    var distanceAreaMeter = Constants.claimPointDistance
     var totalEarnings:Float = 0
     
     var wbklRepo = WbklDataRepository.shared
@@ -32,7 +33,7 @@ class EksplorDetailViewModel {
     init(wbkl: WbklPro) {
         self.wbkl = wbkl
         
-        distanceMeter = self.wbkl?.getJarakInKm() ?? 0
+        distanceRouteMeter = self.wbkl?.jarak ?? 0
         
         initDataEarning()
         checkClaimPoint()
@@ -49,8 +50,7 @@ class EksplorDetailViewModel {
     func checkClaimPoint(){
             
         let hour = Calendar.current.dateComponents([.hour], from:self.wbkl?.wbklData.claimed_date ?? Date(), to: Date()).hour ?? 0
-        
-        let locationCondition = self.distanceMeter < Constants.claimPointDistance //First condition (location)
+        let locationCondition = self.distanceRouteMeter < Constants.claimPointDistance //First condition (location)
         var hourCondition = hour > Constants.claimPointHours //Second condition (hour)
         let earningCondition = self.totalEarnings > 0 //Last condition (earning estimate)
         var isOpen = CommonFunction.shared.bukaTutupChecker(operationalDay: self.wbkl?.wbklData.operational_day ?? "Senin", operationalHour: self.wbkl?.wbklData.operational_hour ?? "10.00")
@@ -127,21 +127,25 @@ class EksplorDetailViewModel {
                 guard let response = response else {
                     if let error = error {
                         print("ERROR FOUND : \(error.localizedDescription)")
+                        self.distanceRouteMeter = Constants.claimPointDistance
+                        self.checkClaimPoint()
                     }
                     return
                 }
 
                 if response.routes.count < 1 {
+                    self.distanceRouteMeter = Constants.claimPointDistance
+                    self.checkClaimPoint()
                     completion(0)
                 } else {
 
-                    let distanceKM = response.routes[0].distance / 1000
-                    let roundedTwoDigit = distanceKM
-
-                    print("ROUTE DISTANCE \(roundedTwoDigit)")
-                    self.distanceMeter = roundedTwoDigit
+                    let distanceKM = response.routes[0].distance
+//                    let roundedTwoDigit = distanceKM
+//
+//                    print("ROUTE DISTANCE \(roundedTwoDigit)")
+                    self.distanceRouteMeter = distanceKM
                     self.checkClaimPoint()
-                    completion(roundedTwoDigit)
+                    completion(distanceKM)
                 }
             }
         }

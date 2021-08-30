@@ -171,7 +171,7 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             let title = UILabel()
             title.frame =  CGRect(x: 16, y: 20, width: headerFrame.size.width-20, height: 20)
             title.font = title.font.withSize(14)
-            title.text = "KLAIMPOIN"
+            title.text = "KLAIM POIN"
             title.textColor = .gray
             
             let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: headerFrame.size.width, height: headerFrame.size.height))
@@ -201,7 +201,7 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             
             cell.updateDataView(wbklData: self.viewModel?.wbkl?.wbklData)
-            cell.updateDistance(distance: self.viewModel?.distanceMeter ?? 0)
+            cell.updateDistance(distance: self.viewModel?.distanceRouteMeter ?? 0)
             
             cell.delegate = self
             

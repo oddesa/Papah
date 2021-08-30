@@ -35,14 +35,12 @@ extension EksplorDetailController: CLLocationManagerDelegate {
     
     func requestLocationTracking() {
         
-        if self.viewModel?.distanceMeter == Constants.claimPointDistance {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.startUpdatingLocation()
-            locationManager.startMonitoringSignificantLocationChanges()
-            locationManager.distanceFilter = 10
-        }
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        locationManager.startMonitoringSignificantLocationChanges()
+        locationManager.distanceFilter = 10
         
     }
     
@@ -73,8 +71,12 @@ extension EksplorDetailController: CLLocationManagerDelegate {
 
         if let lastLocation = locations.last {
             
+            
+//            self.viewModel?.distanceBetweenTwoLocations(source: lastLocation)
+//            self.tableView.reloadSections(IndexSet(integer: self.sectionDetail), with: .none)
             self.viewModel?.getLocationDistance(userLocation: lastLocation, completion: { distance in
-                self.tableView.reloadSections(IndexSet(integer: self.sectionDetail), with: .none)
+//                self.tableView.reloadSections(IndexSet(integer: self.sectionDetail), with: .none)
+                self.tableView.reloadRows(at: [IndexPath(row: 0, section: self.sectionDetail)], with: .none)
             })
             
         }
