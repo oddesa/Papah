@@ -13,12 +13,8 @@ struct RewardsLainnyaView: View {
     let columns: [GridItem] =
         Array(repeating: .init(.flexible()), count: 3)
     @State private var showingSheet = false
-    
-//    @FetchRequest(entity: Badge.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Badge.title , ascending: false)])
-//
-//    var result: FetchedResults<Badge>
-    
-    @State var badges = [Badge]()
+    @State private var selectedBadge: Badge?
+    @State var badgesProgresses = [BadgeProgress]()
     
     var body: some View {
         
@@ -32,36 +28,42 @@ struct RewardsLainnyaView: View {
             }
             .padding([.leading, .bottom])
             
-            LazyVGrid(columns: columns, alignment: .center, spacing: 16, pinnedViews: /*@START_MENU_TOKEN@*/[]/*@END_MENU_TOKEN@*/, content: {
-                ForEach(self.badges) {badge in
-                    let stringGambar = badge.image ?? "33" + "Watch"
-                    Button(action: {
-                        showingSheet.toggle()
+            LazyVGrid(columns: columns, alignment: .center, spacing: 16, pinnedViews: [], content: {
+                ForEach(self.badgesProgresses) {badgeProgress in
+//                    let imgAchieved = UIImage(named: (badge?.image_achieved ?? String()))
+//                    let imgNotAchieved = UIImage(named: badge?.image ?? String())
+//                    let img = mbData[i.row].status ?  imgAchieved : imgNotAchieved
+                    
+                    let stringGambar = badgeProgress.badge!.image! + "Watch"
+                    let stringGambarAchieved = badgeProgress.badge!.image_achieved! + "Watch"
+                    
+                    (Button(action: {
+                        self.showingSheet.toggle()
+                        self.selectedBadge = badgeProgress.badge
                     }) {
-                        Image(stringGambar) .resizable().frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }.sheet(isPresented: $showingSheet) {
-                        RewardDetailView(badge: badge)
-                            .toolbar(content: {
-                                ToolbarItem(placement: .cancellationAction) {
-                                    Text("Closed").onTapGesture {
-                                        self.showingSheet = false
-                                    }.foregroundColor(.accentColor)
-                                    
-                                }
-                            })
+                        Image(badgeProgress.status ? stringGambarAchieved : stringGambar).resizable().frame(width: 40, height: 40, alignment: .center)
+                    })
+                    .id("\(badgeProgress.badge!.id)RewardsLainnya")
+                    .sheet(isPresented: self.$showingSheet) {
+                        RewardDetailView(badge: self.$selectedBadge, showingSheet: self.$showingSheet)
                     }
-                }
+                }.id("RewardsLainnya")
             })
             .buttonStyle(PlainButtonStyle())
             
         }.onAppear(perform: {
-            if let data = BadgeDataRepository.shared.getAllBadges() {
-                badges = data
-                print("all badges \(data)")
+            if let data = BadgeDataRepository.shared.getBadgeProgressByUserId(userId: 0) {
+                for i in 0..<data.count {
+                    if data[i].badge!.badge_category_id != 4 {
+                        badgesProgresses.append(data[i])
+                    }
+                }
+            }
+            print("ini rewardslainyaa ----------------------- \(badgesProgresses.count)")
+            for bajingan in badgesProgresses {
+                print(bajingan.id)
             }
         })
-        
-        
     }
 }
 

@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @SwiftUI.Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     var body: some View {
 
         RewardView()
+
     }
 }
 

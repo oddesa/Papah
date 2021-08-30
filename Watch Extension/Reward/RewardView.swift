@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RewardView: View {
+    
+    
     var body: some View {
         
             ScrollView {

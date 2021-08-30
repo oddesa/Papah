@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct TantanganBulananView: View {
-    let gambars = ["28Watch","29Watch", "30Watch", "31Watch","32Watch", "33Watch"]
+    @SwiftUI.Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    
     let columns: [GridItem] =
         Array(repeating: .init(.flexible()), count: 3)
+    
     @State private var showingSheet = false
-    @State var monthlyChallenges = [BadgeProgress]()
+    @State private var monthlyChallenges = [BadgeProgress]()
+    @State private var selectedBadge: Badge?
+    
     var body: some View {
         
         
@@ -26,26 +30,23 @@ struct TantanganBulananView: View {
             }
             .padding([.leading, .bottom])
             
-            LazyVGrid(columns: columns, alignment: .center, spacing: 16, pinnedViews: /*@START_MENU_TOKEN@*/[]/*@END_MENU_TOKEN@*/, content: {
+            LazyVGrid(columns: columns, alignment: .center, spacing: 16, pinnedViews: [], content: {
                 ForEach(self.monthlyChallenges) { mChall in
                     let monthBadge = mChall.badge
-                    let imageString = monthBadge?.image ?? "33" + "Watch"
-                    Button(action: {
-                        showingSheet.toggle()
+                    let stringGambar = monthBadge!.image! + "Watch"
+                    let stringGambarAchieved = monthBadge!.image_achieved! + "Watch"
+                    (Button(action: {
+                        self.showingSheet.toggle()
+                        self.selectedBadge = monthBadge
                     }) {
-                        Image(imageString).resizable().frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }.sheet(isPresented: $showingSheet) {
-                        RewardDetailView(badge: monthBadge!)
-                            .toolbar(content: {
-                                ToolbarItem(placement: .cancellationAction) {
-                                    Text("Closed").onTapGesture {
-                                        self.showingSheet = false
-                                    }.foregroundColor(.accentColor)
-                                }
-                            })
-                        
+                        Image(mChall.status ? stringGambarAchieved : stringGambar).resizable().frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    })
+                    .id("\(mChall.badge!.id)TantanganBulanan")
+                    .sheet(isPresented: self.$showingSheet) {
+                        RewardDetailView(badge: self.$selectedBadge, showingSheet: self.$showingSheet)
                     }
-                }
+                }.id("TantanganBulanan")
+                
             })
             .buttonStyle(PlainButtonStyle())
         }.onAppear {
@@ -55,6 +56,10 @@ struct TantanganBulananView: View {
                         monthlyChallenges.append(data[i])
                     }
                 }
+            }
+            print("ini bulanan ----------------------- \(monthlyChallenges.count)")
+            for bajingan in monthlyChallenges {
+                print(bajingan.badge!.id)
             }
         }
     }
