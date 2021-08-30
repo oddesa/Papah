@@ -57,7 +57,7 @@ extension MedaliListController: UITableViewDelegate, UITableViewDataSource {
             
             for i in 0..<temp.count {
                 if temp[i].badge?.badge_category_id == 4 {
-                    mbData.append(temp[i])
+                    mbData.append(temp[i]) //ini monthly challenge
                 }
                 if temp[i].badge?.badge_category_id != 4 {
                     medalData.append(temp[i])
@@ -97,6 +97,7 @@ extension MedaliListController: UITableViewDelegate, UITableViewDataSource {
             }
             
             return cell
+            
         case SubtitleTableViewCell.identifier:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? SubtitleTableViewCell else {
                 return UITableViewCell()

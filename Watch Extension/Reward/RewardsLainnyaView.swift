@@ -14,19 +14,16 @@ struct RewardsLainnyaView: View {
         Array(repeating: .init(.flexible()), count: 3)
     @State private var showingSheet = false
     
-    @FetchRequest(entity: Badge.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Badge.title , ascending: false)])
+//    @FetchRequest(entity: Badge.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Badge.title , ascending: false)])
+//
+//    var result: FetchedResults<Badge>
     
-    var result: FetchedResults<Badge>
-    
-    
+    @State var badges = [Badge]()
     
     var body: some View {
         
         VStack {
             HStack {
-                if result.isEmpty {
-                    Text("ada")
-                }
                 Text("TANTANGAN LAINNYA")
                     .font(.system(size: 11))
                     .foregroundColor(.gray)
@@ -36,13 +33,14 @@ struct RewardsLainnyaView: View {
             .padding([.leading, .bottom])
             
             LazyVGrid(columns: columns, alignment: .center, spacing: 16, pinnedViews: /*@START_MENU_TOKEN@*/[]/*@END_MENU_TOKEN@*/, content: {
-                ForEach(gambars, id: \.self) {gambar in
+                ForEach(self.badges) {badge in
+                    let stringGambar = badge.image ?? "33" + "Watch"
                     Button(action: {
                         showingSheet.toggle()
                     }) {
-                        Image(gambar).resizable().frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        Image(stringGambar) .resizable().frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     }.sheet(isPresented: $showingSheet) {
-                        RewardDetailView()
+                        RewardDetailView(badge: badge)
                             .toolbar(content: {
                                 ToolbarItem(placement: .cancellationAction) {
                                     Text("Closed").onTapGesture {
@@ -56,7 +54,12 @@ struct RewardsLainnyaView: View {
             })
             .buttonStyle(PlainButtonStyle())
             
-        }
+        }.onAppear(perform: {
+            if let data = BadgeDataRepository.shared.getAllBadges() {
+                badges = data
+                print("all badges \(data)")
+            }
+        })
         
         
     }
