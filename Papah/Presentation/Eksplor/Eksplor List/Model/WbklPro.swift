@@ -18,7 +18,12 @@ class WbklPro {
         self.categories = categories
     }
     
+    func getJarakInKm() -> Double {
+        return jarak / 1000
+    }
+    
     func getJarakInString() -> String {
+        
         if jarak >= 1000 {
             let distanceInKM = jarak / 1000
             let distanceInKMRounded = distanceInKM.rounded()
@@ -30,7 +35,7 @@ class WbklPro {
             if jarak == 0 {
                 return ""
             } else {
-                return " · \(String.init(format: "%.3f", jarak))m".replacingOccurrences(of: "0.", with: "")
+                return " · \(String.init(format: "%.0f", jarak))m".replacingOccurrences(of: "0.", with: "")
             }
         }
     }
