@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol EksplorDetailTableCellDelegate: AnyObject {
-    func openMaps()
-    func openPhoneCall()
-}
-
 class EksplorDetailTableCell: UITableViewCell {
 
     @IBOutlet weak var viewPhone: DesignableView!
@@ -49,13 +44,30 @@ class EksplorDetailTableCell: UITableViewCell {
     }
     
     func updateDistance(distance: Double) {
-        if distance == 0 {
-            lblDistance.text = ""
-        } else if distance < 1  {
-            lblDistance.text = "· \(String.init(format: "%.3f", distance))m".replacingOccurrences(of: "0.", with: "")
-        } else {
-            lblDistance.text = "· \(String.init(format: "%.0f", distance))km"
+        print("HGGH \(distance) ")
+        var distance = distance
+        if distance >= 1000 {
+            let distanceInKM = distance / 1000
+            let distanceInKMRounded = distanceInKM.rounded()
+            lblDistance.text = " · \(String.init(format: "%.0f", distanceInKMRounded))km"
         }
+        else {
+            distance = distance.rounded()
+            
+            if distance == 0 {
+                lblDistance.text = ""
+            } else {
+                lblDistance.text = " · \(String.init(format: "%.0f", distance))m".replacingOccurrences(of: "0.", with: "")
+            }
+        }
+        
+//        if distance == 0 {
+//            lblDistance.text = ""
+//        } else if distance < 1000  {
+//            lblDistance.text = "· \(String.init(format: "%.0f", distance))m".replacingOccurrences(of: "0.", with: "")
+//        } else {
+//            lblDistance.text = "· \(String.init(format: "%.0f", distance))km"
+//        }
     }
     
     override func awakeFromNib() {

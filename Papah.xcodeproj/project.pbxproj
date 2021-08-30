@@ -145,6 +145,7 @@
 		BCB6956A26B1105C001E90F0 /* TantanganMonthlyHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCB6956726B1102B001E90F0 /* TantanganMonthlyHeadCell.xib */; };
 		BCB6956D26B11411001E90F0 /* TantanganRewardTablecell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6956B26B11410001E90F0 /* TantanganRewardTablecell.swift */; };
 		BCB6956E26B11411001E90F0 /* TantanganRewardTablecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCB6956C26B11411001E90F0 /* TantanganRewardTablecell.xib */; };
+		BCBCFBDB26DA1E4F008AE2A0 /* WbklPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCFBDA26DA1E4F008AE2A0 /* WbklPro.swift */; };
 		BCCA0A0826B1167700C2DD6F /* TantanganRewardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9866552726ADCFE60047D2A7 /* TantanganRewardCell.xib */; };
 		BCCA0A0A26B11D0E00C2DD6F /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0A0926B11D0E00C2DD6F /* DynamicHeightCollectionView.swift */; };
 		BCD827B226AEFA90000C2452 /* EksplorMapController+SheetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD827B126AEFA90000C2452 /* EksplorMapController+SheetConfig.swift */; };
@@ -355,6 +356,7 @@
 		BCB6956826B1102B001E90F0 /* TantanganMonthlyHeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganMonthlyHeadCell.swift; sourceTree = "<group>"; };
 		BCB6956B26B11410001E90F0 /* TantanganRewardTablecell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganRewardTablecell.swift; sourceTree = "<group>"; };
 		BCB6956C26B11411001E90F0 /* TantanganRewardTablecell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TantanganRewardTablecell.xib; sourceTree = "<group>"; };
+		BCBCFBDA26DA1E4F008AE2A0 /* WbklPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WbklPro.swift; sourceTree = "<group>"; };
 		BCCA0A0926B11D0E00C2DD6F /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
 		BCD827B126AEFA90000C2452 /* EksplorMapController+SheetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EksplorMapController+SheetConfig.swift"; sourceTree = "<group>"; };
 		BCD827B326AF0264000C2452 /* EksplorMapBottomSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EksplorMapBottomSheet.xib; sourceTree = "<group>"; };
@@ -613,6 +615,7 @@
 		986654D526ADC4180047D2A7 /* Eksplor List */ = {
 			isa = PBXGroup;
 			children = (
+				BCBCFBD926DA1E40008AE2A0 /* Model */,
 				BC2A95C526ADCF10002AD800 /* EksplorList.storyboard */,
 				BC2A95C326ADCF10002AD800 /* EksplorListController.swift */,
 				BC2A95C426ADCF10002AD800 /* EksplorListViewModel.swift */,
@@ -968,6 +971,14 @@
 			path = Complication;
 			sourceTree = "<group>";
 		};
+		BCBCFBD926DA1E40008AE2A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BCBCFBDA26DA1E4F008AE2A0 /* WbklPro.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BCD827B526AF029B000C2452 /* Bottom Sheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -1223,6 +1234,7 @@
 				BCB6955F26B1038F001E90F0 /* TantanganMonthlyCell.swift in Sources */,
 				BF1C043F26B4FB270099B6E1 /* UserDataRepository.swift in Sources */,
 				BCCA0A0A26B11D0E00C2DD6F /* DynamicHeightCollectionView.swift in Sources */,
+				BCBCFBDB26DA1E4F008AE2A0 /* WbklPro.swift in Sources */,
 				9866549E26ADBC7E0047D2A7 /* Papah.xcdatamodeld in Sources */,
 				BC2A95ED26ADD073002AD800 /* TipsDetailController.swift in Sources */,
 				BCEE6E5326B1BCB900D4D250 /* EksplorDetailEarningCell.swift in Sources */,

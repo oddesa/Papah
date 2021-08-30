@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VqO-ne-L7W">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="810"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VqO-ne-L7W">
+                                <rect key="frame" x="0.0" y="88" width="390" height="722"/>
                                 <color key="backgroundColor" name="background_secondary"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Mvc-R0-ItR" id="qQF-CX-Rbh"/>
@@ -29,7 +29,7 @@
                         <viewLayoutGuide key="safeArea" id="pLx-vD-aI8"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstItem="VqO-ne-L7W" firstAttribute="top" secondItem="J8k-kv-ut3" secondAttribute="top" id="1EX-Ef-oPt"/>
+                            <constraint firstItem="VqO-ne-L7W" firstAttribute="top" secondItem="pLx-vD-aI8" secondAttribute="top" id="0fz-pL-9I9"/>
                             <constraint firstItem="pLx-vD-aI8" firstAttribute="trailing" secondItem="VqO-ne-L7W" secondAttribute="trailing" id="9s4-0t-MFk"/>
                             <constraint firstItem="VqO-ne-L7W" firstAttribute="leading" secondItem="pLx-vD-aI8" secondAttribute="leading" id="P61-Ca-x5H"/>
                             <constraint firstItem="pLx-vD-aI8" firstAttribute="bottom" secondItem="VqO-ne-L7W" secondAttribute="bottom" id="TUQ-Io-n0m"/>
@@ -42,13 +42,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfj-f2-RrH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Vsu-lf-DkA">
-                    <connections>
-                        <action selector="locationRequestCheck:" destination="Mvc-R0-ItR" id="Cj6-ck-1S8"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Vsu-lf-DkA"/>
             </objects>
-            <point key="canvasLocation" x="-446.37681159420293" y="130.58035714285714"/>
+            <point key="canvasLocation" x="-447.69230769230768" y="130.09478672985782"/>
         </scene>
     </scenes>
     <resources>

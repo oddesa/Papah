@@ -10,6 +10,13 @@ import CoreLocation
 import MapKit
 import Combine
 
+protocol EksplorDetailTableCellDelegate: AnyObject {
+    func openMaps()
+    func openPhoneCall()
+    func openClaimButton()
+    func openGps()
+}
+
 class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
     
     @IBOutlet weak var tableView: UITableView!
@@ -22,7 +29,6 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
     let sectionClaim = 3
 
     static let footerHeight = 100
-    var distanceLocation: Double = 0.0
 
     let locationManager = CLLocationManager()
 
@@ -31,19 +37,21 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
         
         navigationController?.navigationBar.tintColor = .link
         navigationController?.navigationBar.prefersLargeTitles = true
+        
         registerNib()
-        attemptLocationAccess()
         setupView()
         setupViewModel()
+        attemptLocationAccess()
     }
     
     func setupView(){
-        self.title = self.viewModel?.wbklData?.name ?? ""
+        self.title = self.viewModel?.wbkl?.wbklData.name ?? ""
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
- 
+
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
 
     }
@@ -56,27 +64,10 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
         }
     }
 
-    @IBAction func locationRequestCheck(_ sender: Any) {
-        UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!)
-    }
-    
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
-    }
-    
-    @IBAction func onClaimPoint(_ sender: Any) {
-        
-        self.viewModel?.onPointClaimed()
-        
-        let myAlert = CompletionAlert(nibName: CompletionAlert.id, bundle: nil)
-        myAlert.delegate = self
-        myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-
-        self.tabBarController?.present(myAlert, animated: true, completion: nil)
-        
     }
     
     func setupViewModel(){
@@ -134,7 +125,6 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
         return identifiers
     }
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -166,10 +156,9 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             let headerFrame = tableView.frame
             
             let title = UILabel()
-            title.frame =  CGRect(x: 16, y: 20, width: headerFrame.size.width-20, height: 20) //width equals to parent view with 10 left and right margin
+            title.frame =  CGRect(x: 16, y: 20, width: headerFrame.size.width-20, height: 20)
             title.font = title.font.withSize(14)
             title.text = "RINCIAN LIMBAH"
-            //        title.text = self.tableView(tableView, titleForHeaderInSection: section) //This will take title of section from 'titleForHeaderInSection' method or you can write directly
             title.textColor = .gray
             
             let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: headerFrame.size.width, height: headerFrame.size.height))
@@ -180,10 +169,9 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             let headerFrame = tableView.frame
             
             let title = UILabel()
-            title.frame =  CGRect(x: 16, y: 20, width: headerFrame.size.width-20, height: 20) //width equals to parent view with 10 left and right margin
+            title.frame =  CGRect(x: 16, y: 20, width: headerFrame.size.width-20, height: 20)
             title.font = title.font.withSize(14)
-            title.text = "KLAIMPOIN"
-            //        title.text = self.tableView(tableView, titleForHeaderInSection: section) //This will take title of section from 'titleForHeaderInSection' method or you can write directly
+            title.text = "KLAIM POIN"
             title.textColor = .gray
             
             let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: headerFrame.size.width, height: headerFrame.size.height))
@@ -212,8 +200,8 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             }
             cell.selectionStyle = .none
             
-            cell.updateDataView(wbklData: self.viewModel?.wbklData)
-            cell.updateDistance(distance: distanceLocation)
+            cell.updateDataView(wbklData: self.viewModel?.wbkl?.wbklData)
+            cell.updateDistance(distance: self.viewModel?.distanceRouteMeter ?? 0)
             
             cell.delegate = self
             
@@ -233,9 +221,12 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
                 
                 self.viewModel?.singleEarningData[indexPath.row].berat = Float(data) ?? 0
 
-                DispatchQueue.main.async {
-                    tableView.reloadSections(IndexSet(integer: self.sectionEarning), with: .none)
+                self.tableView.performBatchUpdates {
+                    self.tableView.reloadRows(at: [IndexPath(row: (self.viewModel?.getWasteAcceptedData()?.count ?? 0), section: self.sectionWaste)], with: .none)
+                    self.tableView.reloadRows(at: [IndexPath(row: 0, section: self.sectionClaim)], with: .none)
+    //                self.tableView.reloadSections(IndexSet.init(integer: self.sectionClaim), with: .none)
                 }
+
             }
             
             return cell
@@ -254,6 +245,7 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.selectionStyle = .none
+            cell.delegate = self
             cell.updateClaimPointState(locationManager: self.locationManager, requirement: self.viewModel?.onRequirementCheck.value ?? EksplorDetailViewModel.RequirementCheck(hour: false, location: false, isOpen: false, category: false))
             
             return cell
@@ -266,9 +258,24 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension EksplorDetailController: EksplorDetailTableCellDelegate {
+    func openClaimButton() {
+        self.viewModel?.onPointClaimed()
+        
+        let myAlert = CompletionAlert(nibName: CompletionAlert.id, bundle: nil)
+        myAlert.delegate = self
+        myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+
+        self.tabBarController?.present(myAlert, animated: true, completion: nil)
+        
+    }
+    
+    func openGps() {
+        UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!)
+    }
     
     func openMaps() {
-        if let wbklData = self.viewModel?.wbklData {
+        if let wbklData = self.viewModel?.wbkl?.wbklData {
             let mapController = EksplorMapController.instantiateStoryboard(viewModel: EksplorMapViewModel(wbklData: wbklData))
             self.navigationController?.pushViewController(mapController, animated: true)
         }
