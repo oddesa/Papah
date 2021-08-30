@@ -29,7 +29,6 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
     let sectionClaim = 3
 
     static let footerHeight = 100
-    var distanceLocation: Double = 0.0
 
     let locationManager = CLLocationManager()
 
@@ -38,14 +37,15 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
         
         navigationController?.navigationBar.tintColor = .link
         navigationController?.navigationBar.prefersLargeTitles = true
+        
         registerNib()
-        attemptLocationAccess()
         setupView()
         setupViewModel()
+        attemptLocationAccess()
     }
     
     func setupView(){
-        self.title = self.viewModel?.wbklData?.name ?? ""
+        self.title = self.viewModel?.wbkl?.wbklData.name ?? ""
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -56,12 +56,7 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
 
     }
     
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        view.endEditing(true)
-//    }
-    
     @objc func keyboardWillShow(notification: NSNotification) {
-        print("SHOW")
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
                 self.view.frame.origin.y -= keyboardSize.height/2
@@ -70,7 +65,6 @@ class EksplorDetailController: MVVMViewController<EksplorDetailViewModel> {
     }
 
     @objc func keyboardWillHide(notification: NSNotification) {
-        print("HIDE")
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
@@ -162,10 +156,9 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             let headerFrame = tableView.frame
             
             let title = UILabel()
-            title.frame =  CGRect(x: 16, y: 20, width: headerFrame.size.width-20, height: 20) //width equals to parent view with 10 left and right margin
+            title.frame =  CGRect(x: 16, y: 20, width: headerFrame.size.width-20, height: 20)
             title.font = title.font.withSize(14)
             title.text = "RINCIAN LIMBAH"
-            //        title.text = self.tableView(tableView, titleForHeaderInSection: section) //This will take title of section from 'titleForHeaderInSection' method or you can write directly
             title.textColor = .gray
             
             let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: headerFrame.size.width, height: headerFrame.size.height))
@@ -176,10 +169,9 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             let headerFrame = tableView.frame
             
             let title = UILabel()
-            title.frame =  CGRect(x: 16, y: 20, width: headerFrame.size.width-20, height: 20) //width equals to parent view with 10 left and right margin
+            title.frame =  CGRect(x: 16, y: 20, width: headerFrame.size.width-20, height: 20)
             title.font = title.font.withSize(14)
             title.text = "KLAIMPOIN"
-            //        title.text = self.tableView(tableView, titleForHeaderInSection: section) //This will take title of section from 'titleForHeaderInSection' method or you can write directly
             title.textColor = .gray
             
             let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: headerFrame.size.width, height: headerFrame.size.height))
@@ -208,8 +200,8 @@ extension EksplorDetailController: UITableViewDelegate, UITableViewDataSource {
             }
             cell.selectionStyle = .none
             
-            cell.updateDataView(wbklData: self.viewModel?.wbklData)
-            cell.updateDistance(distance: distanceLocation)
+            cell.updateDataView(wbklData: self.viewModel?.wbkl?.wbklData)
+            cell.updateDistance(distance: self.viewModel?.distanceMeter ?? 0)
             
             cell.delegate = self
             
@@ -283,7 +275,7 @@ extension EksplorDetailController: EksplorDetailTableCellDelegate {
     }
     
     func openMaps() {
-        if let wbklData = self.viewModel?.wbklData {
+        if let wbklData = self.viewModel?.wbkl?.wbklData {
             let mapController = EksplorMapController.instantiateStoryboard(viewModel: EksplorMapViewModel(wbklData: wbklData))
             self.navigationController?.pushViewController(mapController, animated: true)
         }

@@ -16,7 +16,7 @@ class EksplorDetailViewModel {
     typealias Earnings = (wasteCategory:Int, berat:Float)
     typealias RequirementCheck = (hour: Bool, location: Bool, isOpen: Bool, category: Bool)
     
-    var wbklData: Wbkl?
+    var wbkl: WbklPro?
     var singleEarningData: [Earnings] = [Earnings]()
     var distanceMeter = Constants.claimPointDistance
     var totalEarnings:Float = 0
@@ -29,10 +29,12 @@ class EksplorDetailViewModel {
     // Combine
     var onRequirementCheck = CurrentValueSubject<RequirementCheck,Never>(RequirementCheck(hour: false, location: false, isOpen: false, category: false))
     
-    init(wbklData: Wbkl) {
-        self.wbklData = wbklData
-        initDataEarning()
+    init(wbkl: WbklPro) {
+        self.wbkl = wbkl
         
+        distanceMeter = self.wbkl?.getJarakInKm() ?? 0
+        
+        initDataEarning()
         checkClaimPoint()
     }
     
@@ -46,12 +48,12 @@ class EksplorDetailViewModel {
     
     func checkClaimPoint(){
             
-        let hour = Calendar.current.dateComponents([.hour], from:self.wbklData?.claimed_date ?? Date(), to: Date()).hour ?? 0
+        let hour = Calendar.current.dateComponents([.hour], from:self.wbkl?.wbklData.claimed_date ?? Date(), to: Date()).hour ?? 0
         
         let locationCondition = self.distanceMeter < Constants.claimPointDistance //First condition (location)
         var hourCondition = hour > Constants.claimPointHours //Second condition (hour)
         let earningCondition = self.totalEarnings > 0 //Last condition (earning estimate)
-        var isOpen = CommonFunction.shared.bukaTutupChecker(operationalDay: self.wbklData?.operational_day ?? "Senin", operationalHour: self.wbklData?.operational_hour ?? "10.00")
+        var isOpen = CommonFunction.shared.bukaTutupChecker(operationalDay: self.wbkl?.wbklData.operational_day ?? "Senin", operationalHour: self.wbkl?.wbklData.operational_hour ?? "10.00")
 
         // Debug
 //        hourCondition = true
@@ -62,28 +64,13 @@ class EksplorDetailViewModel {
     }
     
     func getHourLeftToClaimPoint() -> String {
-        let hour = Calendar.current.dateComponents([.hour], from:self.wbklData?.claimed_date ?? Date(), to: Date()).hour ?? 0
+        let hour = Calendar.current.dateComponents([.hour], from:self.wbkl?.wbklData.claimed_date ?? Date(), to: Date()).hour ?? 0
         return "Tunggu \(Constants.claimPointHours - hour) jam lagi"
     }
     
     func getWasteAcceptedData() -> [WasteAccepted]? {
-        return self.wbklData?.wasteAccepted?.allObjects as? [WasteAccepted]
+        return self.wbkl?.wbklData.wasteAccepted?.allObjects as? [WasteAccepted]
     }
-    
-    func distanceBetweenTwoLocations(source:CLLocation, destination:CLLocation) -> Double {
-        
-        let distanceMeters = source.distance(from: destination)
-        
-        let distanceKM = distanceMeters / 1000
-        let roundedTwoDigit = distanceKM
-        
-        self.distanceMeter = distanceMeters
-        self.checkClaimPoint()
-        
-        return roundedTwoDigit
-        
-    }
-    
     
     func getEarningTotal() -> Float {
         totalEarnings = 0
@@ -118,24 +105,24 @@ class EksplorDetailViewModel {
     func getLocationDistance(userLocation: CLLocation, completion: @escaping (Double) -> Void ) {
         print("userLocation \(userLocation)")
 
-        if let wbklData = wbklData {
-            
+        if let wbklData = wbkl?.wbklData {
+
             let targetLocation = CLLocationCoordinate2D(latitude:Double(wbklData.latitude), longitude: Double(wbklData.longitude))
             let userLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-            
+
             let sourcePlaceMark = MKPlacemark(coordinate: userLocation, addressDictionary: nil)
             let destinationPlaceMark = MKPlacemark(coordinate: targetLocation, addressDictionary: nil)
-            
+
             let sourceMapItem = MKMapItem(placemark: sourcePlaceMark)
             let destinationItem = MKMapItem(placemark: destinationPlaceMark)
-            
+
             let directionRequest = MKDirections.Request()
             directionRequest.source = sourceMapItem
             directionRequest.destination = destinationItem
             directionRequest.transportType = .automobile
-            
+
             let direction = MKDirections(request: directionRequest)
-            
+
             direction.calculate { (response, error) in
                 guard let response = response else {
                     if let error = error {
@@ -143,14 +130,14 @@ class EksplorDetailViewModel {
                     }
                     return
                 }
-                
+
                 if response.routes.count < 1 {
                     completion(0)
                 } else {
-                    
+
                     let distanceKM = response.routes[0].distance / 1000
                     let roundedTwoDigit = distanceKM
-                    
+
                     print("ROUTE DISTANCE \(roundedTwoDigit)")
                     self.distanceMeter = roundedTwoDigit
                     self.checkClaimPoint()
@@ -158,9 +145,7 @@ class EksplorDetailViewModel {
                 }
             }
         }
-        
     }
-    
     
     func onPointClaimed() {
         
@@ -183,7 +168,7 @@ extension EksplorDetailViewModel {
     
     // MARK: WBKL section
     func updateWBKLSection(){
-        wbklRepo.updateWbklClaimDate(wbklId: Int(self.wbklData?.wbkl_id ?? 0), claimedDate: Date())
+        wbklRepo.updateWbklClaimDate(wbklId: Int(self.wbkl?.wbklData.wbkl_id ?? 0), claimedDate: Date())
     }
     
     // MARK: Challenge section

@@ -18,6 +18,10 @@ class WbklPro {
         self.categories = categories
     }
     
+    func getJarakInKm() -> Double {
+        return jarak / 1000
+    }
+    
     func getJarakInString() -> String {
         if jarak >= 1000 {
             let distanceInKM = jarak / 1000

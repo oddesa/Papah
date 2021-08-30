@@ -356,9 +356,9 @@ extension EksplorListController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row != 0 {
-            guard let wbkl = (viewModel?.filteredWbkl[indexPath.row - 1].wbklData) else {return}
+            guard let wbkl = (viewModel?.filteredWbkl[indexPath.row - 1]) else {return}
             let controller = EksplorDetailController.instantiateStoryboard(
-                viewModel: EksplorDetailViewModel(wbklData: wbkl))
+                viewModel: EksplorDetailViewModel(wbkl: wbkl))
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
