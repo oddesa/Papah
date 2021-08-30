@@ -16,6 +16,7 @@ struct TantanganBulananView: View {
     @State private var showingSheet = false
     @State private var monthlyChallenges = [BadgeProgress]()
     @State private var selectedBadge: Badge?
+    @State private var imageStr: String?
     
     var body: some View {
         VStack {
@@ -33,16 +34,27 @@ struct TantanganBulananView: View {
                     let monthBadge = mChall.badge
                     let stringGambar = monthBadge!.image! + "Watch"
                     let stringGambarAchieved = monthBadge!.image_achieved! + "Watch"
+<<<<<<< HEAD
                     
                     (Button(action: {
                         self.showingSheet.toggle()
                         self.selectedBadge = mChall
                     }) {
                         Image(mChall.status ? stringGambarAchieved : stringGambar).resizable().frame(width: 40, height: 40, alignment: .center)
+=======
+                    let img = mChall.status ? stringGambarAchieved : stringGambar
+                    
+                    (Button(action: {
+                        self.showingSheet.toggle()
+                        self.selectedBadge = monthBadge
+                        self.imageStr = img
+                    }) {
+                        Image(img).resizable().frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+>>>>>>> 87ec9e0bf4a876cc592c4a90881128d182e35a37
                     })
                     .id("\(mChall.badge!.id)TantanganBulanan")
                     .sheet(isPresented: self.$showingSheet) {
-                        RewardDetailView(badge: self.$selectedBadge, showingSheet: self.$showingSheet)
+                        RewardDetailView(image: self.$imageStr, badge: self.$selectedBadge, showingSheet: self.$showingSheet)
                     }
                 }.id("TantanganBulanan")
                 
