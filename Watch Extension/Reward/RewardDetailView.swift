@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RewardDetailView: View {
-    
+    @Binding var image: String?
     @Binding var badge: Badge?
     @Binding var showingSheet: Bool
     @Environment(\.presentationMode)
@@ -19,7 +19,7 @@ struct RewardDetailView: View {
         ScrollView {
             VStack(alignment: .center) {
                 let gambarString = badge!.image! + "Watch"
-                Image(gambarString).resizable().padding().frame(width: 138, height: 138, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                Image(image!).resizable().padding().frame(width: 138, height: 138, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
                 Text(badge!.title ?? "HAAAH TIDAK ADA")
                     .fontWeight(.semibold).font(.system(size: 17))

@@ -15,6 +15,7 @@ struct RewardsLainnyaView: View {
     @State private var showingSheet = false
     @State private var selectedBadge: Badge?
     @State var badgesProgresses = [BadgeProgress]()
+    @State var imageStr: String?
     
     var body: some View {
         
@@ -36,16 +37,18 @@ struct RewardsLainnyaView: View {
                     
                     let stringGambar = badgeProgress.badge!.image! + "Watch"
                     let stringGambarAchieved = badgeProgress.badge!.image_achieved! + "Watch"
+                    let img = badgeProgress.status ? stringGambarAchieved : stringGambar
                     
                     (Button(action: {
                         self.showingSheet.toggle()
                         self.selectedBadge = badgeProgress.badge
+                        self.imageStr = img
                     }) {
-                        Image(badgeProgress.status ? stringGambarAchieved : stringGambar).resizable().frame(width: 40, height: 40, alignment: .center)
+                        Image(img).resizable().frame(width: 40, height: 40, alignment: .center)
                     })
                     .id("\(badgeProgress.badge!.id)RewardsLainnya")
                     .sheet(isPresented: self.$showingSheet) {
-                        RewardDetailView(badge: self.$selectedBadge, showingSheet: self.$showingSheet)
+                        RewardDetailView(image: self.$imageStr, badge: self.$selectedBadge, showingSheet: self.$showingSheet)
                     }
                 }.id("RewardsLainnya")
             })
