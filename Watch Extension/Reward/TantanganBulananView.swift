@@ -34,14 +34,6 @@ struct TantanganBulananView: View {
                     let monthBadge = mChall.badge
                     let stringGambar = monthBadge!.image! + "Watch"
                     let stringGambarAchieved = monthBadge!.image_achieved! + "Watch"
-<<<<<<< HEAD
-                    
-                    (Button(action: {
-                        self.showingSheet.toggle()
-                        self.selectedBadge = mChall
-                    }) {
-                        Image(mChall.status ? stringGambarAchieved : stringGambar).resizable().frame(width: 40, height: 40, alignment: .center)
-=======
                     let img = mChall.status ? stringGambarAchieved : stringGambar
                     
                     (Button(action: {
@@ -50,7 +42,6 @@ struct TantanganBulananView: View {
                         self.imageStr = img
                     }) {
                         Image(img).resizable().frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
->>>>>>> 87ec9e0bf4a876cc592c4a90881128d182e35a37
                     })
                     .id("\(mChall.badge!.id)TantanganBulanan")
                     .sheet(isPresented: self.$showingSheet) {
@@ -61,13 +52,11 @@ struct TantanganBulananView: View {
             })
             .buttonStyle(PlainButtonStyle())
         }.onAppear {
+            monthlyChallenges = []
             if let data =  BadgeDataRepository.shared.getBadgeProgressByUserId(userId: 0) {
-                for i in 0..<data.count {
-                    if data[i].badge?.badge_category_id == 4 {
-                        monthlyChallenges.append(data[i])
-                    }
-                }
+                monthlyChallenges = data.filter {$0.badge?.badge_category_id == 4}
             }
+            
             print("ini bulanan ----------------------- \(monthlyChallenges.count)")
             for bajingan in monthlyChallenges {
                 print(bajingan.badge!.id)

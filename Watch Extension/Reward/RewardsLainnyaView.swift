@@ -13,7 +13,7 @@ struct RewardsLainnyaView: View {
     let columns: [GridItem] =
         Array(repeating: .init(.flexible()), count: 3)
     @State private var showingSheet = false
-    @State private var selectedBadgeProgress: BadgeProgress?
+    @State private var selectedBadge: Badge?
     @State var badgesProgresses = [BadgeProgress]()
     @State var imageStr: String?
     
@@ -38,34 +38,23 @@ struct RewardsLainnyaView: View {
                     
                     (Button(action: {
                         self.showingSheet.toggle()
-<<<<<<< HEAD
-                        self.selectedBadgeProgress = badgeProgress
-=======
                         self.selectedBadge = badgeProgress.badge
                         self.imageStr = img
->>>>>>> 87ec9e0bf4a876cc592c4a90881128d182e35a37
                     }) {
                         Image(img).resizable().frame(width: 40, height: 40, alignment: .center)
                     })
                     .id("\(badgeProgress.badge!.id)RewardsLainnya")
                     .sheet(isPresented: self.$showingSheet) {
-<<<<<<< HEAD
-                        RewardDetailView(badgeProgress: self.$selectedBadgeProgress, showingSheet: self.$showingSheet)
-=======
                         RewardDetailView(image: self.$imageStr, badge: self.$selectedBadge, showingSheet: self.$showingSheet)
->>>>>>> 87ec9e0bf4a876cc592c4a90881128d182e35a37
                     }
                 }.id("RewardsLainnya")
             })
             .buttonStyle(PlainButtonStyle())
             
         }.onAppear(perform: {
+            badgesProgresses = []
             if let data = BadgeDataRepository.shared.getBadgeProgressByUserId(userId: 0) {
-                for i in 0..<data.count {
-                    if data[i].badge!.badge_category_id != 4 {
-                        badgesProgresses.append(data[i])
-                    }
-                }
+                badgesProgresses = data.filter {$0.badge?.badge_category_id != 4}
             }
             print("ini rewardslainyaa ----------------------- \(badgesProgresses.count)")
             for bajingan in badgesProgresses {
