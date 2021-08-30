@@ -133,15 +133,15 @@ extension EksplorListFilterCollectionTableCell: UICollectionViewDelegate, UIColl
         case "Kertas":
             cell.categoryBtn.setImage(UIImage(systemName: "newspaper"), for: .normal)
         case "Besi":
-            cell.categoryBtn.setImage(UIImage.steel, for: .normal)
+            cell.categoryBtn.setImage(UIImage.steel_img, for: .normal)
         case "Kaca":
-            cell.categoryBtn.setImage(UIImage.bottle, for: .normal)
+            cell.categoryBtn.setImage(UIImage.bottle_img, for: .normal)
         case "Kardus":
             cell.categoryBtn.setImage(UIImage(systemName: "shippingbox"), for: .normal)
         case "Perabotan":
             cell.categoryBtn.setImage(UIImage(systemName: "bed.double"), for: .normal)
         case "Plastik":
-            cell.categoryBtn.setImage(UIImage.plastic, for: .normal)
+            cell.categoryBtn.setImage(UIImage.plastic_img, for: .normal)
         default:
             cell.categoryBtn.setImage(UIImage(systemName: "line.horizontal.3.decrease.circle"), for: .normal)
         }

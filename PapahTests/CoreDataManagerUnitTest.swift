@@ -13,8 +13,8 @@ import UIKit
 
 class CoreDataManagerUniTest {
     
-    static func mockContainer() -> NSPersistentContainer{
-        let container = NSPersistentContainer(name: Constants.dataModel)
+    static func mockContainer() -> NSPersistentCloudKitContainer{
+        let container = NSPersistentCloudKitContainer(name: Constants.dataModel)
 
         let description = NSPersistentStoreDescription()
         description.type = NSInMemoryStoreType

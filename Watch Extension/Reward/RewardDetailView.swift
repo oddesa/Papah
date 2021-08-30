@@ -8,29 +8,40 @@
 import SwiftUI
 
 struct RewardDetailView: View {
+    @Binding var image: String?
+    @Binding var badge: Badge?
+    @Binding var showingSheet: Bool
+    @Environment(\.presentationMode)
+    var presentationMode
+
+    
     var body: some View {
-        
-        
         ScrollView {
             VStack(alignment: .center) {
+                Image(image!).resizable().padding().frame(width: 138, height: 138, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
-                Image("33Watch").resizable().padding().frame(width: 138, height: 138, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                
-                Text("Kurcaci Penyalur")
+                Text(badge!.title ?? "HAAAH TIDAK ADA")
                     .fontWeight(.semibold).font(.system(size: 17))
                 
-                Text("Kamu memeroleh medali ini saat kamu berhasil mengumpulkan 15kg sampah inorganik. ")
+                Text(badge!.desc ?? "aaaaaaa anjeng ilaang")
                     .fontWeight(.regular)
                     .font(.system(size: 17))
                     .multilineTextAlignment(.center)
             }
         }
+        .toolbar(content: {
+            ToolbarItem(placement: .cancellationAction) {
+                Text("Closed").onTapGesture {
+                    self.showingSheet.toggle()
+                }.foregroundColor(.accentColor)
+            }
+        })
         
     }
 }
-
-struct RewardDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        RewardDetailView()
-    }
-}
+//
+//struct RewardDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RewardDetailView(badge: <#Badge#>)
+//    }
+//}

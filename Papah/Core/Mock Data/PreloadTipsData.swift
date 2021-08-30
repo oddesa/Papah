@@ -86,28 +86,28 @@ extension CoreDataManager {
             detail: "Manfaat dari daur ulang kaca: mengurangi emisi dan konsumsi bahan mentah, memperpanjang umur peralatan pabrik, seperti tungku, dan menghemat energi.",
             sampahId: 1,
             sampahDetailId: 0,
-            image: UIImage()
+            image: ""
         )
         TipsDataRepository.shared.insertTipsDetail(
             title: "Pilah Botol/Toples Kacamu",
             detail: "Pastikan botol/toples dibersihkan dan kering",
             sampahId: 1,
             sampahDetailId: 1,
-            image: UIImage()
+            image: ""
         )
         TipsDataRepository.shared.insertTipsDetail(
             title: "Pilah Botol/Toples Kacamu",
             detail: "Satukan botol/toples dengan diikat tali plastik atau digabungkan disatu plastik/dus",
             sampahId: 1,
             sampahDetailId: 2,
-            image: UIImage()
+            image: ""
         )
         TipsDataRepository.shared.insertTipsDetail(
             title: "Tidak diterima",
             detail: "Jangan salurkan botol/plastik yang sudah hancur/pecah",
             sampahId: 1,
             sampahDetailId: 3,
-            image: UIImage()
+            image: ""
         )
         
         //Kaleng
@@ -116,28 +116,28 @@ extension CoreDataManager {
             detail: "Mendaur ulang 1kg Aluminium dapat menghemat listrik hingga 14kWh.",
             sampahId: 2,
             sampahDetailId: 4,
-            image: UIImage()
+            image: ""
         )
         TipsDataRepository.shared.insertTipsDetail(
             title: "Pilah Kaleng",
             detail: "Pastikan kaleng dibersihkan dan kering",
             sampahId: 2,
             sampahDetailId: 5,
-            image: UIImage()
+            image: ""
         )
         TipsDataRepository.shared.insertTipsDetail(
             title: "Pilah Kaleng",
             detail: "Gepengkan Kaleng",
             sampahId: 2,
             sampahDetailId: 6,
-            image: UIImage()
+            image: ""
         )
         TipsDataRepository.shared.insertTipsDetail(
             title: "Tidak diterima",
             detail: "Kotor",
             sampahId: 2,
             sampahDetailId: 7,
-            image: UIImage()
+            image: ""
         )
         
         //Kertas dan Kardus
@@ -146,28 +146,28 @@ extension CoreDataManager {
             detail: "Dengan mendaur ulang 1 ton kertas, kamu telah menyelamatkan 17 pohon dan 3.3m kubik ruang TPA",
             sampahId: 3,
             sampahDetailId: 8,
-            image: UIImage()
+            image: ""
         )
         TipsDataRepository.shared.insertTipsDetail(
             title: "Pilah kertas lembaran/koran",
             detail: "Pisahkan dari yang sudah kotor, satukan kertas lembaran/koran secara bertumpuk,",
             sampahId: 3,
             sampahDetailId: 9,
-            image: UIImage()
+            image: ""
         )
         TipsDataRepository.shared.insertTipsDetail(
             title: "Pilah dus/majalah",
             detail: "Pisahkan dari yang sudah kotor, Pisahkan dari hekter/jilid-an dari dus/majalah, satukan kertas lembaran/koran secara bertumpuk.",
             sampahId: 3,
             sampahDetailId: 10,
-            image: UIImage()
+            image: ""
         )
         TipsDataRepository.shared.insertTipsDetail(
             title: "Tidak diterima",
             detail: "Kotor, basah, berminyak, tisu lembaran atau kertas robekan",
             sampahId: 3,
             sampahDetailId: 11,
-            image: UIImage()
+            image: ""
         )
        
     }

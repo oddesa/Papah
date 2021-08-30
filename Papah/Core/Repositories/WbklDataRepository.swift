@@ -20,7 +20,7 @@ class WbklDataRepository {
                     wbklType: String,
                     longitude: Float,
                     latitude: Float,
-                    image: UIImage,
+                    image: String,
                     openDay: String,
                     openHour: String,
                     address:String,
@@ -37,7 +37,7 @@ class WbklDataRepository {
             wbklData.wbkl_type = wbklType
             wbklData.longitude = longitude
             wbklData.latitude = latitude
-            wbklData.image = image.pngData()
+            wbklData.image = image
             wbklData.operational_day = openDay
             wbklData.operational_hour = openHour
             wbklData.address = address
@@ -99,13 +99,13 @@ class WbklDataRepository {
     func insertWasteCategory(wasteCategoryId: Int,
                              title: String,
                              unit: String,
-                             image: UIImage) {
+                             image: String) {
         
         do {
             let context = CoreDataManager.sharedManager.persistentContainer.viewContext
             
             let wasteCategory = WasteCategory(context: context)
-            wasteCategory.image = image.pngData()
+            wasteCategory.image = image
             wasteCategory.unit = unit
             wasteCategory.waste_category_id = Int32(wasteCategoryId)
             wasteCategory.title = title
@@ -121,7 +121,7 @@ class WbklDataRepository {
                                    wasteCategoryId: Int,
                                    title: String,
                                    unit: String,
-                                   image: UIImage) {
+                                   image: String) {
         
         do {
             let context = CoreDataManager.sharedManager.persistentContainer.viewContext
@@ -132,7 +132,7 @@ class WbklDataRepository {
                 wasteCategory.waste_category_id = Int32(wasteCategoryId)
                 wasteCategory.title = title
                 wasteCategory.unit = unit
-                wasteCategory.image = image.pngData()
+                wasteCategory.image = image
                 
                 wbkl.addToWasteCategory(wasteCategory)
                 
@@ -149,7 +149,7 @@ class WbklDataRepository {
                                        wasteCategoryId: Int,
                                        title: String,
                                        unit: String,
-                                       image: Data) {
+                                       image: String) {
         
         do {
             let context = CoreDataManager.sharedManager.persistentContainer.viewContext

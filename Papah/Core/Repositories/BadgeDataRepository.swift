@@ -22,8 +22,8 @@ class BadgeDataRepository {
                      desc: String,
                      maxValue: Float,
                      dateAchv: Date,
-                     image: UIImage,
-                     imgAchieved: UIImage) {
+                     image: String,
+                     imgAchieved: String) {
         
         do {
             let context = CoreDataManager.sharedManager.persistentContainer.viewContext
@@ -36,8 +36,8 @@ class BadgeDataRepository {
             badge.desc = desc
             badge.max_value = maxValue
             badge.date_achieved = dateAchv
-            badge.image = image.pngData()
-            badge.image_achieved = imgAchieved.pngData()
+            badge.image = image
+            badge.image_achieved = imgAchieved
             
             if let badgeCategory = getBadgeCategoryById(id: badgeCategoryId) {
                 badge.badgeCategory = badgeCategory

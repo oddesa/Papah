@@ -75,7 +75,7 @@ class TipsDetailController: MVVMViewController<TipsDetailViewModel>, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as? TipsDetailCollectionCell else {return UICollectionViewCell()}
-        cell.imgView.image = UIImage(data: (self.viewModel?.getTipsDetail()?[indexPath.row].image ?? UIImage.whatsAppImage20210719At085013.jpegData(compressionQuality: 100)) ?? Data())
+        cell.imgView.image = UIImage(named: (self.viewModel?.getTipsDetail()?[indexPath.row].image ?? String()))
         cell.imgView.contentMode = .scaleAspectFit
         cell.lblTitle.text = self.viewModel?.getTipsDetail()?[indexPath.row].title ?? ""
         cell.lblDetail.text = self.viewModel?.getTipsDetail()?[indexPath.row].detail ?? ""

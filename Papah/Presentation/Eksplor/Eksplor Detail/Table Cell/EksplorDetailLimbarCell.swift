@@ -29,7 +29,7 @@ class EksplorDetailLimbarCell: UITableViewCell, UITextFieldDelegate {
         self.lblLimbah.text = data?.wasteCategory?.title
         self.lblLimbahDesc.text = "Estimasi \(data?.price ?? 0) per-\(data?.wasteCategory?.unit ?? "")"
         self.edtQuantity.text = edtQuantity == 0 ? "" : String(edtQuantity)
-        self.icLimbah.image = UIImage(data: data?.wasteCategory?.image ?? Data())
+        self.icLimbah.image = UIImage(named: data?.wasteCategory?.image ?? String())
         
         changeBtnState()
 

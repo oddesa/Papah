@@ -73,10 +73,10 @@ extension TantanganDetailController {
     
     func setupTitle(selected: Int) {
         if selected == 0 {
-            titleImg.image = UIImage._22
+            titleImg.image = UIImage._22_img
             titleLabel.text = "Cara klaim poin penjualan sampah "
         } else {
-            titleImg.image = UIImage._23
+            titleImg.image = UIImage._23_img
             titleLabel.text = "Cara tabung uang penjualan sampah"
         }
     }

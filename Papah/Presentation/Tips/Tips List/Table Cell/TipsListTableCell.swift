@@ -16,7 +16,7 @@ class TipsListTableCell: UITableViewCell {
     func setTips(with waste: Sampah?) {
         categoryLabel.text = waste?.title
         descLabel.text = waste?.desc
-        categoryImage.image = UIImage(data:waste?.image ?? Data())
+        categoryImage.image = UIImage(named: waste?.image ?? String())
     }
     
 //    override func setSelected(_ selected: Bool, animated: Bool) {

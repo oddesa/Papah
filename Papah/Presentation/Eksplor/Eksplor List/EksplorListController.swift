@@ -284,7 +284,7 @@ extension EksplorListController: UITableViewDataSource {
                 }
                 
                 cell.wbklNameLabel.text = wbkl.name
-                cell.wbklPhoto.image = UIImage(data: wbkl.image ?? Data())
+                cell.wbklPhoto.image = UIImage(named: wbkl.image ?? String())
                 
                 
                 if CommonFunction.shared.bukaTutupChecker(operationalDay: wbkl.operational_day ?? "Senin", operationalHour: wbkl.operational_hour ?? "10.00") == true {

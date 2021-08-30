@@ -70,8 +70,8 @@ extension TantanganRewardTablecell: UICollectionViewDataSource, UICollectionView
         
         let currentValue = String(format: "%.0f", badgeProgressData[indexPath.row].current_value)
         let maxValue =  String(format: "%.0f",badgeProgressData[indexPath.row].badge?.max_value ?? 0)
-        let imgAchieved = UIImage(data:badgeProgressData[indexPath.row].badge?.image_achieved ?? Data())
-        let imgNotAchieved = UIImage(data:badgeProgressData[indexPath.row].badge?.image ?? Data())
+        let imgAchieved = UIImage(named: badgeProgressData[indexPath.row].badge?.image_achieved ?? String())
+        let imgNotAchieved = UIImage(named: badgeProgressData[indexPath.row].badge?.image ?? String())
         let img =  badgeProgressData[indexPath.row].status ?  imgAchieved : imgNotAchieved
         
         cell.montlyChallengenTitle.text = badgeProgressData[indexPath.row].badge?.title

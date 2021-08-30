@@ -38,7 +38,7 @@ class EksplorDetailTableCell: UITableViewCell {
             lblAddress.text = wbkl.address
             lblOperationalDay.text = wbkl.operational_day
             lblOperationalHours.text = wbkl.operational_hour
-            wbklImage.image = UIImage(data: wbkl.image ?? Data())
+            wbklImage.image = UIImage(named: wbkl.image ?? String())
         }
         
     }
