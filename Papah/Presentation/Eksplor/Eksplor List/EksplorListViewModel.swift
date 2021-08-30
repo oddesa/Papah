@@ -135,9 +135,12 @@ class EksplorListViewModel: NSObject {
             for (index, data) in self.allWbkl.enumerated() {
                 getLocationDistance(wbklPro: data, userLocation:  userLocation) { jaraDbl in
                     
-                    self.allWbkl[index].jarak = jaraDbl
                     locationCount += 1
-                    
+
+                    if jaraDbl != 0 {
+                        self.allWbkl[index].jarak = jaraDbl
+                    }
+                                    
                     if locationCount == self.allWbkl.count {
                         let sortedWbklsJarak = self.sortBasedOnDistance(wbklPros: self.allWbkl)
                         self.allWbkl = sortedWbklsJarak
