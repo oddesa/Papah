@@ -13,13 +13,17 @@ struct PapahApp: App {
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
-                    
-                    
-            }.environment(\.managedObjectContext, container!.viewContext)
-            .onAppear(perform: {
-                CoreDataManager.sharedManager.preloadData()
-            })
+            TabView {
+                
+                    ContentView()
+                        
+                        
+                }.environment(\.managedObjectContext, container!.viewContext)
+                .onAppear(perform: {
+                    CoreDataManager.sharedManager.preloadData()
+                })
+            }.tabViewStyle(PageTabViewStyle())
+            
         }
 
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")
