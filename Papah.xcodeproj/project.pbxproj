@@ -166,6 +166,8 @@
 		BF55702126AFCB030029BB54 /* EksplorListFilter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF55702026AFCB030029BB54 /* EksplorListFilter.storyboard */; };
 		BF9AD07A26B3C6D80010242D /* WbklDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9AD07926B3C6D80010242D /* WbklDataRepository.swift */; };
 		BFA4BD9B26BB487900978A23 /* PreloadUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA4BD9A26BB487900978A23 /* PreloadUserData.swift */; };
+		BFAD212E26D69C8500483CB1 /* TantanganList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD212D26D69C8500483CB1 /* TantanganList.swift */; };
+		BFEE0AF226D70CC200219AA9 /* TantanganDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE0AF126D70CC200219AA9 /* TantanganDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -378,6 +380,8 @@
 		BF55702026AFCB030029BB54 /* EksplorListFilter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EksplorListFilter.storyboard; sourceTree = "<group>"; };
 		BF9AD07926B3C6D80010242D /* WbklDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WbklDataRepository.swift; sourceTree = "<group>"; };
 		BFA4BD9A26BB487900978A23 /* PreloadUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadUserData.swift; sourceTree = "<group>"; };
+		BFAD212D26D69C8500483CB1 /* TantanganList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganList.swift; sourceTree = "<group>"; };
+		BFEE0AF126D70CC200219AA9 /* TantanganDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TantanganDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -928,7 +932,7 @@
 		BC5F25B826D0055800BBB23E /* Tantangan */ = {
 			isa = PBXGroup;
 			children = (
-				BC5F25BD26D0059000BBB23E /* TantanganView.swift */,
+				BFAD212F26D69C8800483CB1 /* View */,
 			);
 			path = Tantangan;
 			sourceTree = "<group>";
@@ -994,6 +998,16 @@
 				BCF2A72726C0C7DE008AC916 /* UPCarouselFlowLayout.swift */,
 			);
 			path = Libraries;
+			sourceTree = "<group>";
+		};
+		BFAD212F26D69C8800483CB1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC5F25BD26D0059000BBB23E /* TantanganView.swift */,
+				BFAD212D26D69C8500483CB1 /* TantanganList.swift */,
+				BFEE0AF126D70CC200219AA9 /* TantanganDetailView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1321,6 +1335,7 @@
 				985F96B826D29A7D00BF5CFA /* RewardsLainnyaView.swift in Sources */,
 				9826FB2426D3EF1700132016 /* PreloadWBKLData.swift in Sources */,
 				BC5F25BE26D005A300BBB23E /* TantanganView.swift in Sources */,
+				BFEE0AF226D70CC200219AA9 /* TantanganDetailView.swift in Sources */,
 				BC5F25C126D005C600BBB23E /* MapView.swift in Sources */,
 				9826FB2E26D3F06300132016 /* WbklDataRepository.swift in Sources */,
 				BC5F25C226D005C600BBB23E /* RewardView.swift in Sources */,
@@ -1344,6 +1359,7 @@
 				9826FB2A26D3F04100132016 /* Papah.xcdatamodeld in Sources */,
 				9826FB3126D3F06300132016 /* MonthlyChallengeDataRepository.swift in Sources */,
 				9826FB1F26D3EEC200132016 /* CoreDataManager.swift in Sources */,
+				BFAD212E26D69C8500483CB1 /* TantanganList.swift in Sources */,
 				9864F34526D2385F004CC7C6 /* TantanganBulanIniView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
