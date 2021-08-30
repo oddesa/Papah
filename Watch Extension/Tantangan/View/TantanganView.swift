@@ -9,8 +9,14 @@ import SwiftUI
 
 struct TantanganView: View {
     var body: some View {
-        Text("Hello, World Tantangan!")
-            .padding()
+        NavigationView {
+            List(0 ..< 2) { item in
+                NavigationLink(destination: TantanganDetailView()) {
+                    TantanganList()
+                }
+            }
+        }
+        .navigationTitle("Tantangan")
     }
 }
 
