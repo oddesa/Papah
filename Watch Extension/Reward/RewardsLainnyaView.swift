@@ -13,7 +13,7 @@ struct RewardsLainnyaView: View {
     let columns: [GridItem] =
         Array(repeating: .init(.flexible()), count: 3)
     @State private var showingSheet = false
-    @State private var selectedBadge: Badge?
+    @State private var selectedBadgeProgress: BadgeProgress?
     @State var badgesProgresses = [BadgeProgress]()
     
     var body: some View {
@@ -29,23 +29,20 @@ struct RewardsLainnyaView: View {
             .padding([.leading, .bottom])
             
             LazyVGrid(columns: columns, alignment: .center, spacing: 16, pinnedViews: [], content: {
-                ForEach(self.badgesProgresses) {badgeProgress in
-//                    let imgAchieved = UIImage(named: (badge?.image_achieved ?? String()))
-//                    let imgNotAchieved = UIImage(named: badge?.image ?? String())
-//                    let img = mbData[i.row].status ?  imgAchieved : imgNotAchieved
+                ForEach(self.badgesProgresses, id: \.badge!.id) {badgeProgress in
                     
                     let stringGambar = badgeProgress.badge!.image! + "Watch"
                     let stringGambarAchieved = badgeProgress.badge!.image_achieved! + "Watch"
                     
                     (Button(action: {
                         self.showingSheet.toggle()
-                        self.selectedBadge = badgeProgress.badge
+                        self.selectedBadgeProgress = badgeProgress
                     }) {
                         Image(badgeProgress.status ? stringGambarAchieved : stringGambar).resizable().frame(width: 40, height: 40, alignment: .center)
                     })
                     .id("\(badgeProgress.badge!.id)RewardsLainnya")
                     .sheet(isPresented: self.$showingSheet) {
-                        RewardDetailView(badge: self.$selectedBadge, showingSheet: self.$showingSheet)
+                        RewardDetailView(badgeProgress: self.$selectedBadgeProgress, showingSheet: self.$showingSheet)
                     }
                 }.id("RewardsLainnya")
             })

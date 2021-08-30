@@ -18,8 +18,6 @@ struct TantanganBulananView: View {
     @State private var selectedBadge: Badge?
     
     var body: some View {
-        
-        
         VStack {
             HStack {
                 Text("TANTANGAN BULANAN")
@@ -31,15 +29,16 @@ struct TantanganBulananView: View {
             .padding([.leading, .bottom])
             
             LazyVGrid(columns: columns, alignment: .center, spacing: 16, pinnedViews: [], content: {
-                ForEach(self.monthlyChallenges) { mChall in
+                ForEach(self.monthlyChallenges, id:\.badge!.id) { mChall in
                     let monthBadge = mChall.badge
                     let stringGambar = monthBadge!.image! + "Watch"
                     let stringGambarAchieved = monthBadge!.image_achieved! + "Watch"
+                    
                     (Button(action: {
                         self.showingSheet.toggle()
-                        self.selectedBadge = monthBadge
+                        self.selectedBadge = mChall
                     }) {
-                        Image(mChall.status ? stringGambarAchieved : stringGambar).resizable().frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        Image(mChall.status ? stringGambarAchieved : stringGambar).resizable().frame(width: 40, height: 40, alignment: .center)
                     })
                     .id("\(mChall.badge!.id)TantanganBulanan")
                     .sheet(isPresented: self.$showingSheet) {
