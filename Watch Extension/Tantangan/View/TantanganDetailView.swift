@@ -16,6 +16,7 @@ struct TantanganDetailView: View {
         ScrollView{
             Image(image)
                 .resizable()
+                .aspectRatio(contentMode: .fit)
                 .frame(width: 110, height: 110)
             Text(monthlyChallengeProgress.monthlyChallenge!.title!)
                 .bold()
