@@ -18,7 +18,7 @@ struct TantanganView: View {
     var body: some View {
         
         ScrollView {
-            LazyVGrid(columns: columns, alignment: .center, spacing: 10, pinnedViews: [], content: {
+            LazyVGrid(columns: columns, alignment: .center, spacing: 5, pinnedViews: [], content: {
                 ForEach(self.monthlyChallengeProgresses) {mChall in
                     let gambarString = mChall.monthlyChallenge!.image! + "Watch"
                     (Button(action: {
@@ -33,8 +33,7 @@ struct TantanganView: View {
                     }
                 }
             })
-        }
-        .buttonStyle(PlainButtonStyle())
+        }.padding(.top, 5)
         .navigationTitle("Tantangan")
         .onAppear {
             monthlyChallengeProgresses = []
@@ -46,32 +45,3 @@ struct TantanganView: View {
         }
     }
 }
-//
-//LazyVGrid(columns: columns, alignment: .center, spacing: 16, pinnedViews: [], content: {
-//    ForEach(self.badgesProgresses, id: \.badge!.id) {badgeProgress in
-//
-//        let stringGambar = badgeProgress.badge!.image! + "Watch"
-//        let stringGambarAchieved = badgeProgress.badge!.image_achieved! + "Watch"
-//        let img = badgeProgress.status ? stringGambarAchieved : stringGambar
-//
-//        (Button(action: {
-//            self.showingSheet.toggle()
-//            self.selectedBadge = badgeProgress.badge
-//            self.imageStr = img
-//        }) {
-//            Image(img).resizable().frame(width: 40, height: 40, alignment: .center)
-//        })
-//        .id("\(badgeProgress.badge!.id)RewardsLainnya")
-//        .sheet(isPresented: self.$showingSheet) {
-//            RewardDetailView(image: self.$imageStr, badge: self.$selectedBadge, showingSheet: self.$showingSheet)
-//        }
-//    }.id("RewardsLainnya")
-//})
-//.buttonStyle(PlainButtonStyle())
-
-
-//struct TantanganView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TantanganView()
-//    }
-//}

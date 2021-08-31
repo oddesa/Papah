@@ -35,7 +35,6 @@ struct TantanganList: View {
                     .foregroundColor(.accentColor)
                 Text(maxValueCount == 1 ? "\(progressToGoStr) kali lagi!" : "Rp \(progressToGoStr) lagi!")
                     .font(.footnote)
-                    
                 HStack {
                     Image("40Watch")
                         .resizable()
@@ -46,7 +45,6 @@ struct TantanganList: View {
                 }
             }
         }
-        .padding()
     }
 }
 //
