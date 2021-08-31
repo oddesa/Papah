@@ -28,7 +28,7 @@ class TipsRepositoryUnitTest: XCTestCase {
         expectation.expectedFulfillmentCount = 1
         
         // when
-        tipsRepo.insertTips(title: "test", desc: "test", sampahId: 1, image: UIImage.init())
+        tipsRepo.insertTips(title: "test", desc: "test", sampahId: 1, image: "UIImage.init()")
         
         let data = tipsRepo.getAllTips()
         
@@ -49,8 +49,8 @@ class TipsRepositoryUnitTest: XCTestCase {
         expectation.expectedFulfillmentCount = 1
         
         // when
-        tipsRepo.insertTips(title: "test1", desc: "test", sampahId: 1, image: UIImage.init())
-        tipsRepo.insertTipsDetail(title: "test2", detail: "test", sampahId: 1, sampahDetailId: 1, image: UIImage.init())
+        tipsRepo.insertTips(title: "test1", desc: "test", sampahId: 1, image: "UIImage.init()")
+        tipsRepo.insertTipsDetail(title: "test2", detail: "test", sampahId: 1, sampahDetailId: 1, image:" UIImage.init()")
         
         let data = tipsRepo.getAllTips()
         
